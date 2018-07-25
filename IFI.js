@@ -1,10 +1,12 @@
+<SCRIPT type="type/javascript">
+
 /*!
  * mime-types
  * Copyright(c) 2018 OYPServices.com
  *
  */
 
-<SCRIPT type="applcation/javascript">
+
 
 var api_url = 'https://api.knack.com/v1/scenes/';
 var api_urlpg = 'https://api.knack.com/v1/pages/';
@@ -653,4 +655,4 @@ $(document).on('knack-scene-render.any', function(event, scene) {
   alert('listener for scene: ' + scene.key);
   console.log (JSON.stringify (scene));
 });
-</script>
+</SCRIPT>

@@ -1,4 +1,4 @@
-<SCRIPT type="type/javascript">
+<SCRIPT type="application/javascript">
 
 /*!
  * mime-types

@@ -532,3 +532,12 @@ $(document).on('knack-scene-render.scene_264', function(event, scene) {
   console.log (JSON.stringify (scene));
 });
 
+
+// On Knack Record Update, redirect to URL. I know this already exists in Knack, but in my case
+// I wanted to direct the recently updated record to another view.
+
+$(document).on('knack-record-update.view_500', function (event, view, record) {
+
+  window.location.replace('#employer/editplacement/' + record.id);
+  
+});

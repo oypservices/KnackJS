@@ -536,10 +536,10 @@ $(document).on('knack-scene-render.scene_264', function(event, scene) {
 // On Knack Record Update, redirect to URL. I know this already exists in Knack, but in my case
 // I wanted to direct the recently updated record to another view.
 
-$(document).on('knack-record-update.view_500', function (event, view, record) {
+$(document).on('knack-record-update.' + vw_irp_final, function (event, view, record) {
  
 	
-  var clientId = record.field_232_raw
+  var clientId = record.field_200_raw
   var url = 'client-manager#clients/edit-client2/' + clientId + '/irp/' + clientId + '/edit-client-irp/' + record.id ;
   alert (url);
   window.location.href = url;

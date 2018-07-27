@@ -538,9 +538,10 @@ $(document).on('knack-scene-render.scene_264', function(event, scene) {
 
 $(document).on('knack-record-update.' + vw_irp_final, function (event, view, record) {
  
-	var clientId =  Knack.models[vw_irp_final].toJSON()["field_200_raw"];
+	var viewName = view["key"] ;
+	var clientId =  Knack.models[viewName].toJSON()["field_200_raw"];
 
-	console.log (JSON.stringify(record));
+	console.log (JSON.stringify(view));
 	alert (clientId);
 
   var url = 'client-manager#clients/edit-client2/' + clientId + '/irp/' + clientId + '/edit-client-irp/' + record.id ;

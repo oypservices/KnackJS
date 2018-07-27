@@ -528,7 +528,7 @@ $(document).on('knack-view-render.' + vw_goal_intervention_add , function(event,
 // Change "scene_1" to the scene you want to listen for
 $(document).on('knack-scene-render.scene_264', function(event, scene) {
   // Do something after the scene renders
-  alert('listener for scene: ' + scene.key);
+  console.log('listener for scene: ' + scene.key);
   console.log (JSON.stringify (scene));
 });
 
@@ -542,10 +542,10 @@ $(document).on('knack-record-update.' + vw_irp_final, function (event, view, rec
 	var clientId =  Knack.models[viewName].toJSON()["field_200_raw"][0].id;
 
 	console.log (JSON.stringify(view));
-	alert (clientId);
+	console.log (clientId);
 
   var url = 'client-manager#clients/edit-client2/' + clientId + '/irp/' + clientId + '/edit-client-irp/' + record.id ;
-  alert (url);
+  console.log (url);
   window.location.href = url;
   
 });

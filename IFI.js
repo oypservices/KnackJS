@@ -540,7 +540,7 @@ $(document).on('knack-record-update.' + vw_irp_final, function (event, view, rec
  
 	var clientId = Knack.models[vw_irp_final].toJSON().field_200_raw;
 	alert (clientId);
-	console.log (JSON.stringify (Knack.models[vw_irp_final]);
+
   var url = 'client-manager#clients/edit-client2/' + clientId + '/irp/' + clientId + '/edit-client-irp/' + record.id ;
   alert (url);
   window.location.href = url;

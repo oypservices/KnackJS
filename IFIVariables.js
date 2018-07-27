@@ -24,6 +24,7 @@ var vw_client_referral_add = 'view_135' ;
 var vw_client_edit = 'view_11';
 
 var vw_goal_intervention_goalupdate = 'view_486_11111' ;
+var vw_irp_final = 'view_500' ;
 
 
 // Contacts = Object_14
@@ -96,6 +97,11 @@ var dbAccounts = {
   "Contact_raw" : "field_195_raw" 
 } ;
 
+
+var dbIRPs = {
+  "Client" : "field_200"
+  
+} ;
 
 //standard URLs
 

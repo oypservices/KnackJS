@@ -538,7 +538,9 @@ $(document).on('knack-scene-render.scene_264', function(event, scene) {
 
 $(document).on('knack-record-update.view_500', function (event, view, record) {
  
-  var url = 'https://oypservices.knack.com/client-manager#clients/edit-client2/5b3142970cd8de324a677927/irp/5b3142970cd8de324a677927/edit-client-irp/' + record.id ;
+	
+  var clientId = record.field_232_raw
+  var url = 'client-manager#clients/edit-client2/' + clientId + '/irp/' + clientId + '/edit-client-irp/' + record.id ;
   alert (url);
   window.location.href = url;
   

@@ -537,7 +537,9 @@ $(document).on('knack-scene-render.scene_264', function(event, scene) {
 // I wanted to direct the recently updated record to another view.
 
 $(document).on('knack-record-update.view_500', function (event, view, record) {
-
-  window.location.replace('#employer/editplacement/' + record.id);
+ 
+  var url = 'https://oypservices.knack.com/client-manager#clients/edit-client2/5b3142970cd8de324a677927/irp/5b3142970cd8de324a677927/edit-client-irp/' + record.id ;
+  alert (url);
+  window.location.redirect(url);
   
 });

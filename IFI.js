@@ -538,7 +538,7 @@ $(document).on('knack-scene-render.scene_264', function(event, scene) {
 
 $(document).on('knack-record-update.' + vw_irp_final, function (event, view, record) {
  
-	var clientId = record.toJSON()["field_200_raw"].id;
+	var clientId = record["field_200_raw"].id;
 
 	console.log (JSON.stringify(record));
 	alert (clientId);

@@ -540,6 +540,6 @@ $(document).on('knack-record-update.view_500', function (event, view, record) {
  
   var url = 'https://oypservices.knack.com/client-manager#clients/edit-client2/5b3142970cd8de324a677927/irp/5b3142970cd8de324a677927/edit-client-irp/' + record.id ;
   alert (url);
-  window.location.redirect(url);
+  window.location.href = url;
   
 });

@@ -568,12 +568,12 @@ necessary in order to display the interventions in a view / print type scenario.
 		console.log ( JSON.stringify(response)) ;
 		var field_233 = [];
 		for (var i = 0; i < response.records.length; i++) {
-			console.log (response.records[i].id) ;
+			//console.log (response.records[i].id) ;
 		      	field_233[i] =  {"id": response.records[i].id}  ;
 	        }
 	 
 		//console.log (JSON.stringify(field_233)) ;
-		var data = { "field_233_raw": field_233 } ;
+		var data = { "field_233": field_233 } ;
 		
 		 $.ajax({
 			url: goal_url,

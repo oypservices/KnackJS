@@ -617,3 +617,8 @@ $(document).on('knack-form-submit.view_491' , function(event, view, data) {
 		
    	syncGoalInterventions (data ) ; 
 });
+
+$(document).on('knack-form-submit.view_515' , function(event, view, data) {
+		
+   	syncGoalInterventions (data ) ; 
+});

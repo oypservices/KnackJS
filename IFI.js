@@ -584,7 +584,7 @@ necessary in order to display the interventions in a view / print type scenario.
             }
 	 
 	var data = { "id": goalId , 
-		     "field_233", field_233 }
+		     "field_233": field_233 }
 		
 	 $.ajax({
 		url: goal_url,

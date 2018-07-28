@@ -560,7 +560,8 @@ function syncGoalInterventions ( goalId) {
 necessary in order to display the interventions in a view / print type scenario.
 */
   
-  var this_url = urlAPIIntervention + '/' + goalId;    
+  var this_url = urlIntervention + '/' + goalId;    
+  var goal_url = urlGoal + '/' + goalId ;
   
   
   // Search to see if a contact exist by this name

@@ -554,7 +554,7 @@ necessary in order to display the interventions in a view / print type scenario.
   	];
   
   	var this_url = urlInterventionList + '?filters=' + encodeURIComponent(JSON.stringify(filters));    
-	alert (this_url) ;
+	console.log (this_url) ;
   	var goal_url = urlGoalUpdate + '/' + goalId ;
   
   
@@ -569,12 +569,13 @@ necessary in order to display the interventions in a view / print type scenario.
 		var field_233 = {};
 		for (var i = 0; i < response.length; i++) {
 
-		      	field_233[i] = { id: response[i].id } ;
-			console.log (JSON.stringify(field_233)) ;
+		      	field_233[i] = { "id": response[i].id } ;
+			
 	        }
 	 
+		console.log (JSON.stringify(field_233)) ;
 		var data = { "id": goalId , 
-			     "field_233": field_233 } ;
+			     "field_233_raw": field_233 } ;
 		
 		 $.ajax({
 			url: goal_url,

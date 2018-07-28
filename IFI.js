@@ -469,7 +469,7 @@ function updateInterventionGoalId (interventionRecord ) {
 
 
 
-$(document).on('knack-form-submit1.' + vw_goal_intervention_add , function(event, view, data) {
+$(document).on('knack-form-submit.' + vw_goal_intervention_add , function(event, view, data) {
   	
   var parser = document.createElement("a");
   var pathArray = window.location.href.split( '/' );

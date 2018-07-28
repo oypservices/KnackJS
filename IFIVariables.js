@@ -23,7 +23,8 @@ var vw_account_add = 'view_453';
 var vw_client_referral_add = 'view_135' ;
 var vw_client_edit = 'view_11';
 
-var vw_goal_intervention_goalupdate = 'view_486_11111' ;
+var vw_goal_intervention_goalupdate = 'view_486' ;
+var vw_goal_update = 'view_518'
 var vw_irp_final = 'view_500' ;
 
 
@@ -110,5 +111,6 @@ var urlContactAdd = api_url + sc_contact_scene + '/views/' + vw_contact_add + '/
 var urlClientTeamList = api_url + sc_contact_scene + '/views/' + vw_client_team_list + '/records';
 var urlAccountAdd = api_url + sc_contact_scene + '/views/' + vw_account_add + '/records';
 var urlInterventionUpdate = api_url + sc_contact_scene + '/views/' + vw_goal_intervention_goalupdate + '/records';
+var urlGoalUpdate = api_url + sc_contact_scene + '/views/' + vw_goal_update + '/records';
 
 

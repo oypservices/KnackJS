@@ -1,5 +1,4 @@
 
-
 function parseUri (str) {
 	var	o   = parseUri.options,
 		m   = o.parser[o.strictMode ? "strict" : "loose"].exec(str),
@@ -384,8 +383,6 @@ $(document).on('knack-record-update.' + vw_client_edit , function (event, view, 
     
     
 });
-
-
 
 function setSelectedIndex(s, valsearch)
 

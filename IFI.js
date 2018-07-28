@@ -547,7 +547,7 @@ necessary in order to display the interventions in a view / print type scenario.
 	var filters = [
     	// Filter for records with a value for this field in the last three months
     	{
-	      "field":dbInterventions.ClientGoals_raw,			
+	      "field":dbInterventions.ClientGoals,			
 	      "operator":"contains",
 	      "value": goalId
     	}

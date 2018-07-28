@@ -560,8 +560,8 @@ function syncGoalInterventions ( goalId) {
 necessary in order to display the interventions in a view / print type scenario.
 */
   
-  var this_url = urlIntervention + '/' + goalId;    
-  var goal_url = urlGoal + '/' + goalId ;
+  var this_url = urlInterventionList + '/' + goalId;    
+  var goal_url = urlGoalUpdate + '/' + goalId ;
   
   
   // Search to see if a contact exist by this name
@@ -571,25 +571,28 @@ necessary in order to display the interventions in a view / print type scenario.
         headers: headers, 
         success: function (response) {
           
-		for (var i = 0; i < DfltIntakeList.length; i++) {
+		console.log ( JSON.stringify(response)) ;
+		var field_233 = {};
+		for (var i = 0; i < response.length; i++) {
 
-		      var data = { field_178: DfltIntakeList[i].attributes.field_178_raw,
-				  field_185: Client ,
-				  field_180: DfltIntakeList[i].attributes.field_180_raw.id } ;
+		      	field_233[i] = { id: response[i].id } ;
+			console.log (JSON.stringify(field_233)) ;
 
-          console.log ( JSON.stringify(response)) ;
-          contactid = response[dbAccounts.Contact_raw][0].id ;
-            console.log (contactid) ;
-            addClientTeamMember (contactid, teamMember.Role, teamMember.clientId);
-          }
+          
+          	     // contactid = response[dbAccounts.Contact_raw][0].id ;
+            		
+            }
+	 
+	var data = { "id": goalId , 
+		     "field_233", field_233 }
 		
 	 $.ajax({
-		url: 'https://api.knack.com/v1/scenes/scene_188/views/view_319/records/',
+		url: goal_url,
 		type: 'PUT',
 		headers: headers, 
 		data: JSON.stringify(data),
 		success: function (response) {
-		  console.log('Intake Documents added!!!'); 
+		  console.log('Goal Interventions Updated!!!'); 
 		}
 	      }); //end ajax
       }); //end ajax

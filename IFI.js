@@ -540,7 +540,7 @@ necessary in order to display the interventions in a view / print type scenario.
 */
 
 	console.log (JSON.stringify (inData)) ;
-  	alert (JSON.stringify (inData));
+  	console.log (JSON.stringify (inData));
 	var goalId = inData["field_232_raw"][0].id  ;
 
 	

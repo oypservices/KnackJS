@@ -566,10 +566,10 @@ necessary in order to display the interventions in a view / print type scenario.
         success: function (response) {
           
 		console.log ( JSON.stringify(response)) ;
-		var field_233 = {};
+		var field_233 = [{}];
 		for (var i = 0; i < response.length; i++) {
 
-		      	field_233[i] = { "id": response[i].id } ;
+		      	field_233.push ( {"id": response[i].id} ) ;
 			
 	        }
 	 

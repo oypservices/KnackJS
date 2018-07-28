@@ -572,9 +572,8 @@ necessary in order to display the interventions in a view / print type scenario.
 		      	field_233[i] =  {"id": response.records[i].id}  ;
 	        }
 	 
-		console.log (JSON.stringify(field_233)) ;
-		var data = { "id": goalId , 
-			     "field_233_raw": field_233 } ;
+		//console.log (JSON.stringify(field_233)) ;
+		var data = { "field_233_raw": field_233 } ;
 		
 		 $.ajax({
 			url: goal_url,

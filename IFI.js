@@ -1,8 +1,6 @@
 
-
-
-
 //----favicon
+/*
 $(document).on('knack-view-render.any', function (event, view, data) {
 document.title='IFI Staff Portal';
 var link = document.createElement('link');
@@ -11,7 +9,7 @@ var link = document.createElement('link');
     link.href = 'url to favicon here (favicon.ico) ';
     document.getElementsByTagName('head')[0].appendChild(link);
 });
-
+*/
 
 
 // parseUri 1.2.2

@@ -105,6 +105,15 @@ var dbIRPs = {
   
 } ;
 
+var dbGoals = {
+  "Interventions" : "field_233"
+} ;
+
+var dbInterventions = {
+  "ClientGoals" : "field_232",
+  "ClientGoals_raw" : "field_232_raw"
+};
+
 //standard URLs
 
 var urlClientTeamAdd = api_url + sc_contact_scene + '/views/' + vw_client_team_add + '/records/';

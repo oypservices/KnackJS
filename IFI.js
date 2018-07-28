@@ -534,13 +534,17 @@ $(document).on('knack-record-update.' + vw_irp_final, function (event, view, rec
 });
 
 
-function syncGoalInterventions ( goalId) {
+function syncGoalInterventions ( inData) {
 /* This functions reads the list of intervention by goal id, and nest them within the intervention field on the goal table.  This is 
 necessary in order to display the interventions in a view / print type scenario.
 */
   
-  var this_url = urlInterventionList + '/' + goalId;    
-  var goal_url = urlGoalUpdate + '/' + goalId ;
+   	var goalId = inData.field_232_raw[0].id  ;
+  	console.log (JSON.stringify (goalid)) ;
+  	alert (JSON.stringify (inData));
+	
+  	var this_url = urlInterventionList + '/' + goalId;    
+  	var goal_url = urlGoalUpdate + '/' + goalId ;
   
   
   // Search to see if a contact exist by this name
@@ -582,10 +586,14 @@ necessary in order to display the interventions in a view / print type scenario.
 $(document).on('knack-form-submit.view_268' , function(event, view, data) {
   	
   
-  	var goalid = data.field_232_raw[0].id  ;
-  	console.log (JSON.stringify (goalid)) ;
-  	alert (JSON.stringify (data));
-  	syncGoalInterventions (goalid ) ; 
+  	syncGoalInterventions (data ) ; 
   
 });
 
+$(document).on('knack-form-submit.view_510' , function(event, view, data) {
+  	
+  
+
+  	syncGoalInterventions (data ) ; 
+  
+});

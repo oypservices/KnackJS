@@ -538,9 +538,9 @@ function syncGoalInterventions ( inData) {
 /* This functions reads the list of intervention by goal id, and nest them within the intervention field on the goal table.  This is 
 necessary in order to display the interventions in a view / print type scenario.
 */
-  
+
+	console.log (JSON.stringify (inData)) ;
    	var goalId = inData.field_232_raw[0].id  ;
-  	console.log (JSON.stringify (goalid)) ;
   	alert (JSON.stringify (inData));
 	
   	var this_url = urlInterventionList + '/' + goalId;    

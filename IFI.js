@@ -554,6 +554,7 @@ necessary in order to display the interventions in a view / print type scenario.
   	];
   
   	var this_url = urlInterventionList + '?filters=' + encodeURIComponent(JSON.stringify(filters));    
+	alert (this_url) ;
   	var goal_url = urlGoalUpdate + '/' + goalId ;
   
   
@@ -597,7 +598,6 @@ $(document).on('knack-form-submit.view_268' , function(event, view, data) {
 });
 
 $(document).on('knack-form-submit.view_510' , function(event, view, data) {
-	
-	alert ('view_510');  	
+		
    	syncGoalInterventions (data ) ; 
 });

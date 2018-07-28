@@ -576,7 +576,7 @@ necessary in order to display the interventions in a view / print type scenario.
 	      }); //end ajax
       }); //end ajax
 	
-});
+}
 	
 	 
 $(document).on('knack-form-submit.view_268' , function(event, view, data) {

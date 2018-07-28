@@ -582,6 +582,7 @@ necessary in order to display the interventions in a view / print type scenario.
 			headers: headers, 
 			data: JSON.stringify(data),
 			success: function (response) {
+			  console.log (JSON.stringify(response));
 			  console.log('Goal Interventions Updated!!!'); 
 			}
 		      }); //end ajax

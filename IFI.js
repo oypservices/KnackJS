@@ -1,20 +1,4 @@
 
-//----favicon
-/*
-$(document).on('knack-view-render.any', function (event, view, data) {
-document.title='IFI Staff Portal';
-var link = document.createElement('link');
-	link.type = 'image/x-icon';
-    link.rel = 'shortcut icon';
-    link.href = 'url to favicon here (favicon.ico) ';
-    document.getElementsByTagName('head')[0].appendChild(link);
-});
-*/
-
-
-// parseUri 1.2.2
-// (c) Steven Levithan <stevenlevithan.com>
-// MIT License
 
 function parseUri (str) {
 	var	o   = parseUri.options,

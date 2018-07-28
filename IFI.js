@@ -600,7 +600,7 @@ necessary in order to display the interventions in a view / print type scenario.
 });
 	
 	 
-$(document).on('knack-form-submit1.' + 'view_268' , function(event, view, data) {
+$(document).on('knack-form-submit.' + 'view_268' , function(event, view, data) {
   	
   
   	var goalid = data.field_232_raw[0].id  ;

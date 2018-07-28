@@ -543,9 +543,13 @@ $(document).on('knack-record-update.' + vw_irp_final, function (event, view, rec
 
 	console.log (JSON.stringify(view));
 	console.log (clientId);
-
-  var url = 'client-manager#clients/edit-client2/' + clientId + '/irp/' + clientId + '/edit-client-irp/' + record.id ;
-  console.log (url);
-  window.location.href = url;
+	
+	
+	var parser = document.createElement("a");
+  	var pathArray = window.location.href.split( '#' );
+	
+        var url = pathArray[0] + '#clients/edit-client2/' + clientId + '/irp/' + clientId + '/edit-client-irp/' + record.id ;
+	console.log (url);
+	window.location.href = url;
   
 });

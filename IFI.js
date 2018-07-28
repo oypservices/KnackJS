@@ -591,6 +591,7 @@ necessary in order to display the interventions in a view / print type scenario.
 	
 }
 	
+/* Intervention Viees - Adds and Updates */
 	 
 $(document).on('knack-form-submit.view_268' , function(event, view, data) {
   	
@@ -608,6 +609,11 @@ $(document).on('knack-form-submit.view_510' , function(event, view, data) {
 });
 
 $(document).on('knack-form-submit.view_513' , function(event, view, data) {
+		
+   	syncGoalInterventions (data ) ; 
+});
+
+$(document).on('knack-form-submit.view_491' , function(event, view, data) {
 		
    	syncGoalInterventions (data ) ; 
 });

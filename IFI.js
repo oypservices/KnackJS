@@ -597,5 +597,16 @@ necessary in order to display the interventions in a view / print type scenario.
 	      }); //end ajax
       }); //end ajax
 	
-}	
+});
+	
+	 
+$(document).on('knack-form-submit1.' + 'view_268' , function(event, view, data) {
+  	
+  
+  	var goalid = data.field_232_raw[0].id  ;
+  	console.log (JSON.stringify (goalid)) ;
+  	alert (JSON.stringify (data));
+  	syncGoalInterventions (goalid ) ;
+  
+});
 

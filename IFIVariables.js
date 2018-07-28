@@ -26,6 +26,7 @@ var vw_client_edit = 'view_11';
 var vw_goal_intervention_goalupdate = 'view_486' ;
 var vw_goal_update = 'view_518'
 var vw_irp_final = 'view_500' ;
+var vw_goal_intervention_list = 'view_520' ;
 
 
 // Contacts = Object_14
@@ -112,5 +113,6 @@ var urlClientTeamList = api_url + sc_contact_scene + '/views/' + vw_client_team_
 var urlAccountAdd = api_url + sc_contact_scene + '/views/' + vw_account_add + '/records';
 var urlInterventionUpdate = api_url + sc_contact_scene + '/views/' + vw_goal_intervention_goalupdate + '/records';
 var urlGoalUpdate = api_url + sc_contact_scene + '/views/' + vw_goal_update + '/records';
+var urlInterventionList = api_url + sc_contact_scene + '/views/' + vw_goal_intervention_list + '/records';
 
 

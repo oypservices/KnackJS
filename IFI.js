@@ -553,3 +553,45 @@ $(document).on('knack-record-update.' + vw_irp_final, function (event, view, rec
 	window.location.href = url;
   
 });
+
+
+function syncGoalInterventions ( goalId) {
+/* This functions reads the list of intervention by goal id, and nest them within the intervention field on the goal table.  This is 
+necessary in order to display the interventions in a view / print type scenario.
+*/
+  
+  var this_url = urlAPIIntervention + '/' + goalId;    
+  
+  
+  // Search to see if a contact exist by this name
+  $.ajax({
+        url: this_url ,
+        type: 'GET',
+        headers: headers, 
+        success: function (response) {
+          
+		for (var i = 0; i < DfltIntakeList.length; i++) {
+
+		      var data = { field_178: DfltIntakeList[i].attributes.field_178_raw,
+				  field_185: Client ,
+				  field_180: DfltIntakeList[i].attributes.field_180_raw.id } ;
+
+          console.log ( JSON.stringify(response)) ;
+          contactid = response[dbAccounts.Contact_raw][0].id ;
+            console.log (contactid) ;
+            addClientTeamMember (contactid, teamMember.Role, teamMember.clientId);
+          }
+		
+	 $.ajax({
+		url: 'https://api.knack.com/v1/scenes/scene_188/views/view_319/records/',
+		type: 'PUT',
+		headers: headers, 
+		data: JSON.stringify(data),
+		success: function (response) {
+		  console.log('Intake Documents added!!!'); 
+		}
+	      }); //end ajax
+      }); //end ajax
+	
+}	
+

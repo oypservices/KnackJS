@@ -540,8 +540,9 @@ necessary in order to display the interventions in a view / print type scenario.
 */
 
 	console.log (JSON.stringify (inData)) ;
-   	var goalId = inData.toJSON()["field_232_raw"][0].id  ;
   	alert (JSON.stringify (inData));
+	var goalId = inData["field_232_raw"][0].id  ;
+
 	
   	var this_url = urlInterventionList + '/' + goalId;    
   	var goal_url = urlGoalUpdate + '/' + goalId ;

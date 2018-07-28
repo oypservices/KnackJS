@@ -544,7 +544,16 @@ necessary in order to display the interventions in a view / print type scenario.
 	var goalId = inData["field_232_raw"][0].id  ;
 
 	
-  	var this_url = urlInterventionList + '/' + goalId;    
+	var filters = [
+    	// Filter for records with a value for this field in the last three months
+    	{
+	      "field":dbInterventions.ClientGoals_raw,			
+	      "operator":"contains",
+	      "value": goalId
+    	}
+  	];
+  
+  	var this_url = urlInterventionList + '?filters=' + encodeURIComponent(JSON.stringify(filters));    
   	var goal_url = urlGoalUpdate + '/' + goalId ;
   
   

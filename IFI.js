@@ -560,24 +560,22 @@ necessary in order to display the interventions in a view / print type scenario.
 
 		      	field_233[i] = { id: response[i].id } ;
 			console.log (JSON.stringify(field_233)) ;
-
-          
-          	     // contactid = response[dbAccounts.Contact_raw][0].id ;
-            		
-            }
+	        }
 	 
-	var data = { "id": goalId , 
-		     "field_233": field_233 } ;
+		var data = { "id": goalId , 
+			     "field_233": field_233 } ;
 		
-	 $.ajax({
-		url: goal_url,
-		type: 'PUT',
-		headers: headers, 
-		data: JSON.stringify(data),
-		success: function (response) {
-		  console.log('Goal Interventions Updated!!!'); 
-		}
-	      }); //end ajax
+		 $.ajax({
+			url: goal_url,
+			type: 'PUT',
+			headers: headers, 
+			data: JSON.stringify(data),
+			success: function (response) {
+			  console.log('Goal Interventions Updated!!!'); 
+			}
+		      }); //end ajax
+	} // end response function
+		
       }); //end ajax
 	
 }
@@ -585,15 +583,10 @@ necessary in order to display the interventions in a view / print type scenario.
 	 
 $(document).on('knack-form-submit.view_268' , function(event, view, data) {
   	
-  
   	syncGoalInterventions (data ) ; 
-  
 });
 
 $(document).on('knack-form-submit.view_510' , function(event, view, data) {
   	
-  
-
-  	syncGoalInterventions (data ) ; 
-  
+   	syncGoalInterventions (data ) ; 
 });

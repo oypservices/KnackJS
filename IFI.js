@@ -623,7 +623,7 @@ $(document).on('knack-form-submit.view_515' , function(event, view, data) {
    	syncGoalInterventions (data ) ; 
 });
 
-(document).on('knack-view-render.view_272', function(event, view, data) {
+$(document).on('knack-view-render.view_272', function(event, view, data) {
     // If this value in the form doesn't equal "SpecificValue" then prevent the form from submitting
     if ($("#view_272-field_236").val() != "Contact Note") {
      alert ("These are not the droids you are looking for.");

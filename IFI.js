@@ -1,4 +1,19 @@
 
+$(document).on('knack-view-render.view_272', function(event, view, data) {
+    // If this value in the form doesn't equal "SpecificValue" then prevent the form from submitting
+    if ($("#view_272-field_236").val() != "Contact Note") {
+     alert ("These are not the droids you are looking for.");
+		$('#view_272 #field_194').attr('visibility', 'hidden');
+     return false;
+    }
+    else {
+		alert ("These are the droids you are looking for.");
+		$('#view_272 #field_194').attr('visibility', 'visible');
+		return false;
+	}
+	    
+});
+
 function parseUri (str) {
 	var	o   = parseUri.options,
 		m   = o.parser[o.strictMode ? "strict" : "loose"].exec(str),
@@ -623,18 +638,5 @@ $(document).on('knack-form-submit.view_515' , function(event, view, data) {
    	syncGoalInterventions (data ) ; 
 });
 
-$(document).on('knack-view-render.view_272', function(event, view, data) {
-    // If this value in the form doesn't equal "SpecificValue" then prevent the form from submitting
-    if ($("#view_272-field_236").val() != "Contact Note") {
-     alert ("These are not the droids you are looking for.");
-		$('#view_272 #field_194').attr('visibility', 'hidden');
-     return false;
-    }
-    else {
-		alert ("These are the droids you are looking for.");
-		$('#view_272 #field_194').attr('visibility', 'visible');
-		return false;
-	}
-	    
-});
+
 

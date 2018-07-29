@@ -14,6 +14,13 @@ $(document).on('knack-view-render.view_272', function(event, view, data) {
 	    
 });
 
+$("#view_272-field_236").combobox({ 
+        select: function (event, ui) { 
+            alert("the select event has fired!"); 
+        } 
+    }
+);
+
 function parseUri (str) {
 	var	o   = parseUri.options,
 		m   = o.parser[o.strictMode ? "strict" : "loose"].exec(str),

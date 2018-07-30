@@ -22,7 +22,7 @@ $(document).on('knack-view-render.view_272', function(event, view, data) {
 
     $('#view_272-field_236').on('change',function(e){
 	  console.log (e);
-	  concole.log (this.val();
+	  concole.log (this.val());
 	  hideShowContactNoteFields ( view_272 ,  this.val() );
     });
 	    

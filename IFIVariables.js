@@ -69,6 +69,26 @@ var dbClients = {
 
 }
 
+var dbContactNotes = {
+  "ContactNotedate":"field_232",
+  "Client":"field_14",
+  "NoteType":"field_23",
+  "MeetingStatus":"field_159",
+  "ContactDateStart":"field_16",
+  "ContactDateEnd":"field_234",
+  "CaseManager":"field_194",
+  "VisitLocation":"field_109",
+  "ReasonforContact":"field_19",
+  "ClientIRP":"field_217",
+  "IRPGoals":"field_15",
+  "ClientGoalInterventions":"field_216",
+  "PersonsPresent":"field_110",
+  "ClientResponses":"field_22",
+  "PlanforNextVisit":"field_23",
+  "OtherComment":"field_24",
+  "MedicationChange":"field_25",
+  "CaseManagerSignature":"field_26"
+} ;
 
 var dbContacts = {
   Name:"field_102",

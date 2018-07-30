@@ -1,18 +1,4 @@
-function hideShowContactNoteFields(view, val) {
 
-	    // If this value in the form doesn't equal "SpecificValue" then prevent the form from submitting
-    if (val == "Contact Note") {
-     alert ("These are not the droids you are looking for.");
-     $('#view_272 #field_194').attr('visibility', 'hidden');
-     return false;
-    }
-    else {
-	alert ("These are the droids you are looking for.");
-	$('#view_272 #field_194').attr('visibility', 'visible');
-	return false;
-    }
-	
-}
 
 $(document).on('knack-view-render.view_272', function(event, view, data) {
 

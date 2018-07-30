@@ -2,16 +2,20 @@
 function hideShowContactNoteFields(view, val) {
 
 	    // If this value in the form doesn't equal "SpecificValue" then prevent the form from submitting
-    if (val == "Contact Note") {
-     alert ("These are not the droids you are looking for.");
-     $('#view_272 #field_194').attr('visibility', 'hidden');
-     return false;
+    if (val == "Monthly Report") {
+     console.log (val);
+     $('#field_194').attr('visibility', 'hidden');
+     return true;
     }
+    else if (val == "Scheduled Appointment") {
+	console.log (val);
+	$('#field_194').attr('visibility', 'visible');
+	return true;
+    } 
     else {
-	alert ("These are the droids you are looking for.");
-	$('#view_272 #field_194').attr('visibility', 'visible');
-	return false;
+	    $('#field_194').attr('visibility', 'visible');
     }
+	  
 	
 }
 $(document).on('knack-view-render.view_272', function(event, view, data) {

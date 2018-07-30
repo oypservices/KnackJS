@@ -84,6 +84,16 @@ $(document).on('knack-view-render.view_272', function(event, view, data) {
 	    
 });
 
+$(document).on('knack-view-render.view_276', function(event, view, data) {
+
+    $('#view_276-field_236').on('change',function(e){
+	  console.log (e);
+	  console.log ($('#view_276-field_236').val());
+	  hideShowContactNoteFields ( 'view_276' ,  $('#view_276-field_236').val() );
+    });
+	    
+});
+
 
 
 

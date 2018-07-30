@@ -1,14 +1,4 @@
 
-document.addEventListener('DOMContentLoaded',function() {
-    document.querySelector('select[name="view_272-field_236"]').onchange=changeEventHandler;
-},false);
-
-function changeEventHandler(event) {
-    // You can use “this” to refer to the selected element.
-    if(!event.target.value) alert('Please Select One');
-    else alert('You like ' + event.target.value + ' ice cream.'); 
-}
-
 
 $(document).on('knack-view-render.view_272', function(event, view, data) {
     // If this value in the form doesn't equal "SpecificValue" then prevent the form from submitting
@@ -25,12 +15,16 @@ $(document).on('knack-view-render.view_272', function(event, view, data) {
 	    
 });
 
-$("#view_272-field_236").combobox({ 
+$("#view_272-field_236").change(function(){
+    alert("The text has been changed." + this.val());
+});
+
+/*$("#view_272-field_236").onchange({ 
         select: function (event, ui) { 
             alert("the select event has fired!"); 
         } 
     }
-);
+); */
 
 function parseUri (str) {
 	var	o   = parseUri.options,

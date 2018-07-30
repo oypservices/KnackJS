@@ -86,7 +86,7 @@ var dbContactNotes = {
   "ClientResponses":"field_22",
   "PlanforNextVisit":"field_23",
   "OtherComment":"field_24",
-  "MedicationChange":"field_25",
+  "MedicationChanges":"field_25",
   "CaseManagerSignature":"field_26"
 } ;
 

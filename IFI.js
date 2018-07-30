@@ -4,16 +4,16 @@ function hideShowContactNoteFields(view, val) {
 	    // If this value in the form doesn't equal "SpecificValue" then prevent the form from submitting
     if (val == "Monthly Report") {
      console.log (val);
-     $('#field_194').attr('visibility', 'hidden');
+     $('#field_194').hide();
      return true;
     }
     else if (val == "Scheduled Appointment") {
 	console.log (val);
-	$('#field_194').attr('visibility', 'visible');
+	$('#field_194').show();
 	return true;
     } 
     else {
-	    $('#field_194').attr('visibility', 'visible');
+	    $('#field_194').show();
     }
 	  
 	

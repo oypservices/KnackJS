@@ -16,7 +16,7 @@ $(document).on('knack-view-render.view_272', function(event, view, data) {
 });
 
 $(document).ready(function(){
-    $("#view_272-field_236").on("change",function(){
+    $('#view_272-field_236').on('change',function(event){
     alert("Click or change event occured");
     });
 });

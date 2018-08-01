@@ -89,7 +89,7 @@ $(document).on('knack-view-render.' + vw_contact_note_add, function(event, view,
 	    
 });
 
-$(document).on('knack-view-render..' + vw_contact_note_edit, function(event, view, data) {
+$(document).on('knack-view-render.' + vw_contact_note_edit, function(event, view, data) {
 
 	var view_name =  view.key ;
 	var fld_note_type =  view.key + '-field_236';

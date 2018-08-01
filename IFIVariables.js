@@ -5,9 +5,10 @@ var user = Knack.getUserToken();
 var headers = { "Authorization": user, "X-Knack-Application-ID": app_id, "Content-Type":"application/json"};
 
 
-
+//Views
 var vw_goal_intervention_add	= 'view_485' ;
-
+var vw_contact_note_add = 'view_272';
+var vw_contact_not_edit = 'view_527';
 
 
 

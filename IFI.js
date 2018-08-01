@@ -1,5 +1,7 @@
 
 function hideShowContactNoteFields(view, val) {
+	
+
 
 	    // If this value in the form doesn't equal "SpecificValue" then prevent the form from submitting
     if (val == "Monthly Report") {
@@ -74,24 +76,29 @@ function hideShowContactNoteFields(view, val) {
 	  
 	
 }
-$(document).on('knack-view-render.view_272', function(event, view, data) {
-
-    $('#view_272-field_236').on('change',function(e){
+$(document).on('knack-view-render.' + vw_contact_note_add, function(event, view, data) {
+	       
+	var view_name =  view.key ;
+	var fld_note_type =  view.key + '-field_236';
+	       
+	$('#' + fld_note_type).on('change',function(e){
 	  console.log (e);
-	  console.log ($('#view_272-field_236').val());
-	  hideShowContactNoteFields ( 'view_272' ,  $('#view_272-field_236').val() );
-    });
+	  console.log ($('#' + fld_note_type).val());
+	  hideShowContactNoteFields (  view, $('#'+ fld_note_type).val() );
+	});
 	    
 });
 
-$(document).on('knack-view-render.view_276', function(event, view, data) {
+$(document).on('knack-view-render..' + vw_contact_note_edit, function(event, view, data) {
 
-    $('#view_276-field_236').on('change',function(e){
+	var view_name =  view.key ;
+	var fld_note_type =  view.key + '-field_236';
+	       
+	$('#' + fld_note_type).on('change',function(e){
 	  console.log (e);
-	  console.log ($('#view_276-field_236').val());
-	  hideShowContactNoteFields ( 'view_276' ,  $('#view_276-field_236').val() );
-    });
-	    
+	  console.log ($('#' + fld_note_type).val());
+	  hideShowContactNoteFields (  view, $('#'+ fld_note_type).val() );
+	});  
 });
 
 

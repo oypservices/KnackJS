@@ -13,6 +13,9 @@ $('#kn-input-' + dbNotes.Site).show();
 $('#kn-input-' + dbNotes.Contact).show();
 $('#kn-input-' + dbNotes.Organization).show();
 */
+	
+try
+{
 
 	// If this value in the form doesn't equal "SpecificValue" then prevent the form from submitting
     if (val == "Task") {
@@ -42,13 +45,19 @@ $('#kn-input-' + dbNotes.Organization).show();
 	$('#kn-input-' + dbNotes.TaskUpdate).hide();
 	return true;
     }
+	
+}catch (e)
+    {
+  console.error(e);
+  console.error(e.stack) ;
+    }
 	  
 	
 }
 
 $(document).on('knack-view-render.any' , function(event, view, data) {
 	       
-  
+  try {
 	var view_name =  view.key ;
 	console.log(view_name) ;
 	for (var i = 0; i < vw_notes.length; i++) {
@@ -65,5 +74,10 @@ $(document).on('knack-view-render.any' , function(event, view, data) {
 		}
 
 	}
+  }catch (e)
+    {
+	  console.error(e);
+	  console.error(e.stack) ;
+    }
 	    
 });

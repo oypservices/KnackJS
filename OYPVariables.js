@@ -14,13 +14,18 @@ var vw_notes	= [ 'view_54', 'view_13','view_133' ] ;
 // Database Model
 
 var dbClients = {
-  "ClientName":"field_2",
-"CaseManager":"field_139",
-"ReferredByTitle":"field_192",
-"ReferredBy":"field_118",
-"ReferredBy_raw":"field_118_raw",
-"ReferrerPhone":"field_120",
-"GuardianName":"field_122"
+"Date":"field_34",
+"Notes":"field_2",
+"AddTaskorMeeting":"field_35",
+"Taskormeeting":"field_47",
+"TasksorMeetingTypes":"field_42",
+"Task/MeetingDueDate":"field_37",
+"TaskStatus":"field_50",
+"TaskUpdate":"field_51",
+"SalesRep":"field_58",
+"Site":"field_146",
+"Contact":"field_22",
+"Organization":"field_148"
 
 }
 

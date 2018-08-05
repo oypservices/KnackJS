@@ -1,13 +1,24 @@
 
 function hideShowContactNoteFields(view, val) {
 	
+$('#kn-input-' + dbNotes.Date).show();
+$('#kn-input-' + dbNotes.Notes).show();
+$('#kn-input-' + dbNotes.Taskormeeting).show();
+$('#kn-input-' + dbNotes.TasksorMeetingTypes).show();
+$('#kn-input-' + dbNotes.TaskMeetingDueDate).show();
+$('#kn-input-' + dbNotes.TaskStatus).show();
+$('#kn-input-' + dbNotes.TaskUpdate).show();
+$('#kn-input-' + dbNotes.SalesRep).show();
+$('#kn-input-' + dbNotes.Site).show();
+$('#kn-input-' + dbNotes.Contact).show();
+$('#kn-input-' + dbNotes.Organization).show();
 
 
 	    // If this value in the form doesn't equal "SpecificValue" then prevent the form from submitting
-    if (val == "Monthly Report") {
+    if (val == "Task") {
 	console.log (val);
 
-	$('#kn-input-' +  dbContactNotes.ContactNotedate).show();
+	$('#kn-input-' +  dbNotes.ContactNotedate).show();
 	$('#kn-input-' +  dbContactNotes.CaseManager).show();
 	$('#kn-input-' +  dbContactNotes.Client).show();
 	$('#kn-input-' +  dbContactNotes.NoteType).show();
@@ -28,7 +39,7 @@ function hideShowContactNoteFields(view, val) {
 	$('#kn-input-' +  dbContactNotes.CaseManagerSignature).show();
 	return true;
     }
-    else if (val == "Scheduled Appointment") {
+    else if (val == "Meeting") {
 	console.log (val);
 	$('#kn-input-' +  dbContactNotes.ContactNotedate).show();
 	$('#kn-input-' +  dbContactNotes.CaseManager).show();
@@ -82,7 +93,7 @@ $(document).on('knack-view-render.all'  function(event, view, data) {
 	var view_name =  view.key ;
 	for (var i = 0; i < vw_notes.length; i++) {
 		if (vw_notes[i] == view_name ) {
-			var fld_note_type =  view.key + '-field_236';
+			var fld_note_type =  view.key + '-' + dbNotes.NoteType;
 			
 			$('#' + fld_note_type).on('change',function(e){
 			  console.log (e);

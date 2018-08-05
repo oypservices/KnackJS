@@ -32,7 +32,7 @@ var dbClients = {
 
 
 //standard URLs
-
+/*
 var urlClientTeamAdd = api_url + sc_contact_scene + '/views/' + vw_client_team_add + '/records/';
 var urlContactAdd = api_url + sc_contact_scene + '/views/' + vw_contact_add + '/records';
 var urlClientTeamList = api_url + sc_contact_scene + '/views/' + vw_client_team_list + '/records';
@@ -40,3 +40,4 @@ var urlAccountAdd = api_url + sc_contact_scene + '/views/' + vw_account_add + '/
 var urlInterventionUpdate = api_url + sc_contact_scene + '/views/' + vw_goal_intervention_goalupdate + '/records';
 var urlGoalUpdate = api_url + sc_contact_scene + '/views/' + vw_goal_update + '/records';
 var urlInterventionList = api_url + sc_contact_scene + '/views/' + vw_goal_intervention_list + '/records';
+*/

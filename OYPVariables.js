@@ -19,13 +19,14 @@ var dbNotes = {
 "AddTaskorMeeting":"field_35",
 "Taskormeeting":"field_47",
 "TasksorMeetingTypes":"field_42",
-"Task/MeetingDueDate":"field_37",
+"TaskMeetingDueDate":"field_37",
 "TaskStatus":"field_50",
 "TaskUpdate":"field_51",
 "SalesRep":"field_58",
 "Site":"field_146",
 "Contact":"field_22",
-"Organization":"field_148"
+"Organization":"field_148",
+ "NoteType" : "field_150"
 
 }
 

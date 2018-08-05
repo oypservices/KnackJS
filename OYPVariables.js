@@ -13,7 +13,7 @@ var vw_notes	= [ 'view_54', 'view_13','view_133' ] ;
 
 // Database Model
 
-var dbClients = {
+var dbNotes = {
 "Date":"field_34",
 "Notes":"field_2",
 "AddTaskorMeeting":"field_35",

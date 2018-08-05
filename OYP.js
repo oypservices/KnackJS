@@ -65,11 +65,16 @@ $(document).on('knack-view-render.any' , function(event, view, data) {
 			console.log (JSON.stringify (view)) ;
 			var fld_note_type =  view.key + '-' + dbNotes.NoteType;
 			
+			//add onchange event to the NoteType drop down box
 			$('#' + fld_note_type).on('change',function(e){
 			  console.log (e);
 			  console.log ($('#' + fld_note_type).val());
 			  hideShowContactNoteFields (  view, $('#'+ fld_note_type).val() );
 			});
+			
+			//call the onchange event the first time to set initial fields
+			hideShowContactNoteFields (  view, $('#'+ fld_note_type).val() );
+			
 		   	break;
 		}
 

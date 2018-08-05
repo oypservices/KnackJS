@@ -80,14 +80,17 @@ $(document).on('knack-view-render.all'  function(event, view, data) {
 	       
   
 	var view_name =  view.key ;
-  
-  for n = 0 to vw_notes.length
-	var fld_note_type =  view.key + '-field_236';
-	       
-	$('#' + fld_note_type).on('change',function(e){
-	  console.log (e);
-	  console.log ($('#' + fld_note_type).val());
-	  hideShowContactNoteFields (  view, $('#'+ fld_note_type).val() );
-	});
+	for (var i = 0; i < vw_notes.length; i++) {
+		if (vw_notes[i] == view_name ) {
+			var fld_note_type =  view.key + '-field_236';
+			
+			$('#' + fld_note_type).on('change',function(e){
+			  console.log (e);
+			  console.log ($('#' + fld_note_type).val());
+			  hideShowContactNoteFields (  view, $('#'+ fld_note_type).val() );
+			});
+		}
+	 break;
+	}
 	    
 });

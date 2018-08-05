@@ -46,7 +46,7 @@ $('#kn-input-' + dbNotes.Organization).show();
 	
 }
 
-$(document).on('knack-view-render.any'  function(event, view, data) {
+$(document).on('knack-view-render.any' , function(event, view, data) {
 	       
   
 	var view_name =  view.key ;

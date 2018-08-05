@@ -50,7 +50,7 @@ $(document).on('knack-view-render.any' , function(event, view, data) {
 	       
   
 	var view_name =  view.key ;
-	console.log(view_nmae) ;
+	console.log(view_name) ;
 	for (var i = 0; i < vw_notes.length; i++) {
 		if (vw_notes[i] == view_name ) {
 			console.log (JSON.stringify (view)) ;

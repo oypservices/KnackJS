@@ -14,7 +14,7 @@ $('#kn-input-' + dbNotes.Contact).show();
 $('#kn-input-' + dbNotes.Organization).show();
 */
 
-	    // If this value in the form doesn't equal "SpecificValue" then prevent the form from submitting
+	// If this value in the form doesn't equal "SpecificValue" then prevent the form from submitting
     if (val == "Task") {
 	console.log (val);
 

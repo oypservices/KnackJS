@@ -50,8 +50,10 @@ $(document).on('knack-view-render.any' , function(event, view, data) {
 	       
   
 	var view_name =  view.key ;
+	console.log(view_nmae) ;
 	for (var i = 0; i < vw_notes.length; i++) {
 		if (vw_notes[i] == view_name ) {
+			console.log (JSON.stringify (view)) ;
 			var fld_note_type =  view.key + '-' + dbNotes.NoteType;
 			
 			$('#' + fld_note_type).on('change',function(e){
@@ -59,8 +61,9 @@ $(document).on('knack-view-render.any' , function(event, view, data) {
 			  console.log ($('#' + fld_note_type).val());
 			  hideShowContactNoteFields (  view, $('#'+ fld_note_type).val() );
 			});
+		   	break;
 		}
-	 break;
+
 	}
 	    
 });

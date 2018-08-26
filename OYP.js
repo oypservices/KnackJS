@@ -8,15 +8,23 @@ $('#kn-input-' + dbNotes.TasksorMeetingTypes).show();
 $('#kn-input-' + dbNotes.TaskMeetingDueDate).show();
 $('#kn-input-' + dbNotes.TaskStatus).show();
 $('#kn-input-' + dbNotes.TaskUpdate).show();
-$('#kn-input-' + dbNotes.SalesRep).show();
-$('#kn-input-' + dbNotes.Site).show();
-$('#kn-input-' + dbNotes.Contact).show();
-$('#kn-input-' + dbNotes.Organization).show();
+
+
 */
+	
+
 	
 try
 {
 
+	
+	$('#kn-input-' + dbNotes.SalesRep).hide();
+	$('#kn-input-' + dbNotes.Site).hide();
+	$('#kn-input-' + dbNotes.Contact).hide();
+	$('#kn-input-' + dbNotes.Organization).hide();
+	$('#kn-input-' + dbNotes.Project).hide();
+	$('#kn-input-' + dbNotes.ProjectItem).hide();
+	
 	// If this value in the form doesn't equal "SpecificValue" then prevent the form from submitting
     if (val == "Task") {
 	console.log (val);

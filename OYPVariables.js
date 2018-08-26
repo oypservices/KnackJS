@@ -26,6 +26,8 @@ var dbNotes = {
 "Site":"field_146",
 "Contact":"field_22",
 "Organization":"field_148",
+ "Project":"field_166",
+  "ProjectItem":"field_171",
  "NoteType" : "field_150"
 
 }

@@ -451,6 +451,11 @@ function addDefaultClientTeam (event, view, record) {
               }              
 
       		  if (!bCaseManagerRole) {
+			  
+		   if (typeof Knack.models[viewName].toJSON()[dbClients.CaseManager + "_raw"] == "undefined") {
+		      console.log("Case Manager Field Not found") ;
+		      break ; 　}
+			  
                   teamMember = {
                           "Name" : "",
                           "Name_raw" : { "first": "", "last" : ""} ,

@@ -333,7 +333,7 @@ function addClientTeamMember (contactid, role, clientId) {
 //Client Add / Edit Logic
 *************************************************************************************************/
 $(document).on('knack-record-update.any' , function (event, view, record) {
-  console.log (JSON.stringify(view) ;
+  console.log (JSON.stringify(view)) ;
 	  
 });
 

@@ -334,15 +334,20 @@ function addClientTeamMember (contactid, role, clientId) {
 *************************************************************************************************/
 $(document).on('knack-record-update.any' , function (event, view, record) {
   console.log (JSON.stringify(view)) ;
+  if (view.source.object == "object_1" ) {
+      addDefaultClientTeam (event, view, record);
+  }
 	  
 });
 
 $(document).on('knack-record-create.any' , function (event, view, record) {
   console.log (JSON.stringify(view)) ;
-	  
+  if (view.source.object == "object_1" ) {
+      addDefaultClientTeam (event, view, record);
+  }
 });
 
-$(document).on('knack-record-update.' + vw_client_edit , function (event, view, record) {
+addDefaultClientTeam (event, view, record) {
   
   
   try
@@ -473,7 +478,7 @@ $(document).on('knack-record-update.' + vw_client_edit , function (event, view, 
 }
     
     
-});
+};
 
 function setSelectedIndex(s, valsearch)
 

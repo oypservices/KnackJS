@@ -255,6 +255,11 @@ function findContactByAccountid (teamMember) {
 
   
   var contactid = "" ;
+	
+  if (teamMember.Accountid[0].id === undefined) {
+    console.log ("AccountID Field is undefined") ;
+    return ;
+  }
   
   var this_url = urlAccountAdd + '/' + teamMember.Accountid[0].id;  //Case Manager is a drop down, therefore index is needed to access the selected value[s]
   console.log ("Case Manager Lookup: " + this_url) ;
@@ -451,10 +456,6 @@ function addDefaultClientTeam (event, view, record) {
               }              
 
       		  if (!bCaseManagerRole) {
-			  
-		   if (typeof Knack.models[viewName].toJSON()[dbClients.CaseManager + "_raw"] == "undefined") {
-		      console.log("Case Manager Field Not found") ;
-		      break ; 　}
 			  
                   teamMember = {
                           "Name" : "",

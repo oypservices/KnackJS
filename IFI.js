@@ -329,8 +329,14 @@ function addClientTeamMember (contactid, role, clientId) {
   return true;
   
 } 
+/**********************************************************************************************
+//Client Add / Edit Logic
+*************************************************************************************************/
+$(document).on('knack-record-update.any' , function (event, view, record) {
+  console.log (JSON.stringify(view) ;
+	  
+});
 
-//function addClientTeamMemberByName (contactname, role, clientId) 
 $(document).on('knack-record-update.' + vw_client_edit , function (event, view, record) {
   
   
@@ -702,6 +708,5 @@ $(document).on('knack-form-submit.view_515' , function(event, view, data) {
 		
    	syncGoalInterventions (data ) ; 
 });
-
 
 

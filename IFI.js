@@ -256,7 +256,7 @@ function findContactByAccountid (teamMember) {
   
   var contactid = "" ;
 	
-  if (teamMember.Accountid[0].id === undefined) {
+  if (teamMember.Accountid === undefined) {
     console.log ("AccountID Field is undefined") ;
     return ;
   }

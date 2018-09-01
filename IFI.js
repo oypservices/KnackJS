@@ -337,6 +337,11 @@ $(document).on('knack-record-update.any' , function (event, view, record) {
 	  
 });
 
+$(document).on('knack-record-create.any' , function (event, view, record) {
+  console.log (JSON.stringify(view)) ;
+	  
+});
+
 $(document).on('knack-record-update.' + vw_client_edit , function (event, view, record) {
   
   

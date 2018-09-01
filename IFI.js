@@ -347,7 +347,7 @@ $(document).on('knack-record-create.any' , function (event, view, record) {
   }
 });
 
-addDefaultClientTeam (event, view, record) {
+function addDefaultClientTeam (event, view, record) {
   
   
   try

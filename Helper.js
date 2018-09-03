@@ -5,7 +5,7 @@ function parseUri (str) {
 		uri = {},
 		i   = 14;
 
-	while (i--) uri[o.key[i]] = m[i] || ""; 
+	while (i--) uri[o.key[i]] = m[i] || "";
 
 	uri[o.q.name] = {};
 	uri[o.key[12]].replace(o.q.parser, function ($0, $1, $2) {
@@ -15,7 +15,7 @@ function parseUri (str) {
 	return uri;
 };
 
-
+/* Parser */
 
 parseUri.options = {
 	strictMode: false,
@@ -29,7 +29,3 @@ parseUri.options = {
 		loose:  /^(?:(?![^:@]+:[^:@\/]*@)([^:\/?#.]+):)?(?:\/\/)?((?:(([^:@]*)(?::([^:@]*))?)?@)?([^:\/?#]*)(?::(\d*))?)(((\/(?:[^?#](?![^?#\/]*\.[^?#\/.]+(?:[?#]|$)))*\/?)?([^?#\/]*))(?:\?([^#]*))?(?:#(.*))?)/
 	}
 };
-
-
-
-

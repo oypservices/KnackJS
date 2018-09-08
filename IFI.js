@@ -750,7 +750,7 @@ necessary in order to display the interventions in a view / print type scenario.
         headers: headers,
 				data: senddata ,
 				crossDomain: true,
-				datatype: jsonp,
+				datatype: json,
         success: function (response) {
 
 					console.log ( JSON.stringify(response)) ;

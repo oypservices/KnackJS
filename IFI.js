@@ -703,77 +703,65 @@ necessary in order to display the interventions in a view / print type scenario.
 
 
 
-  	var this_url = 'https://8rt4t2ie5g.execute-api.us-east-1.amazonaws.com/prod/mail/send';
+  	var this_url = 'https://x247dlqfx2.execute-api.us-east-1.amazonaws.com/v1/test';
 	console.log (this_url) ;
   	var senddata = {
 
-   "from":{
-      "email":"info@oypservices.com"
-   },
+			  "to": "brian@oypservices.com",
+			  "subject": "Its working....Email sent successfully",
+			  "templateId": "d-dbd4fd2a6cbf42c6837e8198ca9564b0",
+			  "html": "data",
+			  "dynamic_template_data": {
+			    "total": "$ 239.85",
+			    "items": [
+			      {
+			        "text": "Nike Sneakers",
+			        "image": "https://marketing-image-production.s3.amazonaws.com/uploads/8dda1131320a6d978b515cc04ed479df259a458d5d45d58b6b381cae0bf9588113e80ef912f69e8c4cc1ef1a0297e8eefdb7b270064cc046b79a44e21b811802.png",
+			        "price": "$ 79.95"
+			      },
+			      {
+			        "text": "Old Line Sneakers",
+			        "image": "https://marketing-image-production.s3.amazonaws.com/uploads/3629f54390ead663d4eb7c53702e492de63299d7c5f7239efdc693b09b9b28c82c924225dcd8dcb65732d5ca7b7b753c5f17e056405bbd4596e4e63a96ae5018.png",
+			        "price": "$ 79.95"
+			      },
+			      {
+			        "text": "Blue Line Sneakers",
+			        "image": "https://marketing-image-production.s3.amazonaws.com/uploads/00731ed18eff0ad5da890d876c456c3124a4e44cb48196533e9b95fb2b959b7194c2dc7637b788341d1ff4f88d1dc88e23f7e3704726d313c57f350911dd2bd0.png",
+			        "price": "$ 79.95"
+			      }
+			    ],
+			    "emailsubject": "New API Gateway Subject",
+			    "receipt": true,
+			    "name": "Sample Name",
+			    "address01": "1234 Fake St.",
+			    "address02": "Apt. 123",
+			    "city": "Place",
+			    "state": "CO",
+			    "zip": "80202"
+			  }
+    };
 
-
-
-   "personalizations":[
-
-      {
-         "to":[
-            {
-               "email":"brian@oypservices.com"
-            }
-         ],
-
-         "subject":"Test Receipt",
-
-         "dynamic_template_data":{
-            "total":"$ 239.85",
-            "items":[
-               {
-                  "text":"New Line Sneakers",
-                  "image":"https://marketing-image-production.s3.amazonaws.com/uploads/8dda1131320a6d978b515cc04ed479df259a458d5d45d58b6b381cae0bf9588113e80ef912f69e8c4cc1ef1a0297e8eefdb7b270064cc046b79a44e21b811802.png",
-                  "price":"$ 79.95"
-               },
-               {
-                  "text":"Old Line Sneakers",
-                  "image":"https://marketing-image-production.s3.amazonaws.com/uploads/3629f54390ead663d4eb7c53702e492de63299d7c5f7239efdc693b09b9b28c82c924225dcd8dcb65732d5ca7b7b753c5f17e056405bbd4596e4e63a96ae5018.png",
-                  "price":"$ 79.95"
-               },
-               {
-                  "text":"Blue Line Sneakers",
-                  "image":"https://marketing-image-production.s3.amazonaws.com/uploads/00731ed18eff0ad5da890d876c456c3124a4e44cb48196533e9b95fb2b959b7194c2dc7637b788341d1ff4f88d1dc88e23f7e3704726d313c57f350911dd2bd0.png",
-                  "price":"$ 79.95"
-               }
-            ],
-            "emailsubject":"Email Subject",
-            "receipt":true,
-            "name":"Sample Name",
-            "address01":"1234 Fake St.",
-            "address02":"Apt. 123",
-            "city":"Place",
-            "state":"CO",
-            "zip":"80202"
-          }
-      }
-   ],
-   "template_id":"d-dbd4fd2a6cbf42c6837e8198ca9564b0",
-   "subject":"Test Receipt"
-};
 
 
   // Search to see if a contact exist by this name
   $.ajax({
         url: this_url ,
         type: 'POST',
-        headers: headers,
+        headers: headers2,
+				dataType: "jsonp",
 				data: senddata ,
         success: function (response) {
 
 					console.log ( JSON.stringify(response)) ;
 
-				} // end response function
+				} ,
+    error: function (responseData, textStatus, errorThrown) {
+        alert('POST failed.');
+    }// end response function
 
       }); //end ajax
 
-}
+} ;
 
 
 

@@ -3,6 +3,7 @@ var api_urlpg = 'https://api.knack.com/v1/pages/';
 var app_id = Knack.app.id;
 var user = Knack.getUserToken();
 var headers = { "Authorization": user, "X-Knack-Application-ID": app_id, "Content-Type":"application/json"};
+var headers2 = { "Content-Type":"application/json"};
 
 
 //Views
@@ -18,7 +19,7 @@ var sc_contact_scene = 'scene_248'; //'views/view_442/records ;
 var vw_contact_list = 'view_442';
 var vw_contact_add = 'view_446';
 var vw_client_team_add = 'view_445';
-var vw_client_team_list = 'view_449'; 
+var vw_client_team_list = 'view_449';
 var vw_account_add = 'view_453';
 
 var vw_client_referral_add = 'view_135' ;
@@ -111,19 +112,19 @@ var dbClientTeamMembers = {
   "Contact":"field_105",
   "Role":"field_106",
   "Client":"field_196"
-}; 
+};
 
 
 var dbAccounts = {
   "Name" : "field_33",
   "Contact" : "field_195",
-  "Contact_raw" : "field_195_raw" 
+  "Contact_raw" : "field_195_raw"
 } ;
 
 
 var dbIRPs = {
   "Client" : "field_200"
-  
+
 } ;
 
 var dbGoals = {
@@ -144,5 +145,3 @@ var urlAccountAdd = api_url + sc_contact_scene + '/views/' + vw_account_add + '/
 var urlInterventionUpdate = api_url + sc_contact_scene + '/views/' + vw_goal_intervention_goalupdate + '/records';
 var urlGoalUpdate = api_url + sc_contact_scene + '/views/' + vw_goal_update + '/records';
 var urlInterventionList = api_url + sc_contact_scene + '/views/' + vw_goal_intervention_list + '/records';
-
-

@@ -748,7 +748,7 @@ necessary in order to display the interventions in a view / print type scenario.
         url: this_url ,
         type: 'POST',
         headers: headers,
-				body: senddata ,
+				data: JSON.stringify( senddata) ,
    			crossDomain: true,
 				datatype: 'jsonp',
 				json: true,

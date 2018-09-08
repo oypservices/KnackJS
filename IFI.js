@@ -703,7 +703,7 @@ necessary in order to display the interventions in a view / print type scenario.
 
     concole.log(test());
 
-  	var this_url = 'https://x247dlqfx2.execute-api.us-east-1.amazonaws.com/v1/test';
+  	var this_url = 'https://x247dlqfx2.execute-api.us-east-1.amazonaws.com/v1/sendmail';
 	console.log (this_url) ;
   	var senddata = {
 

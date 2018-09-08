@@ -749,6 +749,8 @@ necessary in order to display the interventions in a view / print type scenario.
         type: 'POST',
         headers: headers,
 				data: senddata ,
+				crossDomain: true,
+				datatype: json,
         success: function (response) {
 
 					console.log ( JSON.stringify(response)) ;

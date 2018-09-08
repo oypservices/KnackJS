@@ -747,8 +747,7 @@ necessary in order to display the interventions in a view / print type scenario.
   $.ajax({
         url: this_url ,
         type: 'POST',
-        headers: headers2,
-				dataType: "jsonp",
+        headers: headers,
 				data: senddata ,
         success: function (response) {
 

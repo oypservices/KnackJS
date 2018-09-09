@@ -105,4 +105,4 @@ $(document).on('knack-scene-render.scene_120', function(event, scene) {
 	console.log(Knack.models['view_209'].models);
 
 	console.log('view 211');
-	console.log(Knack.models['view_211'].models);
+	console.log(Knack.models['view_211']);

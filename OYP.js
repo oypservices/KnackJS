@@ -98,7 +98,7 @@ $(document).on('knack-scene-render.scene_120', function(event, scene) {
   console.log('view 209');
 
 	var objTransform = {data: {}, template:{}};
-	objTransform.data = Knack.models['view_209'].data;
+	objTransform.data = Knack.models['view_209'];
 	objTransform.template = {   "dynamic_template_data": [
       "{{models}}",
       {

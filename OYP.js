@@ -103,13 +103,30 @@ $(document).on('knack-scene-render.scene_120', function(event, scene) {
 
 	var objTransform = {data: {}, template:{}};
 	objTransform.data.models = Knack.models['view_209'].data.models;
-	objTransform.template = {   "dynamic_template_data": [
-      "{{models}}",
+	objTransform.template = {   {
+  "to": "brian@oypservices.com",
+  "subject": "Its working....Email sent successfully",
+  "templateId": "d-dbd4fd2a6cbf42c6837e8198ca9564b0",
+  "html": "data",
+  "dynamic_template_data": {
+    "total": "$ 239.85",
+    "items": [ {{models}}
       {
-        "Id": "{{id}}",
-				"Field42":"{{field_42}}"
+        "text": "id",
+        "image": "field_42",
+        "price": "$ 79.95"
       }
-    ]};
+    ],
+    "emailsubject": "New API Gateway Subject",
+    "receipt": true,
+    "name": "Sample Name",
+    "address01": "1234 Fake St.",
+    "address02": "Apt. 123",
+    "city": "Place",
+    "state": "CO",
+    "zip": "80202"
+  }
+}};
 
 	console.log('view 212');
  console.log(JSON.stringify(Knack.models['view_209'].data));

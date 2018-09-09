@@ -96,36 +96,13 @@ $(document).on('knack-view-render.any' , function(event, view, data) {
 
 });
 
-$(document).on('knack-view-render.view_209' , function(event, view, data) {
-
-  try {
-	var view_name =  view.key ;
-
-  console.log("data");
-	console.log(data) ;
-
-	console.log("event");
-	console.log(event);
-
-	console.log("view");
-	console.log(view);
-
-  }catch (e)
-    {
-	  console.error(e);
-	  console.error(e.stack) ;
-    }
-
-});
-
 
 
 // Change "scene_1" to the scene you want to listen for
 $(document).on('knack-scene-render.scene_120', function(event, scene) {
   // Do something after the scene renders
   console.log('view 209');
-	console.log(Knack.models['view_209']);
+	console.log(Knack.models['view_209'].models);
 
-	console.log('view 210');
-	console.log(Knack.models['view_219']);
-});
+	console.log('view 211');
+	console.log(Knack.models['view_211'].models);

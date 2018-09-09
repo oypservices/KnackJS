@@ -136,6 +136,10 @@ $(document).on('knack-scene-render.scene_120', function(event, scene) {
 	var body = OYPServicesAPIPost( resource, headers, objTransform ) ;
 	console.log (JSON.stringify(body)) ;
 
+	var resource = 'SendMail';
+ OYPServicesAPIPost( resource, headers, objTransform.body ) ;
+
+
 	console.log('view 212');
 	console.log(Knack.models['view_212']);
 

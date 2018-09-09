@@ -110,10 +110,10 @@ $(document).on('knack-scene-render.scene_120', function(event, scene) {
   "html": "no data",
   "dynamic_template_data": {
     "total": "$ 239.85",
-    "items": [ {{models}}
+    "items": [ ""{{models}}""
       {
-        "text": "id",
-        "image": "field_42",
+        "text": "{{id}}",
+        "image": "{{field_42}}",
         "price": "$ 79.95"
       }
     ],

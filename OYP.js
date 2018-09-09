@@ -105,9 +105,9 @@ $(document).on('knack-scene-render.scene_120', function(event, scene) {
 	objTransform.data.models = Knack.models['view_209'].data.models;
 	objTransform.template = {
   "to": "brian@oypservices.com",
-  "subject": "Its working....Email sent successfully",
+  "subject": "Email sent successfully",
   "templateId": "d-dbd4fd2a6cbf42c6837e8198ca9564b0",
-  "html": "data",
+  "html": "no data",
   "dynamic_template_data": {
     "total": "$ 239.85",
     "items": [ {{models}}

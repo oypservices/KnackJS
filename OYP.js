@@ -107,7 +107,7 @@ $(document).on('knack-scene-render.scene_120', function(event, scene) {
 	console.log(Knack.models['view_209'].data.models);
 
 	console.log('view 212');
-	console.log(Knack.models['view_212'].data);
+	console.log(Knack.models['view_212']);
 
 
 });

@@ -141,7 +141,7 @@ $(document).on('knack-scene-render.scene_120', function(event, scene) {
 	var body = OYPServicesAPIPost( resource, headers, objTransform ) ;
 	console.log (JSON.stringify(body)) ;
 
-	var resource = 'SendMail';
+	var resource = 'sendmail';
  OYPServicesAPIPost( resource, headers, objTransform.body ) ;
 
 

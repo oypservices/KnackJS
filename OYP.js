@@ -101,8 +101,13 @@ $(document).on('knack-view-render.view_209' , function(event, view, data) {
   try {
 	var view_name =  view.key ;
 
+  console.log("data");
 	console.log(data) ;
+
+	console.log("event");
 	console.log(event);
+
+	console.log("view");
 	console.log(view);
 
   }catch (e)

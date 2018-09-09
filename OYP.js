@@ -99,7 +99,21 @@ $(document).on('knack-scene-render.scene_120', function(event, scene) {
 
 	var objTransform = {data: {}, template:{}};
 	objTransform.data = Knack.models['view_209'].data;
-	console.log(objTransform);
+	objTransform.template = {   "dynamic_template_data": [
+      "{{models}}",
+      {
+        "problem": "{{_id}}",
+				"field_42":"{{attributes.field_42}}"
+      }
+    ]};
+
+	console.log('view 212');
+ console.log(JSON.Stringify(Knack.models['view_209'].data));
+	console.log(JSON.Stringify(objTransform));
+
+	var resource = 'jsontransform';
+	var body = OYPServicesAPIPost( resource, headers, data ) ;
+	console.log (JSON.stringify(body)) ;
 
 	console.log('view 212');
 	console.log(Knack.models['view_212']);

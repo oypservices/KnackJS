@@ -108,8 +108,8 @@ $(document).on('knack-scene-render.scene_120', function(event, scene) {
     ]};
 
 	console.log('view 212');
- console.log(JSON.Stringify(Knack.models['view_209'].data));
-	console.log(JSON.Stringify(objTransform));
+ console.log(JSON.stringify(Knack.models['view_209'].data));
+	console.log(JSON.stringify(objTransform));
 
 	var resource = 'jsontransform';
 	var body = OYPServicesAPIPost( resource, headers, data ) ;

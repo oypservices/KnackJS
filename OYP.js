@@ -138,11 +138,11 @@ $(document).on('knack-scene-render.scene_120', function(event, scene) {
 	console.log(JSON.stringify(objTransform));
 
 	var resource = 'jsontransform';
-	var response = OYPServicesAPIPost( resource, headers, objTransform ) ;
-	console.log (JSON.stringify(response.body)) ;
+	var oypresponse = OYPServicesAPIPost( resource, headers, objTransform ) ;
 
+	
 	var resource = 'sendmail';
- OYPServicesAPIPost( resource, headers, response.body ) ;
+ OYPServicesAPIPost( resource, headers, oypresponse.body ) ;
 
 
 	console.log('view 212');

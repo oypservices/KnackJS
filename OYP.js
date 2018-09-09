@@ -96,7 +96,7 @@ $(document).on('knack-view-render.any' , function(event, view, data) {
 
 });
 
-$(document).on('knack-view-submit.view_209' , function(event, view, data) {
+$(document).on('knack-view-render.view_209' , function(event, view, data) {
 
   try {
 	var view_name =  view.key ;

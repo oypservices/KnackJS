@@ -123,9 +123,9 @@ $(document).on('knack-view-render.view_209' , function(event, view, data) {
 // Change "scene_1" to the scene you want to listen for
 $(document).on('knack-scene-render.scene_120', function(event, scene) {
   // Do something after the scene renders
-  console.log('event');
-	console.log(event);
+  console.log('view 209');
+	console.log(Knack.models['view_209']);
 
-	console.log('scene');
-	console.log(scene);
+	console.log('view 210');
+	console.log(Knack.models['view_219']);
 });

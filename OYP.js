@@ -101,6 +101,9 @@ $(document).on('knack-scene-render.scene_120', function(event, scene) {
   // Do something after the scene renders
   console.log('view 209');
 
+
+
+
 	var objTransform = {data: {}, template:{}};
 	objTransform.data.models = Knack.models['view_209'].data.models;
 	objTransform.template = {
@@ -110,7 +113,7 @@ $(document).on('knack-scene-render.scene_120', function(event, scene) {
   "html": "no data",
   "dynamic_template_data": {
     "total": "$ 239.85",
-    "items": [ "{{models}}"
+    "items": [ "{{models}}",
       {
         "text": "{{id}}",
         "image": "{{field_42}}",
@@ -126,6 +129,9 @@ $(document).on('knack-scene-render.scene_120', function(event, scene) {
     "state": "CO",
     "zip": "80202"
   }};
+
+
+
 
 	console.log('view 212');
  console.log(JSON.stringify(Knack.models['view_209'].data));

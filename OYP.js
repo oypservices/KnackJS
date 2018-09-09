@@ -104,10 +104,10 @@ $(document).on('knack-view-render.any' , function(event, view, data) {
 $(document).on('knack-scene-render.scene_120', function(event, scene) {
   // Do something after the scene renders
   console.log('view 209');
-	console.log(Knack.models['view_209']);
+	console.log(Knack.models['view_209'].data.models);
 
-	console.log('view 211');
-	console.log(Knack.models['view_211']);
+	console.log('view 212');
+	console.log(Knack.models['view_212'].data);
 
 
 });

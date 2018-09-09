@@ -103,7 +103,7 @@ $(document).on('knack-scene-render.scene_120', function(event, scene) {
 
 	var objTransform = {data: {}, template:{}};
 	objTransform.data.models = Knack.models['view_209'].data.models;
-	objTransform.template = {   {
+	objTransform.template = {
   "to": "brian@oypservices.com",
   "subject": "Its working....Email sent successfully",
   "templateId": "d-dbd4fd2a6cbf42c6837e8198ca9564b0",
@@ -125,8 +125,7 @@ $(document).on('knack-scene-render.scene_120', function(event, scene) {
     "city": "Place",
     "state": "CO",
     "zip": "80202"
-  }
-}};
+  }};
 
 	console.log('view 212');
  console.log(JSON.stringify(Knack.models['view_209'].data));

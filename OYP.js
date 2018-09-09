@@ -67,7 +67,7 @@ $(document).on('knack-view-render.any' , function(event, view, data) {
 	console.log(view_name) ;
 	for (var i = 0; i < vw_notes.length; i++) {
 		if (view.source.object == "object_2" ) {
-			console.log (JSON.stringify (view)) ;
+//			console.log (JSON.stringify (view)) ;
 			var fld_note_type =  view.key + '-' + dbNotes.NoteType;
 
 			//add onchange event to the NoteType drop down box
@@ -112,7 +112,7 @@ $(document).on('knack-scene-render.scene_120', function(event, scene) {
 	console.log(JSON.stringify(objTransform));
 
 	var resource = 'jsontransform';
-	var body = OYPServicesAPIPost( resource, headers, data ) ;
+	var body = OYPServicesAPIPost( resource, headers, objTransform ) ;
 	console.log (JSON.stringify(body)) ;
 
 	console.log('view 212');

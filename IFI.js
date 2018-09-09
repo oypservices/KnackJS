@@ -854,10 +854,8 @@ necessary in order to display the interventions in a view / print type scenario.
     ]
   }
 };
-	OYPServicesAPIPost( resource, headers, data ) ;
-
-
-		
+	var body = OYPServicesAPIPost( resource, headers, data ) ;
+	console.log (body.body.sourceId) ;
 
 } ;
 

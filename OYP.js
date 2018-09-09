@@ -105,7 +105,7 @@ $(document).on('knack-scene-render.scene_120', function(event, scene) {
   // Do something after the scene renders
   console.log('view 209');
 
-	var objTransform : {data: {}, template{}};
+	var objTransform = {data: {}, template{}};
 	objTransform.data = Knack.models['view_209'].data;
 	console.log(objTransform);
 

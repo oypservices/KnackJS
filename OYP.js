@@ -106,8 +106,8 @@ $(document).on('knack-scene-render.scene_120', function(event, scene) {
 	objTransform.template = {   "dynamic_template_data": [
       "{{models}}",
       {
-        "problem": "{{_id}}",
-				"field_42":"{{attributes.field_42}}"
+        "Id": "{{id}}",
+				"Field42":"{{field_42}}"
       }
     ]};
 

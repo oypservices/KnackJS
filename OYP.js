@@ -92,13 +92,17 @@ $(document).on('knack-view-render.any' , function(event, view, data) {
 
 });
 
+
+
+
+
 // Change "scene_1" to the scene you want to listen for
 $(document).on('knack-scene-render.scene_120', function(event, scene) {
   // Do something after the scene renders
   console.log('view 209');
 
 	var objTransform = {data: {}, template:{}};
-	objTransform.data.models = Knack.models['view_209'].models;
+	objTransform.data.models = Knack.models['view_209'].data.models;
 	objTransform.template = {   "dynamic_template_data": [
       "{{models}}",
       {

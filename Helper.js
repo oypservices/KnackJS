@@ -29,3 +29,33 @@ parseUri.options = {
 		loose:  /^(?:(?![^:@]+:[^:@\/]*@)([^:\/?#.]+):)?(?:\/\/)?((?:(([^:@]*)(?::([^:@]*))?)?@)?([^:\/?#]*)(?::(\d*))?)(((\/(?:[^?#](?![^?#\/]*\.[^?#\/.]+(?:[?#]|$)))*\/?)?([^?#\/]*))(?:\?([^#]*))?(?:#(.*))?)/
 	}
 };
+
+
+function  OYPServicesAPIPost( resource, headers, data ) 
+{
+
+	var this_url = 'https://x247dlqfx2.execute-api.us-east-1.amazonaws.com/v1/' + resource ;
+  console.log (this_url) ;
+	// Search to see if a contact exist by this name
+
+	$.ajax({
+				url: this_url ,
+				type: 'POST',
+				headers: headers,
+				data: JSON.stringify( data) ,
+				crossDomain: true,
+				datatype: 'jsonp',
+				json: true,
+				success: function (response) {
+
+					console.log ( JSON.stringify(response)) ;
+					return response ;
+
+				} ,
+		error: function (responseData, textStatus, errorThrown) {
+				alert('POST failed.');
+		}// end response function
+
+			}); //end ajax
+
+} ;

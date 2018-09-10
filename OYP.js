@@ -105,7 +105,9 @@ function CallAPISendMail(message) {
 	var strMessage = JSON.stringify(message);
 	strMessage = strMessage.replace(/\\n/g, "");
 	strMessage = strMessage.replace(/\\/g, "");
-	message = JSON.parse(strMessage) ;
+	console.log (strMessage) ;
+	console.log (strMessage.substring(1, strMessage.length - 2));
+	message = JSON.parse(strMessage.substring(1, strMessage.length - 2)) ;
 
 	console.log (message);
   OYPServicesAPIPost( resource, headers, message ) ;

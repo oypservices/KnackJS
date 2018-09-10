@@ -10,7 +10,7 @@ function hideShowContactNoteFields(view, val) {
 	$('#kn-input-' + dbNotes.TaskStatus).show();
 	$('#kn-input-' + dbNotes.TaskUpdate).show();
 	*/
-	
+
 try
 {
 
@@ -99,8 +99,8 @@ function CallAPISendMail(message) {
 	var resource = 'sendmail';
 	console.log ('sendmail');
 	var strMessage = JSON.stringify(message);
-	strMessage = strMessage.replace(new RegExp('\r?\n','g'), "");
-	strMessage = strMessage.replace(/\//g, "");
+	strMessage = strMessage.replace(/\\n/g, " ");
+	strMessage = strMessage.replace(/\\/g, " ");
 	message = strMessage ;
 
 	console.log (message);

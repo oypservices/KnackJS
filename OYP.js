@@ -96,6 +96,8 @@ $(document).on('knack-view-render.any' , function(event, view, data) {
 function CallAPISendMail(message) {
 
 	var resource = 'sendmail';
+	console.log ('sendmail');
+	console.log (JSON.stringify(message));
   OYPServicesAPIPost( resource, headers, message ) ;
 
 }

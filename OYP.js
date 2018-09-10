@@ -145,7 +145,7 @@ $(document).on('knack-scene-render.scene_120', function(event, scene) {
 
  var resource = 'jsontransform';
  OYPServicesAPIPost( resource, headers, objTransform )
- 	.then (result=> {CallAPISendMail(result) } ) ;
+ 	.then (result=> {CallAPISendMail(result.body) } ) ;
 
 
 	//console.log('view 212');

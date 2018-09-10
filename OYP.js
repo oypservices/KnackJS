@@ -1,17 +1,18 @@
 
-/*
-$('#kn-input-' + dbNotes.Date).show();
-$('#kn-input-' + dbNotes.Notes).show();
-$('#kn-input-' + dbNotes.Taskormeeting).show();
-$('#kn-input-' + dbNotes.TasksorMeetingTypes).show();
-$('#kn-input-' + dbNotes.TaskMeetingDueDate).show();
-$('#kn-input-' + dbNotes.TaskStatus).show();
-$('#kn-input-' + dbNotes.TaskUpdate).show();
-*/
-
 
 
 function hideShowContactNoteFields(view, val) {
+
+	/*
+	$('#kn-input-' + dbNotes.Date).show();
+	$('#kn-input-' + dbNotes.Notes).show();
+	$('#kn-input-' + dbNotes.Taskormeeting).show();
+	$('#kn-input-' + dbNotes.TasksorMeetingTypes).show();
+	$('#kn-input-' + dbNotes.TaskMeetingDueDate).show();
+	$('#kn-input-' + dbNotes.TaskStatus).show();
+	$('#kn-input-' + dbNotes.TaskUpdate).show();
+	*/
+
 
 
 try
@@ -104,7 +105,7 @@ function CallAPISendMail(message) {
 	var strMessage = JSON.stringify(message);
 	strMessage = strMessage.replace(/\\n/g, "");
 	strMessage = strMessage.replace(/\\/g, "");
-	message = strMessage ;
+	message = JSON.parse(strMessage) ;
 
 	console.log (message);
   OYPServicesAPIPost( resource, headers, message ) ;
@@ -123,8 +124,7 @@ $(document).on('knack-scene-render.scene_120', function(event, scene) {
 
 	var objTransform = {data: {}, template:{}};
 	objTransform.data.models = Knack.models['view_209'].data.models;
-	objTransform.template = {
-  "to": "brian@oypservices.com",
+	objTransform.template = { "to": "brian@oypservices.com",
   "subject": "Email sent successfully",
   "templateId": "d-dbd4fd2a6cbf42c6837e8198ca9564b0",
   "html": "no data",
@@ -164,10 +164,3 @@ $(document).on('knack-scene-render.scene_120', function(event, scene) {
 
 
 });
-
-//function CallAPiJsonTransform(objTransform) {
-//	var resource = 'jsontransform';
-//	var oypresponse = OYPServicesAPIPost( resource, headers, objTransform ) ;
-//	console.log (JSON.stringify(oypresponse));
-//	return oypresponse ;
-//}

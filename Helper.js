@@ -14,7 +14,7 @@ function  OYPServicesAPIPost( resource, headers, data )
 						headers: headers,
 						data: JSON.stringify( data) ,
 						crossDomain: true,
-						datatype: 'jsonp',
+						datatype: 'json',
 						json: true,
 						success: function (response) {
 

@@ -99,8 +99,8 @@ function CallAPISendMail(message) {
 	var resource = 'sendmail';
 	console.log ('sendmail');
 	var strMessage = JSON.stringify(message);
-	strMessage = strMessage.replace(/\\n/g, " ");
-	strMessage = strMessage.replace(/\\/g, " ");
+	strMessage = strMessage.replace(/\\n/g, "");
+	strMessage = strMessage.replace(/\\/g, "");
 	message = strMessage ;
 
 	console.log (message);

@@ -1,18 +1,18 @@
 
 
-
-		/*
-		$('#kn-input-' + dbNotes.Date).show();
-		$('#kn-input-' + dbNotes.Notes).show();
-		$('#kn-input-' + dbNotes.Taskormeeting).show();
-		$('#kn-input-' + dbNotes.TasksorMeetingTypes).show();
-		$('#kn-input-' + dbNotes.TaskMeetingDueDate).show();
-		$('#kn-input-' + dbNotes.TaskStatus).show();
-		$('#kn-input-' + dbNotes.TaskUpdate).show();
-		*/
-
 function hideShowContactNoteFields(view, val) {
 
+
+
+			/*
+			$('#kn-input-' + dbNotes.Date).show();
+			$('#kn-input-' + dbNotes.Notes).show();
+			$('#kn-input-' + dbNotes.Taskormeeting).show();
+			$('#kn-input-' + dbNotes.TasksorMeetingTypes).show();
+			$('#kn-input-' + dbNotes.TaskMeetingDueDate).show();
+			$('#kn-input-' + dbNotes.TaskStatus).show();
+			$('#kn-input-' + dbNotes.TaskUpdate).show();
+			*/
 
 
 try
@@ -102,15 +102,15 @@ function CallAPISendMail(message) {
 
 	var resource = 'sendmail';
 	console.log ('sendmail');
-	var strMessage = JSON.stringify(message);
-	strMessage = strMessage.replace(/\\n/g, "");
-	strMessage = strMessage.replace(/\\/g, "");
-	console.log (strMessage) ;
-	console.log (strMessage.substring(1, strMessage.length - 1));
-	var data = JSON.stringify(strMessage.substring(1, strMessage.length - 1)) ;
+//	var strMessage = JSON.stringify(message);
+//	strMessage = strMessage.replace(/\\n/g, "");
+//	strMessage = strMessage.replace(/\\/g, "");
+//	console.log (strMessage) ;
+//	console.log (strMessage.substring(1, strMessage.length - 1));
+//	var data = JSON.stringify(strMessage.substring(1, strMessage.length - 1)) ;
 
-	console.log (JSON.stringify(data));
-  OYPServicesAPIPost( resource, OYPAPIHeaders, data ) ;
+//	console.log (JSON.stringify(data));
+  OYPServicesAPIPost( resource, OYPAPIHeaders, message ) ;
 
 }
 

@@ -107,19 +107,15 @@ function CallAPISendMail(message) {
 	console.log (strMessage.substring(1, strMessage.length - 1));
 	var data = JSON.Stringify(strMessage.substring(1, strMessage.length - 1)) ;
 
-	console.log (data);
+	console.log (JSON.stringify(data));
   OYPServicesAPIPost( resource, OYPAPIHeaders, data ) ;
 
 }
-
-
 
 // Change "scene_1" to the scene you want to listen for
 $(document).on('knack-scene-render.scene_120', function(event, scene) {
   // Do something after the scene renders
   console.log('view 209');
-
-
 
 
 	var objTransform = {data: {}, template:{}};

@@ -40,7 +40,7 @@ function  OYPServicesAPIPost( resource, headers, data )
 
 			var this_url = 'https://x247dlqfx2.execute-api.us-east-1.amazonaws.com/v1/' + resource ;
 		  console.log (this_url) ;
-			console.log (data) ;
+	//		console.log (data) ;
 			// Search to see if a contact exist by this name
 
 			$.ajax({
@@ -57,8 +57,8 @@ function  OYPServicesAPIPost( resource, headers, data )
 								var strMessage = JSON.stringify(response.body);
 								strMessage = strMessage.replace(/\\n/g, "");
 								strMessage = strMessage.replace(/\\/g, "");
-								console.log (strMessage) ;
-								console.log (strMessage.substring(1, strMessage.length - 1));
+					//			console.log (strMessage) ;
+					//			console.log (strMessage.substring(1, strMessage.length - 1));
 								response = strMessage.substring(1, strMessage.length - 1) ;
 						  }
 

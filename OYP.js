@@ -1,10 +1,6 @@
 
 function hideShowContactNoteFields(view, val) {
 
-
-try
-{
-
 	/*
 	$('#kn-input-' + dbNotes.Date).show();
 	$('#kn-input-' + dbNotes.Notes).show();
@@ -15,6 +11,10 @@ try
 	$('#kn-input-' + dbNotes.TaskUpdate).show();
 	*/
 	
+try
+{
+
+
 	$('#kn-input-' + dbNotes.SalesRep).hide();
 	$('#kn-input-' + dbNotes.Site).hide();
 	$('#kn-input-' + dbNotes.Contact).hide();
@@ -100,7 +100,7 @@ function CallAPISendMail(message) {
 	console.log ('sendmail');
 	var strMessage = JSON.stringify(message);
 	strMessage = strMessage.replace(new RegExp('\r?\n','g'), "");
-	strMessage = strMessage.replace(\//\g, "");
+	strMessage = strMessage.replace(/\//g, "");
 	message = strMessage ;
 
 	console.log (message);

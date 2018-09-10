@@ -137,16 +137,26 @@ $(document).on('knack-scene-render.scene_120', function(event, scene) {
  console.log(JSON.stringify(Knack.models['view_209'].data));
 	console.log(JSON.stringify(objTransform));
 
-	var resource = 'jsontransform';
-	var oypresponse = OYPServicesAPIPost( resource, headers, objTransform ) ;
-  console.log (JSON.stringify(oypresponse));
-
-	var resource = 'sendmail';
- OYPServicesAPIPost( resource, headers, oypresponse.body ) ;
+ OYPServicesAPIPost( resource, headers, objTransform )
+ 	.then (result=> {CallAPISendMail(result) } ) ;
 
 
-	console.log('view 212');
-	console.log(Knack.models['view_212']);
+	//console.log('view 212');
+	//console.log(Knack.models['view_212']);
 
 
 });
+
+//function CallAPiJsonTransform(objTransform) {
+//	var resource = 'jsontransform';
+//	var oypresponse = OYPServicesAPIPost( resource, headers, objTransform ) ;
+//	console.log (JSON.stringify(oypresponse));
+//	return oypresponse ;
+//}
+
+function CallAPISendMail(message) {
+
+	var resource = 'sendmail';
+  OYPServicesAPIPost( resource, headers, message ) ;
+
+}

@@ -31,31 +31,35 @@ parseUri.options = {
 };
 
 
-function  OYPServicesAPIPost( resource, headers, data ) 
+function  OYPServicesAPIPost( resource, headers, data )
 {
+		return new Promise ((resolve, reject) => {
 
-	var this_url = 'https://x247dlqfx2.execute-api.us-east-1.amazonaws.com/v1/' + resource ;
-  console.log (this_url) ;
-	// Search to see if a contact exist by this name
+			var this_url = 'https://x247dlqfx2.execute-api.us-east-1.amazonaws.com/v1/' + resource ;
+		  console.log (this_url) ;
+			// Search to see if a contact exist by this name
 
-	$.ajax({
-				url: this_url ,
-				type: 'POST',
-				headers: headers,
-				data: JSON.stringify( data) ,
-				crossDomain: true,
-				datatype: 'jsonp',
-				json: true,
-				success: function (response) {
+			$.ajax({
+						url: this_url ,
+						type: 'POST',
+						headers: headers,
+						data: JSON.stringify( data) ,
+						crossDomain: true,
+						datatype: 'jsonp',
+						json: true,
+						success: function (response) {
 
-					console.log ( JSON.stringify(response)) ;
-					return response ;
+							console.log ( JSON.stringify(response)) ;
+							resolve(response) ;
 
-				} ,
-		error: function (responseData, textStatus, errorThrown) {
-				alert('POST failed.');
-		}// end response function
+						} ,
+				error: function (responseData, textStatus, errorThrown) {
+						alert('POST failed.');
+						reject();
+				}// end response function
 
 			}); //end ajax
+
+		}); // end promise
 
 } ;

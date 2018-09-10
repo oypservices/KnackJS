@@ -43,16 +43,6 @@ function  OYPServicesAPIPost( resource, headers, data )
 			console.log (JSON.stringify(data)) ;
 			// Search to see if a contact exist by this name
 
-			if (resource == "sendmail") {
-				var strMessage = JSON.stringify(data);
-				strMessage = strMessage.replace(/\\n/g, "");
-				strMessage = strMessage.replace(/\\/g, "");
-  			console.log (strMessage) ;
-				console.log (strMessage.substring(1, strMessage.length - 1));
-				data = strMessage.substring(1, strMessage.length - 1) ;
-			}
-
-		  console.log (JSON.stringify(data)) ;
 
 			$.ajax({
 						url: this_url ,

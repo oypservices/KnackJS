@@ -100,15 +100,15 @@ function CallAPISendMail(message) {
 
 	var resource = 'sendmail';
 	console.log ('sendmail');
-	var strMessage = JSON.stringify(message);
-	strMessage = strMessage.replace(/\\n/g, "");
-	strMessage = strMessage.replace(/\\/g, "");
-	console.log (strMessage) ;
-	console.log (strMessage.substring(1, strMessage.length - 1));
-	var data = strMessage.substring(1, strMessage.length - 1) ;
+//	var strMessage = JSON.stringify(message);
+//	strMessage = strMessage.replace(/\\n/g, "");
+//	strMessage = strMessage.replace(/\\/g, "");
+//	console.log (strMessage) ;
+//	console.log (strMessage.substring(1, strMessage.length - 1));
+//	var data = strMessage.substring(1, strMessage.length - 1) ;
 
-	console.log (data);
-  OYPServicesAPIPost( resource, OYPAPIHeaders, data ) ;
+	console.log (message;
+  OYPServicesAPIPost( resource, OYPAPIHeaders, message ) ;
 
 }
 
@@ -156,7 +156,7 @@ $(document).on('knack-scene-render.scene_120', function(event, scene) {
 
  var resource = 'jsontransform';
  OYPServicesAPIPost( resource, headers, objTransform )
- 	.then (result=> {CallAPISendMail(result.body) } ) ;
+ 	.then (result=> {CallAPISendMail(result) } ) ;
 
 
 	//console.log('view 212');

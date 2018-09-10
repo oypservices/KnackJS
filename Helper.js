@@ -18,6 +18,16 @@ function  OYPServicesAPIPost( resource, headers, data )
 						json: true,
 						success: function (response) {
 
+							if (resource == "jsontransform") {}
+								var strMessage = JSON.stringify(response.body);
+								strMessage = strMessage.replace(/\\n/g, "");
+								strMessage = strMessage.replace(/\\/g, "");
+								console.log (strMessage) ;
+								console.log (strMessage.substring(1, strMessage.length - 1));
+								response = strMessage.substring(1, strMessage.length - 1) ;
+						  }
+
+
 							console.log ( JSON.stringify(response)) ;
 							resolve(response) ;
 

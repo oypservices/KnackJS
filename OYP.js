@@ -93,6 +93,12 @@ $(document).on('knack-view-render.any' , function(event, view, data) {
 });
 
 
+function CallAPISendMail(message) {
+
+	var resource = 'sendmail';
+  OYPServicesAPIPost( resource, headers, message ) ;
+
+}
 
 
 
@@ -137,6 +143,7 @@ $(document).on('knack-scene-render.scene_120', function(event, scene) {
  console.log(JSON.stringify(Knack.models['view_209'].data));
 	console.log(JSON.stringify(objTransform));
 
+ var resource = 'jsontransform';
  OYPServicesAPIPost( resource, headers, objTransform )
  	.then (result=> {CallAPISendMail(result) } ) ;
 
@@ -153,10 +160,3 @@ $(document).on('knack-scene-render.scene_120', function(event, scene) {
 //	console.log (JSON.stringify(oypresponse));
 //	return oypresponse ;
 //}
-
-function CallAPISendMail(message) {
-
-	var resource = 'sendmail';
-  OYPServicesAPIPost( resource, headers, message ) ;
-
-}

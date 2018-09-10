@@ -40,7 +40,7 @@ function  OYPServicesAPIPost( resource, headers, data )
 
 			var this_url = 'https://x247dlqfx2.execute-api.us-east-1.amazonaws.com/v1/' + resource ;
 		  console.log (this_url) ;
-	//		console.log (data) ;
+			console.log (JSON.stringify(data)) ;
 			// Search to see if a contact exist by this name
 
 			$.ajax({

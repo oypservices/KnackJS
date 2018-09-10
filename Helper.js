@@ -47,7 +47,7 @@ function  OYPServicesAPIPost( resource, headers, data )
 						url: this_url ,
 						type: 'POST',
 						headers: headers,
-						data:  data ,
+						data:  JSON.stringify(data) ,
 						crossDomain: true,
 						datatype: 'json',
 						json: true,

@@ -2,10 +2,6 @@
 
 function hideShowContactNoteFields(view, val) {
 
-try
-{
-
-
 	/*
 	$('#kn-input-' + dbNotes.Date).show();
 	$('#kn-input-' + dbNotes.Notes).show();
@@ -15,6 +11,12 @@ try
 	$('#kn-input-' + dbNotes.TaskStatus).show();
 	$('#kn-input-' + dbNotes.TaskUpdate).show();
 	*/
+
+
+try
+{
+
+
 
 
 	$('#kn-input-' + dbNotes.SalesRep).hide();
@@ -107,7 +109,7 @@ function CallAPISendMail(message) {
 //	console.log (strMessage.substring(1, strMessage.length - 1));
 //	var data = strMessage.substring(1, strMessage.length - 1) ;
 
-	console.log (message;
+	console.log (message);
   OYPServicesAPIPost( resource, OYPAPIHeaders, message ) ;
 
 }

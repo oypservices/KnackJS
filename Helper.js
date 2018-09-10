@@ -18,7 +18,7 @@ function  OYPServicesAPIPost( resource, headers, data )
 						json: true,
 						success: function (response) {
 
-							if (resource == "jsontransform") {}
+							if (resource == "jsontransform") {
 								var strMessage = JSON.stringify(response.body);
 								strMessage = strMessage.replace(/\\n/g, "");
 								strMessage = strMessage.replace(/\\/g, "");

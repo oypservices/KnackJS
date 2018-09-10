@@ -1,8 +1,5 @@
 
 
-function hideShowContactNoteFields(view, val) {
-
-
 
 		/*
 		$('#kn-input-' + dbNotes.Date).show();
@@ -13,6 +10,9 @@ function hideShowContactNoteFields(view, val) {
 		$('#kn-input-' + dbNotes.TaskStatus).show();
 		$('#kn-input-' + dbNotes.TaskUpdate).show();
 		*/
+
+function hideShowContactNoteFields(view, val) {
+
 
 
 try

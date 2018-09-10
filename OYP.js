@@ -1,15 +1,18 @@
 
+/*
+$('#kn-input-' + dbNotes.Date).show();
+$('#kn-input-' + dbNotes.Notes).show();
+$('#kn-input-' + dbNotes.Taskormeeting).show();
+$('#kn-input-' + dbNotes.TasksorMeetingTypes).show();
+$('#kn-input-' + dbNotes.TaskMeetingDueDate).show();
+$('#kn-input-' + dbNotes.TaskStatus).show();
+$('#kn-input-' + dbNotes.TaskUpdate).show();
+*/
+
+
+
 function hideShowContactNoteFields(view, val) {
 
-	/*
-	$('#kn-input-' + dbNotes.Date).show();
-	$('#kn-input-' + dbNotes.Notes).show();
-	$('#kn-input-' + dbNotes.Taskormeeting).show();
-	$('#kn-input-' + dbNotes.TasksorMeetingTypes).show();
-	$('#kn-input-' + dbNotes.TaskMeetingDueDate).show();
-	$('#kn-input-' + dbNotes.TaskStatus).show();
-	$('#kn-input-' + dbNotes.TaskUpdate).show();
-	*/
 
 try
 {

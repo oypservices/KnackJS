@@ -2,19 +2,21 @@
 
 function hideShowContactNoteFields(view, val) {
 
+
+
+		/*
+		$('#kn-input-' + dbNotes.Date).show();
+		$('#kn-input-' + dbNotes.Notes).show();
+		$('#kn-input-' + dbNotes.Taskormeeting).show();
+		$('#kn-input-' + dbNotes.TasksorMeetingTypes).show();
+		$('#kn-input-' + dbNotes.TaskMeetingDueDate).show();
+		$('#kn-input-' + dbNotes.TaskStatus).show();
+		$('#kn-input-' + dbNotes.TaskUpdate).show();
+		*/
+
+
 try
 {
-
-
-	/*
-	$('#kn-input-' + dbNotes.Date).show();
-	$('#kn-input-' + dbNotes.Notes).show();
-	$('#kn-input-' + dbNotes.Taskormeeting).show();
-	$('#kn-input-' + dbNotes.TasksorMeetingTypes).show();
-	$('#kn-input-' + dbNotes.TaskMeetingDueDate).show();
-	$('#kn-input-' + dbNotes.TaskStatus).show();
-	$('#kn-input-' + dbNotes.TaskUpdate).show();
-	*/
 
 
 	$('#kn-input-' + dbNotes.SalesRep).hide();
@@ -105,7 +107,7 @@ function CallAPISendMail(message) {
 	strMessage = strMessage.replace(/\\/g, "");
 	console.log (strMessage) ;
 	console.log (strMessage.substring(1, strMessage.length - 1));
-	var data = JSON.Stringify(strMessage.substring(1, strMessage.length - 1)) ;
+	var data = JSON.stringify(strMessage.substring(1, strMessage.length - 1)) ;
 
 	console.log (JSON.stringify(data));
   OYPServicesAPIPost( resource, OYPAPIHeaders, data ) ;

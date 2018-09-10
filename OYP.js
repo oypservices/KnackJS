@@ -111,7 +111,7 @@ function CallAPISendMail(message) {
 	message = strMessage.substring(1, strMessage.length - 1) ;
 
 	console.log (message);
-  OYPServicesAPIPost( resource, headers, message ) ;
+  OYPServicesAPIPost( resource, OYPAPIHeaders, message ) ;
 
 }
 

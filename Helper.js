@@ -30,8 +30,6 @@ parseUri.options = {
 	}
 };
 
-
-
 function  OYPServicesAPIPost( resource, headers, data )
 {
 		return new Promise ((resolve, reject) => {
@@ -42,7 +40,7 @@ function  OYPServicesAPIPost( resource, headers, data )
 
 			// Search to see if a contact exist by this name
 
-			if typeof data == 'string'{
+			if (typeof data == "string") {
 				data = JSON.parse(data);
 			}
 

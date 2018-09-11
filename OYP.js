@@ -127,15 +127,20 @@ $(document).on('knack-scene-render.scene_120', function(event, scene) {
   "templateId": "d-dbd4fd2a6cbf42c6837e8198ca9564b0",
   "html": "no data",
   "dynamic_template_data": {
-    "total": "$ 239.85",
-    "items": [ "{{models}}",
+		"accomplishments": [ "{{models}}",
+			{
+				"text": "{{id}}",
+				"description": "{{field_42}}",
+				"price": "$ 79.95"
+			}
+    "tasks": [ "{{models}}",
       {
         "text": "{{id}}",
-        "image": "{{field_42}}",
+        "description": "{{field_42}}",
         "price": "$ 79.95"
       }
     ],
-    "emailsubject": "New API Gateway Subject",
+    "emailsubject": "Sample Project Status",
     "receipt": true,
     "name": "Sample Name",
     "address01": "1234 Fake St.",

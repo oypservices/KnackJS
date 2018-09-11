@@ -162,8 +162,5 @@ $(document).on('knack-scene-render.scene_120', function(event, scene) {
  	.then (result=> {CallAPISendMail(result) } ) ;
 
 
-	//console.log('view 212');
-	//console.log(Knack.models['view_212']);
-
 
 });

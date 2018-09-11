@@ -3,20 +3,19 @@
 function hideShowContactNoteFields(view, val) {
 
 
-
-
-	/*
-	$('#kn-input-' + dbNotes.Date).show();
-	$('#kn-input-' + dbNotes.Notes).show();
-	$('#kn-input-' + dbNotes.Taskormeeting).show();
-	$('#kn-input-' + dbNotes.TasksorMeetingTypes).show();
-	$('#kn-input-' + dbNotes.TaskMeetingDueDate).show();
-	$('#kn-input-' + dbNotes.TaskStatus).show();
-	$('#kn-input-' + dbNotes.TaskUpdate).show();
-	*/
-
 try
 {
+
+
+		/*
+		$('#kn-input-' + dbNotes.Date).show();
+		$('#kn-input-' + dbNotes.Notes).show();
+		$('#kn-input-' + dbNotes.Taskormeeting).show();
+		$('#kn-input-' + dbNotes.TasksorMeetingTypes).show();
+		$('#kn-input-' + dbNotes.TaskMeetingDueDate).show();
+		$('#kn-input-' + dbNotes.TaskStatus).show();
+		$('#kn-input-' + dbNotes.TaskUpdate).show();
+		*/
 
 	$('#kn-input-' + dbNotes.SalesRep).hide();
 	$('#kn-input-' + dbNotes.Site).hide();
@@ -131,7 +130,8 @@ $(document).on('knack-scene-render.scene_120', function(event, scene) {
 				"text": "{{id}}",
 				"description": "{{field_42}}",
 				"price": "$ 79.95"
-			},
+			}
+		],
     "tasks": [ "{{models}}",
       {
         "text": "{{id}}",

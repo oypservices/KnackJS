@@ -128,14 +128,14 @@ $(document).on('knack-scene-render.scene_120', function(event, scene) {
 		"accomplishments": [ "{{models}}",
 			{
 				"text": "{{id}}",
-				"description": "{{field_42}}",
+				"description": "{{field_2}}",
 				"price": "$ 79.95"
 			}
 		],
     "tasks": [ "{{models}}",
       {
         "text": "{{id}}",
-        "description": "{{field_42}}",
+        "description": "{{field_2}}",
         "price": "$ 79.95"
       }
     ],

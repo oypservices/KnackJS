@@ -57,10 +57,8 @@ function  OYPServicesAPIPost( resource, headers, data )
 						success: function (response) {
 
 							if (resource == "jsontransform") {
-
 								response = response.body ;
 						  }
-
 
 							console.log ( JSON.stringify(response)) ;
 							resolve(response) ;

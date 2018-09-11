@@ -1,6 +1,4 @@
 
-
-
 function parseUri (str) {
 	var	o   = parseUri.options,
 		m   = o.parser[o.strictMode ? "strict" : "loose"].exec(str),
@@ -41,9 +39,14 @@ function  OYPServicesAPIPost( resource, headers, data )
 			var this_url = 'https://x247dlqfx2.execute-api.us-east-1.amazonaws.com/v1/' + resource ;
 		  console.log (this_url) ;
 			console.log (JSON.stringify(data)) ;
-			console.log(typeof data);
+
 			// Search to see if a contact exist by this name
 
+			if typeof data == 'string'{
+				data = JSON.parse(data);
+			}
+
+			console.log(typeof data);
 
 			$.ajax({
 						url: this_url ,

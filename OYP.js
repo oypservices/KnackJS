@@ -2,20 +2,20 @@
 
 function hideShowContactNoteFields(view, val) {
 
-
+	/*
+	$('#kn-input-' + dbNotes.Date).show();
+	$('#kn-input-' + dbNotes.Notes).show();
+	$('#kn-input-' + dbNotes.Taskormeeting).show();
+	$('#kn-input-' + dbNotes.TasksorMeetingTypes).show();
+	$('#kn-input-' + dbNotes.TaskMeetingDueDate).show();
+	$('#kn-input-' + dbNotes.TaskStatus).show();
+	$('#kn-input-' + dbNotes.TaskUpdate).show();
+	*/
 try
 {
 
 
-		/*
-		$('#kn-input-' + dbNotes.Date).show();
-		$('#kn-input-' + dbNotes.Notes).show();
-		$('#kn-input-' + dbNotes.Taskormeeting).show();
-		$('#kn-input-' + dbNotes.TasksorMeetingTypes).show();
-		$('#kn-input-' + dbNotes.TaskMeetingDueDate).show();
-		$('#kn-input-' + dbNotes.TaskStatus).show();
-		$('#kn-input-' + dbNotes.TaskUpdate).show();
-		*/
+
 
 	$('#kn-input-' + dbNotes.SalesRep).hide();
 	$('#kn-input-' + dbNotes.Site).hide();
@@ -96,7 +96,6 @@ $(document).on('knack-view-render.any' , function(event, view, data) {
 });
 
 
-
 function CallAPIJSONTransform(message) {
 
 	var objTransform = {data: {}, template:{}};
@@ -124,8 +123,6 @@ $(document).on('knack-scene-render.scene_120', function(event, scene) {
   // Do something after the scene renders
   console.log('view 209');
 
-
-
   //Get the template from the api table
 	var getapidata =
 	{
@@ -141,13 +138,9 @@ $(document).on('knack-scene-render.scene_120', function(event, scene) {
 	  ]
 	}
 
-
 	var resource = 'knackobject';
   OYPServicesAPIPost( resource, headers, getapidata )
   	.then (result=> {CallAPIJSONTransform(result) } ) ;
-
-
-
 
 
 });

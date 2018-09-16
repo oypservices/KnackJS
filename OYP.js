@@ -1,18 +1,18 @@
 
-/*
-$('#kn-input-' + dbNotes.Date).show();
-$('#kn-input-' + dbNotes.Notes).show();
-$('#kn-input-' + dbNotes.Taskormeeting).show();
-$('#kn-input-' + dbNotes.TasksorMeetingTypes).show();
-$('#kn-input-' + dbNotes.TaskMeetingDueDate).show();
-$('#kn-input-' + dbNotes.TaskStatus).show();
-$('#kn-input-' + dbNotes.TaskUpdate).show();
-*/
 
 function hideShowContactNoteFields(view, val) {
 
 try
 {
+	/*
+	$('#kn-input-' + dbNotes.Date).show();
+	$('#kn-input-' + dbNotes.Notes).show();
+	$('#kn-input-' + dbNotes.Taskormeeting).show();
+	$('#kn-input-' + dbNotes.TasksorMeetingTypes).show();
+	$('#kn-input-' + dbNotes.TaskMeetingDueDate).show();
+	$('#kn-input-' + dbNotes.TaskStatus).show();
+	$('#kn-input-' + dbNotes.TaskUpdate).show();
+	*/
 
 	$('#kn-input-' + dbNotes.SalesRep).hide();
 	$('#kn-input-' + dbNotes.Site).hide();
@@ -95,7 +95,7 @@ $(document).on('knack-view-render.any' , function(event, view, data) {
 
 function CallAPIJSONTransform(message) {
 
-	console.dir (objTransform);
+	console.dir (message);
 	var objTransform = {data: {}, template:{}};
 	objTransform.data.models = Knack.models['view_209'].data.models;
 	objTransform.template = message.records[0].field_178 ;

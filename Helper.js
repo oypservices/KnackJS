@@ -1,3 +1,4 @@
+//Helper Js. Adding this block for documentation and to force commit;
 
 function parseUri (str) {
 	var	o   = parseUri.options,
@@ -31,7 +32,7 @@ parseUri.options = {
 };
 
 function  ( resource, headers, data) {
-	var this_url = 'https://x247dlqfx2.execute-api.us-east-1.amazonaws.com/v1/' + resource ;
+	var this_url = 'https://x247dlqfx2.execute-api.us-east-1.amazonaws.com/v1/'  ;
 	OYPServicesAPIPost( url, resource, headers, data ) ;
 }
 

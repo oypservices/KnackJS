@@ -3,16 +3,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
 function parseUri (str) {
 	var	o   = parseUri.options,
 		m   = o.parser[o.strictMode ? "strict" : "loose"].exec(str),
@@ -49,13 +39,13 @@ function  OYPServicesAPIPost( resource, headers, data) {
 	OYPServicesAPIPost( this_url, resource, headers, data ) ;
 }
 
-function  OYPServicesAPIPost( url, resource, headers, data )
+function  OYPServicesAPIPost( this_url, resource, headers, data )
 {
 		return new Promise ((resolve, reject) => {
 
-			var this_url = url + resource ;
+			this_url = this_url + resource ;
 		  console.log (this_url) ;
-			console.log (JSON.stringify(data)) ;
+			console.dir (data) ;
 
 			// Search to see if a contact exist by this name
 

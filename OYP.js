@@ -101,7 +101,7 @@ function CallAPIJSONTransform(message) {
 
 	var objTransform = {data: {}, template:{}};
 	objTransform.data.models = Knack.models['view_209'].data.models;
-	objTransform.template = message.body ;
+	objTransform.template = message.body.records[0].field_178 ;
 	console.dir (objTransform);
 
 

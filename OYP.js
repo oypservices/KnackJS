@@ -126,7 +126,8 @@ $(document).on('knack-scene-render.scene_120', function(event, scene) {
 	{
 	  "method": "get",
 	  "knackobj": "object_19",
-	  "appid": Knack.app.id,
+		"appid": "5b0c347966775f2a64354e2a",
+	  "appidtest": Knack.app.id,
 	  "filters": [
 	    {
 	      "field": "field_176",
@@ -136,6 +137,7 @@ $(document).on('knack-scene-render.scene_120', function(event, scene) {
 	  ]
 	}
 
+	console.dir (getapidata);
 	var resource = 'knackobject';
   OYPServicesAPIPost( resource, headers, getapidata )
   	.then (result=> {CallAPIJSONTransform(result) } ) ;

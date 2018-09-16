@@ -34,16 +34,14 @@ parseUri.options = {
 	}
 };
 
-function  OYPServicesAPIPost( resource, headers, data) {
-	var this_url = 'https://x247dlqfx2.execute-api.us-east-1.amazonaws.com/v1/'  ;
-	OYPServicesAPIPostURL( this_url, resource, headers, data ) ;
-}
 
-function  OYPServicesAPIPostURL( this_url, resource, headers, data )
+
+function  OYPServicesAPIPost( resource, headers, data )
 {
 		return new Promise ((resolve, reject) => {
 
-			this_url = this_url + resource ;
+			var this_url = 'https://x247dlqfx2.execute-api.us-east-1.amazonaws.com/v1/'  + resource ;
+
 		  console.log (this_url) ;
 			console.dir (data) ;
 

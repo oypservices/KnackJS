@@ -140,5 +140,4 @@ $(document).on('knack-scene-render.scene_120', function(event, scene) {
   OYPServicesAPIPost( resource, headers, getapidata )
   	.then (result=> {CallAPIJSONTransform(result) } ) ;
 
-
 });

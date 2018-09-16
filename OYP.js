@@ -96,18 +96,25 @@ $(document).on('knack-view-render.any' , function(event, view, data) {
 });
 
 
+
+function CallAPIJSONTransform(message) {
+
+	var objTransform = {data: {}, template:{}};
+	objTransform.data.models = Knack.models['view_209'].data.models;
+	objTransform.template = message.body ;
+	console.dir (objTransform);
+
+
+ var resource = 'jsontransform';
+ OYPServicesAPIPost( resource, headers, objTransform )
+ 	.then (result=> {CallAPISendMail(result) } ) ;
+
+}
+
 function CallAPISendMail(message) {
 
 	var resource = 'sendmail';
 	console.log ('sendmail');
-//	var strMessage = JSON.stringify(message);
-//	strMessage = strMessage.replace(/\\n/g, "");
-//	strMessage = strMessage.replace(/\\/g, "");
-//	console.log (strMessage) ;
-//	console.log (strMessage.substring(1, strMessage.length - 1));
-//	var data = JSON.stringify(strMessage.substring(1, strMessage.length - 1)) ;
-
-//	console.log (JSON.stringify(data));
   OYPServicesAPIPost( resource, OYPAPIHeaders, message ) ;
 
 }
@@ -118,47 +125,28 @@ $(document).on('knack-scene-render.scene_120', function(event, scene) {
   console.log('view 209');
 
 
-	var objTransform = {data: {}, template:{}};
-	objTransform.data.models = Knack.models['view_209'].data.models;
-	objTransform.template = { "to": "brian@oypservices.com",
-  "subject": "Email sent successfully",
-  "templateId": "d-dbd4fd2a6cbf42c6837e8198ca9564b0",
-  "html": "no data",
-  "dynamic_template_data": {
-		"accomplishments": [ "{{models}}",
-			{
-				"text": "{{id}}",
-				"description": "{{field_2}}",
-				"price": "$ 79.95"
-			}
-		],
-    "tasks": [ "{{models}}",
-      {
-        "text": "{{id}}",
-        "description": "{{field_2}}",
-        "price": "$ 79.95"
-      }
-    ],
-    "emailsubject": "Sample Project Status",
-    "receipt": true,
-    "name": "Sample Name",
-    "address01": "1234 Fake St.",
-    "address02": "Apt. 123",
-    "city": "Place",
-    "state": "CO",
-    "zip": "80202"
-  }};
+
+  //Get the template from the api table
+	var getapidata =
+	{
+	  "method": "get",
+	  "knackobj": "object_19",
+	  "appid": Knack.app.id,
+	  "filters": [
+	    {
+	      "field": "field_176",
+	      "operator": "is",
+	      "value": "Send Status Report"
+	    }
+	  ]
+	}
 
 
+	var resource = 'knackobject';
+  OYPServicesAPIPost( resource, headers, objTransform )
+  	.then (result=> {CallAPISendMail(result) } ) ;
 
 
-	console.log('view 212');
- console.log(JSON.stringify(Knack.models['view_209'].data));
-	console.log(JSON.stringify(objTransform));
-
- var resource = 'jsontransform';
- OYPServicesAPIPost( resource, headers, objTransform )
- 	.then (result=> {CallAPISendMail(result) } ) ;
 
 
 

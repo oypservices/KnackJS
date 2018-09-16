@@ -31,7 +31,7 @@ parseUri.options = {
 	}
 };
 
-function  ( resource, headers, data) {
+function  OYPServicesAPIPost( resource, headers, data) {
 	var this_url = 'https://x247dlqfx2.execute-api.us-east-1.amazonaws.com/v1/'  ;
 	OYPServicesAPIPost( url, resource, headers, data ) ;
 }

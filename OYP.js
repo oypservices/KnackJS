@@ -143,8 +143,8 @@ $(document).on('knack-scene-render.scene_120', function(event, scene) {
 
 
 	var resource = 'knackobject';
-  OYPServicesAPIPost( resource, headers, objTransform )
-  	.then (result=> {CallAPISendMail(result) } ) ;
+  OYPServicesAPIPost( resource, headers, getapidata )
+  	.then (result=> {CallAPIJSONTransform(result) } ) ;
 
 
 

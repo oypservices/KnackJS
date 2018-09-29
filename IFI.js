@@ -607,7 +607,7 @@ $(document).on('knack-scene-render.scene_7', function(event, scene) {
 
 	$("#view_220 .kn-link-2 span").text("My NEW Text");
   console.log('listener for scene: ' + scene.key);
-  console.dir (JSON.stringify (scene));
+  console.dir (scene);
 	console.dir(event);
 	console.log(scene.views["view_11"]) ;
 });

@@ -118,6 +118,7 @@ $(document).on('knack-view-render.view_220', function (event, view, record) {
     var x = document.getElementsByClassName("kn-link-2")[0];
     x.style.display = "none";
   } else {
+		  console.dir (view);
 			$("#view_220 .kn-link-2 span").text("My NEW Text");
 	}
 

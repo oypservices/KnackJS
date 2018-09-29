@@ -605,6 +605,9 @@ $(document).on('knack-scene-render.scene_7', function(event, scene) {
   // Do something after the scene renders
 
 
+	var fld_client_status =   'view_11-field_75';
+ console.log ($('#' + fld_client_status).val());
+  alert (  view, $('#'+ fld_client_status).val() );
 
 
   console.log('listener for scene: ' + scene.key);

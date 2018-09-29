@@ -606,8 +606,8 @@ $(document).on('knack-scene-render.scene_7', function(event, scene) {
 
 
 	var fld_client_status =   '#kn-input-field_75-field_75 span';
- console.log ($(fld_client_status);
-  alert (  $(fld_client_status).val() );
+ console.log ($(fld_client_status).text();
+  alert (  $(fld_client_status).text() );
 
 
   console.log('listener for scene: ' + scene.key);

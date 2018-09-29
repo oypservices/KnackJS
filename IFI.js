@@ -2,7 +2,8 @@
 function hideShowContactNoteFields(view, val) {
 
 
-	sendTTestMail();
+
+
 
 	    // If this value in the form doesn't equal "SpecificValue" then prevent the form from submitting
     if (val == "Monthly Report") {
@@ -608,8 +609,9 @@ $(document).on('knack-view-render.' + vw_goal_intervention_add , function(event,
 
 
 // Change "scene_1" to the scene you want to listen for
-$(document).on('knack-scene-render.scene_264', function(event, scene) {
+$(document).on('knack-scene-render.scene_7', function(event, scene) {
   // Do something after the scene renders
+	$("#view_220 .kn_link_2 span").text("My NEW Text");
   console.log('listener for scene: ' + scene.key);
   console.log (JSON.stringify (scene));
 });

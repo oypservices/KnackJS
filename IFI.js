@@ -587,10 +587,6 @@ $(document).on('knack-view-render.' + vw_goal_intervention_add , function(event,
    }
 
 
- // alert (clientGoalId);
-  //alert (JSON.stringify (data));
-  //data.field_232 = clientGoalId;
-
   var s =  document.getElementById("view_485-field_232");
   s.style.visibility = "hidden";
   setSelectedIndex(s, clientGoalId)
@@ -608,7 +604,7 @@ $(document).on('knack-scene-render.scene_7', function(event, scene) {
   // Do something after the scene renders
 	$("#view_220 .kn-link-2 span").text("My NEW Text");
   console.log('listener for scene: ' + scene.key);
-  console.log (JSON.stringify (scene));
+  console.dir (JSON.stringify (scene));
 });
 
 

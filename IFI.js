@@ -111,7 +111,7 @@ $(document).on('knack-view-render.' + vw_contact_note_edit, function(event, view
 
 
 //Menu View on the Edit Detail Page -- Hide Intake for roles other t han CM
-$(document).on('knack-view-render.view_220', function (event, view, record) {
+$(document).on('knack-view-render.view_11', function (event, view, record) {
 
   if ( Knack.getUserRoles('object_9') ){
 
@@ -121,8 +121,6 @@ $(document).on('knack-view-render.view_220', function (event, view, record) {
 		  console.dir (view);
 			$("#view_220 .kn-link-2 span").text("My NEW Text");
 	}
-
-
 
 
 });

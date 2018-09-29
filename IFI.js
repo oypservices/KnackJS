@@ -602,6 +602,10 @@ $(document).on('knack-view-render.' + vw_goal_intervention_add , function(event,
 // Change "scene_1" to the scene you want to listen for
 $(document).on('knack-scene-render.scene_7', function(event, scene) {
   // Do something after the scene renders
+
+console.log(event.views["view_11"]) ;
+
+
 	$("#view_220 .kn-link-2 span").text("My NEW Text");
   console.log('listener for scene: ' + scene.key);
   console.dir (JSON.stringify (scene));

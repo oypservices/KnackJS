@@ -118,6 +118,13 @@ function setClientStatusText() {
 try {
     $('#view_220 .kn-link-1').hide();  //Initially hide the Status link Menu
     var clientStatusMenuItem = "#view_220 .kn-link-1 span";
+    var fld_client_status =   '#kn-input-field_75 > span';
+
+    if ( $(clientStatusMenuItem).length == 0 ) {
+      console.log ("Status Menu Item does not exist in this case");
+      return ;
+    }
+
 
     if ( Knack.getUserRoles(roles.IFIAdmin) || Knack.getUserRoles(roles.Admin)  ) {
       switch ($(fld_client_status).text()){
@@ -943,7 +950,8 @@ $(document).on('knack-view-render.any' , function(event, view, data) {
   try {
 	     var view_name =  view.key ;
        console.log(view_name) ;
-       //Client Object 
+       //Client Object
+
        if (view.source.object == "object_1" ){
          setClientStatusText() ;
          return ;

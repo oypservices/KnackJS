@@ -120,13 +120,21 @@ $(document).on('knack-view-render.view_11', function (event, view, record) {
   } else {
 		  console.dir (view);
 	 		var fld_client_status =   '#kn-input-field_75 > span';
-      alert ($(fld_client_status).text());
-			$("#view_220 .kn-link-2 span").text("My NEW Text");
+      var status = $(fld_client_status).text()) ;
+      if (status == "Intake")
+			   $("#view_220 .kn-link-2 span").text("Intake");
+      else if (status == "Referral")
+            $("#view_220 .kn-link-2 span").text("Request Authorization");
+      else {
+        //hide the menu item
+        var x = document.getElementsByClassName("kn-link-2")[0];
+        x.style.display = "none";
+      }
+
 	}
 
 
 });
-
 
 
 

@@ -110,17 +110,20 @@ $(document).on('knack-view-render.' + vw_contact_note_edit, function(event, view
 ); */
 
 
-//Menu View on the Edit Detail Page -- Hide Intake for roles other t han CM
+
+
+//Menu View on the Edit Detail Page
 $(document).on('knack-view-render.view_11', function (event, view, record) {
 
   if ( Knack.getUserRoles('object_9') ){
 
+    //hide the status menu items from CMs
     var x = document.getElementsByClassName("kn-link-2")[0];
     x.style.display = "none";
   } else {
 		  console.dir (view);
 	 		var fld_client_status =   '#kn-input-field_75 > span';
-      var status = $(fld_client_status).text()) ;
+      var status = $(fld_client_status).text() ;
       console.log (status) ;
       if (status == "Intake")
 			   $("#view_220 .kn-link-2 span").text("Intake");

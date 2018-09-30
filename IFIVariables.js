@@ -5,6 +5,14 @@ var user = Knack.getUserToken();
 var headers = { "Authorization": user, "X-Knack-Application-ID": app_id, "Content-Type":"application/json"};
 var headers2 = { "Content-Type":"application/json"};
 
+//roles
+var roles = {
+  "Admin" : "object_7",
+  "IFIAdmin" : "object_8",
+  "IFICM" : "object_9",
+  "Beacon" : "object_28"
+}
+
 
 //Views
 var vw_goal_intervention_add	= 'view_485' ;

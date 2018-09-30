@@ -100,8 +100,6 @@ $(document).on('knack-view-render.' + vw_contact_note_edit, function(event, view
 });
 
 
-
-
 /*$("#view_272-field_236").onchange({
         select: function (event, ui) {
             alert("the select event has fired!");
@@ -111,48 +109,67 @@ $(document).on('knack-view-render.' + vw_contact_note_edit, function(event, view
 
 
 
+//
+function setClientStatusText() {
+  //Client Edit Page - The Client Status Menu link text will change depending on both the role of the logged in user
+  //and the current status of the client.
+
+
+try {
+    $('#view_220 .kn-link-1').hide();  //Initially hide the Status link Menu
+    var clientStatusMenuItem = "#view_220 .kn-link-1 span";
+
+    if ( Knack.getUserRoles(roles.IFIAdmin) || Knack.getUserRoles(roles.Admin)  ) {
+      switch ($(fld_client_status).text()){
+        case "Intake" :
+            $(clientStatusMenuItem).text("Update/Complete Intake");
+            break;
+        case "Referral":
+              $(clientStatusMenuItem).text("Request Authorization");
+              break;
+        case "Authorization Approved" :
+             $(clientStatusMenuItem).text("Start Intake");
+             break;
+        case "Approval Pending":
+             $(clientStatusMenuItem).text("Set Authorization Decision");
+             break;
+        case "Approval Requested":
+             $(clientStatusMenuItem).text("Set Authorization Decision");
+             break;
+        default:
+            break ;
+
+      }
+    }
+
+    if ( Knack.getUserRoles(roles.Beacon)   ) {
+      switch ($(fld_client_status).text()){
+        case "Approval Pending":
+             $(clientStatusMenuItem).text("Set Authorization Decision");
+             break;
+        case "Approval Requested":
+             $(clientStatusMenuItem).text("Set Authorization Decision");
+             break;
+        default:
+            break ;
+
+      }
+    }
+
+}
+catch (e)  {
+    console.error(e);
+    console.error(e.stack) ;
+ }
+
+}
+
+
+
 
 //Menu View on the Edit Detail Page
-$(document).on('knack-view-render.view_11', function (event, view, record) {
-
-  var clientStatusMenuItem = "#view_220 .kn-link-1 span";
-
-
-  if ( Knack.getUserRoles('object_9') ){
-
-    //hide the status menu items from CMs
-    $('#view_220 .kn-link-1').hide();
-
-
-    var x = document.getElementsByClassName("kn-link-2")[0];
-    x.style.display = "none";
-  } else {
-		  console.dir (view);
-	 		var fld_client_status =   '#kn-input-field_75 > span';
-      var status = $(fld_client_status).text() ;
-      console.log (status) ;
-      if (status == "Intake")
-			   $(clientStatusMenuItem).text("Update/Complete Intake");
-      else if (status == "Referral")
-            $(clientStatusMenuItem).text("Request Authorization");
-      else if (status == "Authorization Approved")
-           $(clientStatusMenuItem).text("Start Intake");
-      else if (status == "Approval Pending")
-           $(clientStatusMenuItem).text("Set Authorization Decision");
-      else if (status == "Approval Requested")
-           $(clientStatusMenuItem).text("Set Authorization Decision");
-      else {
-        //hide the menu item
-        $('#view_220 .kn-link-1').hide();
-
-        //var x = document.getElementsByClassName("kn-link-2")[0];
-        //x.style.display = "none";
-      }
-
-	}
-
-
-});
+//$(document).on('knack-view-render.view_11', function (event, view, record) {
+//});
 
 
 
@@ -918,4 +935,23 @@ $(document).on('knack-form-submit.view_491' , function(event, view, data) {
 $(document).on('knack-form-submit.view_515' , function(event, view, data) {
 
    	syncGoalInterventions (data ) ;
+});
+
+
+$(document).on('knack-view-render.any' , function(event, view, data) {
+
+  try {
+	     var view_name =  view.key ;
+       console.log(view_name) ;
+       if (view.source.object == "object_1" ){
+         setClientStatusText() ;
+         break ;
+       }
+     }
+
+  catch (e)  {
+      console.error(e);
+      console.error(e.stack) ;
+   }
+
 });

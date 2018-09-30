@@ -132,15 +132,15 @@ $(document).on('knack-view-render.view_11', function (event, view, record) {
       var status = $(fld_client_status).text() ;
       console.log (status) ;
       if (status == "Intake")
-			   $("clientStatusMenuItem").text("Update/Complete Intake");
+			   $(clientStatusMenuItem).text("Update/Complete Intake");
       else if (status == "Referral")
-            $("clientStatusMenuItem").text("Request Authorization");
+            $(clientStatusMenuItem).text("Request Authorization");
       else if (status == "Authorization Approved")
-           $("clientStatusMenuItem").text("Start Intake");
+           $(clientStatusMenuItem).text("Start Intake");
       else if (status == "Approval Pending")
-           $("clientStatusMenuItem").text("Set Authorization Decision");
+           $(clientStatusMenuItem).text("Set Authorization Decision");
       else if (status == "Approval Requested")
-           $("clientStatusMenuItem").text("Set Authorization Decision");
+           $(clientStatusMenuItem).text("Set Authorization Decision");
       else {
         //hide the menu item
         $('#view_220 .kn-link-1').hide();

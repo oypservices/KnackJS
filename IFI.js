@@ -116,9 +116,10 @@ function setClientStatusText() {
 
 
 try {
-    $('#view_220 .kn-link-1').hide();  //Initially hide the Status link Menu
-    var clientStatusMenuItem = "#view_220 .kn-link-1 span";
+    var clientStatusMenuItem = "#view_220 .kn-link-1" ;
+    var clientStatusMenuItemSpan = clientStatusMenuItem + " span";
     var fld_client_status =   '#kn-input-field_75 > span';
+    $(clientStatusMenuItem).hide();  //Initially hide the Status link Menu
 
     if ( $(clientStatusMenuItem).length == 0 ) {
       console.log ("Status Menu Item does not exist in this case");
@@ -129,19 +130,23 @@ try {
     if ( Knack.getUserRoles(roles.IFIAdmin) || Knack.getUserRoles(roles.Admin)  ) {
       switch ($(fld_client_status).text()){
         case "Intake" :
-            $(clientStatusMenuItem).text("Update/Complete Intake");
+            $(clientStatusMenuItemSpan).text("Update/Complete Intake");
+            $(clientStatusMenuItem).show();
             break;
         case "Referral":
-              $(clientStatusMenuItem).text("Request Authorization");
+              $(clientStatusMenuItemSpan).text("Request Authorization");
+              $(clientStatusMenuItem).show();
               break;
         case "Authorization Approved" :
-             $(clientStatusMenuItem).text("Start Intake");
+             $(clientStatusMenuItemSpan).text("Start Intake");
+             $(clientStatusMenuItem).show();
              break;
         case "Approval Pending":
-             $(clientStatusMenuItem).text("Set Authorization Decision");
+             $(clientStatusMenuItemSpan).text("Set Authorization Decision");
+             $(clientStatusMenuItem).show();
              break;
         case "Approval Requested":
-             $(clientStatusMenuItem).text("Set Authorization Decision");
+             $(clientStatusMenuItemSpan).text("Set Authorization Decision");
              break;
         default:
             break ;
@@ -152,10 +157,12 @@ try {
     if ( Knack.getUserRoles(roles.Beacon)   ) {
       switch ($(fld_client_status).text()){
         case "Approval Pending":
-             $(clientStatusMenuItem).text("Set Authorization Decision");
+             $(clientStatusMenuItemSpan).text("Set Authorization Decision");
+             $(clientStatusMenuItem).show();
              break;
         case "Approval Requested":
-             $(clientStatusMenuItem).text("Set Authorization Decision");
+             $(clientStatusMenuItemSpan).text("Set Authorization Decision");
+             $(clientStatusMenuItem).show(); 
              break;
         default:
             break ;

@@ -156,14 +156,14 @@ try {
 
     if ( Knack.getUserRoles(roles.Beacon)   ) {
       switch ($(fld_client_status).text()){
-        case "Approval Pending":
+        case "Approval Requested":
+        case "Authorization Pending":
+        case "Authorization Approved":
+        case "Authorization Denied":
              $(clientStatusMenuItemSpan).text("Set Authorization Decision");
              $(clientStatusMenuItem).show();
              break;
-        case "Approval Requested":
-             $(clientStatusMenuItemSpan).text("Set Authorization Decision");
-             $(clientStatusMenuItem).show(); 
-             break;
+
         default:
             break ;
 

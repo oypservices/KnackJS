@@ -123,7 +123,7 @@ try {
     var mnuIntake = "#view_220 .kn-link-4" ;
 
     //ensures I am on the right form
-    if ( $(clientStatusMenuItem).length == 0 ) {
+    if ( $(mnuRequestAuth).length == 0 ) {
       console.log ("Status Menu Item does not exist in this case");
       return ;
     }
@@ -134,7 +134,7 @@ try {
     $(mnuStartIntake).hide();
     $(mnuIntake).hide();
 
-    var clientStatusMenuItemSpan = clientStatusMenuItem + " span";
+  //  var clientStatusMenuItemSpan = clientStatusMenuItem + " span";
     var fld_client_status =   '#kn-input-field_75 > span';
 
 
@@ -186,7 +186,7 @@ try {
     if ( Knack.getUserRoles(roles.IFICM)   ) {
       switch ($(fld_client_status).text()){
         case "Intake":
-             $(mnuIntake).show(); 
+             $(mnuIntake).show();
              break;
 
         default:

@@ -116,39 +116,50 @@ function setClientStatusText() {
 
 
 try {
-    var clientStatusMenuItem = "#view_220 .kn-link-1" ;
-    var clientStatusMenuItemSpan = clientStatusMenuItem + " span";
-    var fld_client_status =   '#kn-input-field_75 > span';
-    $(clientStatusMenuItem).hide();  //Initially hide the Status link Menu
 
+    var mnuRequestAuth = "#view_220 .kn-link-1" ;
+    var mnuProcessAuth = "#view_220 .kn-link-2" ;
+    var mnuStartIntake = "#view_220 .kn-link-3" ;
+    var mnuIntake = "#view_220 .kn-link-4" ;
+
+    //ensures I am on the right form
     if ( $(clientStatusMenuItem).length == 0 ) {
       console.log ("Status Menu Item does not exist in this case");
       return ;
     }
+
+    //Initially hide the Status link Menu
+    $(mnuRequestAuth).hide();
+    $(mnuProcessAuth).hide();
+    $(mnuStartIntake).hide();
+    $(mnuIntake).hide();
+
+    var clientStatusMenuItemSpan = clientStatusMenuItem + " span";
+    var fld_client_status =   '#kn-input-field_75 > span';
+
+
+
 
 
     if ( Knack.getUserRoles(roles.IFIAdmin) || Knack.getUserRoles(roles.Admin)  ) {
       switch ($(fld_client_status).text()){
 
         case "Referral":
-              $(clientStatusMenuItemSpan).text("Request Authorization");
-              $(clientStatusMenuItem).show();
+              $(mnuRequestAuth).show();
               break;
         case "Authorization Approved" :
-             $(clientStatusMenuItemSpan).text("Start Intake");
-             $(clientStatusMenuItem).show();
+             $(mnuStartIntake).show();
              break;
         case "Approval Pending":
-             $(clientStatusMenuItemSpan).text("Set Authorization Decision");
-             $(clientStatusMenuItem).show();
+//             $(clientStatusMenuItemSpan).text("Set Authorization Decision");
+//             $(clientStatusMenuItem).show();
              break;
         case "Approval Requested":
-             $(clientStatusMenuItemSpan).text("Set Authorization Decision");
+//             $(clientStatusMenuItemSpan).text("Set Authorization Decision");
              break;
         case "Intake" :
-                 $(clientStatusMenuItemSpan).text("Perform Intake");
-                 $(clientStatusMenuItem).show();
-                 break;
+             $(mnuIntake).show();
+             break;
         default:
             break ;
 
@@ -162,8 +173,7 @@ try {
         case "Authorization Pending":
         case "Authorization Approved":
         case "Authorization Denied":
-             $(clientStatusMenuItemSpan).text("Set Authorization Decision");
-             $(clientStatusMenuItem).show();
+            $(mnuProcessAuth).show();
              break;
 
         default:
@@ -176,11 +186,7 @@ try {
     if ( Knack.getUserRoles(roles.IFICM)   ) {
       switch ($(fld_client_status).text()){
         case "Intake":
-    //    case "Authorization Pending":
-    //    case "Authorization Approved":
-    //    case "Authorization Denied":
-             $(clientStatusMenuItemSpan).text("Perform Intake");
-             $(clientStatusMenuItem).show();
+             $(mnuIntake).show(); 
              break;
 
         default:

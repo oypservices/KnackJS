@@ -121,6 +121,7 @@ $(document).on('knack-view-render.view_11', function (event, view, record) {
 		  console.dir (view);
 	 		var fld_client_status =   '#kn-input-field_75 > span';
       var status = $(fld_client_status).text()) ;
+      console.log (status) ;
       if (status == "Intake")
 			   $("#view_220 .kn-link-2 span").text("Intake");
       else if (status == "Referral")

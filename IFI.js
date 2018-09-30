@@ -133,6 +133,8 @@ $(document).on('knack-view-render.view_11', function (event, view, record) {
            $("#view_220 .kn-link-2 span").text("Start Intake");
       else if (status == "Approval Pending")
            $("#view_220 .kn-link-2 span").text("Set Authorization Decision");
+      else if (status == "Approval Requested")
+           $("#view_220 .kn-link-2 span").text("Set Authorization Decision");
       else {
         //hide the menu item
         var x = document.getElementsByClassName("kn-link-2")[0];

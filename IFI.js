@@ -943,9 +943,10 @@ $(document).on('knack-view-render.any' , function(event, view, data) {
   try {
 	     var view_name =  view.key ;
        console.log(view_name) ;
+       //Client Object 
        if (view.source.object == "object_1" ){
          setClientStatusText() ;
-         break ;
+         return ;
        }
      }
 

@@ -129,10 +129,7 @@ try {
 
     if ( Knack.getUserRoles(roles.IFIAdmin) || Knack.getUserRoles(roles.Admin)  ) {
       switch ($(fld_client_status).text()){
-        case "Intake" :
-            $(clientStatusMenuItemSpan).text("Update/Complete Intake");
-            $(clientStatusMenuItem).show();
-            break;
+
         case "Referral":
               $(clientStatusMenuItemSpan).text("Request Authorization");
               $(clientStatusMenuItem).show();
@@ -148,12 +145,17 @@ try {
         case "Approval Requested":
              $(clientStatusMenuItemSpan).text("Set Authorization Decision");
              break;
+        case "Intake" :
+                 $(clientStatusMenuItemSpan).text("Perform Intake");
+                 $(clientStatusMenuItem).show();
+                 break;
         default:
             break ;
 
       }
     }
 
+    // Beacon Status Roles
     if ( Knack.getUserRoles(roles.Beacon)   ) {
       switch ($(fld_client_status).text()){
         case "Approval Requested":
@@ -161,6 +163,23 @@ try {
         case "Authorization Approved":
         case "Authorization Denied":
              $(clientStatusMenuItemSpan).text("Set Authorization Decision");
+             $(clientStatusMenuItem).show();
+             break;
+
+        default:
+            break ;
+
+      }
+    }
+
+    // Case Manager Status Roles
+    if ( Knack.getUserRoles(roles.IFICM)   ) {
+      switch ($(fld_client_status).text()){
+        case "Intake":
+    //    case "Authorization Pending":
+    //    case "Authorization Approved":
+    //    case "Authorization Denied":
+             $(clientStatusMenuItemSpan).text("Perform Intake");
              $(clientStatusMenuItem).show();
              break;
 

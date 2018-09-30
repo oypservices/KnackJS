@@ -115,9 +115,15 @@ $(document).on('knack-view-render.' + vw_contact_note_edit, function(event, view
 //Menu View on the Edit Detail Page
 $(document).on('knack-view-render.view_11', function (event, view, record) {
 
+  var clientStatusMenuItem = "#view_220 .kn-link-1 span";
+
+
   if ( Knack.getUserRoles('object_9') ){
 
     //hide the status menu items from CMs
+    $('#view_220 .kn-link-1').hide();
+
+
     var x = document.getElementsByClassName("kn-link-2")[0];
     x.style.display = "none";
   } else {
@@ -126,19 +132,21 @@ $(document).on('knack-view-render.view_11', function (event, view, record) {
       var status = $(fld_client_status).text() ;
       console.log (status) ;
       if (status == "Intake")
-			   $("#view_220 .kn-link-2 span").text("Update/Complete Intake");
+			   $("clientStatusMenuItem").text("Update/Complete Intake");
       else if (status == "Referral")
-            $("#view_220 .kn-link-2 span").text("Request Authorization");
+            $("clientStatusMenuItem").text("Request Authorization");
       else if (status == "Authorization Approved")
-           $("#view_220 .kn-link-2 span").text("Start Intake");
+           $("clientStatusMenuItem").text("Start Intake");
       else if (status == "Approval Pending")
-           $("#view_220 .kn-link-2 span").text("Set Authorization Decision");
+           $("clientStatusMenuItem").text("Set Authorization Decision");
       else if (status == "Approval Requested")
-           $("#view_220 .kn-link-2 span").text("Set Authorization Decision");
+           $("clientStatusMenuItem").text("Set Authorization Decision");
       else {
         //hide the menu item
-        var x = document.getElementsByClassName("kn-link-2")[0];
-        x.style.display = "none";
+        $('#view_220 .kn-link-1').hide();
+
+        //var x = document.getElementsByClassName("kn-link-2")[0];
+        //x.style.display = "none";
       }
 
 	}

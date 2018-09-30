@@ -107,9 +107,6 @@ $(document).on('knack-view-render.' + vw_contact_note_edit, function(event, view
     }
 ); */
 
-
-
-//
 function setClientStatusText() {
   //Client Edit Page - The Client Status Menu link text will change depending on both the role of the logged in user
   //and the current status of the client.
@@ -136,9 +133,6 @@ try {
 
   //  var clientStatusMenuItemSpan = clientStatusMenuItem + " span";
     var fld_client_status =   '#kn-input-field_75 > span';
-
-
-
 
 
     if ( Knack.getUserRoles(roles.IFIAdmin) || Knack.getUserRoles(roles.Admin)  ) {

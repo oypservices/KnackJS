@@ -119,6 +119,8 @@ $(document).on('knack-view-render.view_11', function (event, view, record) {
     x.style.display = "none";
   } else {
 		  console.dir (view);
+	 		var fld_client_status =   '#kn-input-field_75 > span';
+      alert ($(fld_client_status).text());
 			$("#view_220 .kn-link-2 span").text("My NEW Text");
 	}
 
@@ -605,8 +607,8 @@ $(document).on('knack-scene-render.scene_7', function(event, scene) {
   // Do something after the scene renders
 
 	var fld_client_status =   '#kn-input-field_75 span';
-	console.log ($(fld_client_status).text());
-	alert (  $(fld_client_status).text() );
+//	console.log ($(fld_client_status).text());
+//	alert (  $(fld_client_status).text() );
 
 //  console.dir (scene);
 //	console.dir(event);

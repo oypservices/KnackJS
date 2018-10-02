@@ -814,6 +814,27 @@ $(document).on('knack-view-render.any' , function(event, view, data) {
 
        if (view.source.object == "object_1" ){
          setClientStatusText() ;
+
+         //FORMAT SSN FIELD
+         $('#field_243').keyup(function() {
+             var val = this.value.replace(/\D/g, '');
+             var newVal = '';
+             var sizes = [3, 2, 4];
+
+             for (var i in sizes) {
+               if (val.length > sizes[i]) {
+                 newVal += val.substr(0, sizes[i]) + '-';
+                 val = val.substr(sizes[i]);
+               }
+               else
+                 break;
+             }
+
+             newVal += val;
+             this.value = newVal;
+         });
+
+
          return ;
        }
 
@@ -828,6 +849,13 @@ $(document).on('knack-view-render.any' , function(event, view, data) {
          	});
           return ;
         }
+
+
+
+
+
+
+
 
      }
 

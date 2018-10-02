@@ -816,7 +816,7 @@ $(document).on('knack-view-render.any' , function(event, view, data) {
          setClientStatusText() ;
 
          //FORMAT ID  FIELD
-         $('#field_243').css("width", "50");
+         $('#field_243').css("width", "300");
          $('#field_243').keyup(function() {
              var val = this.value.replace(/\D/g, '');
              var newVal = '';

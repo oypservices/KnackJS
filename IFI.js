@@ -338,6 +338,13 @@ function findContactByAccountid (teamMember) {
     return ;
   }
 
+  if (teamMember.Accountid[0].id === undefined) {
+    console.log ("AccountID Field is not selected") ;
+    return ;
+  }
+
+
+
   var this_url = urlAccountAdd + '/' + teamMember.Accountid[0].id;  //Case Manager is a drop down, therefore index is needed to access the selected value[s]
   console.log ("Case Manager Lookup: " + this_url) ;
 
@@ -837,6 +844,8 @@ $(document).on('knack-view-render.any' , function(event, view, data) {
          //FORMAT ID  FIELD
          $('#field_243').css("width", $('#' + view_name + '-field_167').width()); //ID sized same as DOB
          $('#field_6').css("width", $('#' + view_name + '-field_167').width());   //MA Number sized same as DOB
+
+         //$( "p" ).addClass( "myClass yourClass" );
 
 
 

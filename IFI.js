@@ -204,6 +204,64 @@ catch (e)  {
 //$(document).on('knack-view-render.view_11', function (event, view, record) {
 //});
 
+function addDefaultIntakeDocument (clientID, documentCategory) {
+
+
+  var filters = [
+    // Filter for records with a value for this field in the last three months
+    {
+      "field": dbDocuments.DocumentCategory,
+      "operator":"is",
+      "value": documentCategory
+    }
+  ];
+
+  //Retrieve the standard list of intake documents
+  var this_url = api_url + sc_contact_scene + '/views/' + vw_intact_docs_dflt_list + '/records' + '?filters=' + encodeURIComponent(JSON.stringify(filters));
+
+
+  $.ajax({
+        url: this_url ,
+        type: 'GET',
+        headers: headers,
+        success: function (response) {
+
+          console.dir (response);
+
+          if ( response.records.length == 0)   {
+            console.log ("Documents Category Not Found: " + documentCategory) ;
+          }
+
+          for (var i = 0; i < response.records.length ; i++) {
+
+            var data = {
+                        dbClientIntakeDocuments.Client :  clientID ,
+                        dbClientIntakeDocuments.DocumentTemplateFile : response.records[i][dbDocuments.File] ,
+                        dbClientIntakeDocuments.AssessmentLink : response.records[i][dbDocuments.DocumentLink]
+                       } ;
+
+
+            $.ajax({
+              url: 'https://api.knack.com/v1/scenes/scene_188/views/view_319/records/',
+              type: 'POST',
+              headers: headers,
+              data: JSON.stringify(data),
+              success: function (response) {
+                console.log('Intake Documents added!!!');
+              }
+            }); //end ajax
+
+          } // end for DftlIntakeList
+
+          }
+
+
+        }
+      }); //end ajax
+
+
+      return contactid;
+}
 
 
 // Add Default Intake Documents
@@ -212,11 +270,7 @@ $(document).on('knack-record-update.view_323', function (event, view, record) {
   var user = Knack.getUserToken();
   var headers = { "Authorization": user, "X-Knack-Application-ID": app_id, "Content-Type":"application/json"};
 
-  var Client = Knack.models[vw_client_dtls_intact_docs].toJSON().id;
-
-  var DfltIntakeList = Knack.models[vw_intact_docs_dflt_list].data.models;
-
-
+  var clientID = Knack.models[vw_client_dtls_intact_docs].toJSON().id;
 
   Knack.showSpinner();
 
@@ -224,23 +278,7 @@ $(document).on('knack-record-update.view_323', function (event, view, record) {
 
   if ($("#view_323-field_75 option:selected").text() == "Intake") {
 
-    for (var i = 0; i < DfltIntakeList.length; i++) {
-
-      var data = { field_178: DfltIntakeList[i].attributes.field_178_raw,
-                  field_185: Client ,
-                  field_180: DfltIntakeList[i].attributes.field_180_raw.id } ;
-
-      $.ajax({
-        url: 'https://api.knack.com/v1/scenes/scene_188/views/view_319/records/',
-        type: 'POST',
-        headers: headers,
-        data: JSON.stringify(data),
-        success: function (response) {
-          console.log('Intake Documents added!!!');
-        }
-      }); //end ajax
-
-    } // end for DftlIntakeList
+    addDefaultIntakeDocument (clientID, "Intake")
 
   } // if ClientStatus == intake
 

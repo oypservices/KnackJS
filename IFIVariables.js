@@ -47,7 +47,7 @@ var vw_goal_intervention_list = 'view_520' ;
 //---Insert Default Intake Document Records
 
 var vw_client_dtls_intact_docs = 'view_323';
-var vw_intact_docs_dflt_list = 'view_317';
+var vw_intact_docs_dflt_list = 'view_593';
 var vw_intact_docs_add = 'view_319';
 
 /* Intact Docs Fields List
@@ -77,6 +77,31 @@ var dbClients = {
 "ReferrerPhone":"field_120",
 "GuardianName":"field_122"
 
+}
+
+var dbClientIntakeDocuments = {
+  "IntakeDocumentName" : "field_178" ,
+  "Client" : "field_185" ,
+  "DocumentTemplate" : "field_180" ,
+  "DocumentTemplateFile" : "field_295" ,
+  "ReceivedDocumentFile" : "field_296" ,
+  "AssessmentLink" : "field_294" ,
+  "IntakeStatus" : "field_181" ,
+  "DateSent" : "field_182" ,
+  "DateReceived" : "field_183" ,
+  "ScannedImageFile" : "field_187" ,
+  "ClientTeamMember" : "field_190"
+}
+
+var dbDocuments = {
+  "DocumentName" : "field_132" ,
+  "DocumentType" : "field_135" ,
+  "File" : "field_133" ,
+  "DocumentLink" : "field_293" ,
+  "RichText" : "field_237" ,
+  "AdministratorsOnly" : "field_136" ,
+  "DocumentCategory" : "field_176" ,
+  "GeneralDocument" : "field_288"
 }
 
 var dbContactNotes = {

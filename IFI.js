@@ -209,7 +209,6 @@ catch (e)  {
 
 function addDefaultIntakeDocument (clientID, documentCategory) {
 
-
   var filters = [
     // Filter for records with a value for this field in the last three months
     {
@@ -220,7 +219,7 @@ function addDefaultIntakeDocument (clientID, documentCategory) {
   ];
 
   //Retrieve the standard list of intake documents
-  var this_url = api_url + sc_contact_scene + '/views/' + vw_intact_docs_dflt_list + '/records' + '?filters=' + encodeURIComponent(JSON.stringify(filters));
+  var this_url = api_url + sc_api_client_docs + '/views/' + vw_intact_docs_dflt_list + '/records' + '?filters=' + encodeURIComponent(JSON.stringify(filters));
 
 
   $.ajax({
@@ -242,7 +241,6 @@ function addDefaultIntakeDocument (clientID, documentCategory) {
                         "field_295"  : response.records[i][dbDocuments.File] ,
                         "field_296"  : response.records[i][dbDocuments.DocumentLink]
                        } ;
-
 
             $.ajax({
               url: 'https://api.knack.com/v1/scenes/scene_188/views/view_319/records/',

@@ -24,6 +24,7 @@ var vw_contact_note_edit = 'view_527';
 // API Contact List Variables
 
 var sc_contact_scene = 'scene_248'; //'views/view_442/records ;
+var sc_api_client_docs = 'scene_188';
 var vw_contact_list = 'view_442';
 var vw_contact_add = 'view_446';
 var vw_client_team_add = 'view_445';

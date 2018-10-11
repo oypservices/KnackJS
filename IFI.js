@@ -239,7 +239,8 @@ function addDefaultIntakeDocument (clientID, documentCategory) {
                         "field_185" :  clientID ,
                         "field_178" : response.records[i][dbDocuments.DocumentName],
                         "field_295_raw"  : response.records[i][dbDocuments.File + "_raw"] ,
-                        "field_296_raw.url"  : response.records[i][dbDocuments.File + "_raw.url"] ,
+                        "field_295_raw.field_key" : "field_295" ;
+                        "field_296_raw"  : response.records[i][dbDocuments.File + "_raw.url"] ,
 //"field_296_raw"  : response.records[i][dbDocuments.DocumentLink + "_raw"]
                        } ;
 

@@ -151,10 +151,11 @@ try {
         case "Approval Requested":
 //             $(clientStatusMenuItemSpan).text("Set Authorization Decision");
              break;
-        case "Intake" :
-             $(mnuIntake).show();
-             break;
+//        case "Intake" :
+
+  //           break;
         default:
+            $(mnuIntake).show();
             break ;
 
       }
@@ -260,7 +261,7 @@ function addDefaultIntakeDocument (clientID, documentCategory) {
       }); //end ajax
 
 
-      return contactid;
+      return ;
 }
 
 
@@ -278,7 +279,7 @@ $(document).on('knack-record-update.view_323', function (event, view, record) {
 
   if ($("#view_323-field_75 option:selected").text() == "Intake") {
 
-    addDefaultIntakeDocument (clientID, "Intake")
+    addDefaultIntakeDocument (clientID, "Intake");
 
   } // if ClientStatus == intake
 

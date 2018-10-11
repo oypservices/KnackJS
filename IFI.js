@@ -221,7 +221,6 @@ function addDefaultIntakeDocument (clientID, documentCategory) {
   //Retrieve the standard list of intake documents
   var this_url = api_url + sc_api_client_docs + '/views/' + vw_intact_docs_dflt_list + '/records' + '?filters=' + encodeURIComponent(JSON.stringify(filters));
 
-
   $.ajax({
         url: this_url ,
         type: 'GET',
@@ -240,7 +239,8 @@ function addDefaultIntakeDocument (clientID, documentCategory) {
                         "field_185" :  clientID ,
                         "field_178" : response.records[i][dbDocuments.DocumentName],
                         "field_295_raw"  : response.records[i][dbDocuments.File + "_raw"] ,
-                        "field_296_raw"  : response.records[i][dbDocuments.DocumentLink + "_raw"]
+                        "field_296_raw.url"  : response.records[i][dbDocuments.File + "_raw.url"] ,
+//"field_296_raw"  : response.records[i][dbDocuments.DocumentLink + "_raw"]
                        } ;
 
             console.dir (data) ;
@@ -260,7 +260,6 @@ function addDefaultIntakeDocument (clientID, documentCategory) {
 
         }  //end success function
       }); //end ajax
-
 
       return ;
 }

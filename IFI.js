@@ -277,7 +277,7 @@ $(document).on('knack-record-update.view_323', function (event, view, record) {
 
   //alert ($ ("#view_323-field_75 option:selected") .text ());
 
-  console.log ("view_323 Intake Started: " $("#view_323-field_75 option:selected").text() )
+  console.log ("view_323 Intake Started: " + $("#view_323-field_75 option:selected").text() )
   if ($("#view_323-field_75 option:selected").text() == "Intake") {
 
     addDefaultIntakeDocument (clientID, "Intake");

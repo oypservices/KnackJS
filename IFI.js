@@ -239,9 +239,11 @@ function addDefaultIntakeDocument (clientID, documentCategory) {
             var data = {
                         "field_185" :  clientID ,
                         "field_178" : response.records[i][dbDocuments.DocumentName],
-                        "field_295"  : response.records[i][dbDocuments.File + "_raw"] ,
-                        "field_296"  : response.records[i][dbDocuments.DocumentLink + "_raw"]
+                        "field_295_raw"  : response.records[i][dbDocuments.File + "_raw"] ,
+                        "field_296_raw"  : response.records[i][dbDocuments.DocumentLink + "_raw"]
                        } ;
+
+            console.dir (data) ;
 
             $.ajax({
               url: 'https://api.knack.com/v1/scenes/scene_188/views/view_319/records/',

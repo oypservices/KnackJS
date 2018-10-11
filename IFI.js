@@ -238,8 +238,9 @@ function addDefaultIntakeDocument (clientID, documentCategory) {
 
             var data = {
                         "field_185" :  clientID ,
-                        "field_295"  : response.records[i][dbDocuments.File] ,
-                        "field_296"  : response.records[i][dbDocuments.DocumentLink]
+                        "field_178" : response.records[i][dbDocuments.DocumentName],
+                        "field_295"  : response.records[i][dbDocuments.File + "_raw"] ,
+                        "field_296"  : response.records[i][dbDocuments.DocumentLink + "_raw"]
                        } ;
 
             $.ajax({

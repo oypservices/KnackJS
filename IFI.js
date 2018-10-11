@@ -236,9 +236,9 @@ function addDefaultIntakeDocument (clientID, documentCategory) {
           for (var i = 0; i < response.records.length ; i++) {
 
             var data = {
-                        dbClientIntakeDocuments.Client :  clientID ,
-                        dbClientIntakeDocuments.DocumentTemplateFile : response.records[i][dbDocuments.File] ,
-                        dbClientIntakeDocuments.AssessmentLink : response.records[i][dbDocuments.DocumentLink]
+                        "field_185" :  clientID ,
+                        "field_295"  : response.records[i][dbDocuments.File] ,
+                        "field_296"  : response.records[i][dbDocuments.DocumentLink]
                        } ;
 
 

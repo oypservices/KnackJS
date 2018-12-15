@@ -120,7 +120,8 @@ try {
     var mnuProcessAuth = "#view_220 .kn-link-2" ;
     var mnuStartIntake = "#view_220 .kn-link-3" ;
     var mnuIntake = "#view_220 .kn-link-4" ;
-    var mnuOverride = "#view_220 .kn-link-10" ;
+    var mnuReAuth = "#view_220 .kn-link-5" ;
+    var mnuOverride = "#view_220 .kn-link-11" ;
 
     //ensures I am on the right form
     if ( $(mnuRequestAuth).length == 0 ) {
@@ -133,6 +134,7 @@ try {
     $(mnuProcessAuth).hide();
     $(mnuStartIntake).hide();
     $(mnuIntake).hide();
+    $(mnuReAuth).hide();
     $(mnuOverride).hide();
 
   //  var clientStatusMenuItemSpan = clientStatusMenuItem + " span";
@@ -157,8 +159,10 @@ try {
 //             $(clientStatusMenuItemSpan).text("Set Authorization Decision");
              break;
 //        case "Intake" :
-
-  //           break;
+        case "ReAuthorization Required":
+        case "ReAuthorization - PA Review In Progress":
+            $(mnuReAuth).show();
+           break;
         default:
             break ;
 

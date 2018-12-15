@@ -173,7 +173,7 @@ try {
     }
 
     // Beacon Status Roles
-    if ( Knack.getUserRoles(roles.Beacon)   ) {
+    if ( Knack.getUserRoles(roles.Beacon) || Knack.getUserRoles(roles.Admin)  ) {
       switch ($(fld_client_status).text()){
         case "Approval Requested":
         case "Authorization Pending":
@@ -189,7 +189,7 @@ try {
     }
 
     // Case Manager Status Roles
-    if ( Knack.getUserRoles(roles.IFICM)   ) {
+    if ( Knack.getUserRoles(roles.IFICM) || Knack.getUserRoles(roles.Admin)  ) {
       switch ($(fld_client_status).text()){
         case "Intake":
              $(mnuIntake).show();

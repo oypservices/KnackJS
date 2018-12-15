@@ -27,7 +27,7 @@ function hideShowContactNoteFields(view, val) {
     	return true;
         }
 
-    else if (val == "Scheduled Appointment") {
+    else if (val == "Appointment") {
     	console.log (val);
     	$('#kn-input-' +  dbContactNotes.ContactNotedate).show();
     	$('#kn-input-' +  dbContactNotes.CaseManager).show();
@@ -120,6 +120,7 @@ try {
     var mnuProcessAuth = "#view_220 .kn-link-2" ;
     var mnuStartIntake = "#view_220 .kn-link-3" ;
     var mnuIntake = "#view_220 .kn-link-4" ;
+    var mnuOverride = "#view_220 .kn-link-10" ;
 
     //ensures I am on the right form
     if ( $(mnuRequestAuth).length == 0 ) {
@@ -132,12 +133,14 @@ try {
     $(mnuProcessAuth).hide();
     $(mnuStartIntake).hide();
     $(mnuIntake).hide();
+    $(mnuOverride).hide();
 
   //  var clientStatusMenuItemSpan = clientStatusMenuItem + " span";
     var fld_client_status =   '#kn-input-field_75 > span';
 
 
     if ( Knack.getUserRoles(roles.IFIAdmin) || Knack.getUserRoles(roles.Admin)  ) {
+      $(mnuOverride).show();
       switch ($(fld_client_status).text()){
 
         case "Referral":
@@ -157,7 +160,6 @@ try {
 
   //           break;
         default:
-            $(mnuIntake).show();
             break ;
 
       }

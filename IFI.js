@@ -121,8 +121,8 @@ try {
     var mnuStartIntake = "#view_220 .kn-link-3" ;
     var mnuIntake = "#view_220 .kn-link-4" ;
     var mnuReAuth = "#view_220 .kn-link-5" ;
-    var mnuOverride = "#view_220 .kn-link-11" ;
-    var mnuDischarge = "#view_220 .kn-link-12" ;
+    var mnuOverride = "#view_220 .kn-link-6" ;
+    var mnuDischarge = "#view_220 .kn-link-7" ;
 
     //ensures I am on the right form
     if ( $(mnuRequestAuth).length == 0 ) {

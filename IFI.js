@@ -122,6 +122,7 @@ try {
     var mnuIntake = "#view_220 .kn-link-4" ;
     var mnuReAuth = "#view_220 .kn-link-5" ;
     var mnuOverride = "#view_220 .kn-link-11" ;
+    var mnuDischarge = "#view_220 .kn-link-12" ;
 
     //ensures I am on the right form
     if ( $(mnuRequestAuth).length == 0 ) {
@@ -136,6 +137,7 @@ try {
     $(mnuIntake).hide();
     $(mnuReAuth).hide();
     $(mnuOverride).hide();
+    $(mnuDischarge).hide();
 
   //  var clientStatusMenuItemSpan = clientStatusMenuItem + " span";
     var fld_client_status =   '#kn-input-field_75 > span';
@@ -143,6 +145,7 @@ try {
 
     if ( Knack.getUserRoles(roles.IFIAdmin) || Knack.getUserRoles(roles.Admin)  ) {
       $(mnuOverride).show();
+      $(mnuDischarge).show();
       switch ($(fld_client_status).text()){
 
         case "Referral":

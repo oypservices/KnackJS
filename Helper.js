@@ -51,7 +51,7 @@ function  OYPServicesAPIPost( resource, headers, data )
 				data = JSON.parse(data);
 			}
 
-			console.log(typeof data);
+			//console.log(typeof data);
 
 			$.ajax({
 						url: this_url ,
@@ -68,13 +68,16 @@ function  OYPServicesAPIPost( resource, headers, data )
 								response = response.body ;
 	//					  }
 
-							console.log ( JSON.stringify(response)) ;
+	//						console.log ( JSON.stringify(response)) ;
 
 							resolve(response) ;
 
 						} ,
 				error: function (responseData, textStatus, errorThrown) {
-						alert('POST failed.');
+						console.log('OYPServicesAPIPost failed.');
+						console.log (responseData);
+						console.log (textStatus) ;
+						console.log (errorThrown);
 						reject(errorThrown);
 				}// end response function
 

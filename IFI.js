@@ -149,6 +149,7 @@ try {
       switch ($(fld_client_status).text()){
 
         case "Referral":
+        case "Referral - Need More Information":
         case "Authorization - Need More Information":
               $(mnuRequestAuth).show();
               break;

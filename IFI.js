@@ -486,9 +486,32 @@ $(document).on('knack-record-create.any' , function (event, view, record) {
   }
 });
 
-function CallAPIJSONTransform(message) {
+function CallAPIJSONTransform(response) {
 
-	console.dir (message);
+	console.dir (response);
+  var i;
+  for (i = 0; i < response.records.length; i++) {
+
+
+    role = response.records[i][dbClientTeamMembers.Role] ;
+    console.log (role) ;
+
+
+    if (role == "Therapist")
+        bTherapistRole = true;
+
+    if (role == "Program Director")
+       bProgramDirectRole = true ;
+
+
+     if (role == "Case Manager")
+       bCaseManagerRole = true ;
+
+     if (role == "Rehabilitation Specialist")
+        bRehabSpecRole = true ;
+
+
+  }
 	//var objTransform = {data: {}, template:{}};
 	//objTransform.data.models = Knack.models['view_209'].data.models;
 	//objTransform.template = message.records[0].field_178 ;
@@ -518,14 +541,9 @@ function getClientTeamAPITest(filters ) {
     .then (result=> {CallAPIJSONTransform(result) } ) ;
 }
 
-
-
 function addDefaultClientTeam (event, view, record) {
-
-
   try
   {
-
 
       var bTherapistRole = false;
       var bProgramDirectRole = false ;
@@ -533,7 +551,6 @@ function addDefaultClientTeam (event, view, record) {
       var bRehabSpecRole = false ;
       var viewName = view["key"] ;
       var clientId = Knack.models[viewName].toJSON().id ;
-
 
       var filters = [
         // Filter for records with a value for this field in the last three months
@@ -543,9 +560,6 @@ function addDefaultClientTeam (event, view, record) {
           "value": clientId
         }
       ];
-
-
-
 
       var this_url = urlClientTeamList + '?filters=' + encodeURIComponent(JSON.stringify(filters));
       console.log ("client team add");

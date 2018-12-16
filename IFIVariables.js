@@ -1,5 +1,5 @@
 //var api_url = 'https://api.knack.com/v1/scenes/';
-var api_url = 'https://api.knack.com/v1/pages/';
+var api_url = 'https://api.knack.com/v1/scenes/';
 var api_urlpg = 'https://api.knack.com/v1/pages/';
 var app_id = Knack.app.id;
 var user = Knack.getUserToken();

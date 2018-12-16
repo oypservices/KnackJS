@@ -513,7 +513,8 @@ function addDefaultClientTeam (event, view, record) {
 
       var this_url = urlClientTeamList + '?filters=' + encodeURIComponent(JSON.stringify(filters));
       console.log ("client team add");
-       console.log (this_url);
+      console.log (this_url);
+      console.log (headers);
 
 
       // Search to see if a contact exist by this name
@@ -523,7 +524,7 @@ function addDefaultClientTeam (event, view, record) {
             headers: headers,
            error: function(xhr, status, error){
                  var errorMessage = xhr.status + ': ' + xhr.statusText
-                 alert('addDefaultClientTeam Error - ' + errorMessage);
+                 console.log('addDefaultClientTeam Error - ' + errorMessage);
             },
             success: function (response) {
 

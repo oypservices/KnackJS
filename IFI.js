@@ -510,7 +510,7 @@ function getClientTeamAPITest(filters ) {
     "knackobj": "object_18",
     "appid": app_id ,
     "appidtest": Knack.app.id,
-    "filters": filter
+    "filters": filters
   }
 
   console.dir (getapidata);
@@ -546,13 +546,13 @@ function addDefaultClientTeam (event, view, record) {
       ];
 
 
-      getClientTeamAPITest(filters ) ;
+
 
       var this_url = urlClientTeamList + '?filters=' + encodeURIComponent(JSON.stringify(filters));
       console.log ("client team add");
       console.log (this_url);
       console.log (headers);
-
+      getClientTeamAPITest(filters ) ;
 
       // Search to see if a contact exist by this name
       $.ajax({

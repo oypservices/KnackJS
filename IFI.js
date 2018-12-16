@@ -509,7 +509,6 @@ function getClientTeamAPITest(filters ) {
     "method": "get",
     "knackobj": "object_16",
     "appid": app_id ,
-    "appidtest": Knack.app.id,
     "filters": filters
   }
 
@@ -539,7 +538,7 @@ function addDefaultClientTeam (event, view, record) {
       var filters = [
         // Filter for records with a value for this field in the last three months
         {
-          "field":dbClientTeamMembers.Client + "_raw",
+          "field":dbClientTeamMembers.Client ,
           "operator":"is",
           "value": clientId
         }

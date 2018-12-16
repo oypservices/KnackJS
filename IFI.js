@@ -539,8 +539,8 @@ function addDefaultClientTeam (event, view, record) {
       var filters = [
         // Filter for records with a value for this field in the last three months
         {
-          "field":dbClientTeamMembers.Client,
-          "operator":"contains",
+          "field":dbClientTeamMembers.Client + "_raw",
+          "operator":"is",
           "value": clientId
         }
       ];

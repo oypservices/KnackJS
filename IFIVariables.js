@@ -3,7 +3,7 @@ var api_url = 'https://api.knack.com/v1/scenes/';
 var api_urlpg = 'https://api.knack.com/v1/pages/';
 var app_id = Knack.app.id;
 var user = Knack.getUserToken();
-var headers = { "Authorization": user, "X-Knack-Application-ID": app_id, "Content-Type":"application/json"};
+var headers = { "Authorization": Knack.getUserToken(), "X-Knack-Application-ID": app_id, "Content-Type":"application/json"};
 var headers2 = { "Content-Type":"application/json"};
 
 //roles

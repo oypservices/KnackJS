@@ -490,7 +490,7 @@ function CallAPIJSONTransform(response) {
 
 	console.dir (response);
   var i;
-  for (i = 0; i < response.records.length; i++) {
+  for (i = 0; i < response.total_records -1; i++) {
 
 
     role = response.records[i][dbClientTeamMembers.Role] ;

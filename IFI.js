@@ -512,6 +512,8 @@ function addDefaultClientTeam (event, view, record) {
 
 
       var this_url = urlClientTeamList + '?filters=' + encodeURIComponent(JSON.stringify(filters));
+      console.log ("client team add");
+       console.log (this_url);
 
 
       // Search to see if a contact exist by this name

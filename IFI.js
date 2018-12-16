@@ -489,6 +489,7 @@ $(document).on('knack-record-create.any' , function (event, view, record) {
 function CallAPIJSONTransform(response) {
 
 	console.dir (response);
+  console.dir (response.total_records);
   var i;
   for (i = 0; i < response.total_records -1; i++) {
 

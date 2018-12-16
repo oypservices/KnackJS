@@ -521,9 +521,13 @@ function addDefaultClientTeam (event, view, record) {
             url: this_url ,
             type: 'GET',
             headers: headers,
+           error: function(xhr, status, error){
+                 var errorMessage = xhr.status + ': ' + xhr.statusText
+                 alert('addDefaultClientTeam Error - ' + errorMessage);
+            },
             success: function (response) {
 
-    		  console.log (JSON.stringify(response));
+    		     console.log (JSON.stringify(response));
 
               var i;
               for (i = 0; i < response.records.length; i++) {
@@ -558,7 +562,7 @@ function addDefaultClientTeam (event, view, record) {
                         "clientId" : clientId  } ;
 
       			contactid = findContact (teamMember) ;
-    			console.log (contactid);
+    			  console.log (contactid);
 
               }
 

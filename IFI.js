@@ -507,7 +507,7 @@ function getClientTeamAPITest(filters ) {
   var getapidata =
   {
     "method": "get",
-    "knackobj": "object_18",
+    "knackobj": "object_16",
     "appid": app_id ,
     "appidtest": Knack.app.id,
     "filters": filters

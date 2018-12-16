@@ -486,6 +486,41 @@ $(document).on('knack-record-create.any' , function (event, view, record) {
   }
 });
 
+function CallAPIJSONTransform(message) {
+
+	console.dir (message);
+	//var objTransform = {data: {}, template:{}};
+	//objTransform.data.models = Knack.models['view_209'].data.models;
+	//objTransform.template = message.records[0].field_178 ;
+
+
+// var resource = 'jsontransform';
+// OYPServicesAPIPost( resource, headers, objTransform )
+// 	.then (result=> {CallAPISendMail(result) } ) ;
+
+}
+
+
+function getClientTeamAPITest(filters ) {
+
+  //Get the template from the api table
+  var getapidata =
+  {
+    "method": "get",
+    "knackobj": "object_18",
+    "appid": app_id ,
+    "appidtest": Knack.app.id,
+    "filters": filter
+  }
+
+  console.dir (getapidata);
+  var resource = 'knackobject';
+  OYPServicesAPIPost( resource, headers, getapidata )
+    .then (result=> {CallAPIJSONTransform(result) } ) ;
+}
+
+
+
 function addDefaultClientTeam (event, view, record) {
 
 
@@ -510,6 +545,8 @@ function addDefaultClientTeam (event, view, record) {
         }
       ];
 
+
+      getClientTeamAPITest(filters ) ;
 
       var this_url = urlClientTeamList + '?filters=' + encodeURIComponent(JSON.stringify(filters));
       console.log ("client team add");

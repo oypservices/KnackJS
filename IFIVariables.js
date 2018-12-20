@@ -68,6 +68,14 @@ var vw_intact_docs_add = 'view_319';
 var teamMember = {};
 
 
+var dbObjects = {
+  "Contacts" : "object_14",
+  "ClientTeam" :  "object_16"
+  "Accounts" : "object_6"
+
+}
+
+
 // Database Model
 
 var dbClients = {

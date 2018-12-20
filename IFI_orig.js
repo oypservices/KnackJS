@@ -303,6 +303,171 @@ $(document).on('knack-record-update.view_323', function (event, view, record) {
 
 
 
+
+
+function findContact (teamMember) {
+
+
+  var contactid = "" ;
+
+  var filters = [
+    // Filter for records with a value for this field in the last three months
+    {
+      "field":dbContacts.Name,
+      "operator":"contains",
+      "value": teamMember.Name
+    }
+  ];
+
+
+  var this_url = api_url + sc_contact_scene + '/views/' + vw_contact_list + '/records' + '?filters=' + encodeURIComponent(JSON.stringify(filters));
+
+
+  // Search to see if a contact exist by this name
+  $.ajax({
+        url: this_url ,
+        type: 'GET',
+        headers: headers,
+        success: function (response) {
+
+          console.log (JSON.stringify (response));
+          if ( response.records.length == 1 )
+          {
+            contactid = response.records[0].id ;
+            console.log (contactid) ;
+            addClientTeamMember (contactid, teamMember.Role, teamMember.clientId);
+          }
+          else if ( response.records.length == 0)
+          {
+            console.log ("contact not found " + JSON.stringify( teamMember.Name)) ;
+            var newContact = { "field_102": teamMember.Name_raw
+                                } ;
+
+
+
+            console.log ( JSON.stringify(newContact)) ;
+
+            $.ajax({
+                  url: urlContactAdd ,
+                  type: 'POST',
+                  headers: headers,
+                  data: JSON.stringify(newContact),
+                  success: function (response2) {
+
+                    console.log (JSON.stringify(response2) );
+                    console.log('Contact Added!!!');
+                    contactid = response2.record.id ;
+                    console.log (contactid) ;
+                    addClientTeamMember (contactid, teamMember.Role, teamMember.clientId);
+
+                  }
+
+            }); //end ajax
+
+
+
+          }
+
+
+        }
+      }); //end ajax
+
+
+      return contactid;
+}
+
+
+
+function findContactByAccountid (teamMember) {
+
+
+  var contactid = "" ;
+
+  if (teamMember.Accountid === undefined) {
+    console.log ("AccountID Field is undefined") ;
+    return ;
+  }
+
+  if (teamMember.Accountid[0].id === undefined) {
+    console.log ("AccountID Field is not selected") ;
+    return ;
+  }
+
+
+
+  var this_url = urlAccountAdd + '/' + teamMember.Accountid[0].id;  //Case Manager is a drop down, therefore index is needed to access the selected value[s]
+  console.log ("Case Manager Lookup: " + this_url) ;
+
+
+
+  // Search to see if a contact exist by this name
+  $.ajax({
+        url: this_url ,
+        type: 'GET',
+        headers: headers,
+        success: function (response) {
+
+          console.log ( JSON.stringify(response)) ;
+          contactid = response[dbAccounts.Contact_raw][0].id ;
+            console.log (contactid) ;
+            addClientTeamMember (contactid, teamMember.Role, teamMember.clientId);
+          }
+
+      }); //end ajax
+
+
+      return contactid;
+}
+
+
+
+// Add Standard Contacts
+
+function addContact(teamMember) {
+  return 'unknown';
+}
+
+
+function addClientTeamMember (contactid, role, clientId) {
+
+  console.log ('Ready to add contact ' + contactid + ' for client ' + clientId + ' as a ' + role );
+
+  var data = { field_105: contactid,
+              field_106: role ,
+              field_196: clientId } ;
+
+
+  if (contactid === undefined) {
+    console.log ("Cannot added Client Team Member contactid is undefined") ;
+    return ;
+  }
+
+   if (clientId === undefined) {
+    console.log ("Cannot added Client Team Member clientId is undefined") ;
+    return ;
+  }
+
+ if (role === undefined) {
+    console.log ("Cannot added Client Team Member role is undefined") ;
+    return ;
+  }
+
+  $.ajax({
+    url: urlClientTeamAdd ,
+    type: 'POST',
+    headers: headers,
+    data: JSON.stringify(data),
+    success: function (response) {
+      console.log ( JSON.stringify (response) );
+      console.log('Client Team Member Added!!!');
+    }
+  }); //end ajax
+
+
+
+  return true;
+
+}
 /**********************************************************************************************
 //Client Add / Edit Logic
 *************************************************************************************************/
@@ -320,6 +485,198 @@ $(document).on('knack-record-create.any' , function (event, view, record) {
       addDefaultClientTeam (event, view, record);
   }
 });
+
+function CallAPIJSONTransform(response) {
+
+	console.dir (response);
+  console.dir (response.total_records);
+  var i;
+  for (i = 0; i < response.total_records -1; i++) {
+
+
+    role = response.records[i][dbClientTeamMembers.Role] ;
+    console.log (role) ;
+
+
+    if (role == "Therapist")
+        bTherapistRole = true;
+
+    if (role == "Program Director")
+       bProgramDirectRole = true ;
+
+
+     if (role == "Case Manager")
+       bCaseManagerRole = true ;
+
+     if (role == "Rehabilitation Specialist")
+        bRehabSpecRole = true ;
+
+
+  }
+	//var objTransform = {data: {}, template:{}};
+	//objTransform.data.models = Knack.models['view_209'].data.models;
+	//objTransform.template = message.records[0].field_178 ;
+
+
+// var resource = 'jsontransform';
+// OYPServicesAPIPost( resource, headers, objTransform )
+// 	.then (result=> {CallAPISendMail(result) } ) ;
+
+}
+
+
+function getClientTeamAPITest(filters ) {
+
+  //Get the template from the api table
+  var getapidata =
+  {
+    "method": "get",
+    "knackobj": "object_16",
+    "appid": app_id ,
+    "filters": filters
+  }
+
+  console.dir (getapidata);
+  var resource = 'knackobject';
+  OYPServicesAPIPost( resource, headers, getapidata )
+    .then (result=> {CallAPIJSONTransform(result) } ) ;
+}
+
+function addDefaultClientTeam (event, view, record) {
+  try
+  {
+
+      var bTherapistRole = false;
+      var bProgramDirectRole = false ;
+      var bCaseManagerRole = false ;
+      var bRehabSpecRole = false ;
+      var viewName = view["key"] ;
+      var clientId = Knack.models[viewName].toJSON().id ;
+
+      var filters = [
+        // Filter for records with a value for this field in the last three months
+        {
+          "field":dbClientTeamMembers.Client ,
+          "operator":"is",
+          "value": clientId
+        }
+      ];
+
+      var this_url = urlClientTeamList + '?filters=' + encodeURIComponent(JSON.stringify(filters));
+      console.log ("client team add");
+      console.log (this_url);
+      console.log (headers);
+      getClientTeamAPITest(filters ) ;
+
+      // Search to see if a contact exist by this name
+      $.ajax({
+            url: this_url ,
+            type: 'GET',
+            headers: headers,
+           error: function(xhr, status, error){
+                 var errorMessage = xhr.status + ': ' + xhr.statusText
+                 console.log('addDefaultClientTeam Error - ' + errorMessage);
+            },
+            success: function (response) {
+
+    		     console.log (JSON.stringify(response));
+
+              var i;
+              for (i = 0; i < response.records.length; i++) {
+
+
+                role = response.records[i][dbClientTeamMembers.Role] ;
+                console.log (role) ;
+
+
+                if (role == "Therapist")
+                    bTherapistRole = true;
+
+                if (role == "Program Director")
+                   bProgramDirectRole = true ;
+
+
+                 if (role == "Case Manager")
+                   bCaseManagerRole = true ;
+
+                 if (role == "Rehabilitation Specialist")
+                    bRehabSpecRole = true ;
+
+
+              }
+
+
+              if (!bProgramDirectRole) {
+                  teamMember = {
+                        "Name" : 'Shavon Neal' ,
+                        "Name_raw" : { "first": "Shavon", "last" : "Neal"} ,
+                        "Role" : "Program Director" ,
+                        "clientId" : clientId  } ;
+
+      			contactid = findContact (teamMember) ;
+    			  console.log (contactid);
+
+              }
+
+              if (!bTherapistRole)
+              {
+                    teamMember = {
+                          "Name" : Knack.models[viewName].toJSON()[dbClients.ReferredBy] ,
+                          "Name_raw" : Knack.models[viewName].toJSON()[dbClients.ReferredBy_raw] ,
+                          "Role" : "Therapist" ,
+                          "clientId" : clientId ,
+                          "Phone" : Knack.models[viewName].toJSON()[dbClients.ReferrerPhone]  } ;
+
+
+      			contactid = findContact (teamMember) ;
+    			console.log (contactid);
+
+              }
+
+
+
+              if (!bRehabSpecRole) {
+                  teamMember = {
+                        "Name" : 'LaVon MacGruder' ,
+                        "Name_raw" : { "first": "LaVon", "last" : "MacGruder"} ,
+                        "Role" : "Rehabilitation Specialist" ,
+                        "clientId" : clientId };
+
+      			contactid = findContact (teamMember) ;
+    			console.log (contactid);
+
+              }
+
+      		  if (!bCaseManagerRole) {
+
+                  teamMember = {
+                          "Name" : "",
+                          "Name_raw" : { "first": "", "last" : ""} ,
+                          "Accountid" : Knack.models[viewName].toJSON()[dbClients.CaseManager + "_raw"] ,
+                          "Role" : "Case Manager" ,
+                          "clientId" : clientId  } ;
+                console.log (JSON.stringify(teamMember)) ;
+
+      			contactid = findContactByAccountid (teamMember) ;
+    			console.log (contactid);
+   			 }
+
+
+
+            } //end response
+          }); //end ajax
+
+
+  }
+  catch (e)
+    {
+  console.error(e);
+  console.error(e.stack) ;
+
+}
+
+
+};
 
 function setSelectedIndex(s, valsearch)
 
@@ -614,6 +971,11 @@ $(document).on('knack-view-render.any' , function(event, view, data) {
          	});
           return ;
         }
+
+
+
+
+
 
 
 

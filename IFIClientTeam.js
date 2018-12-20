@@ -169,7 +169,7 @@ function findContact (teamMember) {
 
   OYPServicesAPIPost( resource, headers, getapidata )
     .then (resultContact=> {
-        contactid = AddContacttoTeam(resultContact);
+        contactid = AddContacttoTeam(resultContact, teamMember);
         return contactid;
   }) ;
 
@@ -186,7 +186,7 @@ catch (e)
  Add the contact to the team.  May require that that contact be added as a contat first
 *******************************************************************************************************/
 
-function AddContacttoTeam (resultContact) {
+function AddContacttoTeam (resultContact, teamMember) {
 
 try {
 

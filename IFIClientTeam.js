@@ -54,7 +54,6 @@ function InspectClientTeamRoles(resultCientTeam, viewName) {
       console.log (clientId) ;
       console.log (viewName) ;
     	console.dir (resultCientTeam);
-      console.dir (recordClient) ;
 
       console.dir (resultCientTeam.records.length);
       for (var i = 0; i < resultCientTeam.records.length; i++) {

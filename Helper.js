@@ -63,14 +63,15 @@ function  OYPServicesAPIPost( resource, headers, data )
 						json: true,
 						success: function (response) {
 
-	//						if (resource == "jsontransform") {
-							  console.dir (response) ;
-								response = response.body ;
-	//					  }
 
-	//						console.log ( JSON.stringify(response)) ;
+						if (response != undefined)
+					  	 console.dir (response) ;
 
-							resolve(response) ;
+						if (response.body != undefined)
+							response = response.body ;
+
+
+					resolve(response) ;
 
 						} ,
 				error: function (responseData, textStatus, errorThrown) {

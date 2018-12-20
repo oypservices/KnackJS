@@ -337,9 +337,15 @@ try {
     .then (resultAccount=> {
 
         console.dir(resultAccount) ;
-        contactid = resultAccount[dbAccounts.Contact_raw][0].id ;
-        console.log (contactid) ;
-        addClientTeamMember (contactid, teamMember.Role, teamMember.clientId);
+        if (resultAccount.records.length > 0 )
+        {
+          contactid = resultAccount.records[0][dbAccounts.Contact_raw][0].id ;
+          console.log (contactid) ;
+          addClientTeamMember (contactid, teamMember.Role, teamMember.clientId);
+        }
+        else {
+          console.log ("Account Not Found") ;
+        }
         return contactid;
 
       } ) ;

@@ -194,7 +194,7 @@ try {
 
    var contactid = "" ;
 
-    switch (resultContact.records.length )
+    switch (resultContact.records.length ){
       case 0: //contact not found
           var resource = 'knackobject';
           console.log ("contact not found " + JSON.stringify( teamMember.Name)) ;

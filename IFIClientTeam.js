@@ -176,11 +176,11 @@ function findContact (teamMember) {
   }) ;
 
 }
-catch
+catch (e)
   {
-    return ;
+    console.error(e);
+    console.error(e.stack) ;
   }
-
 
 }
 
@@ -229,10 +229,13 @@ try {
 
     }
   }
-  catch
+  catch (e)
     {
-      return ;
+      console.error(e);
+      console.error(e.stack) ;
     }
+
+
 }
 
 
@@ -286,10 +289,13 @@ function addClientTeamMember (contactid, role, clientId) {
   return true;
 
 }
-catch
+catch (e)
   {
-    return ;
+    console.error(e);
+    console.error(e.stack) ;
   }
+
+
 
 }
 
@@ -341,9 +347,12 @@ try {
 
       } ) ;
 }
-catch
+catch (e)
   {
-    return ;
+    console.error(e);
+    console.error(e.stack) ;
   }
+
+
 
 }

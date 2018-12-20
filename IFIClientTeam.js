@@ -30,6 +30,8 @@ try {
       console.error(e.stack) ;
     }
 
+
+
 }
 
 
@@ -144,6 +146,8 @@ find and add contacts to client team
 
 function findContact (teamMember) {
 
+  try {
+
   var contactid = "" ;
   var resource = 'knackobject';
 
@@ -167,9 +171,15 @@ function findContact (teamMember) {
 
   OYPServicesAPIPost( resource, headers, getapidata )
     .then (resultContact=> {
-        AddContacttoTeam(resultContact) }
+        AddContacttoTeam(resultContact); }
         return contactid;
   ) ;
+
+}
+catch
+  {
+    return ;
+  }
 
 
 }
@@ -179,6 +189,8 @@ function findContact (teamMember) {
 *******************************************************************************************************/
 
 function AddContacttoTeam (resultContact) {
+
+try {
 
    var contactid = "" ;
 
@@ -216,7 +228,11 @@ function AddContacttoTeam (resultContact) {
         console.log ("multiple contacts found, no action taken");
 
     }
-
+  }
+  catch
+    {
+      return ;
+    }
 }
 
 /*************************************************************************************************
@@ -224,6 +240,9 @@ function AddContacttoTeam (resultContact) {
 ***************************************************************************************************/
 
 function addClientTeamMember (contactid, role, clientId) {
+
+  try
+  {
 
   console.log ('Ready to add contact ' + contactid + ' for client ' + clientId + ' as a ' + role );
 
@@ -266,6 +285,12 @@ function addClientTeamMember (contactid, role, clientId) {
   return true;
 
 }
+catch
+  {
+    return ;
+  }
+
+}
 
 /*************************************************************************************************
  Case managers contact records are linked to Account Record. Retrieve the contact id from the
@@ -274,6 +299,7 @@ function addClientTeamMember (contactid, role, clientId) {
 
 function findContactByAccountid (teamMember) {
 
+try {
 
   var contactid = "" ;
 
@@ -314,6 +340,10 @@ function findContactByAccountid (teamMember) {
 
       } ) ;
     }
-
+}
+catch
+  {
+    return ;
+  }
 
 }

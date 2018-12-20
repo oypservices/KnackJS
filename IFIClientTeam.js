@@ -34,13 +34,12 @@ try {
 
 }
 
-
 /*********************************************************************************
 Inspect the roles on the client team to determine if new default contacts need
 to be added
 **********************************************************************************/
 
-function InspectClientTeaRolesm(resultCientTeam, viewName) {
+function InspectClientTeamRoles(resultCientTeam, viewName) {
 
   try
     {

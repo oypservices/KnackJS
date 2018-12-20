@@ -263,13 +263,12 @@ function addClientTeamMember (contactid, role, clientId) {
     return ;
   }
 
-
   var resource = 'knackobject';
   console.log ("contact not found " + JSON.stringify( teamMember.Name)) ;
 
   var postapidata = {
         "method": "post",
-        "knackobj": dbObjects.Contacts ,
+        "knackobj": dbObjects.ClientTeam ,
         "appid": app_id,
         "record":  {
             field_105: contactid,

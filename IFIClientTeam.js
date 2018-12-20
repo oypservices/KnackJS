@@ -326,7 +326,7 @@ try {
     "filters": [ {
         "field":"id" ,
         "operator":"is",
-        "value": teamMember.Accountid
+        "value": teamMember.Accountid[0].id
       }
     ]
   }

@@ -160,7 +160,7 @@ function findContact (teamMember) {
         "operator":"contains",
         "value": teamMember.Name
       }
-    ];
+    ]
   }
 
   console.dir (getapidata);

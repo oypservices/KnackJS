@@ -70,7 +70,7 @@ var teamMember = {};
 
 var dbObjects = {
   "Contacts" : "object_14",
-  "ClientTeam" :  "object_16"
+  "ClientTeam" :  "object_16",
   "Accounts" : "object_6"
 
 }

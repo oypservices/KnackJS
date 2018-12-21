@@ -231,13 +231,14 @@ $(document).on('knack-record-update.view_323', function (event, view, record) {
   var headers = { "Authorization": user, "X-Knack-Application-ID": app_id, "Content-Type":"application/json"};
 
   var clientID = Knack.models[vw_client_dtls_intact_docs].toJSON().id;
+  var AgeGroup = Knack.models[vw_client_dtls_intact_docs].toJSON()["field_289"];
 
   Knack.showSpinner();
 
   console.log ( $("#view_323-field_75 option:selected").text() );
   if ($("#view_323-field_75 option:selected").text() == "Intake") {
 
-    SetDefaultIntakeDocuments (clientID, "Intake");
+    SetDefaultIntakeDocuments (clientID, AgeGroup);
 
   } // if ClientStatus == intake
 

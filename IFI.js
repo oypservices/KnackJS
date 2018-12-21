@@ -1,4 +1,14 @@
 
+/*******************************************************************************************
+Standard error logging function.
+********************************************************************************************/
+
+function logerror (source, e) {
+  console.log ("Error in " + source + ": " + e ) ;
+  return
+}
+
+
 function hideShowContactNoteFields(view, val) {
 
 	    // If this value in the form doesn't equal "SpecificValue" then prevent the form from submitting
@@ -214,69 +224,6 @@ catch (e)  {
 
 
 
-//Menu View on the Edit Detail Page
-//$(document).on('knack-view-render.view_11', function (event, view, record) {
-//});
-
-function addDefaultIntakeDocument (clientID, documentCategory) {
-
-  var filters = [
-    // Filter for records with a value for this field in the last three months
-    {
-      "field": dbDocuments.DocumentCategory,
-      "operator":"is",
-      "value": documentCategory
-    }
-  ];
-
-  //Retrieve the standard list of intake documents
-  var this_url = api_url + sc_api_client_docs + '/views/' + vw_intact_docs_dflt_list + '/records' + '?filters=' + encodeURIComponent(JSON.stringify(filters));
-
-  $.ajax({
-        url: this_url ,
-        type: 'GET',
-        headers: headers,
-        success: function (response) {
-
-          console.dir (response);
-
-          if ( response.records.length == 0)   {
-            console.log ("Documents Category Not Found: " + documentCategory) ;
-          }
-
-          for (var i = 0; i < response.records.length ; i++) {
-
-            var data = {
-                        "field_185" :  clientID ,
-                        "field_178" : response.records[i][dbDocuments.DocumentName],
-                        "field_295_raw"  : response.records[i][dbDocuments.File + "_raw"] ,
-                        "field_295_raw.field_key" : "field_295" ,
-                        "field_296_raw.url"  : response.records[i][dbDocuments.File + "_raw.url"] ,
-//"field_296_raw"  : response.records[i][dbDocuments.DocumentLink + "_raw"]
-                       } ;
-
-            console.dir (data) ;
-
-            $.ajax({
-              url: 'https://api.knack.com/v1/scenes/scene_188/views/view_319/records/',
-              type: 'POST',
-              headers: headers,
-              data: JSON.stringify(data),
-              success: function (response) {
-                console.log('Intake Documents added!!!');
-              }
-            }); //end ajax
-
-          } // end for DftlIntakeList
-
-
-        }  //end success function
-      }); //end ajax
-
-      return ;
-}
-
-
 // Add Default Intake Documents
 $(document).on('knack-record-update.view_323', function (event, view, record) {
 
@@ -290,7 +237,7 @@ $(document).on('knack-record-update.view_323', function (event, view, record) {
   console.log ( $("#view_323-field_75 option:selected").text() );
   if ($("#view_323-field_75 option:selected").text() == "Intake") {
 
-    addDefaultIntakeDocument (clientID, "Intake");
+    SetDefaultIntakeDocuments (clientID, "Intake");
 
   } // if ClientStatus == intake
 

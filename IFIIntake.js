@@ -7,6 +7,13 @@ function SetDefaultIntakeDocuments (clientID, documentCategory) {
 
   try {
 
+    var minor = "";
+    if ( documentCategory != 'Adult' )
+       minor = "Intake - Minor" ;
+
+    console.log (documentCategory) ;
+
+
     var resource = 'knackobject';
     var getapidata =  {
       "method": "get",
@@ -20,8 +27,13 @@ function SetDefaultIntakeDocuments (clientID, documentCategory) {
                 },
                 { "field": dbDocuments.DocumentCategory,
                 "operator":"is",
-                "value": documentCategory
-                }
+                "value": "Intake - " + documentCategory
+              },
+              ,
+              { "field": dbDocuments.DocumentCategory,
+              "operator":"is",
+              "value": minor
+              }
       ]
     }
 

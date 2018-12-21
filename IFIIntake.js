@@ -23,7 +23,8 @@ function SetDefaultIntakeDocuments (clientID, documentCategory) {
     console.dir (getapidata);
 
     OYPServicesAPIPost( resource, headers, getapidata )
-      .then (resultDocumeents=> { addDocumentstoClient (resultDocuments, clientID)  } ) ;
+      .then (resultDocumeents=> { addDocumentstoClient (resultDocumeents, clientID)  } ) ;
+
   }
   catch (e) {
       logerror ("SetDefaultIntakeDocuments", e);

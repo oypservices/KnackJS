@@ -19,7 +19,7 @@ function SetDefaultIntakeDocuments (clientID, documentCategory) {
       "method": "get",
       "knackobj": dbObjects.Documents,
       "appid": app_id ,
-      "filters":  'match': 'or',
+      "filters": { "match": "or",
         "rules" : [ {
                   "field": dbDocuments.DocumentCategory,
                   "operator":"is",
@@ -29,12 +29,12 @@ function SetDefaultIntakeDocuments (clientID, documentCategory) {
                 "operator":"is",
                 "value": "Intake - " + documentCategory
               },
-              ,
               { "field": dbDocuments.DocumentCategory,
               "operator":"is",
               "value": minor
               }
-      ]
+             ]
+          }
     }
 
     console.dir (getapidata);

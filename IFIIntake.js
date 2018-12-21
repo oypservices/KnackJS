@@ -15,7 +15,7 @@ function SetDefaultIntakeDocuments (clientID, documentCategory) {
       "filters": [ {
         "field": dbDocuments.DocumentCategory,
         "operator":"is",
-        "value": documentCategory
+        "value": "Intake - Everyone"
         }
       ]
     }

@@ -72,11 +72,14 @@ function addDocumentstoClient (resultDocuments, clientID)
                     "record":  {
                       "field_185" :  clientID ,
                       "field_178" : resultDocuments.records[i][dbDocuments.DocumentName],
-                      "field_295_raw"  : resultDocuments.records[i][dbDocuments.File + "_raw"] ,
-                      "field_295_raw.field_key" : "field_295" ,
-                      "field_296_raw.url"  : resultDocuments.records[i][dbDocuments.File + "_raw.url"]  }
+                      "field_295  : resultDocuments.records[i][dbDocuments.File + "_raw"].id
+                    //  "field_295_raw.field_key" : "field_295" ,
+                    //  "field_296_raw.url"  : resultDocuments.records[i][dbDocuments.File + "_raw.url"]
+                    }
                   };
 
+               console.dir (postapidata) ;
+               
                OYPServicesAPIPost( resource, headers, postapidata )
                              .then (resultDocAdded=> {
                                console.dir (resultDocAdded) ;

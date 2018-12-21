@@ -7,9 +7,9 @@ function SetDefaultIntakeDocuments (clientID, documentCategory) {
 
   try {
 
-    var minor = "";
+    var minor = "Intake - All Adults";
     if ( documentCategory != 'Adult' )
-       minor = "Intake - Minor" ;
+       minor = "Intake - All Minors" ;
 
     console.log (documentCategory) ;
 

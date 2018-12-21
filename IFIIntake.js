@@ -47,23 +47,25 @@ function addDocumentstoClient (resultDocuments, clientID)
         if (resultDocuments.records.length > 0 )
         {
 
-          var postapidata = {
-                "method": "post",
-                "knackobj": dbObjects.ClientIntakeDocuments ,
-                "appid": app_id,
-                "record":  {
-                  "field_185" :  clientID ,
-                  "field_178" : resultDocuments.records[i][dbDocuments.DocumentName],
-                  "field_295_raw"  : resultDocuments.records[i][dbDocuments.File + "_raw"] ,
-                  "field_295_raw.field_key" : "field_295" ,
-                  "field_296_raw.url"  : resultDocuments.records[i][dbDocuments.File + "_raw.url"]  }
-              };
+          for (var i = 0; i < resultDocuments.records.length ; i++) {
+              var postapidata = {
+                    "method": "post",
+                    "knackobj": dbObjects.ClientIntakeDocuments ,
+                    "appid": app_id,
+                    "record":  {
+                      "field_185" :  clientID ,
+                      "field_178" : resultDocuments.records[i][dbDocuments.DocumentName],
+                      "field_295_raw"  : resultDocuments.records[i][dbDocuments.File + "_raw"] ,
+                      "field_295_raw.field_key" : "field_295" ,
+                      "field_296_raw.url"  : resultDocuments.records[i][dbDocuments.File + "_raw.url"]  }
+                  };
 
-           OYPServicesAPIPost( resource, headers, postapidata )
-                         .then (resultDocAdded=> {
-                           console.dir (resultDocAdded) ;
-                           console.log('Client Intake Document Added!!!');
-                         }) ;
+               OYPServicesAPIPost( resource, headers, postapidata )
+                             .then (resultDocAdded=> {
+                               console.dir (resultDocAdded) ;
+                               console.log('Client Intake Document Added!!!');
+                             }) ;
+           }
 
         }
         else {

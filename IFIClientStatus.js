@@ -82,14 +82,14 @@ function resetClientStatusNote (clientId)
         var proc = "resetClientStatusNote" ;
         console.log (proc);
 
-        /*Update the client record */
-        
+        /*Update the client record, set the clientsatusnote to null */
+
         var resource = 'knackobject';
         var postapidata = {
               "method": "put",
               "knackobj": dbObjects.Clients ,
               "appid": app_id,
-              "record":  { dbClients.ClientStatusNote : "" } ,
+              "record":  { field_328 : "" } ,
               "id" : clientId
        };
 

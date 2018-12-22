@@ -14,14 +14,16 @@ try {
     console.dir (objClient);
 
     var clientId = objClient.id ;
-    var clientStatus = objClient[dbClients.ClientStatus_raw][0].identifier ;
+    var clientStatus = objClient[dbClients.ClientStatus_raw][0].identifier;
+    var clientStatusid = objClient[dbClients.ClientStatus_raw][0].id;
     var clientStatusNote = objClient[dbClients.ClientStatusNote] ;
     var beaconStartDate = objClient[dbClients.BeaconStartDate] ;
     var beaconEndDate = objClient[dbClients.BeaconEndDate] ;
 
     var curClientStatus  = {
       "field_336": clientId ,
-      "field_331": clientStatus,
+      "field_331": clientStatusid,
+      "status_name" : clientStatus,
       "field_332": clientStatusNote,
       "field_333": beaconStartDate ,
       "field_334":beaconEndDate  ,
@@ -125,12 +127,14 @@ function insertClientStatusHistory (curClientStatus)
         console.log (proc);
         console.log (curClientStatus.field_331) ;
 
-        if (curClientStatus.field_331 != "Authorization Approved") {
+        if (curClientStatus.status_name != "Authorization Approved") {
            //delete the dates, if this is not the beacon authorization status
             delete curClientStatus.field_333;
             delete curClientStatus.field_334;
         }
 
+        delete.curClientStatus.status_name ;
+        
         console.dir (curClientStatus);
         var resource = 'knackobject';
         var postapidata = {

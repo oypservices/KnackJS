@@ -47,11 +47,11 @@ try {
     OYPServicesAPIPost( resource, headers, getapidata )
       .then (resultCSH=> {
 
-            console.log (resultCHS.records.length);
-            if (resultCHS.records.length == 0 )
+            console.log (resultCSH.records.length);
+            if (resultCSH.records.length == 0 )
                insertClientStatusHistory (curClientStatus) ;
 
-            else if (resultCHS.records[0] != clientStatus)
+            else if (resultCSH.records[0] != clientStatus)
                insertClientStatusHistory (curClientStatus) ;
 
             if (clientStatusNote != "")

@@ -98,9 +98,9 @@ function resetClientStatusNote (clientId)
                                console.dir (resultDocAdded) ;
                                console.log('Client Status History Added!!!');
                              }) ;
-        }
 
-    } catch (e) {
+    }
+     catch (e) {
       logerror (proc, e);
     }
 

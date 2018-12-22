@@ -73,7 +73,9 @@ var dbObjects = {
   "ClientTeam" :  "object_16",
   "Accounts" : "object_6",
   "Documents" :"object_19",
-  "ClientIntakeDocuments" : "object_24"
+  "ClientIntakeDocuments" : "object_24",
+  "Clients" : "object_1",
+  "ClientStatusHistory" : "object_35"
 
 }
 
@@ -87,7 +89,21 @@ var dbClients = {
 "ReferredBy":"field_118",
 "ReferredBy_raw":"field_118_raw",
 "ReferrerPhone":"field_120",
-"GuardianName":"field_122"
+"GuardianName":"field_122",
+"ClientStatus":"field_75",
+"ClientStatusNote":"field_328",
+"BeaconStartDate":"field_277",
+"BeaconEndDate"::"field_278"
+}
+
+var dbClientStatusHistory = {
+  "Client":"field_336",
+  "StatusDate" : "field_337" ,
+  "ClientStatus":"field_331",
+  "ClientStatusNote":"field_332",
+  "BeaconStartDate":"field_333",
+  "BeaconEndDate":"field_334",
+  "Account":"field_335"
 
 }
 

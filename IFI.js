@@ -256,15 +256,17 @@ $(document).on('knack-record-update.view_323', function (event, view, record) {
 *************************************************************************************************/
 $(document).on('knack-record-update.any' , function (event, view, record) {
   console.log (JSON.stringify(view)) ;
-  if (view.source.object == "object_1" ) {
+  if (view.source.object == dbObjects.Clients ) {
       addDefaultClientTeam (event, view, record);
+      logStatusChange (event, view, record) ;
+
   }
 
 });
 
 $(document).on('knack-record-create.any' , function (event, view, record) {
   console.log (JSON.stringify(view)) ;
-  if (view.source.object == "object_1" ) {
+  if (view.source.object == dbObjects.Clients) {
       addDefaultClientTeam (event, view, record);
   }
 });

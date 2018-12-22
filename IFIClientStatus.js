@@ -7,6 +7,8 @@ try {
 
     var viewName = view["key"] ;
     var objClient = Knack.models[viewName].toJSON();
+    console.dir (objClient);
+    
     var clientId = objClient.id ;
     var clientStatus = objClient[dbClients.ClientStatus + "_raw"].identifier ;
     var clientStatusNote = objClient[dbClients.ClientStatusNote] ;
@@ -21,7 +23,7 @@ try {
       "field_334":beaconEndDate  //,
 //      "field_335"
     } ;
-
+    console.dir (curClientStatus);
 
     //get the last statud history record for the clientId
     var resource = 'knackobject';

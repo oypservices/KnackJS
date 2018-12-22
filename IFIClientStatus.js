@@ -100,14 +100,8 @@ function resetClientStatusNote (clientId)
                              }) ;
         }
 
-
-
     } catch (e) {
       logerror (proc, e);
-    }
-
-    finally {
-      return ;
     }
 
 }
@@ -147,14 +141,9 @@ function insertClientStatusHistory (curClientStatus)
                              }) ;
         }
 
-
-
     } catch (e) {
       logerror (proc, e);
     }
 
-    finally {
-      return ;
-    }
 
 }

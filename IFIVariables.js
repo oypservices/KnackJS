@@ -101,6 +101,7 @@ var dbClientStatusHistory = {
   "Client":"field_336",
   "StatusDate" : "field_337" ,
   "ClientStatus":"field_331",
+  "ClientStatus_raw":"field_331_raw",
   "ClientStatusNote":"field_332",
   "BeaconStartDate":"field_333",
   "BeaconEndDate":"field_334",

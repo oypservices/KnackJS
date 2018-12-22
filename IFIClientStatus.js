@@ -59,7 +59,7 @@ try {
             if (resultCSH.records.length == 0 )
                insertClientStatusHistory (curClientStatus) ;
 
-            else if (resultCSH.records[0] != clientStatus)
+            else if (resultCSH.records[0][dbClientStatusHistory.ClientStatus_raw].id != clientStatus)
                insertClientStatusHistory (curClientStatus) ;
 
             if (clientStatusNote != "")
@@ -95,7 +95,7 @@ function resetClientStatusNote (clientId)
               "method": "put",
               "knackobj": dbObjects.Clients ,
               "appid": app_id,
-              "record":  { field_328 : " " } ,
+              "record":  { field_328 : "" } ,
               "id" : clientId
        };
        console.dir (postapidata);

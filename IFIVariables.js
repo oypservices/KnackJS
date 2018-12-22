@@ -93,7 +93,7 @@ var dbClients = {
 "ClientStatus":"field_75",
 "ClientStatusNote":"field_328",
 "BeaconStartDate":"field_277",
-"BeaconEndDate"::"field_278"
+"BeaconEndDate":"field_278"
 }
 
 var dbClientStatusHistory = {

@@ -24,8 +24,8 @@ try {
       "field_331": clientStatus,
       "field_332": clientStatusNote,
       "field_333": beaconStartDate ,
-      "field_334":beaconEndDate  //,
-//      "field_335"
+      "field_334":beaconEndDate  ,
+      "field_335":Knack.getUserAttributes().id
     } ;
     console.dir (curClientStatus);
 

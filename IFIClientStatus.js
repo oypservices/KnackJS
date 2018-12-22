@@ -67,6 +67,8 @@ try {
 
 }
 
+
+
 /**************************************************************************************
  Remove the note field if populated
 ***************************************************************************************/
@@ -101,6 +103,8 @@ function resetClientStatusNote (clientId)
     }
 
 }
+
+
 
 /**************************************************************************************
  Insert a status history record
@@ -138,6 +142,4 @@ function insertClientStatusHistory (curClientStatus)
    catch (e) {
       logerror (proc, e);
     }
-
-
 }

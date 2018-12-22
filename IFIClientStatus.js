@@ -63,7 +63,7 @@ try {
             }
             else if (resultCSH.records[0][dbClientStatusHistory.ClientStatus_raw].id != clientStatus)
             {
-               console.log (
+
                console.log ("before: " + resultCSH.records[0][dbClientStatusHistory.ClientStatus_raw].id );
                console.log ("after:" + clientStatus) ;
                insertClientStatusHistory (curClientStatus) ;

@@ -116,7 +116,6 @@ function insertClientStatusHistory (curClientStatus)
 
         var proc = "insertClientStatusHistory" ;
         console.log (proc);
-        console.dir(resultDocuments) ;
         console.log (curClientStatus.field_331) ;
 
         if (curClientStatus.field_331 != "Authorization Approved") {
@@ -125,6 +124,7 @@ function insertClientStatusHistory (curClientStatus)
             delete curClientStatus.field_334;
         }
 
+        console.dir (curClientStatus);
         var resource = 'knackobject';
         var postapidata = {
               "method": "post",

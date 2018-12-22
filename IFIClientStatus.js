@@ -2,6 +2,10 @@
 /*******************************************************************************************************
  logStatusChanges every time the client record is updated, if needed
 *******************************************************************************************************/
+
+
+
+
 function logStatusChange (event, view, recordClient) {
 try {
 
@@ -10,7 +14,7 @@ try {
     console.dir (objClient);
 
     var clientId = objClient.id ;
-    var clientStatus = objClient[dbClients.ClientStatus_raw].identifier ;
+    var clientStatus = objClient[dbClients.ClientStatus_raw][0].identifier ;
     var clientStatusNote = objClient[dbClients.ClientStatusNote] ;
     var beaconStartDate = objClient[dbClients.BeaconStartDate] ;
     var beaconEndDate = objClient[dbClients.BeaconEndDate] ;

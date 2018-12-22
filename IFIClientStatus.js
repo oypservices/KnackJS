@@ -8,9 +8,9 @@ try {
     var viewName = view["key"] ;
     var objClient = Knack.models[viewName].toJSON();
     console.dir (objClient);
-    
+
     var clientId = objClient.id ;
-    var clientStatus = objClient[dbClients.ClientStatus + "_raw"].identifier ;
+    var clientStatus = objClient[dbClients.ClientStatus_raw].identifier ;
     var clientStatusNote = objClient[dbClients.ClientStatusNote] ;
     var beaconStartDate = objClient[dbClients.BeaconStartDate] ;
     var beaconEndDate = objClient[dbClients.BeaconEndDate] ;

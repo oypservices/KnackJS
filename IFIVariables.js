@@ -91,6 +91,7 @@ var dbClients = {
 "ReferrerPhone":"field_120",
 "GuardianName":"field_122",
 "ClientStatus":"field_75",
+"ClientStatus_raw":"field_75_raw",
 "ClientStatusNote":"field_328",
 "BeaconStartDate":"field_277",
 "BeaconEndDate":"field_278"

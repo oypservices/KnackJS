@@ -71,8 +71,6 @@ try {
 }
 
 
-
-
 /**************************************************************************************
  Remove the note field if populated
 ***************************************************************************************/
@@ -90,7 +88,7 @@ function resetClientStatusNote (clientId)
               "knackobj": dbObjects.Clients ,
               "appid": app_id,
               "id" : clientId ,
-              "record":  { dbClients.ClientStatusNote : "" } ;
+              "record":  { dbClients.ClientStatusNote : "" }
       };
 
        OYPServicesAPIPost( resource, headers, postapidata )

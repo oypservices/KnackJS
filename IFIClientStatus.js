@@ -54,7 +54,7 @@ try {
             if (resultCHS.records.length == 0 )
                insertClientStatusHistory (curClientStatus) ;
 
-            else (if resultCHS.records[0] != clientStatus)
+            else if (resultCHS.records[0] != clientStatus)
                insertClientStatusHistory (curClientStatus) ;
 
             if (clientStatusNote != "")
@@ -69,6 +69,8 @@ try {
     }
 
 }
+
+
 
 
 /**************************************************************************************

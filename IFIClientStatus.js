@@ -133,8 +133,9 @@ function insertClientStatusHistory (curClientStatus)
             delete curClientStatus.field_334;
         }
 
-        delete.curClientStatus.status_name ;
-        
+
+        delete curClientStatus.status_name ;
+
         console.dir (curClientStatus);
         var resource = 'knackobject';
         var postapidata = {

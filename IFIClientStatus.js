@@ -8,7 +8,7 @@ try {
     var viewName = view["key"] ;
     var objClient = Knack.models[viewName].toJSON();
     var clientId = objClient.id ;
-    var clientStatus = objClient[dbClients.ClientStatus] ;
+    var clientStatus = objClient[dbClients.ClientStatus + "_raw"].identifier ;
     var clientStatusNote = objClient[dbClients.ClientStatusNote] ;
     var beaconStartDate = objClient[dbClients.BeaconStartDate] ;
     var beaconEndDate = objClient[dbClients.BeaconEndDate] ;
@@ -87,14 +87,15 @@ function resetClientStatusNote (clientId)
               "method": "put",
               "knackobj": dbObjects.Clients ,
               "appid": app_id,
-              "record":  { field_328 : "" } ,
+              "record":  { field_328 : " " } ,
               "id" : clientId
        };
+       console.dir (postapidata);
 
        OYPServicesAPIPost( resource, headers, postapidata )
            .then (resultDocAdded=> {
                                console.dir (resultDocAdded) ;
-                               console.log('Client Status History Added!!!');
+                               console.log('Client Status Reset!!!');
                              }) ;
 
     }
@@ -132,7 +133,7 @@ function insertClientStatusHistory (curClientStatus)
               "appid": app_id,
               "record":  curClientStatus
       };
-
+      console.dir (postapidata);
        OYPServicesAPIPost( resource, headers, postapidata )
            .then (resultDocAdded=> {
                                console.dir (resultDocAdded) ;

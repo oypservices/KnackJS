@@ -82,14 +82,16 @@ function resetClientStatusNote (clientId)
         var proc = "resetClientStatusNote" ;
         console.log (proc);
 
+        /*Update the client record */
+        
         var resource = 'knackobject';
         var postapidata = {
               "method": "put",
               "knackobj": dbObjects.Clients ,
               "appid": app_id,
-              "id" : clientId ,
-              "record":  { dbClients.ClientStatusNote : "" }
-      };
+              "record":  { dbClients.ClientStatusNote : "" } ,
+              "id" : clientId
+       };
 
        OYPServicesAPIPost( resource, headers, postapidata )
            .then (resultDocAdded=> {

@@ -3,7 +3,6 @@
  logStatusChanges every time the client record is updated, if needed
 *******************************************************************************************************/
 
-
 function evaluateContactNotes (event, view, recordClient) {
 try {
 
@@ -31,7 +30,7 @@ try {
       var nextContactVisit = {
         "field_14": clientId ,
         "field_16": nextVisitDate,
-        "field_236" : "Scheduled Visit",  //Note Type
+        "field_236" : "Appointment",  //Note Type
         "field_194": caseManagerId
   //      "field_335":Knack.getUserAttributes().id
       } ;
@@ -48,11 +47,9 @@ try {
 
 }
 
-
 /**************************************************************************************
  Add Next Visit Date if it does not already exist
 ***************************************************************************************/
-
 function addNextVisitDate(nextContactVisit)
 {
     try {

@@ -162,7 +162,7 @@ var dbContactNotes = {
   "PAReviewStatus_raw" : "field_81_raw",
   "ContactNoteStatus":"field_156",
   "ContactNoteStatus_raw":"field_156_raw",
-  "ShowOnDashboard" : "field_158"
+  "ShowOnDashboard" : "field_158",
   "ShowOnDashboard_raw" : "field_158_raw"
 } ;
 

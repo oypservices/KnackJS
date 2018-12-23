@@ -15,7 +15,7 @@ try {
     console.dir (dbContactNotes) ;
 
     var contactNoteId = objView.id ;
-    var nextVisitDate = objView[dbContactNotes.NextVisitDate] ;
+    var nextVisitDate = objView[dbContactNotes.NextVisitDate_raw] ;
     var  paReviewStatus = objView[dbContactNotes.PAReviewStatus_raw];
     var  contactNoteStatuss = objView[dbContactNotes.ContactNoteStatus_raw] ;
     var  showOnDashboard = objView[dbContactNotes.ShowOnDashboard_raw];

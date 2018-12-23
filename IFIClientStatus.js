@@ -61,10 +61,10 @@ try {
               console.log ("No Status History" + resultCSH.records.length);
                insertClientStatusHistory (curClientStatus) ;
             }
-            else if (resultCSH.records[0][dbClientStatusHistory.ClientStatus_raw].id != clientStatus)
+            else if (resultCSH.records[0][dbClientStatusHistory.ClientStatus_raw][0].id != clientStatusid)
             {
-               console.log ("before: " + resultCSH.records[0][dbClientStatusHistory.ClientStatus_raw].id );
-               console.log ("after:" + clientStatus) ;
+               console.log ("before: " + resultCSH.records[0][dbClientStatusHistory.ClientStatus_raw][0].id );
+               console.log ("after:" + clientStatusid) ;
                insertClientStatusHistory (curClientStatus) ;
             }
 

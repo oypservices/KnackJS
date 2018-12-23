@@ -13,6 +13,7 @@ try {
     var viewName = view["key"] ;
     var objView = Knack.models[viewName].toJSON();
     console.dir (objView);
+    console.dir (dbContactNotes) ;
 
     var contactNoteId = objView.id ;
     var nextVisitDate = objView["dbContactNotes.NextVisitDate" ] ;
@@ -21,9 +22,6 @@ try {
     var  showOnDashboard = objView["dbContactNotes.ShowOnDashboard_raw"];
     var  clientId = objView["dbContactNotes.Client_raw"][0].id;
     var  caseManagerId = objView["dbContactNotes.CaseManager_raw"][0].id ;
-
-    //    var  contactNoteStatussText = objView["ContactNoteStatus_raw"][0].identifier ;
-    //  var  paReviewStatusText = objView["PAReviewStatus_raw"][0].identifier ;
 
     console.dir (nextContactVisit);
     console.log (nextVisitDate) ;

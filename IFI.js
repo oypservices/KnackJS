@@ -129,10 +129,12 @@ try {
     var mnuRequestAuth = "#view_220 .kn-link-1" ;
     var mnuProcessAuth = "#view_220 .kn-link-2" ;
     var mnuStartIntake = "#view_220 .kn-link-3" ;
-    var mnuIntake = "#view_220 .kn-link-4" ;
-    var mnuReAuth = "#view_220 .kn-link-5" ;
-    var mnuOverride = "#view_220 .kn-link-6" ;
+    var mnuIntake = "#view_220 .kn-link-4"
+    var mnuCompIntake = "#view_220 .kn-link-5" ;
+    var mnuReAuth = "#view_220 .kn-link-6" ;
     var mnuDischarge = "#view_220 .kn-link-7" ;
+    var mnuOverride = "#view_220 .kn-link-8" ;
+
 
     //ensures I am on the right form
     if ( $(mnuRequestAuth).length == 0 ) {
@@ -145,6 +147,7 @@ try {
     $(mnuProcessAuth).hide();
     $(mnuStartIntake).hide();
     $(mnuIntake).hide();
+    $(mnuCompIntake).hide();
     $(mnuReAuth).hide();
     $(mnuOverride).hide();
     $(mnuDischarge).hide();
@@ -177,6 +180,9 @@ try {
         case "ReAuthorization Required":
         case "ReAuthorization - PA Review In Progress":
             $(mnuReAuth).show();
+           break;
+        case "Intake Complete":
+           $(mnuCompIntake).show();
            break;
         default:
             break ;

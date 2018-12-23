@@ -29,7 +29,7 @@ try {
     {
       var nextContactVisit = {
         "field_14": clientId ,
-        "field_16": nextVisitDate,
+        "field_16_raw": nextVisitDate,
         "field_236" : "Appointment",  //Note Type
         "field_194": caseManagerId
   //      "field_335":Knack.getUserAttributes().id

@@ -63,7 +63,7 @@ function OYPKnackAPICall (headers, method, dbObject, data)
 }
 
 /****************************************************************************************************************
-	General AWS call 
+	General AWS call
 ********************************************************************************************************************/
 function  OYPServicesAPIPost( resource, headers, data )
 {
@@ -94,11 +94,11 @@ function  OYPServicesAPIPost( resource, headers, data )
 
 
 						if (response != undefined)
-					  	 console.dir (response) ;
-
-						if (response.body != undefined)
-							response = response.body ;
-
+						{
+					  	console.dir (response) ;
+							if (response.body != undefined)
+								response = response.body ;
+						}
 
 					resolve(response) ;
 

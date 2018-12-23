@@ -33,7 +33,9 @@ parseUri.options = {
 		loose:  /^(?:(?![^:@]+:[^:@\/]*@)([^:\/?#.]+):)?(?:\/\/)?((?:(([^:@]*)(?::([^:@]*))?)?@)?([^:\/?#]*)(?::(\d*))?)(((\/(?:[^?#](?![^?#\/]*\.[^?#\/.]+(?:[?#]|$)))*\/?)?([^?#\/]*))(?:\?([^#]*))?(?:#(.*))?)/
 	}
 };
-
+/****************************************************************************************************************
+	Call to the Knack API.  Wrapper around gateway Call
+********************************************************************************************************************/
 
 function OYPKnackAPICall (headers, method, dbObject, data)
 {
@@ -46,8 +48,8 @@ function OYPKnackAPICall (headers, method, dbObject, data)
 								"record":  data
 								};
 
-					console.dir (postapidata);
-					
+					console.dir (apidata);
+
  					OYPServicesAPIPost( resource, headers, apidata )
 					    .then (result => {
 								console.dir (result) ;
@@ -56,7 +58,6 @@ function OYPKnackAPICall (headers, method, dbObject, data)
 							}	)
 
 }
-
 
 function  OYPServicesAPIPost( resource, headers, data )
 {

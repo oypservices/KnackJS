@@ -58,8 +58,11 @@ function addNextVisitDate(nextContactVisit)
         console.log (proc);
         console.dir (nextContactVisit);
 
-        result = OYPKnackAPICall (headers, "post", dbObjects.ContactNotes, nextContactVisit) ;
-        console.dir (result) ;
+        OYPKnackAPICall (headers, "post", dbObjects.ContactNotes, nextContactVisit)
+                .then (result => {
+                    console.dir (result) ;
+                });
+
 
         }
    catch (e) {

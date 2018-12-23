@@ -39,6 +39,8 @@ parseUri.options = {
 
 function OYPKnackAPICall (headers, method, dbObject, data)
 {
+		return new Promise ((resolve, reject) => {
+
 					console.dir (data);
 					var resource = 'knackobject';
 					var apidata = {
@@ -54,9 +56,16 @@ function OYPKnackAPICall (headers, method, dbObject, data)
 					    .then (result => {
 								console.dir (result) ;
 							  console.log('OYPKnackAPICall ' + method + ' ' + dbObject + ' suceeded.' );
-							 return result ;
-							}	)
-
+							 resolve ( result ) ;
+						 } ,
+ 				error: function (responseData, textStatus, errorThrown) {
+ 						console.log('OYPServicesAPIPost failed.');
+ 						console.log (responseData);
+ 						console.log (textStatus) ;
+ 						console.log (errorThrown);
+ 						reject(errorThrown);
+					)
+		 }
 }
 
 function  OYPServicesAPIPost( resource, headers, data )

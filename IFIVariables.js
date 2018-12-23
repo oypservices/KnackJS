@@ -135,6 +135,24 @@ var dbDocuments = {
   "GeneralDocument" : "field_288"
 }
 
+
+
+var dbContacts = {
+  Name:"field_102",
+  "Name_raw":"field_102_raw",
+  "Email":"field_85",
+"Gender":"field_86",
+"Occupation":"field_87",
+"Phone":"field_88",
+"Birthday":"field_90",
+"Address":"field_89",
+"Notes":"field_91",
+"Organizations":"field_100",
+"ContactGroupType":"field_189"
+
+} ;
+
+
 var dbContactNotes = {
   "ContactNotedate":"field_232",
   "Client":"field_14",
@@ -166,21 +184,6 @@ var dbContactNotes = {
   "ShowOnDashboard_raw" : "field_158_raw"
 } ;
 
-
-var dbContacts = {
-  Name:"field_102",
-  "Name_raw":"field_102_raw",
-  "Email":"field_85",
-"Gender":"field_86",
-"Occupation":"field_87",
-"Phone":"field_88",
-"Birthday":"field_90",
-"Address":"field_89",
-"Notes":"field_91",
-"Organizations":"field_100",
-"ContactGroupType":"field_189"
-
-} ;
 
 
 var dbClientTeamMembers = {

@@ -15,17 +15,18 @@ try {
     console.dir (objView);
 
     var contactNoteId = objView.id ;
-    var nextVisitDate = objView["NextVisitDate" ] ;
-    var  paReviewStatus = objView["PAReviewStatus_raw"][0];
-    var  contactNoteStatuss = objView["ContactNoteStatus_raw"][0] ;
-    var  showOnDashboard = objView["ShowOnDashboard_raw"][0];
-    var  clientId = objView["Client_raw"][0].id;
-    var  caseManagerId = objView["CaseManager_raw"][0].id ;
+    var nextVisitDate = objView["dbContactNotes.NextVisitDate" ] ;
+    var  paReviewStatus = objView["dbContactNotes.PAReviewStatus_raw"][0];
+    var  contactNoteStatuss = objView["dbContactNotes.ContactNoteStatus_raw"][0] ;
+    var  showOnDashboard = objView["dbContactNotes.ShowOnDashboard_raw"][0];
+    var  clientId = objView["dbContactNotes.Client_raw"][0].id;
+    var  caseManagerId = objView["dbContactNotes.CaseManager_raw"][0].id ;
 
     //    var  contactNoteStatussText = objView["ContactNoteStatus_raw"][0].identifier ;
     //  var  paReviewStatusText = objView["PAReviewStatus_raw"][0].identifier ;
 
     console.dir (nextContactVisit);
+    console.log (nextVisitDate) ;
 
     if (nextVisitDate != "")
     {

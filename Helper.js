@@ -33,33 +33,6 @@ parseUri.options = {
 		loose:  /^(?:(?![^:@]+:[^:@\/]*@)([^:\/?#.]+):)?(?:\/\/)?((?:(([^:@]*)(?::([^:@]*))?)?@)?([^:\/?#]*)(?::(\d*))?)(((\/(?:[^?#](?![^?#\/]*\.[^?#\/.]+(?:[?#]|$)))*\/?)?([^?#\/]*))(?:\?([^#]*))?(?:#(.*))?)/
 	}
 };
-/****************************************************************************************************************
-	Call to the Knack API.  Wrapper around gateway Call
-********************************************************************************************************************/
-
-function OYPKnackAPICall (headers, method, dbObject, data)
-{
-		return new Promise ((resolve, reject) => {
-
-					console.dir (data);
-					var resource = 'knackobject';
-					var apidata = {
-								"method": method,
-								"knackobj": dbObject,
-								"appid": app_id,
-								"record":  data
-								};
-
-					console.dir (apidata);
-
- 					OYPServicesAPIPost( resource, headers, apidata )
-					    .then (result => {
-								console.dir (result) ;
-							  console.log('OYPKnackAPICall ' + method + ' ' + dbObject + ' suceeded.' );
-							 resolve ( result ) ;
-						 } 	)
-		 }
-}
 
 function  OYPServicesAPIPost( resource, headers, data )
 {
@@ -112,3 +85,30 @@ function  OYPServicesAPIPost( resource, headers, data )
 		}); // end promise
 
 } ;
+/****************************************************************************************************************
+	Call to the Knack API.  Wrapper around gateway Call
+********************************************************************************************************************/
+
+function OYPKnackAPICall (headers, method, dbObject, data)
+{
+		return new Promise ((resolve, reject) => {
+
+					console.dir (data);
+					var resource = 'knackobject';
+					var apidata = {
+								"method": method,
+								"knackobj": dbObject,
+								"appid": app_id,
+								"record":  data
+								};
+
+					console.dir (apidata);
+
+ 					OYPServicesAPIPost( resource, headers, apidata )
+					    .then (result => {
+								console.dir (result) ;
+							  console.log('OYPKnackAPICall ' + method + ' ' + dbObject + ' suceeded.' );
+							 resolve ( result ) ;
+						 } 	);
+		 }
+}

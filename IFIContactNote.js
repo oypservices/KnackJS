@@ -48,6 +48,12 @@ try {
 
 }
 
+
+/**************************************************************************************
+ Add Next Visit Date if it does not already exist
+***************************************************************************************/
+
+
 /**************************************************************************************
  Add Next Visit Date if it does not already exist
 ***************************************************************************************/
@@ -60,7 +66,7 @@ function addNextVisitDate(nextContactVisit)
         console.log (proc);
         console.dir (nextContactVisit);
 
-        result = OYPKnackAPICall (headers, post, dbObjects.ContactNotes, nextContactVisit) ;
+        result = OYPKnackAPICall (headers, "post", dbObjects.ContactNotes, nextContactVisit) ;
         console.dir (result) ;
 
         }

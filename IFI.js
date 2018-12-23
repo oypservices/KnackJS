@@ -4,7 +4,10 @@ Standard error logging function.
 ********************************************************************************************/
 
 function logerror (source, e) {
-  console.log ("Error in " + source + ": " + e ) ;
+
+    console.log ("Error in " + source + ": " + e ) ;
+    console.log (e.stack) ;
+
   return
 }
 
@@ -552,7 +555,9 @@ $(document).on('knack-form-submit.view_515' , function(event, view, data) {
 $(document).on('knack-view-render.any' , function(event, view, data) {
 
   try {
+
 	     var view_name =  view.key ;
+       proc = 'knack-view-render.any:' + view_name ;
        console.log(view_name) ;
        //Client Object
 
@@ -606,8 +611,7 @@ $(document).on('knack-view-render.any' , function(event, view, data) {
      }
 
   catch (e)  {
-      console.error(e);
-      console.error(e.stack) ;
+      logerror(proc, e);
    }
 
 });

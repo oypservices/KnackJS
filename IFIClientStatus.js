@@ -55,15 +55,16 @@ try {
     OYPServicesAPIPost( resource, headers, getapidata )
       .then (resultCSH=> {
 
+           console.dir (resultCSH);
 
             if (resultCSH.records.length == 0 )
             {
               console.log ("No Status History" + resultCSH.records.length);
                insertClientStatusHistory (curClientStatus) ;
             }
-            else if (resultCSH.records[0][dbClientStatusHistory.ClientStatus_raw][0].id != clientStatusid)
+            else if (resultCSH.records[0]["field_331_raw"][0].id != clientStatusid)
             {
-               console.log ("before: " + resultCSH.records[0][dbClientStatusHistory.ClientStatus_raw][0].id );
+               console.log ("before: " + resultCSH.records[0]["field_331_raw"][0].id );
                console.log ("after:" + clientStatusid) ;
                insertClientStatusHistory (curClientStatus) ;
             }

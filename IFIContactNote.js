@@ -3,7 +3,8 @@
  logStatusChanges every time the client record is updated, if needed
 *******************************************************************************************************/
 
-function evaluateContractNotes (event, view, recordClient) {
+
+function evaluateContactNotes (event, view, recordClient) {
 try {
 
     var proc = "evaluateContractNotes";
@@ -21,10 +22,8 @@ try {
     var  clientId = objView["Client_raw"][0].id;
     var  caseManagerId = objView["CaseManager_raw"][0].id ;
 
-
     //    var  contactNoteStatussText = objView["ContactNoteStatus_raw"][0].identifier ;
     //  var  paReviewStatusText = objView["PAReviewStatus_raw"][0].identifier ;
-
 
     console.dir (nextContactVisit);
 
@@ -41,7 +40,7 @@ try {
       addNextVisitDate(nextContactVisit) ;
     }
 
-  
+
     }
   catch (e)
     {

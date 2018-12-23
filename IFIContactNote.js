@@ -22,7 +22,7 @@ try {
     var  clientId = objView[dbContactNotes.Client_raw][0].id;
     var  caseManagerId = objView[dbContactNotes.CaseManager_raw][0].id ;
 
-    console.dir (nextContactVisit);
+
     console.log (nextVisitDate) ;
 
     if (nextVisitDate != "")
@@ -34,7 +34,8 @@ try {
         "field_194": caseManagerId
   //      "field_335":Knack.getUserAttributes().id
       } ;
-
+      
+      console.dir (nextContactVisit);
       addNextVisitDate(nextContactVisit) ;
     }
 

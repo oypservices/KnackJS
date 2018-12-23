@@ -53,11 +53,6 @@ try {
  Add Next Visit Date if it does not already exist
 ***************************************************************************************/
 
-
-/**************************************************************************************
- Add Next Visit Date if it does not already exist
-***************************************************************************************/
-
 function addNextVisitDate(nextContactVisit)
 {
     try {

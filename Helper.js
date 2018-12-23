@@ -35,6 +35,28 @@ parseUri.options = {
 };
 
 
+function OYPKnackAPICall (headers, method, dbObject, data)
+{
+					console.dir (data);
+					var resource = 'knackobject';
+					var apidata = {
+								"method": method,
+								"knackobj": dbObject,
+								"appid": app_id,
+								"record":  data
+								};
+
+					console.dir (postapidata);
+					
+ 					OYPServicesAPIPost( resource, headers, apidata )
+					    .then (result => {
+								console.dir (result) ;
+							  console.log('OYPKnackAPICall ' + method + ' ' + dbObject + ' suceeded.' );
+							 return result ;
+							}	)
+
+}
+
 
 function  OYPServicesAPIPost( resource, headers, data )
 {

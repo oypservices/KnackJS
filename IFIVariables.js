@@ -75,7 +75,8 @@ var dbObjects = {
   "Documents" :"object_19",
   "ClientIntakeDocuments" : "object_24",
   "Clients" : "object_1",
-  "ClientStatusHistory" : "object_35"
+  "ClientStatusHistory" : "object_35",
+  "ContactNotes" : "object_4"
 
 }
 
@@ -137,11 +138,13 @@ var dbDocuments = {
 var dbContactNotes = {
   "ContactNotedate":"field_232",
   "Client":"field_14",
-  "NoteType":"field_23",
+  "Client_raw":"field_14_raw",
+  "NoteType":"field_236",
   "MeetingStatus":"field_159",
   "ContactDateStart":"field_16",
   "ContactDateEnd":"field_234",
   "CaseManager":"field_194",
+  "CaseManager_raw":"field_194_raw",
   "VisitLocation":"field_109",
   "ReasonforContact":"field_19",
   "ClientIRP":"field_217",
@@ -152,8 +155,17 @@ var dbContactNotes = {
   "PlanforNextVisit":"field_23",
   "OtherComment":"field_24",
   "MedicationChanges":"field_25",
-  "CaseManagerSignature":"field_26"
+  "CaseManagerSignature":"field_26",
+  "NextVisitDate" : "field_338",
+  "NextVisitDate_raw" : "field_338_raw",
+  "PAReviewStatus" : "field_81",
+  "PAReviewStatus_raw" : "field_81_raw",
+  "ContactNoteStatus":"field_156",
+  "ContactNoteStatus_raw":"field_156_raw",
+  "ShowOnDashboard" : "field_158"
+  "ShowOnDashboard_raw" : "field_158_raw"
 } ;
+
 
 var dbContacts = {
   Name:"field_102",

@@ -258,24 +258,54 @@ $(document).on('knack-record-update.view_323', function (event, view, record) {
 
 
 /**********************************************************************************************
-//Client Add / Edit Logic
+//Event handler for record updates
 *************************************************************************************************/
 $(document).on('knack-record-update.any' , function (event, view, record) {
   console.log (JSON.stringify(view)) ;
-  if (view.source.object == dbObjects.Clients ) {
+
+  switch (view.source.object) {
+
+    case dbObjects.Clients:
       addDefaultClientTeam (event, view, record);
       logStatusChange (event, view, record) ;
+      break;
 
+   case dbObjects.ContactNotes:
+      evaluateContactNotes (event, view, record) ;
+
+    default:
+      break ;
   }
 
+
 });
+
+/**********************************************************************************************
+//Event handler for created records
+*************************************************************************************************/
 
 $(document).on('knack-record-create.any' , function (event, view, record) {
   console.log (JSON.stringify(view)) ;
-  if (view.source.object == dbObjects.Clients) {
+
+  switch (view.source.object) {
+
+    case dbObjects.Clients:
       addDefaultClientTeam (event, view, record);
+      break;
+
+   case dbObjects.ContactNotes:
+      evaluateContactNotes (event, view, record) ;
+
+    default:
+      break ;
   }
+
 });
+
+
+/*********************************************************************************************************************
+**********************************************************************************************************************/
+
 
 function setSelectedIndex(s, valsearch)
 

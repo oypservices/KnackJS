@@ -62,7 +62,9 @@ function OYPKnackAPICall (headers, method, dbObject, data)
 		 })
 }
 
-
+/****************************************************************************************************************
+	General AWS call 
+********************************************************************************************************************/
 function  OYPServicesAPIPost( resource, headers, data )
 {
 		return new Promise ((resolve, reject) => {

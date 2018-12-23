@@ -57,14 +57,7 @@ function OYPKnackAPICall (headers, method, dbObject, data)
 								console.dir (result) ;
 							  console.log('OYPKnackAPICall ' + method + ' ' + dbObject + ' suceeded.' );
 							 resolve ( result ) ;
-						 } ,
- 				error: function (responseData, textStatus, errorThrown) {
- 						console.log('OYPServicesAPIPost failed.');
- 						console.log (responseData);
- 						console.log (textStatus) ;
- 						console.log (errorThrown);
- 						reject(errorThrown);
-					)
+						 } 	)
 		 }
 }
 

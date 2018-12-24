@@ -120,7 +120,6 @@ try {
         "field_236" : "Appointment",  //Note Type
         "field_194": caseManagerId ,
         "field_345" : contactNoteId   //related note id
-  //      "field_335":Knack.getUserAttributes().id
       } ;
 
       console.dir (nextContactVisit);

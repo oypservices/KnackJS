@@ -118,12 +118,14 @@ try {
         "field_14": clientId ,
         "field_16": nextVisitDate,
         "field_236" : "Appointment",  //Note Type
-        "field_194": caseManagerId
+        "field_194": caseManagerId ,
+        "field_345" : contactNoteId   //related note id
   //      "field_335":Knack.getUserAttributes().id
       } ;
 
       console.dir (nextContactVisit);
-      addNextVisitDate(nextContactVisit) ;
+      if (getNextVisitDate(nextContactVisit) == 0)
+        addNextVisitDate(nextContactVisit) ;
     }
 
 
@@ -136,6 +138,48 @@ try {
 }
 
 /**************************************************************************************
+ Check Next Visit Date to see if it already exists
+***************************************************************************************/
+function getNextVisitDate(nextContactVisit)
+{
+    try {
+
+        var proc = "addNextVisitDate" ;
+        console.log (proc);
+        console.dir (nextContactVisit);
+        nextContactVisit.filters = { field_
+
+        } ;
+
+
+        var apidata = {
+              "method": "get",
+              "knackobj": dbObjects.ContactNotes,
+              "appid": app_id,
+             "filters": [ {
+                        "field":dbContactNotes.RelatedContactNote ,
+                        "operator":"is",
+                        "value": nextContactVisit[dbContactNotes.RelatedContactNote]
+                      }
+              };
+
+
+        OYPKnackAPICall (headers,  nextContactVisit)
+                .then (result => {
+                    console.dir (result) ;
+                   return results.records.count ;
+                });
+
+
+        }
+   catch (e) {
+      logerror (proc, e);
+    }
+}
+
+
+
+/**************************************************************************************
  Add Next Visit Date if it does not already exist
 ***************************************************************************************/
 function addNextVisitDate(nextContactVisit)
@@ -146,11 +190,18 @@ function addNextVisitDate(nextContactVisit)
         console.log (proc);
         console.dir (nextContactVisit);
 
-        OYPKnackAPICall (headers, "post", dbObjects.ContactNotes, nextContactVisit)
+        var apidata = {
+              "method": "post",
+              "knackobj": dbObjects.ContactNotes,
+              "appid": app_id,
+              "record":  nextContactVisit
+              };
+
+
+        OYPKnackAPICall (headers,  nextContactVisit)
                 .then (result => {
                     console.dir (result) ;
                 });
-
 
         }
    catch (e) {

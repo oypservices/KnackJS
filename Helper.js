@@ -38,25 +38,19 @@ parseUri.options = {
 	Call to the Knack API.  Wrapper around gateway Call
 ********************************************************************************************************************/
 
-function OYPKnackAPICall (headers, method, dbObject, data)
+function OYPKnackAPICall (headers, apidata)
 {
 		return new Promise ((resolve, reject) => {
 
-					console.dir (data);
+					console.dir (apidata);
 					var resource = 'knackobject';
-					var apidata = {
-								"method": method,
-								"knackobj": dbObject,
-								"appid": app_id,
-								"record":  data
-								};
 
 					console.dir (apidata);
 
  					OYPServicesAPIPost( resource, headers, apidata )
 					    .then (result => {
 								console.dir (result) ;
-							  console.log('OYPKnackAPICall ' + method + ' ' + dbObject + ' suceeded.' );
+							  console.log('OYPKnackAPICall ' + apidata.method + ' ' + apidata.knackobj + ' suceeded.' );
 							 resolve ( result ) ;
 						 } 	);
 		 })

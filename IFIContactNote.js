@@ -58,6 +58,7 @@ function hideShowContactNoteFields(view, val) {
         }
 
    else {
+      console.log (val);
     	$('#kn-input-' +  dbContactNotes.ContactNotedate).show();
     	$('#kn-input-' +  dbContactNotes.CaseManager).show();
     	$('#kn-input-' +  dbContactNotes.Client).show();
@@ -73,6 +74,7 @@ function hideShowContactNoteFields(view, val) {
     	$('#kn-input-' +  dbContactNotes.ClientGoalInterventions).show();
     	$('#kn-input-' +  dbContactNotes.PersonsPresent).show();
     	$('#kn-input-' +  dbContactNotes.ClientResponses).show();
+      $('#kn-input-' +  dbContactNotes.NextVisitDate).show();
     	$('#kn-input-' +  dbContactNotes.PlanforNextVisit).show();
     	$('#kn-input-' +  dbContactNotes.OtherComment).show();
     	$('#kn-input-' +  dbContactNotes.MedicationChanges).show();

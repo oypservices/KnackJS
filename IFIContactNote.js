@@ -124,7 +124,7 @@ try {
 
       console.dir (nextContactVisit);
       if (getNextVisitDate(nextContactVisit) == 0)
-        addNextVisitDate(nextContactVisit) ;
+          addNextVisitDate(nextContactVisit) ;
     }
 
 
@@ -162,7 +162,7 @@ function getNextVisitDate(nextContactVisit)
         OYPKnackAPICall (headers,  apidata)
                 .then (result => {
                     console.dir (result) ;
-                   return results.records.count ;
+                   return results.records.length ;
                 });
 
 

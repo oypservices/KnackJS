@@ -162,7 +162,7 @@ function getNextVisitDate(nextContactVisit)
         OYPKnackAPICall (headers,  apidata)
                 .then (result => {
                     console.dir (result) ;
-                   return results.records.length ;
+                   return result.records.length ;
                 });
 
 

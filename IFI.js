@@ -12,7 +12,9 @@ function logerror (source, e) {
 }
 
 
-
+/*******************************************************************************************
+Contact Note Add View Render
+********************************************************************************************/
 $(document).on('knack-view-render.' + vw_contact_note_add, function(event, view, data) {
 
   try
@@ -38,6 +40,9 @@ $(document).on('knack-view-render.' + vw_contact_note_add, function(event, view,
 
 });
 
+/*******************************************************************************************
+Contact Note Add View Render
+********************************************************************************************/
 $(document).on('knack-view-render.' + vw_contact_note_edit, function(event, view, data) {
 
   try
@@ -46,6 +51,10 @@ $(document).on('knack-view-render.' + vw_contact_note_edit, function(event, view
 
     	var view_name =  view.key ;
     	var fld_note_type =  view.key + '-field_236';
+      console.log (view_name) ;
+      console.dir (view) ;
+      console.dir(event) ;
+      console.dir(data);
 
 
     	$('#' + fld_note_type).on('change',function(e){
@@ -53,7 +62,7 @@ $(document).on('knack-view-render.' + vw_contact_note_edit, function(event, view
     	  console.log ($('#' + fld_note_type).val());
     	  hideShowContactNoteFields (  view, $('#'+ fld_note_type).val() );
     	});
-      
+
 
       var noteType = Knack.models[view_name].toJSON()["field_236_raw"];
       console.log (noteType) ;

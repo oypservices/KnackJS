@@ -147,10 +147,6 @@ function getNextVisitDate(nextContactVisit)
         var proc = "addNextVisitDate" ;
         console.log (proc);
         console.dir (nextContactVisit);
-        nextContactVisit.filters = { field_
-
-        } ;
-
 
         var apidata = {
               "method": "get",

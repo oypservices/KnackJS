@@ -552,7 +552,7 @@ $(document).on('knack-view-render.any' , function(event, view, data) {
          	  hideShowContactNoteFields (  view, $('#'+ fld_note_type).val() );
          	});
 
-          var noteType = hideShowContactNoteFields (  view, $('#'+ fld_note_type).val() );
+          var noteType =  $('#'+ fld_note_type).val() ;
           console.log (noteType) ;
           hideShowContactNoteFields (  view, noteType);
 

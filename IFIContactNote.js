@@ -159,7 +159,7 @@ function getNextVisitDate(nextContactVisit)
               };
 
 
-        OYPKnackAPICall (headers,  nextContactVisit)
+        OYPKnackAPICall (headers,  apidata)
                 .then (result => {
                     console.dir (result) ;
                    return results.records.count ;
@@ -193,7 +193,7 @@ function addNextVisitDate(nextContactVisit)
               };
 
 
-        OYPKnackAPICall (headers,  nextContactVisit)
+        OYPKnackAPICall (headers,  apidata)
                 .then (result => {
                     console.dir (result) ;
                 });

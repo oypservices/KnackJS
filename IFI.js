@@ -51,10 +51,7 @@ $(document).on('knack-view-render.' + vw_contact_note_edit, function(event, view
 
     	var view_name =  view.key ;
     	var fld_note_type =  view.key + '-field_236';
-      console.log (view_name) ;
-      console.log (view) ;
-      console.log(event) ;
-      console.log(data);
+
 
 
     	$('#' + fld_note_type).on('change',function(e){
@@ -64,9 +61,6 @@ $(document).on('knack-view-render.' + vw_contact_note_edit, function(event, view
     	});
 
 
-      var noteType = Knack.models[view_name].toJSON()["field_236_raw"];
-      console.log (noteType) ;
-      hideShowContactNoteFields (  view, noteType);
   }
   catch (e)  {
       logerror(proc, e);
@@ -557,10 +551,13 @@ $(document).on('knack-view-render.any' , function(event, view, data) {
          	  console.log ($('#' + fld_note_type).val());
          	  hideShowContactNoteFields (  view, $('#'+ fld_note_type).val() );
          	});
+
+          var noteType = hideShowContactNoteFields (  view, $('#'+ fld_note_type).val() );
+          console.log (noteType) ;
+          hideShowContactNoteFields (  view, noteType);
+
           return ;
         }
-
-
 
      }
 

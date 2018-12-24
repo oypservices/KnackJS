@@ -156,7 +156,7 @@ function getNextVisitDate(nextContactVisit)
                         "field":dbContactNotes.RelatedContactNote ,
                         "operator":"is",
                         "value": nextContactVisit[dbContactNotes.RelatedContactNote]
-                      }
+                      } ]
               };
 
 

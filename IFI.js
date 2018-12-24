@@ -15,37 +15,55 @@ function logerror (source, e) {
 
 $(document).on('knack-view-render.' + vw_contact_note_add, function(event, view, data) {
 
-	var view_name =  view.key ;
-	var fld_note_type =  view.key + '-field_236';
+  try
+  {
+     var proc = 'knack-view-render.' + vw_contact_note_add ;
 
-	$('#' + fld_note_type).on('change',function(e){
-	  console.log (e);
-	  console.log ($('#' + fld_note_type).val());
-	  hideShowContactNoteFields (  view, $('#'+ fld_note_type).val() );
-	});
+    	var view_name =  view.key ;
+    	var fld_note_type =  view.key + '-field_236';
+
+    	$('#' + fld_note_type).on('change',function(e){
+    	  console.log (e);
+    	  console.log ($('#' + fld_note_type).val());
+    	  hideShowContactNoteFields (  view, $('#'+ fld_note_type).val() );
+    	});
 
 
 
-  val noteType = Knack.models[view_name].toJSON()["field_236_raw"];
-  console.log (noteType) ;
-  hideShowContactNoteFields (  view, noteType);
+      val noteType = Knack.models[view_name].toJSON()["field_236_raw"];
+      console.log (noteType) ;
+      hideShowContactNoteFields (  view, noteType);
+  }
+  catch (e)  {
+      logerror(proc, e);
+   }
 
 });
 
 $(document).on('knack-view-render.' + vw_contact_note_edit, function(event, view, data) {
 
-	var view_name =  view.key ;
-	var fld_note_type =  view.key + '-field_236';
+  try
+  {
+     var proc = 'knack-view-render.' + vw_contact_note_edit ;
 
-	$('#' + fld_note_type).on('change',function(e){
-	  console.log (e);
-	  console.log ($('#' + fld_note_type).val());
-	  hideShowContactNoteFields (  view, $('#'+ fld_note_type).val() );
-	});
+    	var view_name =  view.key ;
+    	var fld_note_type =  view.key + '-field_236';
 
-  val noteType = Knack.models[view_name].toJSON()["field_236_raw"];
-  console.log (noteType) ;
-  hideShowContactNoteFields (  view, noteType);
+
+    	$('#' + fld_note_type).on('change',function(e){
+    	  console.log (e);
+    	  console.log ($('#' + fld_note_type).val());
+    	  hideShowContactNoteFields (  view, $('#'+ fld_note_type).val() );
+    	});
+
+      val noteType = Knack.models[view_name].toJSON()["field_236_raw"];
+      console.log (noteType) ;
+      hideShowContactNoteFields (  view, noteType);
+  }
+  catch (e)  {
+      logerror(proc, e);
+   }
+
 });
 
 

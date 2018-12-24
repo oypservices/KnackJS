@@ -28,9 +28,7 @@ $(document).on('knack-view-render.' + vw_contact_note_add, function(event, view,
     	  hideShowContactNoteFields (  view, $('#'+ fld_note_type).val() );
     	});
 
-
-
-      val noteType = Knack.models[view_name].toJSON()["field_236_raw"];
+      var noteType = Knack.models[view_name].toJSON()["field_236_raw"];
       console.log (noteType) ;
       hideShowContactNoteFields (  view, noteType);
   }
@@ -55,8 +53,9 @@ $(document).on('knack-view-render.' + vw_contact_note_edit, function(event, view
     	  console.log ($('#' + fld_note_type).val());
     	  hideShowContactNoteFields (  view, $('#'+ fld_note_type).val() );
     	});
+      
 
-      val noteType = Knack.models[view_name].toJSON()["field_236_raw"];
+      var noteType = Knack.models[view_name].toJSON()["field_236_raw"];
       console.log (noteType) ;
       hideShowContactNoteFields (  view, noteType);
   }

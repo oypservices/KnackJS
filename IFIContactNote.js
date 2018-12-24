@@ -91,41 +91,40 @@ function hideShowContactNoteFields(view, val) {
 *******************************************************************************************************/
 
 function evaluateContactNotes (event, view, recordClient) {
-try {
+  try {
 
-    var proc = "evaluateContractNotes";
-    console.log (proc);
+        var proc = "evaluateContractNotes";
+        console.log (proc);
 
-    var viewName = view["key"] ;
-    var objView = Knack.models[viewName].toJSON();
-    console.dir (objView);
-    console.dir (dbContactNotes) ;
+        var viewName = view["key"] ;
+        var objView = Knack.models[viewName].toJSON();
+        console.dir (objView);
+        console.dir (dbContactNotes) ;
 
-    var contactNoteId = objView.id ;
-    var nextVisitDate = objView[dbContactNotes.NextVisitDate_raw] ;
-    var  paReviewStatus = objView[dbContactNotes.PAReviewStatus_raw];
-    var  contactNoteStatuss = objView[dbContactNotes.ContactNoteStatus_raw] ;
-    var  showOnDashboard = objView[dbContactNotes.ShowOnDashboard_raw];
-    var  clientId = objView[dbContactNotes.Client_raw][0].id;
-    var  caseManagerId = objView[dbContactNotes.CaseManager_raw][0].id ;
+        var contactNoteId = objView.id ;
+        var nextVisitDate = objView[dbContactNotes.NextVisitDate_raw] ;
+        var  paReviewStatus = objView[dbContactNotes.PAReviewStatus_raw];
+        var  contactNoteStatuss = objView[dbContactNotes.ContactNoteStatus_raw] ;
+        var  showOnDashboard = objView[dbContactNotes.ShowOnDashboard_raw];
+        var  clientId = objView[dbContactNotes.Client_raw][0].id;
+        var  caseManagerId = objView[dbContactNotes.CaseManager_raw][0].id ;
 
 
-    console.log (nextVisitDate) ;
+        console.log (nextVisitDate) ;
 
-    if (nextVisitDate != "")
-    {
-      var nextContactVisit = {
-        "field_14": clientId ,
-        "field_16": nextVisitDate,
-        "field_236" : "Appointment",  //Note Type
-        "field_194": caseManagerId ,
-        "field_345" : contactNoteId   //related note id
-      } ;
+        if (nextVisitDate != "")  {
+            var nextContactVisit = {
+              "field_14": clientId ,
+              "field_16": nextVisitDate,
+              "field_236" : "Appointment",  //Note Type
+              "field_194": caseManagerId ,
+              "field_345" : contactNoteId   //related note id
+            } ;
 
-      console.dir (nextContactVisit);
-      if (getNextVisitDate(nextContactVisit) == 0)
-          addNextVisitDate(nextContactVisit) ;
-    }
+            console.dir (nextContactVisit);
+            getNextVisitDate(nextContactVisit) ;
+
+        }
 
 
     }
@@ -143,7 +142,7 @@ function getNextVisitDate(nextContactVisit)
 {
     try {
 
-        var proc = "addNextVisitDate" ;
+        var proc = "getNextVisitDate" ;
         console.log (proc);
         console.dir (nextContactVisit);
 
@@ -162,7 +161,8 @@ function getNextVisitDate(nextContactVisit)
         OYPKnackAPICall (headers,  apidata)
                 .then (result => {
                     console.dir (result) ;
-                   return result.records.length ;
+                    if ( result.records.length == 0 )
+                      addNextVisitDate(nextContactVisit) ;
                 });
 
 

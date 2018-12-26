@@ -1,3 +1,41 @@
+/*******************************************************************************************
+Standard error logging function.
+********************************************************************************************/
+
+function logerror (e) {
+
+    var source = logObject.caller ;
+    console.log ("Error in " + source + ": " + e ) ;
+    console.log (e.stack) ;
+
+  return
+}
+
+/*******************************************************************************************
+Standard message logging.
+********************************************************************************************/
+
+function logMsg (msg) {
+
+    var source = logObject.caller ;
+    console.log (source + ": " + msg ) ;
+
+  return
+}
+
+/*******************************************************************************************
+Standard message logging.
+********************************************************************************************/
+
+function logObject (msg) {
+
+    var source = logObject.caller ;
+    console.dir (source + ": " + msg ) ;
+
+  return
+}
+
+
 
 
 function hideShowContactNoteFields(view, val) {
@@ -65,6 +103,27 @@ $(document).on('knack-view-render.any' , function(event, view, data) {
 	var view_name =  view.key ;
 
 	console.log(view_name) ;
+  switch (view.source.object) {
+			case dbContacts.key :
+
+			  fldContactType = getFieldProperty(dbObject, fields[i] , "Contact Type") ;
+
+				//add onchange event to the  drop down box
+				$('#' + fldContactType).on('change',function(e){
+				  logerror (e);
+				  logMsg ( "Contact Type = " + $('#' + fldContactType).val());
+				  hideFormFields (  view, dbContacts, $('#'+ fldContactType).val() );
+				});
+
+				hideFormFields  (  view, dbContacts, $('#'+ fldContactType).val() );
+				break;
+
+			default :
+			  break ;
+
+	}
+
+
 	for (var i = 0; i < vw_notes.length; i++) {
 		if (view.source.object == "object_2" ) {
 //			console.log (JSON.stringify (view)) ;

@@ -13,6 +13,7 @@ function hideShowContactNoteFields(view, val) {
     	$('#kn-input-' +  dbContactNotes.CaseManager).show();
     	$('#kn-input-' +  dbContactNotes.Client).show();
     	$('#kn-input-' +  dbContactNotes.NoteType).show();
+      $('#kn-input-' +  dbContactNotes.ContactNoteStatus).show();
 
     	$('#kn-input-' +  dbContactNotes.MeetingStatus).hide();
     	$('#kn-input-' +  dbContactNotes.ContactDateStart).show();
@@ -38,7 +39,7 @@ function hideShowContactNoteFields(view, val) {
     	$('#kn-input-' +  dbContactNotes.CaseManager).show();
     	$('#kn-input-' +  dbContactNotes.Client).show();
     	$('#kn-input-' +  dbContactNotes.NoteType).show();
-
+      $('#kn-input-' +  dbContactNotes.ContactNoteStatus).hide();
     	$('#kn-input-' +  dbContactNotes.MeetingStatus).hide();
     	$('#kn-input-' +  dbContactNotes.ContactDateStart).show();
     	$('#kn-input-' +  dbContactNotes.ContactDateEnd).show();
@@ -63,7 +64,7 @@ function hideShowContactNoteFields(view, val) {
     	$('#kn-input-' +  dbContactNotes.CaseManager).show();
     	$('#kn-input-' +  dbContactNotes.Client).show();
     	$('#kn-input-' +  dbContactNotes.NoteType).show();
-
+      $('#kn-input-' +  dbContactNotes.ContactNoteStatus).show();
     	$('#kn-input-' +  dbContactNotes.MeetingStatus).show();
     	$('#kn-input-' +  dbContactNotes.ContactDateStart).show();
     	$('#kn-input-' +  dbContactNotes.ContactDateEnd).show();
@@ -103,9 +104,9 @@ function evaluateContactNotes (event, view, recordClient) {
 
         var contactNoteId = objView.id ;
         var nextVisitDate = objView[dbContactNotes.NextVisitDate_raw] ;
-        var  paReviewStatus = objView[dbContactNotes.PAReviewStatus_raw];
-        var  contactNoteStatuss = objView[dbContactNotes.ContactNoteStatus_raw] ;
-        var  showOnDashboard = objView[dbContactNotes.ShowOnDashboard_raw];
+//        var  paReviewStatus = objView[dbContactNotes.PAReviewStatus_raw];
+        var  contactNoteStatus = objView[dbContactNotes.ContactNoteStatus_raw] ;
+//        var  showOnDashboard = objView[dbContactNotes.ShowOnDashboard_raw];
         var  clientId = objView[dbContactNotes.Client_raw][0].id;
         var  caseManagerId = objView[dbContactNotes.CaseManager_raw][0].id ;
 

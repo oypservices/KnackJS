@@ -8,18 +8,18 @@ function hideFormFields(view, dbObject, key) {
 
         console.dir (dbObject);
         logObject(dbObject) ;
-         var conditionalFields = dbObject.conditionalFields ;
+         var conditionalFields = dbObject["conditionalFields"] ;
          if ( conditionalFields == underfined ) {
-             logMessage (dbObject.name + " conditionalFields property not defined ") ;
+             logMessage (dbObject["name"] + " conditionalFields property not defined ") ;
              return ;
          }
 
           for (var n =0; conditionalFields.length; n++ ) {
 
-              var bShow =  dbObject.conditionalFields[n].key == key ;
+              var bShow =  conditionalFields[n].key == key ;
 
                 // If this value in the form doesn't equal "SpecificValue" then prevent the form from submitting
-              var fields = dbObject.conditionalFields[n] ;
+              var fields = conditionalFields[n] ;
 
               for (var i =0; fields.length ; i++)  {
                 var fldId = getFieldKey(dbObject, fields[i] ) ;
@@ -44,9 +44,9 @@ function getFieldKey(dbObject, label ) {
 
         console.dir (dbObject);
         logObject(dbObject) ;
-        var fields = dbObject.fields;
+        var fields = dbObject["fields"];
         if ( fields == underfined ){
-            logMessage (dbObject.name + " Fields property not defined") ;
+            logMessage (dbObject["name"] + " Fields property not defined") ;
             return ;
         }
 
@@ -56,7 +56,7 @@ function getFieldKey(dbObject, label ) {
              return fields[i].key ;
         }
 
-       logMessage (dbObject.name + " field not found - " + label) ;
+       logMessage (dbObject["name"]+ " field not found - " + label) ;
 
   }
   catch (e) {

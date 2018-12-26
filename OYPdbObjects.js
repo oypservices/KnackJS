@@ -49,7 +49,7 @@ function getFieldProperty(dbObject, label, property ) {
         for (var i =0; fields.length ; i++)
         {
           if (fields[i].label == label)
-             retun fields[i][property] ;
+             return fields[i].[property] ;
         }
 
        logMessage (dbObject.name + " field not found - " + label) ;

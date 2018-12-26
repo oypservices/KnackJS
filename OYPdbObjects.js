@@ -40,9 +40,10 @@ function getFieldKey(dbObject, label ) {
 
     try {
 
+        logObject(dbObject) ;
         var fields = dbObject.fields;
         if ( fields == underfined ){
-            logMessage (dbObject.name + " Fields property not defined for key - " + key) ;
+            logMessage (dbObject.name + " Fields property not defined") ;
             return ;
         }
 

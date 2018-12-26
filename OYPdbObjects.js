@@ -20,9 +20,15 @@ function hideFormFields(view, dbObject, key) {
 
                 // If this value in the form doesn't equal "SpecificValue" then prevent the form from submitting
               var fields = conditionalFields[n].fields ;
+              if (fields == undefined)
+                 break ;
 
               for (var i =0; fields.length ; i++)  {
+                
                 var fldId = getFieldKey(dbObject, fields[i] ) ;
+                if (fldId == undefined)
+                   break ;
+
                 if (bShow )
                   $('#kn-input-' +  fldId).show();
                 else

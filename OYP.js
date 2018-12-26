@@ -113,11 +113,12 @@ $(document).on('knack-view-render.any' , function(event, view, data) {
     				//add onchange event to the  drop down box
     				$('#' + fldContactType).on('change',function(e){
     				  logerror (e);
-    				  logMsg ( "Contact Type = " + $('#' + fldContactType).val());
-    				  hideFormFields (  view, dbContacts, $('#'+ fldContactType).val() );
+    				  logMsg ( "Contact Type = " + ('#'+ fldContactType option:selected").text() );
+    				  hideFormFields (  view, dbContacts, ('#'+ fldContactType option:selected").text() );
     				});
 
-    				hideFormFields  (  view, dbContacts, $('#'+ fldContactType).val() );
+            logMsg (  ('#'+ fldContactType option:selected").text() ) ;
+    				hideFormFields  (  view, dbContacts, ('#'+ fldContactType option:selected").text() );
        }
 				break;
 

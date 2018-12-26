@@ -105,7 +105,7 @@ $(document).on('knack-view-render.any' , function(event, view, data) {
   switch (view.source.object) {
 			case dbContacts.key :
 
-			  fldContactType = getFieldKey(dbContacts, "Contact Type") ;
+			  fldContactType = view.key + '-' +  getFieldKey(dbContacts, "Contact Type") ;
         logMsg (fldContactType) ;
 
         if (fldContactType != undefined)

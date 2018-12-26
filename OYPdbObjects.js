@@ -6,6 +6,7 @@ function hideFormFields(view, dbObject, key) {
 
     try {
 
+        logObject(dbObject) ;
          var conditionalFields = dbObject.conditionalFields ;
          if ( conditionalFields == underfined ) {
              logMessage (dbObject.name + " conditionalFields property not defined ") ;

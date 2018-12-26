@@ -72,8 +72,8 @@ var dbContacts = {
     "key" : "object_1",
     "name" : "contacts",
     "conditionalFields" : [ {"key" :"Organization" , "fields" : ["Contact Name", "Salutation", "DateOfBirth"] },
-                      { "key" :"People" : "fields" :  ["Organization Name"] },
-                      { "key" :"System" : "fields" : ["User", "Site", "Contact Name Expression"] }
+                      { "key" :"People" , "fields" :  ["Organization Name"] },
+                      { "key" :"System" , "fields" : ["User", "Site", "Contact Name Expression"] }
                     ],
 
     "fields": [

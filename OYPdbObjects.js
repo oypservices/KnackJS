@@ -2,12 +2,9 @@
 /*******************************************************************************************************
  logStatusChanges every time the client record is updated, if needed
 *******************************************************************************************************/
-
-
 function hideFormFields(view, dbObject, key) {
 
     try {
-
 
          var conditionalFields = dbObject.conditionalFields ;
          if ( conditionalFields == underfined ) {
@@ -15,14 +12,14 @@ function hideFormFields(view, dbObject, key) {
              return ;
          }
 
-          for (var n =0; conditionalFields.length, n++ ) {
+          for (var n =0; conditionalFields.length; n++ ) {
 
               var bShow =  dbObject.conditionalFields[n].key == key ;
 
                 // If this value in the form doesn't equal "SpecificValue" then prevent the form from submitting
               var fields = dbObject.conditionalFields[n] ;
 
-              for (var i =0, fields.length , i++)  {
+              for (var i =0; fields.length ; i++)  {
                 var fldId = getFieldProperty(dbObject, fields[i] , "key") ;
                 if (bShow )
                   $('#kn-input-' +  fldId).show();

@@ -107,15 +107,19 @@ $(document).on('knack-view-render.any' , function(event, view, data) {
 			case dbContacts.key :
 
 			  fldContactType = getFieldKey(dbContacts, "Contact Type") ;
+        logMsg (fldContactType) ;
 
-				//add onchange event to the  drop down box
-				$('#' + fldContactType).on('change',function(e){
-				  logerror (e);
-				  logMsg ( "Contact Type = " + $('#' + fldContactType).val());
-				  hideFormFields (  view, dbContacts, $('#'+ fldContactType).val() );
-				});
+        if (fldContactTyp == undefined)
+        {
+    				//add onchange event to the  drop down box
+    				$('#' + fldContactType).on('change',function(e){
+    				  logerror (e);
+    				  logMsg ( "Contact Type = " + $('#' + fldContactType).val());
+    				  hideFormFields (  view, dbContacts, $('#'+ fldContactType).val() );
+    				});
 
-				hideFormFields  (  view, dbContacts, $('#'+ fldContactType).val() );
+    				hideFormFields  (  view, dbContacts, $('#'+ fldContactType).val() );
+       }
 				break;
 
 			default :

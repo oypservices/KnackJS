@@ -49,7 +49,7 @@ function getFieldProperty(dbObject, label, property ) {
         for (var i =0; fields.length ; i++)
         {
           if (fields[i].label == label)
-             retun fields[i].[property] ;
+             retun fields[i][property] ;
         }
 
        logMessage (dbObject.name + " field not found - " + label) ;
@@ -270,6 +270,10 @@ var dbContacts =
    ]
 }
 
+/*******************************************************************************************************
+Database Objects - Activities
+*******************************************************************************************************/
+
 var Activities = {
   "key" : "object_2",
   "name" : "activities",
@@ -404,6 +408,134 @@ var Activities = {
                 "belongs_to": "many",
                 "has": "one",
                 "object": "object_17"
+            }
+        }
+    ]
+}
+
+/*******************************************************************************************************
+Database Objects - Projcts
+*******************************************************************************************************/
+
+ar Activities = {
+  "key" : "object_14",
+  "name" : "projects",
+    "fields": [
+        {
+            "label": "Organization",
+            "key": "field_122",
+            "required": false,
+            "type": "connection",
+            "relationship": {
+                "belongs_to": "many",
+                "has": "one",
+                "object": "object_13"
+            }
+        },
+        {
+            "label": "Contacts",
+            "key": "field_121",
+            "required": false,
+            "type": "connection",
+            "relationship": {
+                "belongs_to": "many",
+                "has": "many",
+                "object": "object_1"
+            }
+        },
+        {
+            "label": "Name",
+            "key": "field_90",
+            "required": false,
+            "type": "short_text"
+        },
+        {
+            "label": "Pipeline Status",
+            "key": "field_124",
+            "required": false,
+            "type": "multiple_choice",
+            "choices": [
+                "Opportunity",
+                "Bid",
+                "Won",
+                "Active",
+                "Complete",
+                "Archive"
+            ]
+        },
+        {
+            "label": "Project Type",
+            "key": "field_117",
+            "required": false,
+            "type": "multiple_choice",
+            "choices": [
+                "First Choice",
+                "Second Choice",
+                "Third Choice"
+            ]
+        },
+        {
+            "label": "Description",
+            "key": "field_96",
+            "required": false,
+            "type": "paragraph_text"
+        },
+        {
+            "label": "Proposal Due Date",
+            "key": "field_97",
+            "required": false,
+            "type": "date_time"
+        },
+        {
+            "label": "Budget",
+            "key": "field_114",
+            "required": false,
+            "type": "currency"
+        },
+        {
+            "label": "Rating",
+            "key": "field_115",
+            "required": false,
+            "type": "rating"
+        },
+        {
+            "label": "Probability of Winning",
+            "key": "field_175",
+            "required": false,
+            "type": "multiple_choice",
+            "choices": [
+                "Unknown",
+                "High",
+                "Medium",
+                "Low"
+            ]
+        },
+        {
+            "label": "Forecasted Close Date",
+            "key": "field_136",
+            "required": false,
+            "type": "date_time"
+        },
+        {
+            "label": "User Responsible",
+            "key": "field_137",
+            "required": false,
+            "type": "connection",
+            "relationship": {
+                "object": "object_4",
+                "has": "one",
+                "belongs_to": "many"
+            }
+        },
+        {
+            "label": "Site",
+            "key": "field_149",
+            "required": false,
+            "type": "connection",
+            "relationship": {
+                "belongs_to": "many",
+                "has": "one",
+                "object": "object_16"
             }
         }
     ]

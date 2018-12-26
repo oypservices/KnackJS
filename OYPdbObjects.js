@@ -15,7 +15,7 @@ function hideFormFields(view, dbObject, key) {
              return ;
          }
 
-          for (var n =0; conditionFields.length, n++ ) {
+          for (var n =0; conditionalFields.length, n++ ) {
 
               var bShow =  dbObject.conditionalFields[n].key == key ;
 
@@ -30,9 +30,6 @@ function hideFormFields(view, dbObject, key) {
                   $('#kn-input-' +  fldId).hide();
               }
             }
-
-
-
         }
      catch (e) {
             logerror (e);

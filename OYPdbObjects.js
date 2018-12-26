@@ -6,6 +6,7 @@ function hideFormFields(view, dbObject, key) {
 
     try {
 
+        console.dir (dbObject);
         logObject(dbObject) ;
          var conditionalFields = dbObject.conditionalFields ;
          if ( conditionalFields == underfined ) {
@@ -41,6 +42,7 @@ function getFieldKey(dbObject, label ) {
 
     try {
 
+        console.dir (dbObject);
         logObject(dbObject) ;
         var fields = dbObject.fields;
         if ( fields == underfined ){

@@ -35,22 +35,11 @@ function logObject (msg) {
   return
 }
 
-
-
-
 function hideShowContactNoteFields(view, val) {
 
 try
 {
-	/*
-	$('#kn-input-' + dbNotes.Date).show();
-	$('#kn-input-' + dbNotes.Notes).show();
-	$('#kn-input-' + dbNotes.Taskormeeting).show();
-	$('#kn-input-' + dbNotes.TasksorMeetingTypes).show();
-	$('#kn-input-' + dbNotes.TaskMeetingDueDate).show();
-	$('#kn-input-' + dbNotes.TaskStatus).show();
-	$('#kn-input-' + dbNotes.TaskUpdate).show();
-	*/
+
 
 	$('#kn-input-' + dbNotes.SalesRep).hide();
 	$('#kn-input-' + dbNotes.Site).hide();
@@ -58,6 +47,16 @@ try
 	$('#kn-input-' + dbNotes.Organization).hide();
 	$('#kn-input-' + dbNotes.Project).hide();
 	$('#kn-input-' + dbNotes.ProjectItem).hide();
+
+  /*
+  $('#kn-input-' + dbNotes.Date).show();
+  $('#kn-input-' + dbNotes.Notes).show();
+  $('#kn-input-' + dbNotes.Taskormeeting).show();
+  $('#kn-input-' + dbNotes.TasksorMeetingTypes).show();
+  $('#kn-input-' + dbNotes.TaskMeetingDueDate).show();
+  $('#kn-input-' + dbNotes.TaskStatus).show();
+  $('#kn-input-' + dbNotes.TaskUpdate).show();
+  */
 
 	// If this value in the form doesn't equal "SpecificValue" then prevent the form from submitting
     if (val == "Task") {
@@ -109,7 +108,7 @@ $(document).on('knack-view-render.any' , function(event, view, data) {
 			  fldContactType = getFieldKey(dbContacts, "Contact Type") ;
         logMsg (fldContactType) ;
 
-        if (fldContactType == undefined)
+        if (fldContactType != undefined)
         {
     				//add onchange event to the  drop down box
     				$('#' + fldContactType).on('change',function(e){

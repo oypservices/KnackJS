@@ -20,7 +20,7 @@ function hideFormFields(view, dbObject, key) {
               var fields = dbObject.conditionalFields[n] ;
 
               for (var i =0; fields.length ; i++)  {
-                var fldId = getFieldProperty(dbObject, fields[i] , "key") ;
+                var fldId = getFieldKey(dbObject, fields[i] ) ;
                 if (bShow )
                   $('#kn-input-' +  fldId).show();
                 else
@@ -36,7 +36,7 @@ function hideFormFields(view, dbObject, key) {
 /*******************************************************************************************************
 Database Objects Helper Functions
 *******************************************************************************************************/
-function getFieldProperty(dbObject, label, property ) {
+function getFieldKey(dbObject, label ) {
 
     try {
 
@@ -49,7 +49,7 @@ function getFieldProperty(dbObject, label, property ) {
         for (var i =0; fields.length ; i++)
         {
           if (fields[i].label == label)
-             return fields[i].[property] ;
+             return fields[i].key ;
         }
 
        logMessage (dbObject.name + " field not found - " + label) ;

@@ -117,7 +117,7 @@ $(document).on('knack-view-render.any' , function(event, view, data) {
     				  hideFormFields (  view, dbContacts, $('#'+ fldContactType + ' option:selected').text() );
     				});
 
-            logMsg (  ('#'+ fldContactType option:selected").text() ) ;
+            logMsg (  $('#'+ fldContactType + ' option:selected').text() ) ;
     				hideFormFields  (  view, dbContacts, $('#'+ fldContactType + ' option:selected').text() );
        }
 				break;

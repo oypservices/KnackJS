@@ -19,7 +19,7 @@ function hideFormFields(view, dbObject, key) {
               var bShow =  conditionalFields[n].key == key ;
 
                 // If this value in the form doesn't equal "SpecificValue" then prevent the form from submitting
-              var fields = conditionalFields[n] ;
+              var fields = conditionalFields[n].fields ;
 
               for (var i =0; fields.length ; i++)  {
                 var fldId = getFieldKey(dbObject, fields[i] ) ;
@@ -71,9 +71,9 @@ Database Objects
 var dbContacts = {
     "key" : "object_1",
     "name" : "contacts",
-    "conditionalFields" : [ {"Organization" : ["Contact Name", "Salutation", "DateOfBirth"] },
-                      { "People" :  ["Organization Name"] },
-                      { "System" : ["User", "Site", "Contact Name Expression"] }
+    "conditionalFields" : [ {"key" :"Organization" , "fields" : ["Contact Name", "Salutation", "DateOfBirth"] },
+                      { "key" :"People" : "fields" :  ["Organization Name"] },
+                      { "key" :"System" : "fields" : ["User", "Site", "Contact Name Expression"] }
                     ],
 
     "fields": [

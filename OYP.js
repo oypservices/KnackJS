@@ -106,7 +106,7 @@ $(document).on('knack-view-render.any' , function(event, view, data) {
   switch (view.source.object) {
 			case dbContacts.key :
 
-			  fldContactType = getFieldKey(dbObject, "Contact Type") ;
+			  fldContactType = getFieldKey(dbContacts, "Contact Type") ;
 
 				//add onchange event to the  drop down box
 				$('#' + fldContactType).on('change',function(e){

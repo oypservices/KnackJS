@@ -24,7 +24,7 @@ function hideFormFields(view, dbObject, key) {
                  break ;
 
               for (var i =0; fields.length ; i++)  {
-                
+
                 var fldId = getFieldKey(dbObject, fields[i] ) ;
                 if (fldId == undefined)
                    break ;
@@ -51,6 +51,7 @@ function getFieldKey(dbObject, label ) {
         console.dir (dbObject);
         logObject(dbObject) ;
         var fields = dbObject["fields"];
+        console.dir (fields) ;
         if ( fields == undefined ){
             logMessage (dbObject["name"] + " Fields property not defined") ;
             return ;
@@ -63,6 +64,7 @@ function getFieldKey(dbObject, label ) {
         }
 
        logMessage (dbObject["name"]+ " field not found - " + label) ;
+       return "" ;
 
   }
   catch (e) {

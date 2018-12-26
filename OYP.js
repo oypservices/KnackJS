@@ -4,7 +4,7 @@ Standard error logging function.
 
 function logerror (e) {
 
-    var source = logObject.caller.name ;
+    var source = logerror.caller.name ;
     console.log ("Error in " + source + ": " + e ) ;
     console.log (e.stack) ;
 
@@ -17,7 +17,7 @@ Standard message logging.
 
 function logMsg (msg) {
 
-    var source = logObject.caller.name ;
+    var source = logMsg.caller.name ;
     console.log (source + ": " + msg ) ;
 
   return

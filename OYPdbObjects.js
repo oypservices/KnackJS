@@ -64,8 +64,7 @@ function getFieldKey(dbObject, label ) {
 Database Objects
 *******************************************************************************************************/
 
-var dbContacts =
-{
+var dbContacts = {
     "key" : "object_1",
     "name" : "contacts",
     "conditionalFields" : [ {"Organization" : ["Contact Name", "Salutation", "DateOfBirth"] },
@@ -268,7 +267,7 @@ var dbContacts =
            "type": "concatenation"
        }
    ]
-};
+}
 
 /*******************************************************************************************************
 Database Objects - Activities

@@ -18,7 +18,10 @@ function hideFormFields(view, dbObject, key) {
 
           for (var n =0; n < conditionalFields.length; n++ ) {
 
-              var bShow =  conditionalFields[n].key == key ;
+              var bShow = false
+              if ( conditionalFields[n].key == key )
+                 bShow = true ;
+
               logMsg(bShow) ;
 
                 // If this value in the form doesn't equal "SpecificValue" then prevent the form from submitting

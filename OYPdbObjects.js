@@ -46,7 +46,7 @@ function getFieldProperty(dbObject, label, property ) {
             return ;
         }
 
-        for (var i =0, fields.length , i++)
+        for (var i =0; fields.length ; i++)
         {
           if (fields[i].label == label)
              retun fields[i].[property] ;
@@ -67,7 +67,7 @@ Database Objects
 var dbContacts =
 {
     "key" : "object_1",
-    "name" : "contacts"
+    "name" : "contacts",
     "conditionalFields" : [ {"Organization" : ["Contact Name", "Salutation", "DateOfBirth"] },
                       { "People" :  ["Organization Name"] },
                       { "System" : ["User", "Site", "Contact Name Expression"] }
@@ -268,4 +268,143 @@ var dbContacts =
            "type": "concatenation"
        }
    ]
+}
+
+var Activities = {
+  "key" : "object_2",
+  "name" : "activities",
+    "fields": [
+        {
+            "label": "Date",
+            "key": "field_34",
+            "required": false,
+            "type": "date_time"
+        },
+        {
+            "label": "Note Type",
+            "key": "field_150",
+            "required": false,
+            "type": "multiple_choice",
+            "choices": [
+                "Note",
+                "Task",
+                "Meeting"
+            ]
+        },
+        {
+            "label": "Notes",
+            "key": "field_2",
+            "required": false,
+            "type": "paragraph_text"
+        },
+        {
+            "label": "Add Task or Meeting",
+            "key": "field_35",
+            "required": false,
+            "type": "boolean"
+        },
+        {
+            "label": "Tasks or Meeting Types",
+            "key": "field_42",
+            "required": false,
+            "type": "multiple_choice",
+            "choices": [
+                "Follow Up Email",
+                "Phone Call",
+                "Lunch Meeting",
+                "Tech Demo",
+                "Meetup",
+                "Conference",
+                "Something else"
+            ]
+        },
+        {
+            "label": "Task/Meeting Due Date",
+            "key": "field_37",
+            "required": false,
+            "type": "date_time"
+        },
+        {
+            "label": "Task Status",
+            "key": "field_50",
+            "required": false,
+            "type": "multiple_choice",
+            "choices": [
+                "Pending",
+                "Completed"
+            ]
+        },
+        {
+            "label": "Task Update",
+            "key": "field_51",
+            "required": false,
+            "type": "paragraph_text"
+        },
+        {
+            "label": "Assigned To",
+            "key": "field_58",
+            "required": false,
+            "type": "connection",
+            "relationship": {
+                "belongs_to": "many",
+                "has": "one",
+                "object": "object_5"
+            }
+        },
+        {
+            "label": "Site",
+            "key": "field_146",
+            "required": false,
+            "type": "connection",
+            "relationship": {
+                "belongs_to": "many",
+                "has": "one",
+                "object": "object_16"
+            }
+        },
+        {
+            "label": "Contact",
+            "key": "field_22",
+            "required": false,
+            "type": "connection",
+            "relationship": {
+                "object": "object_1",
+                "has": "one",
+                "belongs_to": "many"
+            }
+        },
+        {
+            "label": "Organization",
+            "key": "field_148",
+            "required": false,
+            "type": "connection",
+            "relationship": {
+                "belongs_to": "many",
+                "has": "one",
+                "object": "object_13"
+            }
+        },
+        {
+            "label": "Project",
+            "key": "field_166",
+            "required": false,
+            "type": "connection",
+            "relationship": {
+                "object": "object_10",
+                "has": "one",
+                "belongs_to": "many"
+            }
+        },
+        {
+            "label": "Project Item",
+            "key": "field_171",
+            "required": false,
+            "type": "connection",
+            "relationship": {
+                "belongs_to": "many",
+                "has": "one",
+                "object": "object_17"
+            }
+        }
+    ]
 }

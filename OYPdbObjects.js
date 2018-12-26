@@ -85,8 +85,8 @@ Database Objects
 var dbContacts = {
     "key" : "object_1",
     "name" : "contacts",
-    "conditionalFields" : [ {"key" :"Organization" , "fields" : ["Contact Name", "Salutation", "DateOfBirth"] },
-                      { "key" :"People" , "fields" :  ["Organization Name"] },
+    "conditionalFields" : [ {"key" : "People" , "fields" : ["Contact Name", "Salutation", "DateOfBirth"] },
+                      { "key" : "Organization" , "fields" :  ["Organization Name"] },
                       { "key" :"System" , "fields" : ["User", "Site", "Contact Name Expression"] }
                     ],
 

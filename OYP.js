@@ -109,7 +109,7 @@ $(document).on('knack-view-render.any' , function(event, view, data) {
 			  fldContactType = getFieldKey(dbContacts, "Contact Type") ;
         logMsg (fldContactType) ;
 
-        if (fldContactTyp == undefined)
+        if (fldContactType == undefined)
         {
     				//add onchange event to the  drop down box
     				$('#' + fldContactType).on('change',function(e){

@@ -8,7 +8,7 @@ function hideFormFields(view, dbObject, filterfield,  key) {
 
         console.dir (dbObject);
         logObject(dbObject) ;
-         var conditionalFields = dbObject["conditionalDisplayFields"] ;
+         var conditionalFields = dbObject.conditionalDisplayFields ;
          logObject (conditionalFields);
 
          if ( conditionalFields == undefined ) {
@@ -19,7 +19,7 @@ function hideFormFields(view, dbObject, filterfield,  key) {
          var bfound = false ;
 
          //find the right list based on the field
-         for (var n = 0 ; n < conditionaFields.length; n++ ) {
+         for (var n = 0 ; n < conditionalFields.length; n++ ) {
              if (condiionalFields[n].key == filterfield ) {
                 conditionalFields = condiionalFields[n].fieldlist ;
                 bfound = true ;
@@ -51,13 +51,15 @@ function hideFormFields(view, dbObject, filterfield,  key) {
             }
 
          //Show the sleccted fields
-         fields = conditionalFields[nSelIndex].fields ;
-         for (var i =0; i < fields.length ; i++)  {
-           var fldId = getFieldKey(dbObject, fields[i] ) ;
-           if (fldId != undefined)
-              $('#kn-input-' +  fldId).show();
+         if ( nSelIndex > -1)
+         {
+             fields = conditionalFields[nSelIndex].fields ;
+             for (var i =0; i < fields.length ; i++)  {
+               var fldId = getFieldKey(dbObject, fields[i] ) ;
+               if (fldId != undefined)
+                  $('#kn-input-' +  fldId).show();
+             }
          }
-
 
         }
      catch (e) {

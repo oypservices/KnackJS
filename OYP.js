@@ -35,20 +35,51 @@ function logObject (msg) {
   return
 }
 
+
+/*******************************************************************************************
+Setup the events that will be triggered to hide fields
+********************************************************************************************/
+
+function hideFormFieldEvent (view, dbObject, field ) {
+
+    var source = logObject.caller.name ;
+    console.dir (source + ": " + msg ) ;
+
+    var ddField = '#' + view.key + '-' +  getFieldKey(dbObject, field) ;
+    logMsg (ddField) ;
+
+    if (getFieldKey(dbObject, field)  != undefined)   {   //needs to be addressed, cause it will never be undefined TODO
+
+          //add onchange event to the  drop down box
+          $(ddField).on('change',function(e){
+            logerror (e);
+            logMsg ( dbObject.key + "  + field + " = " + $(ddField + ' option:selected').text() );
+            hideFormFields (  view, dbObject, field, $(ddField +  ' option:selected').text() );
+          });
+
+          logMsg (  $(ddField +  ' option:selected').text() ) ;
+          hideFormFields  (  view, dbObject, field,  $(ddField +  ' option:selected').text() );
+     }
+
+  return
+}
+
+
+
 function hideShowContactNoteFields(view, val) {
 
 try
 {
 
 
-	$('#kn-input-' + dbNotes.SalesRep).hide();
+	/* $('#kn-input-' + dbNotes.SalesRep).hide();
 	$('#kn-input-' + dbNotes.Site).hide();
 	$('#kn-input-' + dbNotes.Contact).hide();
 	$('#kn-input-' + dbNotes.Organization).hide();
 	$('#kn-input-' + dbNotes.Project).hide();
 	$('#kn-input-' + dbNotes.ProjectItem).hide();
 
-  /*
+
   $('#kn-input-' + dbNotes.Date).show();
   $('#kn-input-' + dbNotes.Notes).show();
   $('#kn-input-' + dbNotes.Taskormeeting).show();
@@ -105,22 +136,13 @@ $(document).on('knack-view-render.any' , function(event, view, data) {
   switch (view.source.object) {
 			case dbContacts.key :
 
-			  fldContactType = view.key + '-' +  getFieldKey(dbContacts, "Contact Type") ;
-        logMsg (fldContactType) ;
-
-        if (fldContactType != undefined)
-        {
-    				//add onchange event to the  drop down box
-    				$('#' + fldContactType).on('change',function(e){
-    				  logerror (e);
-    				  logMsg ( "Contact Type = " + $('#'+ fldContactType + ' option:selected').text() );
-    				  hideFormFields (  view, dbContacts, $('#'+ fldContactType + ' option:selected').text() );
-    				});
-
-            logMsg (  $('#'+ fldContactType + ' option:selected').text() ) ;
-    				hideFormFields  (  view, dbContacts, $('#'+ fldContactType + ' option:selected').text() );
-       }
+        hideFormFieldEvent (view, dbContacts, "Contact Type" ) ;
 				break;
+
+     case dbActivities.key :
+        hideFormFieldEvent (view, dbActivities, "Activity Type" ) ;
+        hideFormFieldEvent (view, dbActivities, "Activity Sub Type" ) ;
+        break ;
 
 			default :
 			  break ;
@@ -128,25 +150,6 @@ $(document).on('knack-view-render.any' , function(event, view, data) {
 	}
 
 
-	for (var i = 0; i < vw_notes.length; i++) {
-		if (view.source.object == "object_2" ) {
-//			console.log (JSON.stringify (view)) ;
-			var fld_note_type =  view.key + '-' + dbNotes.NoteType;
-
-			//add onchange event to the NoteType drop down box
-			$('#' + fld_note_type).on('change',function(e){
-			  console.log (e);
-			  console.log ($('#' + fld_note_type).val());
-			  hideShowContactNoteFields (  view, $('#'+ fld_note_type).val() );
-			});
-
-			//call the onchange event the first time to set initial fields
-			hideShowContactNoteFields (  view, $('#'+ fld_note_type).val() );
-
-		   	break;
-		}
-
-	}
   }catch (e)
     {
 	  console.error(e);

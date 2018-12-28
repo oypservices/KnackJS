@@ -53,7 +53,7 @@ function hideFormFieldEvent (view, dbObject, field ) {
           //add onchange event to the  drop down box
           $(ddField).on('change',function(e){
             logerror (e);
-            logMsg ( dbObject.key + " "" + field + " = " + $(ddField + ' option:selected').text() );
+            logMsg ( dbObject.key + " " + field + " = " + $(ddField + ' option:selected').text() );
             hideFormFields (  view, dbObject, field, $(ddField +  ' option:selected').text() );
           });
 

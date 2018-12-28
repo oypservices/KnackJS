@@ -317,7 +317,7 @@ var dbContacts = {
 Database Objects - Activities
 *******************************************************************************************************/
 
-var Activities = {
+var dbActivities = {
   "key" : "object_2",
   "name" : "activities",
   "conditionalDisplayFields" :[{
@@ -443,7 +443,7 @@ var Activities = {
 Database Objects - Projcts
 *******************************************************************************************************/
 
-var Projects = {
+var dbProjects = {
   "key" : "object_14",
   "name" : "projects",
     "fields": [

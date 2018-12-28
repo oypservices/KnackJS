@@ -322,8 +322,8 @@ var dbActivities = {
   "name" : "activities",
   "conditionalDisplayFields" :[{
           "key" :"Activity Type" , "fieldlist" :  [
-          {"key" : "Task" , "fields" : ["Add Task or Meeting", "Activity Sub Type"", "Due Date", "Task Status","Task Update"] },
-          { "key" : "Meeting" , "fields" :  ["Add Task or Meeting", "Activity Sub Type"", "Task/Meeting Due Date", "Task Status","Task Update"] }
+          {"key" : "Task" , "fields" : ["Add Task or Meeting", "Activity Sub Type", "Due Date", "Task Status","Task Update"] },
+          { "key" : "Meeting" , "fields" :  ["Add Task or Meeting", "Activity Sub Type", "Due Date", "Task Status","Task Update"] }
         ] },
         { "key": "Roles"  , "fieldlist" : [
           { "key" :"System" , "fields" : ["User", "Site", "Contact Name Expression"] }

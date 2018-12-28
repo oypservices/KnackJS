@@ -42,8 +42,7 @@ Setup the events that will be triggered to hide fields
 
 function hideFormFieldEvent (view, dbObject, field ) {
 
-    var source = logObject.caller.name ;
-    console.dir (source + ": " + msg ) ;
+try {
 
     var ddField = '#' + view.key + '-' +  getFieldKey(dbObject, field) ;
     logMsg (ddField) ;
@@ -61,7 +60,12 @@ function hideFormFieldEvent (view, dbObject, field ) {
           hideFormFields  (  view, dbObject, field,  $(ddField +  ' option:selected').text() );
      }
 
-  return
+     return;
+
+      }
+   catch (e) {
+          logerror (e);
+  }
 }
 
 

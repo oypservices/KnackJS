@@ -320,8 +320,8 @@ var Activities = {
   "name" : "activities",
   "conditionalDisplayFields" :[{
           "key" :"Activity Type" , "fieldlist" :  [
-          {"key" : "Task" , "fields" : ["Taskormeeting", "TasksorMeetingTypes", "TaskMeetingDueDate", "TaskStatus"."TaskUpdate"] },
-          { "key" : "Meeting" , "fields" :  ["Taskormeeting", "TasksorMeetingTypes", "TaskMeetingDueDate", "TaskStatus"."TaskUpdate"] }
+          {"key" : "Task" , "fields" : ["Taskormeeting", "TasksorMeetingTypes", "TaskMeetingDueDate", "TaskStatus","TaskUpdate"] },
+          { "key" : "Meeting" , "fields" :  ["Taskormeeting", "TasksorMeetingTypes", "TaskMeetingDueDate", "TaskStatus","TaskUpdate"] }
         ] },
         { "key": "Roles"  , "fieldlist" : [
           { "key" :"System" , "fields" : ["User", "Site", "Contact Name Expression"] }

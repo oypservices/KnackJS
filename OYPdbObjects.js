@@ -19,7 +19,7 @@ function hideFormFields(view, dbObject, filterfield,  key) {
          var bfound = false ;
 
          //find the right list based on the field
-         foreach (var n = 0 ; n < conditionaFields.length; n++ ) {
+         for (var n = 0 ; n < conditionaFields.length; n++ ) {
              if (condiionalFields[n].key == filterfield ) {
                 conditionalFields = condiionalFields[n].fieldlist ;
                 bfound = true ;

@@ -53,7 +53,7 @@ function hideFormFieldEvent (view, dbObject, field ) {
           //add onchange event to the  drop down box
           $(ddField).on('change',function(e){
             logerror (e);
-            logMsg ( dbObject.key + "  + field + " = " + $(ddField + ' option:selected').text() );
+            logMsg ( dbObject.key + " "" + field + " = " + $(ddField + ' option:selected').text() );
             hideFormFields (  view, dbObject, field, $(ddField +  ' option:selected').text() );
           });
 
@@ -64,68 +64,6 @@ function hideFormFieldEvent (view, dbObject, field ) {
   return
 }
 
-
-
-function hideShowContactNoteFields(view, val) {
-
-try
-{
-
-
-	/* $('#kn-input-' + dbNotes.SalesRep).hide();
-	$('#kn-input-' + dbNotes.Site).hide();
-	$('#kn-input-' + dbNotes.Contact).hide();
-	$('#kn-input-' + dbNotes.Organization).hide();
-	$('#kn-input-' + dbNotes.Project).hide();
-	$('#kn-input-' + dbNotes.ProjectItem).hide();
-
-
-  $('#kn-input-' + dbNotes.Date).show();
-  $('#kn-input-' + dbNotes.Notes).show();
-  $('#kn-input-' + dbNotes.Taskormeeting).show();
-  $('#kn-input-' + dbNotes.TasksorMeetingTypes).show();
-  $('#kn-input-' + dbNotes.TaskMeetingDueDate).show();
-  $('#kn-input-' + dbNotes.TaskStatus).show();
-  $('#kn-input-' + dbNotes.TaskUpdate).show();
-  */
-
-	// If this value in the form doesn't equal "SpecificValue" then prevent the form from submitting
-    if (val == "Task") {
-	console.log (val);
-
-	$('#kn-input-' + dbNotes.Taskormeeting).show();
-	$('#kn-input-' + dbNotes.TasksorMeetingTypes).show();
-	$('#kn-input-' + dbNotes.TaskMeetingDueDate).show();
-	$('#kn-input-' + dbNotes.TaskStatus).show();
-	$('#kn-input-' + dbNotes.TaskUpdate).show();
-	return true;
-    }
-    else if (val == "Meeting") {
-	console.log (val);
-	$('#kn-input-' + dbNotes.Taskormeeting).show();
-	$('#kn-input-' + dbNotes.TasksorMeetingTypes).show();
-	$('#kn-input-' + dbNotes.TaskMeetingDueDate).show();
-	$('#kn-input-' + dbNotes.TaskStatus).show();
-	$('#kn-input-' + dbNotes.TaskUpdate).show();
-	return true;
-    }
-    else {
-	$('#kn-input-' + dbNotes.Taskormeeting).hide();
-	$('#kn-input-' + dbNotes.TasksorMeetingTypes).hide();
-	$('#kn-input-' + dbNotes.TaskMeetingDueDate).hide();
-	$('#kn-input-' + dbNotes.TaskStatus).hide();
-	$('#kn-input-' + dbNotes.TaskUpdate).hide();
-	return true;
-    }
-
-}catch (e)
-    {
-  console.error(e);
-  console.error(e.stack) ;
-    }
-
-
-}
 
 $(document).on('knack-view-render.any' , function(event, view, data) {
 

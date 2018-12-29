@@ -325,11 +325,29 @@ var dbActivities = {
           {"key" : "Task" , "fields" : ["Add Task or Meeting", "Activity Sub Type", "Due Date", "Task Status","Task Update"] },
           { "key" : "Meeting" , "fields" :  ["Add Task or Meeting", "Activity Sub Type", "Due Date", "Task Status","Task Update"] }
         ] },
+
+        { "key" :"Activity Associated With" , "fieldlist" :  [
+                {"key" : "A Project" , "fields" : ["Project"] },
+                { "key" : "A Contact" , "fields" :  ["Contact"] }
+              ] },
+
         { "key": "Roles"  , "fieldlist" : [
           { "key" :"System" , "fields" : ["User", "Site", "Contact Name Expression"] }
         ] },
     ] ,
       "fields": [
+        {
+                   "label": "Activity Associated With",
+                   "key": "field_233",
+                   "required": false,
+                   "type": "multiple_choice",
+                   "choices": [
+                       "A Project",
+                       "A Contact",
+                       "General"
+                   ]
+               },
+
           {
               "label": "Contact",
               "key": "field_22",

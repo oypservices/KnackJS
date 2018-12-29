@@ -47,6 +47,9 @@ try {
     var ddField = '#' + view.key + '-' +  getFieldKey(dbObject, field) ;
     logMsg (ddField) ;
 
+    if($(ddField).length == 0)
+      return ;
+
     if (getFieldKey(dbObject, field)  != undefined)   {   //needs to be addressed, cause it will never be undefined TODO
 
           //add onchange event to the  drop down box

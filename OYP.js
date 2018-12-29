@@ -82,6 +82,7 @@ $(document).on('knack-view-render.any' , function(event, view, data) {
 				break;
 
      case dbActivities.key :
+        hideFormFieldEvent (view, dbActivities,"Activity Associated With") ;
         hideFormFieldEvent (view, dbActivities, "Activity Type" ) ;
         hideFormFieldEvent (view, dbActivities, "Activity Sub Type" ) ;
         break ;

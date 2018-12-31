@@ -30,7 +30,7 @@ try {
     var contact =  [ contactId, linkedContactid] ;
     console.dir (contact) ;
 
-    for (n = 1 ; n < contact.length ; n++) {
+    for (n = 0 ; n < contact.length ; n++) {
         addEachRelationship ( contact[n],  linkId) ;
 
     }
@@ -65,13 +65,14 @@ function addEachRelationship(contact, linkId)
                     if ( result == undefined)
                        return ;
 
-                    var field_258 = result.field_258.raw;
+                    var field_258 = result.field_258_raw;
                     if (field_258 == null)
                         field_258 = [{ "id" : contact }]     ;
                     else
                       field_258.push ( { "id" : contact }) ;
 
-                    apidata.record = field_258;
+                    apidata.record.field_258 = field_258;
+                    apidata.record.field_258_raw = field_258 ;
                     apidata.method = "put" ;
                     console.dir (apiddate) ;
                     OYPKnackAPICall (headers,  apidata) ;

@@ -34,14 +34,11 @@ try {
         addEachRelationship ( contact[n],  linkId) ;
 
     }
-
-
  }
  catch (e) {
           logerror (e);
         }
  }
-
 
 /**************************************************************************************
 Retrieve the contact and add the link
@@ -56,7 +53,6 @@ function addEachRelationship(contact, linkId)
               "appid": app_id,
               "id" : contact
               };
-
 
         OYPKnackAPICall (headers,  apidata)
                 .then (result => {
@@ -76,7 +72,7 @@ function addEachRelationship(contact, linkId)
                     apidata.record.field_258 = field_258;
                     apidata.record.field_258_raw = field_258 ;
                     apidata.method = "put" ;
-                    console.dir (apiddate) ;
+                    console.dir (apiddata) ;
                     OYPKnackAPICall (headers,  apidata) ;
                 });
 

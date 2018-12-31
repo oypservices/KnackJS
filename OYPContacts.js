@@ -40,9 +40,10 @@ try {
         }
  }
 
-
 /**************************************************************************************
 Retrieve the contact and add the link - this proc is called for each relationship
+
+
 ***************************************************************************************/
 function addEachRelationship(contact, linkId)
 {
@@ -71,7 +72,7 @@ function addEachRelationship(contact, linkId)
                       field_258.push ( { "id" : contact }) ;
 
                     apidata.record.field_258 = field_258;
-      
+
                     apidata.method = "put" ;
                     console.dir (apidata) ;
                     OYPKnackAPICall (headers,  apidata) ;

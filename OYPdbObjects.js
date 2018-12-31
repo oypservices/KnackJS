@@ -460,13 +460,12 @@ var dbActivities = {
 
 
   /*******************************************************************************************************
-  Database Objects - Projcts
+  Database Objects - Contact to Contact Links
   *******************************************************************************************************/
 
   var dbContacttoContactLinks = {
     "key" : "object_25",
-    "name" : "projects",
-    "fields" : {
+    "name" : "Contact to Contact Links",
     "fields": [
         {
             "label": "Contact to Contact Name",
@@ -512,7 +511,7 @@ var dbActivities = {
 
 
 /*******************************************************************************************************
-Database Objects - Projcts
+Database Objects - Projects
 *******************************************************************************************************/
 
 var dbProjects = {

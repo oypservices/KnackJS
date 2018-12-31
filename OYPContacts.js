@@ -65,12 +65,17 @@ function addEachRelationship(contact, linkId)
 
                     apidata.record = {};
 
-                    var linkedContacts = result.field_258_raw;
-                    if (linkedContacts == undefined)
+                    var linkedContacts = [];
+                    if (result.field_258_raw == undefined)
                         linkedContacts = [ contact ]     ;
-                    else
-                      linkedContacts.push ( contact ) ;
+                    else  {
+                      for (var n = 0; n < result.field_258_raw.length ; n++ )
+                          linkedContacts.push ( result.field_258_raw[n].id ) ;
 
+                      linkedContacts.push ( contact ) ;
+                    }
+
+                    console.dir (linkedContacts) ;
                     apidata.record.field_258 = linkedContacts;
 
                     apidata.method = "put" ;

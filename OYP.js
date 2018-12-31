@@ -35,6 +35,59 @@ function logObject (msg) {
   return
 }
 
+/**********************************************************************************************
+//Event handler for created records
+*************************************************************************************************/
+
+$(document).on('knack-record-create.any' , function (event, view, record) {
+  console.log (JSON.stringify(view)) ;
+
+  switch (view.source.object) {
+
+    case dbContacttoContactLinks.key:
+      addContactRelationships (event, view, record);
+      break;
+
+    default:
+      break ;
+  }
+
+});
+
+/**********************************************************************************************
+//Event handler for view render
+*************************************************************************************************/
+
+$(document).on('knack-view-render.any' , function(event, view, data) {
+
+  try {
+	var view_name =  view.key ;
+
+	console.log(view_name) ;
+  switch (view.source.object) {
+			case dbContacts.key :
+
+        hideFormFieldEvent (view, dbContacts, "Contact Type" ) ;
+				break;
+
+     case dbActivities.key :
+        hideFormFieldEvent (view, dbActivities,"Activity Associated With") ;
+        hideFormFieldEvent (view, dbActivities, "Activity Type" ) ;
+        hideFormFieldEvent (view, dbActivities, "Activity Sub Type" ) ;
+        break ;
+
+			default :
+			  break ;
+
+	}
+
+
+  }   catch (e) {
+            logerror (e);
+    }
+
+});
+
 
 /*******************************************************************************************
 Setup the events that will be triggered to hide fields
@@ -72,35 +125,7 @@ try {
 }
 
 
-$(document).on('knack-view-render.any' , function(event, view, data) {
 
-  try {
-	var view_name =  view.key ;
-
-	console.log(view_name) ;
-  switch (view.source.object) {
-			case dbContacts.key :
-
-        hideFormFieldEvent (view, dbContacts, "Contact Type" ) ;
-				break;
-
-     case dbActivities.key :
-        hideFormFieldEvent (view, dbActivities,"Activity Associated With") ;
-        hideFormFieldEvent (view, dbActivities, "Activity Type" ) ;
-        hideFormFieldEvent (view, dbActivities, "Activity Sub Type" ) ;
-        break ;
-
-			default :
-			  break ;
-
-	}
-
-
-  }   catch (e) {
-            logerror (e);
-    }
-
-});
 
 
 function CallAPIJSONTransform(message) {

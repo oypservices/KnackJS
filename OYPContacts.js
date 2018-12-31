@@ -72,7 +72,7 @@ function addEachRelationship(contact, linkId)
                     apidata.record.field_258 = field_258;
                     apidata.record.field_258_raw = field_258 ;
                     apidata.method = "put" ;
-                    console.dir (apiddata) ;
+                    console.dir (apidata) ;
                     OYPKnackAPICall (headers,  apidata) ;
                 });
 

@@ -19,10 +19,10 @@ try {
     console.log (contactKey) ;
     console.log (contactLinkedKey) ;
 
-    var contactId =  objContactLink[contactKey[0].id ;
+    var contactId =  objContactLink[contactKey][0].id;
     console.log (contactId);
 
-    var linkedContactid = objContactLink[contactLinkedKey[0].id]  ;
+    var linkedContactid = objContactLink[contactLinkedKey][0].id  ;
     console.log  (linkedContactid) ;
 
     console.log (linkId) ;

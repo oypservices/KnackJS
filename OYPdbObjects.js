@@ -592,7 +592,7 @@ Database Objects - Projcts
 var dbContacttoContactLinks = {
   "key" : "object_25",
   "name" : "projects",
-  "fields" = {
+  "fields" : {
     "object": {
         "key": "object_25",
         "name": "Contact to Contact Links",

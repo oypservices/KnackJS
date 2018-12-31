@@ -12,7 +12,7 @@ function hideFormFields(view, dbObject, filterfield,  key) {
          logObject (conditionalFields);
 
          if ( conditionalFields == undefined ) {
-             logMessage (dbObject["name"] + " conditionalFields property not defined ") ;
+             logMsg (dbObject["name"] + " conditionalFields property not defined ") ;
              return ;
          }
 
@@ -79,7 +79,7 @@ function getFieldKey(dbObject, label ) {
         var fields = dbObject["fields"];
         console.dir (fields) ;
         if ( fields == undefined ){
-            logMessage (dbObject["name"] + " Fields property not defined") ;
+            logMsg (dbObject["name"] + " Fields property not defined") ;
             return ;
         }
 
@@ -89,7 +89,7 @@ function getFieldKey(dbObject, label ) {
              return fields[i].key ;
         }
 
-       logMessage (dbObject["name"]+ " field not found - " + label) ;
+       logMsg (dbObject["name"]+ " field not found - " + label) ;
        return "" ;
 
   }

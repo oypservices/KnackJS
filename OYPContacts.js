@@ -14,8 +14,8 @@ try {
     var linkId = objContactLink.id;
 
     var contactKey =  getFieldKey(dbContacttoContactLinks, "Contact") + "_raw";
-    var contactLinkedKey =  getFieldKey(dbContacttoContactLinks, "Linked Contact") + "_raw" );
-    
+    var contactLinkedKey =  getFieldKey(dbContacttoContactLinks, "Linked Contact") + "_raw";
+
     console.log (contactKey) ;
     console.log (contactLinkedKey) ;
 

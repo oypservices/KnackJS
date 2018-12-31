@@ -30,7 +30,7 @@ try {
     var contact =  [ contactId, linkedContactid] ;
     console.dir (contact) ;
 
-    for (n = 0 ; n < contact.length ; n++) {
+    for (n = 1 ; n < contact.length ; n++) {
         addEachRelationship ( contact[n],  linkId) ;
 
     }
@@ -62,10 +62,14 @@ function addEachRelationship(contact, linkId)
                 .then (result => {
 
                     console.dir (result) ;
-                    if ( result != undefined)
-                      var field_258 = result.field_258.raw;
+                    if ( result == undefined)
+                       return ;
 
-                    field_258.push ( { "id" : contact })
+                    var field_258 = result.field_258.raw;
+                    if (field_258 == null)
+                        field_258 = [{ "id" : contact }]     ;
+                    else
+                      field_258.push ( { "id" : contact }) ;
 
                     apidata.record = field_258;
                     apidata.method = "put" ;

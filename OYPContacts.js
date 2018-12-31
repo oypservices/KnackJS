@@ -40,8 +40,9 @@ try {
         }
  }
 
+
 /**************************************************************************************
-Retrieve the contact and add the link
+Retrieve the contact and add the link - this proc is called for each relationship
 ***************************************************************************************/
 function addEachRelationship(contact, linkId)
 {
@@ -75,8 +76,6 @@ function addEachRelationship(contact, linkId)
                     console.dir (apidata) ;
                     OYPKnackAPICall (headers,  apidata) ;
                 });
-
-
         }
    catch (e) {
       logerror (e);

@@ -65,6 +65,8 @@ function addEachRelationship(contact, linkId)
                     if ( result == undefined)
                        return ;
 
+                    apidata.record = {};
+
                     var field_258 = result.field_258_raw;
                     if (field_258 == null)
                         field_258 = [{ "id" : contact }]     ;

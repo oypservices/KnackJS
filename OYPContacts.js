@@ -71,8 +71,7 @@ function addEachRelationship(contact, linkId)
                       field_258.push ( { "id" : contact }) ;
 
                     apidata.record.field_258 = field_258;
-                    delete pidata.record[field_258_raw];
-    
+      
                     apidata.method = "put" ;
                     console.dir (apidata) ;
                     OYPKnackAPICall (headers,  apidata) ;

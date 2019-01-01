@@ -1,7 +1,6 @@
 /***********************************************************************************************************
 syncGoalInterventions
 ***********************************************************************************************************/
-
 function syncGoalInterventions ( inData) {
 /* This functions reads the list of intervention by goal id, and nest them within the intervention field on the goal table.  This is
 necessary in order to display the interventions in a view / print type scenario.

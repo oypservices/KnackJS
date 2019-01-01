@@ -76,8 +76,9 @@ var dbObjects = {
   "ClientIntakeDocuments" : "object_24",
   "Clients" : "object_1",
   "ClientStatusHistory" : "object_35",
-  "ContactNotes" : "object_4"
-
+  "ContactNotes" : "object_4",
+  "ClientGoals" : "object_2",
+  "ClientGoalInterventions" :  "object_25"
 }
 
 

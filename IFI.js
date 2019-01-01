@@ -320,7 +320,7 @@ function updateInterventionGoalId (interventionRecord ) {
 }
 
 
-
+/*
 
 $(document).on('knack-form-submit.' + vw_goal_intervention_add , function(event, view, data) {
 
@@ -347,6 +347,7 @@ $(document).on('knack-form-submit.' + vw_goal_intervention_add , function(event,
   alert (JSON.stringify (data));
 
 });
+*/
 
 $(document).on('knack-view-render.' + vw_goal_intervention_add , function(event, view, data) {
 
@@ -400,103 +401,38 @@ $(document).on('knack-record-update.' + vw_irp_final, function (event, view, rec
 
 
 	var parser = document.createElement("a");
-  	var pathArray = window.location.href.split( '#' );
-
-        var url = pathArray[0] + '#clients/edit-client2/' + clientId + '/irp/' + clientId + '/edit-client-irp/' + record.id ;
+  var pathArray = window.location.href.split( '#' );
+  var url = pathArray[0] + '#clients/edit-client2/' + clientId + '/irp/' + clientId + '/edit-client-irp/' + record.id
 	console.log (url);
 	window.location.href = url;
 
+
+
+
 });
 
 
-function syncGoalInterventions ( inData) {
-/* This functions reads the list of intervention by goal id, and nest them within the intervention field on the goal table.  This is
-necessary in order to display the interventions in a view / print type scenario.
-*/
 
-	console.log (JSON.stringify (inData)) ;
-  	console.log (JSON.stringify (inData));
-	var goalId = inData["field_232_raw"][0].id  ;
+$(document).on('knack-form-submit.any' , function(event, view, data) {
 
+ try {
 
-	var filters = [
-    	// Filter for records with a value for this field in the last three months
-    	{
-	      "field":dbInterventions.ClientGoals,
-	      "operator":"contains",
-	      "value": goalId
-    	}
-  	];
+   var view_name =  view.key ;
+   proc = 'knack-form-submit.any:' + view_name ;
+   console.log(view_name) ;
 
-  	var this_url = urlInterventionList + '?filters=' + encodeURIComponent(JSON.stringify(filters));
-	console.log (this_url) ;
-  	var goal_url = urlGoalUpdate + '/' + goalId ;
+   switch (view.source.object) {
+    case dbObjects.ClientGoals :
+     	syncGoalInterventions (data ) ;
+      brek;
 
+    default:
+       break ;
+  }
 
-  // Search to see if a contact exist by this name
-  $.ajax({
-        url: this_url ,
-        type: 'GET',
-        headers: headers,
-        success: function (response) {
-
-		console.log ( JSON.stringify(response)) ;
-		var field_233 = [];
-		for (var i = 0; i < response.records.length; i++) {
-			//console.log (response.records[i].id) ;
-		      	field_233[i] =  {"id": response.records[i].id}  ;
-	        }
-
-		//console.log (JSON.stringify(field_233)) ;
-		var data = { "field_233": field_233 } ;
-
-		 $.ajax({
-			url: goal_url,
-			type: 'PUT',
-			headers: headers,
-			data: JSON.stringify(data),
-			success: function (response) {
-			  console.log (JSON.stringify(response));
-			  console.log('Goal Interventions Updated!!!');
-			}
-		      }); //end ajax
-	} // end response function
-
-      }); //end ajax
-
-}
-
-
-/* Intervention Viees - Adds and Updates */
-
-$(document).on('knack-form-submit.view_268' , function(event, view, data) {
-
-  	syncGoalInterventions (data ) ;
-});
-
-$(document).on('knack-form-submit.view_269' , function(event, view, data) {
-
-  	syncGoalInterventions (data ) ;
-});
-
-$(document).on('knack-form-submit.view_510' , function(event, view, data) {
-
-   	syncGoalInterventions (data ) ;
-});
-
-$(document).on('knack-form-submit.view_513' , function(event, view, data) {
-
-   	syncGoalInterventions (data ) ;
-});
-
-$(document).on('knack-form-submit.view_491' , function(event, view, data) {
-
-   	syncGoalInterventions (data ) ;
-});
-
-$(document).on('knack-form-submit.view_515' , function(event, view, data) {
-
-   	syncGoalInterventions (data ) ;
+  catch (e)  {
+          logerror(proc, e);
+       }
 });
 
 

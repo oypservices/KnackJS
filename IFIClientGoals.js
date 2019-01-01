@@ -32,9 +32,11 @@ try {
 
 						var field_233 = [];
 						for (n = 0; n < result.records.length ; n++)
-								field_233[n] =  result.records[n].id  ;
+								field_233.push(result.records[n].id)  ;
 
 						console.dir (field_233) ;
+
+						delete  apidata.filters;
 						apidata.record = {} ;
 						apidata.record.field_233 = field_233;
 
@@ -42,7 +44,6 @@ try {
 						apidata.knackobj = dbObjects.ClientGoals;
 						apidata.id = goalId ;
 						console.dir (apidata) ;
-
 
 						OYPKnackAPICall (headers,  apidata) ;
 

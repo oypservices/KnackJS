@@ -17,9 +17,8 @@ try {
 					"method": "get",
 					"knackobj": dbObjects.ClientGoalInterventions,
 					"appid": app_id,
-					"id" : contact
 					"filters" : [ {
-					      "field":dbInterventions.ClientGoals,
+					      "field": dbInterventions.ClientGoals,
 					      "operator":"contains",
 					      "value": goalId
 				    	} ]

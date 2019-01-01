@@ -419,7 +419,7 @@ $(document).on('knack-form-submit.any' , function(event, view, data) {
    switch (view.source.object) {
     case dbObjects.ClientGoalInterventions:
      	syncGoalInterventions (data ) ;
-      brek;
+      break;
 
     default:
        break ;

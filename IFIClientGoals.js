@@ -33,10 +33,11 @@ try {
 						var field_233 = [];
 
 						for (n = 0; n < result.records.length ; n++)
-								field_233[n] =  {"id": response.records[i].id}  ;
+								field_233[n] =  response.records[i].id  ;
 
 
 						console.dir (field_233) ;
+						apidata.record = {} ;
 						apidata.record.field_233 = field_233;
 
 						apidata.method = "put" ;

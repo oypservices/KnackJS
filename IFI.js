@@ -417,7 +417,7 @@ $(document).on('knack-form-submit.any' , function(event, view, data) {
    console.log(view_name) ;
 
    switch (view.source.object) {
-    case dbObjects.ClientGoals :
+    case dbObjects.ClientGoalInterventions:
      	syncGoalInterventions (data ) ;
       brek;
 

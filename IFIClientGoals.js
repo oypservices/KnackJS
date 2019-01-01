@@ -33,7 +33,7 @@ try {
 						var field_233 = [];
 
 						for (n = 0; n < result.records.length ; n++)
-								field_233[n] =  result.records[i].id  ;
+								field_233[n] =  result.records[n].id  ;
 
 
 						console.dir (field_233) ;

@@ -430,7 +430,6 @@ $(document).on('knack-form-submit.any' , function(event, view, data) {
        }
 });
 
-
 $(document).on('knack-view-render.any' , function(event, view, data) {
 
   try {

@@ -52,39 +52,3 @@ try {
 	          logerror(proc, e);
 	       }
 }
-
-
-
-
-var apidata = {
-			"method": "get",
-			"knackobj": dbContacts.key,
-			"appid": app_id,
-			"id" : contact
-			};
-
-OYPKnackAPICall (headers,  apidata)
-				.then (result => {
-
-						console.dir (result) ;
-						if ( result == undefined)
-							 return ;
-
-						apidata.record = {};
-
-						var linkedContacts = [];
-						if (result.field_258_raw == undefined)
-								linkedContacts = [ linkId ]     ;
-						else  {
-							for (var n = 0; n < result.field_258_raw.length ; n++ )
-									linkedContacts.push ( result.field_258_raw[n].id ) ;
-
-							linkedContacts.push ( linkId ) ;
-						}
-
-						console.dir (linkedContacts) ;
-						apidata.record.field_258 = linkedContacts;
-
-						apidata.method = "put" ;
-						console.dir (apidata) ;
-						OYPKnackAPICall (headers,  apidata) ;

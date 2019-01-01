@@ -406,12 +406,7 @@ $(document).on('knack-record-update.' + vw_irp_final, function (event, view, rec
 	console.log (url);
 	window.location.href = url;
 
-
-
-
 });
-
-
 
 $(document).on('knack-form-submit.any' , function(event, view, data) {
 
@@ -429,7 +424,7 @@ $(document).on('knack-form-submit.any' , function(event, view, data) {
     default:
        break ;
   }
-
+ }
   catch (e)  {
           logerror(proc, e);
        }

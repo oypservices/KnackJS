@@ -158,7 +158,6 @@ function InspectClientTeamRoles(resultCientTeam, viewName) {
             console.log (contactid);
        }
 
-
   }
 catch (e)
   {
@@ -167,8 +166,6 @@ catch (e)
   }
 
 }
-
-
 
 /*********************************************************************************
 find and add contacts to client team

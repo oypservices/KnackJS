@@ -129,7 +129,7 @@ function InspectClientTeamRoles(resultCientTeam, viewName) {
                     "Name" : "",
                     "Name_raw" : { "first": "", "last" : ""} ,
                     "Accountid" : Knack.models[viewName].toJSON()[dbClients.CaseManager + "_raw"] ,
-                    "IsCaseManagerAssignmentTemporary" : Knack.models[viewName].toJSON()[dbClients.IsCaseManagerAssignmentTemporary]
+                    "IsCaseManagerAssignmentTemporary" : Knack.models[viewName].toJSON()[dbClients.IsCaseManagerAssignmentTemporary],
                     "prevCMContactId" : prevCMContactId ,
                     "prevCMClientTeamId" : prevCMClientTeamId ,
                     "Role" : "Case Manager" ,

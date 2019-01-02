@@ -44,10 +44,15 @@ function InspectClientTeamRoles(resultCientTeam, viewName) {
   try
     {
 
+      var prevTherapistContactId = -1;
+      var prevCMContactId = -1;
+      var prevCMClientTeamId = -1;
+
       var bTherapistRole = false;
       var bProgramDirectRole = false ;
       var bCaseManagerRole = false ;
       var bRehabSpecRole = false ;
+
       var clientId = Knack.models[viewName].toJSON().id ;
 
 
@@ -68,7 +73,12 @@ function InspectClientTeamRoles(resultCientTeam, viewName) {
            bProgramDirectRole = true ;
 
          if (role == "Case Manager")
+         {
            bCaseManagerRole = true ;
+           prevCMContactId = resultCientTeam.records[i][dbClientTeamMembers.Contact] ;
+           prevCMClientTeamId = resultCientTeam.records[i].id ;
+
+         }
 
          if (role == "Rehabilitation Specialist")
             bRehabSpecRole = true ;
@@ -111,12 +121,35 @@ function InspectClientTeamRoles(resultCientTeam, viewName) {
 
         }
 
-        if (!bCaseManagerRole) {
+        if (bCaseManagerRole) {
+
+          /* Case Manager Role does exist. check to see if it changed and if the change is temporary */
 
             teamMember = {
                     "Name" : "",
                     "Name_raw" : { "first": "", "last" : ""} ,
                     "Accountid" : Knack.models[viewName].toJSON()[dbClients.CaseManager + "_raw"] ,
+                    "IsCaseManagerAssignmentTemporary" : Knack.models[viewName].toJSON()[dbClients.IsCaseManagerAssignmentTemporary]
+                    "prevCMContactId" : prevCMContactId ,
+                    "prevCMClientTeamId" : prevCMClientTeamId ,
+                    "Role" : "Case Manager" ,
+                    "clientId" : clientId  } ;
+
+            console.log (JSON.stringify(teamMember)) ;
+
+            contactid = findContactByAccountid (teamMember) ;
+            console.log (contactid);
+       }
+
+        if (!bCaseManagerRole) {
+
+          /* Case Manager Role does not currently exist */
+
+            teamMember = {
+                    "Name" : "",
+                    "Name_raw" : { "first": "", "last" : ""} ,
+                    "Accountid" : Knack.models[viewName].toJSON()[dbClients.CaseManager + "_raw"] ,
+                    "IsCaseManagerAssignmentTemporary" : Knack.models[viewName].toJSON()[dbClients.IsCaseManagerAssignmentTemporary]
                     "Role" : "Case Manager" ,
                     "clientId" : clientId  } ;
 
@@ -336,12 +369,18 @@ try {
   OYPServicesAPIPost( resource, headers, getapidata )
     .then (resultAccount=> {
 
+      //"IsCaseManagerAssignmentTemporary" : Knack.models[viewName].toJSON()[dbClients.IsCaseManagerAssignmentTemporary]
+      //"prevCMContactId" : prevCMContactId ,
+      //"prevCMClientTeamId" : prevCMClientTeamId ,
+
         console.dir(resultAccount) ;
         if (resultAccount.records.length > 0 )
         {
           contactid = resultAccount.records[0][dbAccounts.Contact_raw][0].id ;
-          console.log (contactid) ;
-          addClientTeamMember (contactid, teamMember.Role, teamMember.clientId);
+          if (contactid !=  teamMember.prevCMContactId ) {
+            console.log (contactid) ;
+            addClientTeamMember (contactid, teamMember.Role, teamMember.clientId);
+          }
         }
         else {
           console.log ("Account Not Found") ;

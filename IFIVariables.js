@@ -87,6 +87,7 @@ var dbObjects = {
 var dbClients = {
   "ClientName":"field_2",
 "CaseManager":"field_139",
+"IsCaseManagerAssignmentTemporary" :"field_353",
 "ReferredByTitle":"field_192",
 "ReferredBy":"field_118",
 "ReferredBy_raw":"field_118_raw",

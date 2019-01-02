@@ -144,7 +144,6 @@ function InspectClientTeamRoles(resultCientTeam, viewName) {
         if (!bCaseManagerRole) {
 
           /* Case Manager Role does not currently exist */
-
             teamMember = {
                     "Name" : "",
                     "Name_raw" : { "first": "", "last" : ""} ,

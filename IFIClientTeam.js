@@ -373,7 +373,7 @@ try {
     .then (resultAccount=> {
 
         console.dir(resultAccount) ;
-        if (resultAccount.records.length = 0 ) {
+        if (resultAccount.records.length == 0 ) {
             console.log ("Account Not Found") ;
             return 0;
         }
@@ -410,7 +410,6 @@ try {
               updateTeamAssignmennt (prevAssign) ;
            }
         }
-
 
         if (!bContactFound ) {
           console.log (contactid) ;
@@ -455,10 +454,7 @@ function updateTeamAssignmennt (prevAssign) {
         console.error(e.stack) ;
       }
 
-
-
   }
-
 
 
 }

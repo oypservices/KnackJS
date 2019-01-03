@@ -427,7 +427,6 @@ catch (e)
     console.error(e.stack) ;
   }
 
-
 function updateTeamAssignmennt (prevAssign) {
   try {
 

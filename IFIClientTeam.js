@@ -380,21 +380,19 @@ try {
 
         contactid = resultAccount.records[0][dbAccounts.Contact_raw][0].id ;
 
-        if (teamMember.IsCaseManagerAssignmentTemporary ) {
+        if (teamMember.IsCaseManagerAssignmentTemporary == 'Yes' ) {
           for (var n = 0 ; n < teamMember.prevAssign.length ; n++)  {
               var prevAssign = teamMember.prevAssign[n] ;
               console.dir (prevAssign) ;
               if (  contactid ==  prevAssign.ContactId ) {
-                   if ( prevAssign.InactiveDate.date != "") {
-                    prevAssign.InactiveDate = {"date" : getToday()} ;
+                    prevAssign.InactiveDate.date = "" ;
                     updateTeamAssignmennt (prevAssign) ;
+                    bContactFound = true ;
+                    return ;
                   }
 
-                  bContactFound = true ;
-                  return ;
-              }
-          }
 
+              }
         }
         else {
           for (var n = 0 ; n < teamMember.prevAssign.length; n++)  {

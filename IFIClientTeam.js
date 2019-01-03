@@ -45,6 +45,9 @@ function InspectClientTeamRoles(resultCientTeam, viewName) {
     {
 
       var prevTherapistContactId = -1;
+
+      var cmClientAssign = [] ;
+
       var prevCMContactId = -1;
       var prevCMClientTeamId = -1;
 
@@ -75,8 +78,12 @@ function InspectClientTeamRoles(resultCientTeam, viewName) {
          if (role == "Case Manager")
          {
            bCaseManagerRole = true ;
-           prevCMContactId = resultCientTeam.records[i][dbClientTeamMembers.Contact] ;
-           prevCMClientTeamId = resultCientTeam.records[i].id ;
+           var teamAssign = {} ;
+           teamAssign.ContactId = resultCientTeam.records[i][dbClientTeamMembers.Contact] ;
+           teamAssign.ClientTeamId = resultCientTeam.records[i].id ;
+           teamAssign.InactiveDate = resultCientTeam.records[i][dbClientTeamMembers.AssignmentInactiveDate] ;
+           teamAssign.Role = role ;
+           cmClientAssign.push (teamAssign) ;
 
          }
 
@@ -130,8 +137,7 @@ function InspectClientTeamRoles(resultCientTeam, viewName) {
                     "Name_raw" : { "first": "", "last" : ""} ,
                     "Accountid" : Knack.models[viewName].toJSON()[dbClients.CaseManager + "_raw"] ,
                     "IsCaseManagerAssignmentTemporary" : Knack.models[viewName].toJSON()[dbClients.IsCaseManagerAssignmentTemporary],
-                    "prevCMContactId" : prevCMContactId ,
-                    "prevCMClientTeamId" : prevCMClientTeamId ,
+                    "prevAssign" : cmClientAssign,
                     "Role" : "Case Manager" ,
                     "clientId" : clientId  } ;
 
@@ -335,6 +341,7 @@ function findContactByAccountid (teamMember) {
 try {
 
   var contactid = "" ;
+  var bContactFound = false;
 
   if (teamMember.Accountid === undefined) {
     console.log ("AccountID Field is undefined") ;
@@ -369,18 +376,57 @@ try {
       //"prevCMContactId" : prevCMContactId ,
       //"prevCMClientTeamId" : prevCMClientTeamId ,
 
+
         console.dir(resultAccount) ;
-        if (resultAccount.records.length > 0 )
-        {
+        if (resultAccount.records.length = 0 ) {
+            console.log ("Account Not Found") ;
+        }
+        else {
           contactid = resultAccount.records[0][dbAccounts.Contact_raw][0].id ;
-          if (contactid !=  teamMember.prevCMContactId ) {
+
+          if (teamMember.IsCaseManagerAssignmentTemporary ) {
+            for (var n = 0 ; n < teamMember.prevAssign.length, n++)  {
+                var prevAssign = teamMember.prevAssign[n] ;
+                console.dir (prevAssign) ;
+                if (  contactid ==  prevAssign.ContactId ) {
+                     if ( prevAssign.InactiveDate.date != "") {
+                      prevAssign.InactiveDate = {"date" : getToday()} ;
+                      updateTeamAssignmennt (prevAssign) ;
+                    }
+
+                    bContactFound = true ;
+                    return ;
+                }
+            }
+
+
+
+                  teamAssign.ContactId = resultCientTeam.records[i][dbClientTeamMembers.Contact] ;
+                  teamAssign.ClientTeamId = resultCientTeam.records[i].id ;
+                  teamAssign.InactiveDate = resultCientTeam.records[i][dbClientTeamMembers.AssignmentInactiveDate] ;
+                  teamAssign.Role = role ;
+
+          else {
+            for (var n = 0 ; n < teamMember.prevAssign.length, n++)  {
+                var prevAssign = teamMember.prevAssign[n] ;
+                console.dir (prevAssign) ;
+                if (  contactid ==  prevAssign.ContactId ) {
+                     bContactFound = true ;
+                     prevAssign.InactiveDate = "" ;
+                else {
+                    prevAssign.InactiveDate =  {"date" : getToday()} ;
+
+                updateTeamAssignmennt (prevAssign) ;
+                }
+              }
+          }
+
+
+          if (!bContactFound ) {
             console.log (contactid) ;
             addClientTeamMember (contactid, teamMember.Role, teamMember.clientId);
           }
-        }
-        else {
-          console.log ("Account Not Found") ;
-        }
+
         return contactid;
 
       } ) ;
@@ -389,6 +435,37 @@ catch (e)
   {
     console.error(e);
     console.error(e.stack) ;
+  }
+
+
+function updateTeamAssignmennt (prevAssign) {
+  try {
+
+      var proc = "updateTeamAssignmennt" ;
+      console.log (proc);
+
+      var postapidata = {
+            "method": "put",
+            "knackobj": dbObjects.ClientTeam ,
+            "appid": app_id,
+            "id" : prevAssign.ClientTeamId ,
+            "record":  {
+                field_354: prevAssign.InactiveDate }
+
+
+      console.dir (apidata);
+
+      OYPKnackAPICall( headers, apidata ) ;
+
+      }
+    catch (e)
+      {
+        console.error(e);
+        console.error(e.stack) ;
+      }
+
+
+
   }
 
 

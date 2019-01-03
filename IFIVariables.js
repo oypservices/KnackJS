@@ -193,7 +193,8 @@ var dbContactNotes = {
 var dbClientTeamMembers = {
   "Contact":"field_105",
   "Role":"field_106",
-  "Client":"field_196"
+  "Client":"field_196",
+  "AssignmentInactiveDate" :"field_354"
 };
 
 

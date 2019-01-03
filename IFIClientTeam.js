@@ -396,18 +396,18 @@ try {
 
           }
           else {
-            for (var n = 0 ; n < teamMember.prevAssign.length, n++)  {
+            for (var n = 0 ; n < teamMember.prevAssign.length; n++)  {
                 var prevAssign = teamMember.prevAssign[n] ;
                 console.dir (prevAssign) ;
                 if (  contactid ==  prevAssign.ContactId ) {
                      bContactFound = true ;
                      prevAssign.InactiveDate = "" ;
-                else {
+                }
+                else
                     prevAssign.InactiveDate =  {"date" : getToday()} ;
 
                 updateTeamAssignmennt (prevAssign) ;
-                }
-              }
+             }
           }
 
 

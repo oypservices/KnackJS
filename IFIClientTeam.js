@@ -372,11 +372,6 @@ try {
   OYPServicesAPIPost( resource, headers, getapidata )
     .then (resultAccount=> {
 
-      //"IsCaseManagerAssignmentTemporary" : Knack.models[viewName].toJSON()[dbClients.IsCaseManagerAssignmentTemporary]
-      //"prevCMContactId" : prevCMContactId ,
-      //"prevCMClientTeamId" : prevCMClientTeamId ,
-
-
         console.dir(resultAccount) ;
         if (resultAccount.records.length = 0 ) {
             console.log ("Account Not Found") ;
@@ -399,7 +394,7 @@ try {
                 }
             }
 
-
+          }
           else {
             for (var n = 0 ; n < teamMember.prevAssign.length, n++)  {
                 var prevAssign = teamMember.prevAssign[n] ;

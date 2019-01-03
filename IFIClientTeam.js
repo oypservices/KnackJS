@@ -443,9 +443,9 @@ function updateTeamAssignmennt (prevAssign) {
         };
 
 
-      console.dir (apidata);
+      console.dir (postapidata);
 
-      OYPKnackAPICall( headers, apidata ) ;
+      OYPKnackAPICall( headers, postapidata ) ;
 
       }
     catch (e)

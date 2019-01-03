@@ -385,7 +385,7 @@ try {
           contactid = resultAccount.records[0][dbAccounts.Contact_raw][0].id ;
 
           if (teamMember.IsCaseManagerAssignmentTemporary ) {
-            for (var n = 0 ; n < teamMember.prevAssign.length, n++)  {
+            for (var n = 0 ; n < teamMember.prevAssign.length ; n++)  {
                 var prevAssign = teamMember.prevAssign[n] ;
                 console.dir (prevAssign) ;
                 if (  contactid ==  prevAssign.ContactId ) {

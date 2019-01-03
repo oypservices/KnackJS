@@ -375,50 +375,51 @@ try {
         console.dir(resultAccount) ;
         if (resultAccount.records.length = 0 ) {
             console.log ("Account Not Found") ;
+            return 0;
+        }
+
+        contactid = resultAccount.records[0][dbAccounts.Contact_raw][0].id ;
+
+        if (teamMember.IsCaseManagerAssignmentTemporary ) {
+          for (var n = 0 ; n < teamMember.prevAssign.length ; n++)  {
+              var prevAssign = teamMember.prevAssign[n] ;
+              console.dir (prevAssign) ;
+              if (  contactid ==  prevAssign.ContactId ) {
+                   if ( prevAssign.InactiveDate.date != "") {
+                    prevAssign.InactiveDate = {"date" : getToday()} ;
+                    updateTeamAssignmennt (prevAssign) ;
+                  }
+
+                  bContactFound = true ;
+                  return ;
+              }
+          }
+
         }
         else {
-          contactid = resultAccount.records[0][dbAccounts.Contact_raw][0].id ;
+          for (var n = 0 ; n < teamMember.prevAssign.length; n++)  {
+              var prevAssign = teamMember.prevAssign[n] ;
+              console.dir (prevAssign) ;
+              if (  contactid ==  prevAssign.ContactId ) {
+                   bContactFound = true ;
+                   prevAssign.InactiveDate = "" ;
+              }
+              else
+                  prevAssign.InactiveDate =  {"date" : getToday()} ;
 
-          if (teamMember.IsCaseManagerAssignmentTemporary ) {
-            for (var n = 0 ; n < teamMember.prevAssign.length ; n++)  {
-                var prevAssign = teamMember.prevAssign[n] ;
-                console.dir (prevAssign) ;
-                if (  contactid ==  prevAssign.ContactId ) {
-                     if ( prevAssign.InactiveDate.date != "") {
-                      prevAssign.InactiveDate = {"date" : getToday()} ;
-                      updateTeamAssignmennt (prevAssign) ;
-                    }
-
-                    bContactFound = true ;
-                    return ;
-                }
-            }
-
-          }
-          else {
-            for (var n = 0 ; n < teamMember.prevAssign.length; n++)  {
-                var prevAssign = teamMember.prevAssign[n] ;
-                console.dir (prevAssign) ;
-                if (  contactid ==  prevAssign.ContactId ) {
-                     bContactFound = true ;
-                     prevAssign.InactiveDate = "" ;
-                }
-                else
-                    prevAssign.InactiveDate =  {"date" : getToday()} ;
-
-                updateTeamAssignmennt (prevAssign) ;
-             }
-          }
+              updateTeamAssignmennt (prevAssign) ;
+           }
+        }
 
 
-          if (!bContactFound ) {
-            console.log (contactid) ;
-            addClientTeamMember (contactid, teamMember.Role, teamMember.clientId);
-          }
+        if (!bContactFound ) {
+          console.log (contactid) ;
+          addClientTeamMember (contactid, teamMember.Role, teamMember.clientId);
+        }
 
-        return contactid;
+      return contactid;
 
-      } ) ;
+    });
 }
 catch (e)
   {

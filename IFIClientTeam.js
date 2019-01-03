@@ -404,7 +404,7 @@ try {
                    updateTeamAssignmennt (prevAssign) ;
               }
               else
-                if (prevAssign.InactiveDate = "")
+                if (prevAssign.InactiveDate == "")
                 {
                   prevAssign.InactiveDate =  {"date" : getToday()} ;
                   updateTeamAssignmennt (prevAssign) ;

@@ -401,11 +401,14 @@ try {
               if (  contactid ==  prevAssign.ContactId ) {
                    bContactFound = true ;
                    prevAssign.InactiveDate = "" ;
+                   updateTeamAssignmennt (prevAssign) ;
               }
               else
+                if (prevAssign.InactiveDate = "")
+                {
                   prevAssign.InactiveDate =  {"date" : getToday()} ;
-
-              updateTeamAssignmennt (prevAssign) ;
+                  updateTeamAssignmennt (prevAssign) ;
+                }
            }
         }
 

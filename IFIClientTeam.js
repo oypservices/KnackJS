@@ -79,7 +79,7 @@ function InspectClientTeamRoles(resultCientTeam, viewName) {
          {
            bCaseManagerRole = true ;
            var teamAssign = {} ;
-           teamAssign.ContactId = resultCientTeam.records[i][dbClientTeamMembers.Contact] ;
+           teamAssign.ContactId = resultCientTeam.records[i][dbClientTeamMembers.Contact_raw] ;
            teamAssign.ClientTeamId = resultCientTeam.records[i].id ;
            teamAssign.InactiveDate = resultCientTeam.records[i][dbClientTeamMembers.AssignmentInactiveDate] ;
            teamAssign.Role = role ;

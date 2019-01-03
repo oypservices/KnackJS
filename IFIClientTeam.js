@@ -385,7 +385,7 @@ try {
               var prevAssign = teamMember.prevAssign[n] ;
               console.dir (prevAssign) ;
               if (  contactid ==  prevAssign.ContactId ) {
-                    prevAssign.InactiveDate.date = "" ;
+                    prevAssign.InactiveDate = "" ;
                     updateTeamAssignmennt (prevAssign) ;
                     bContactFound = true ;
                     return ;

@@ -441,6 +441,7 @@ function updateTeamAssignmennt (prevAssign) {
             "id" : prevAssign.ClientTeamId ,
             "record":  {
                 field_354: prevAssign.InactiveDate }
+        };
 
 
       console.dir (apidata);

@@ -400,12 +400,6 @@ try {
             }
 
 
-
-                  teamAssign.ContactId = resultCientTeam.records[i][dbClientTeamMembers.Contact] ;
-                  teamAssign.ClientTeamId = resultCientTeam.records[i].id ;
-                  teamAssign.InactiveDate = resultCientTeam.records[i][dbClientTeamMembers.AssignmentInactiveDate] ;
-                  teamAssign.Role = role ;
-
           else {
             for (var n = 0 ; n < teamMember.prevAssign.length, n++)  {
                 var prevAssign = teamMember.prevAssign[n] ;

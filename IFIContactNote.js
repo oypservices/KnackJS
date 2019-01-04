@@ -14,22 +14,27 @@ function hideShowContactNoteFields(view, val) {
     	$('#kn-input-' +  dbContactNotes.Client).show();
     	$('#kn-input-' +  dbContactNotes.NoteType).show();
       $('#kn-input-' +  dbContactNotes.ContactNoteStatus).show();
+      $('#kn-input-' +  dbContactNotes.ClientIRP).show();
+      $('#kn-input-' +  dbContactNotes.IRPGoals).show();
 
+
+      $('#kn-input-' +  dbContactNotes.ClientResponses).show();
+    	$('#kn-input-' +  dbContactNotes.PlanforNextVisit).show();
+      $('#kn-input-' +  dbContactNotes.CaseManagerSignature).show();
+    	$('#kn-input-' +  dbContactNotes.OtherComment).hide();
+
+      $('#kn-input-' +  dbContactNotes.ContactDateStart).hide();
+      $('#kn-input-' +  dbContactNotes.ReasonforContact).hide();
     	$('#kn-input-' +  dbContactNotes.MeetingStatus).hide();
-    	$('#kn-input-' +  dbContactNotes.ContactDateStart).show();
-      $('#kn-input-' +  dbContactNotes.ContactDateStart).show();
+    	$('#kn-input-' +  dbContactNotes.ContactDateEnd).hide();
+      $('#kn-input-' +  dbContactNotes.ClientPresent).hide();
       $('#kn-input-' +  dbContactNotes.NextVisitDate).hide();
     	$('#kn-input-' +  dbContactNotes.VisitLocation).hide();
-    	$('#kn-input-' +  dbContactNotes.ReasonforContact).hide();
-    	$('#kn-input-' +  dbContactNotes.ClientIRP).show();
-    	$('#kn-input-' +  dbContactNotes.IRPGoals).show();
+
     	$('#kn-input-' +  dbContactNotes.ClientGoalInterventions).hide();
     	$('#kn-input-' +  dbContactNotes.PersonsPresent).hide();
-    	$('#kn-input-' +  dbContactNotes.ClientResponses).show();
-    	$('#kn-input-' +  dbContactNotes.PlanforNextVisit).show();
-    	$('#kn-input-' +  dbContactNotes.OtherComment).hide();
+
     	$('#kn-input-' +  dbContactNotes.MedicationChanges).hide();
-    	$('#kn-input-' +  dbContactNotes.CaseManagerSignature).show();
     	return true;
         }
 
@@ -48,6 +53,7 @@ function hideShowContactNoteFields(view, val) {
     	$('#kn-input-' +  dbContactNotes.ClientIRP).hide();
     	$('#kn-input-' +  dbContactNotes.IRPGoals).hide();
     	$('#kn-input-' +  dbContactNotes.ClientGoalInterventions).hide();
+      $('#kn-input-' +  dbContactNotes.ClientPresent).hide();
     	$('#kn-input-' +  dbContactNotes.PersonsPresent).hide();
     	$('#kn-input-' +  dbContactNotes.ClientResponses).hide();
       $('#kn-input-' +  dbContactNotes.NextVisitDate).hide();
@@ -80,6 +86,7 @@ function hideShowContactNoteFields(view, val) {
     	$('#kn-input-' +  dbContactNotes.OtherComment).show();
     	$('#kn-input-' +  dbContactNotes.MedicationChanges).show();
     	$('#kn-input-' +  dbContactNotes.CaseManagerSignature).show();
+            $('#kn-input-' +  dbContactNotes.ClientPresent).show();
     	return true;
     }
 

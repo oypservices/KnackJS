@@ -441,7 +441,7 @@ $(document).on('knack-form-submit.any' , function(event, view, data) {
 
     case dbObjects.ClientIRPs :
       if (view.key == "view_702")
-        copyIRP (event, view, record)  ;
+        copyIRP (event, view, data)  ;
 
       break ;
 

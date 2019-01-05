@@ -11,10 +11,12 @@ function copyIRP (event, view, record) {
 
 try {
 		var proc = "copyIRP";
-	copyIRPRecord()
 
+	copyIRPRecord()
 		.then (result=> { copyGoalRecords(result); })
-		.then (newresult=> {copyInterventionRecords(newresult); })
+		.then (result=> {copyInterventionRecords(result); })
+		.then (result=> { copyGoalRecords(result); })
+
 }
 catch (e)  {
 				logerror(proc, e);
@@ -39,7 +41,7 @@ function copyGoalRecords (parm) {
 	return new Promise ((resolve, reject) => {
 		  var proc = "copyGoalRecords " + parm;
 		  console.log ( proc) ;
-			resolve (2) ;
+			resolve (parm + 1) ;
 
 	})
 }
@@ -50,7 +52,7 @@ function copyInterventionRecords (parm) {
 	return new Promise ((resolve, reject) => {
 		  var proc = "copyInterventionRecords " + parm;
 		  console.log ( proc) ;
-			resolve (3) ;
+			resolve (parm + 1) ;
 
 	})
 }

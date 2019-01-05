@@ -387,9 +387,42 @@ $(document).on('knack-record-update.' + vw_irp_final, function (event, view, rec
 
 });
 
+
+
+/*********************************************************************************************************************
+Does this view contain an source object for evaluation
+**********************************************************************************************************************/
+function evaluateView(proc, view)
+{
+  try {
+
+    proc = 'evaluateView :' + proc;
+
+
+    var view_name =  view.key ;
+    console.log (proc) ;
+    console.log(view_name) ;
+    console.dir (view) ;
+
+    if (view.source == underfined)
+    {
+       console.log ("source undefined") ;
+       return false ;
+    }
+    else
+       return true ;
+
+  }
+  catch (e) {
+    logerror(proc, e) ;
+  }
+
+}
+
 /*********************************************************************************************************************
 Submit Any Form
 **********************************************************************************************************************/
+
 
 
 $(document).on('knack-form-submit.any' , function(event, view, data) {
@@ -397,8 +430,9 @@ $(document).on('knack-form-submit.any' , function(event, view, data) {
  try {
 
    var view_name =  view.key ;
-   proc = 'knack-form-submit.any:' + view_name ;
-   console.log(view_name) ;
+   var proc = 'knack-form-submit.any:' + view_name ;
+   if (!evaluateView (proc, view) )
+      return ;
 
    switch (view.source.object) {
     case dbObjects.ClientGoalInterventions:
@@ -425,9 +459,11 @@ $(document).on('knack-view-render.any' , function(event, view, data) {
   try {
 
 	     var view_name =  view.key ;
-       proc = 'knack-view-render.any:' + view_name ;
+       var proc = 'knack-view-render.any:' + view_name ;
        console.log(view_name) ;
-       //Client Object
+       if (!evaluateView (proc, view) )
+          return ;
+
 
        if (view.source.object == "object_1" ){
          setClientStatusText() ;

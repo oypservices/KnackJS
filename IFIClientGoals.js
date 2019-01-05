@@ -46,6 +46,8 @@ function copyIRPRecord (IRP) {
 		 console.log ( proc) ;
 
 		 delete (IRP.id) ;
+		 IRP[dbIRPs.IRPCreateDate] = getToday();
+
 		 var apidata = {
 						"method": "post",
 						"knackobj": dbObjects.ClientIRPs,

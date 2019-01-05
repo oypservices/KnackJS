@@ -25,7 +25,7 @@ try {
 					};
 
 		OYPKnackAPICall (headers,  apidata)
-		.then (resultIRP => { return = copyIRPRecord(resultIRP) ; })
+		.then (resultIRP => { return copyIRPRecord(resultIRP) ; })
 		.then (resultNewIRP => { return copyGoalRecords(resultNewIRP); })
 //		.then (result=> { return copyInterventionRecords(result); })
 

@@ -79,7 +79,7 @@ var dbObjects = {
   "ContactNotes" : "object_4",
   "ClientGoals" : "object_2",
   "ClientGoalInterventions" :  "object_25",
-  "ClientIRPs" : "object_26" 
+  "ClientIRPs" : "object_26"
 }
 
 
@@ -214,7 +214,8 @@ var dbIRPs = {
 } ;
 
 var dbGoals = {
-  "Interventions" : "field_233"
+  "Interventions" : "field_233",
+  "ClientIRP" : "field_216"
 } ;
 
 var dbInterventions = {

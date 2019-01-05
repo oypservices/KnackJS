@@ -26,7 +26,7 @@ try {
 
 		OYPKnackAPICall (headers,  apidata)
 		.then (resultIRP => { return copyIRPRecord(resultIRP) ; })
-		.then (resultNewIRP => { return copyGoalRecords(resultNewIRP); })
+		.then (resultNewIRP => { return copyGoalRecords(IRPId, resultNewIRP); })
   	.then (result=> { return copyInterventionRecords(result); })
 
 
@@ -37,7 +37,11 @@ catch (e)  {
 
 }
 
+/****************************************************************************************************
+	Create a new IRP record based on the existing
+****************************************************************************************************/
 function copyIRPRecord (IRP) {
+
 	return new Promise ((resolve, reject) => {
 
 	   var proc = "copyIRPRecord" ;
@@ -54,7 +58,7 @@ function copyIRPRecord (IRP) {
 			OYPKnackAPICall (headers,  apidata)
 			    .then ( result => {
 							console.dir (result);
-							resolve (1) ;
+							resolve (result) ;
 					}	)
 
 	})
@@ -62,14 +66,56 @@ function copyIRPRecord (IRP) {
 
 
 
-function copyGoalRecords (parm) {
+function copyGoalRecords (IRPId, resultNewIRP) {
 
 	return new Promise ((resolve, reject) => {
-		  var proc = "copyGoalRecords " + parm;
-		  console.log ( proc) ;
-			resolve (parm + 1) ;
+
+	   var proc = "copyGoalRecords" ;
+		 console.log ( proc) ;
+
+		 // get the list of goals
+		 var apidata = {
+								 "method": "get",
+								 "format" : "raw" ,
+								 "knackobj": dbObjects.ClientGoals,
+								 "appid": app_id,
+								 "filters": [ {
+										 "field" : dbGoals.ClientIRP ,
+										 "operator":"is",
+										 "value": IRPId
+									 } };
+
+			OYPKnackAPICall (headers,  apidata)
+			    .then ( result => {
+
+						console.dir (result);
+						for (var n = 0; n < result.records.length; n++ )
+						{
+
+								var currentGoalId = records[n].id;
+
+								delete (records[n].id) ;
+								records[n][dbGoals.ClientIRP] = IRPId;
+
+								var postapidata = {
+					 						"method": "post",
+					 						"knackobj": dbObjects.ClientGoals,
+					 						"appid": app_id,
+					 						"record" : records[n]
+					 					};
+
+							  OYPKnackAPICall (headers,  postapidata) ;
+						}
+
+						resolve (1) ;
+					}	)
 
 	})
+
+
+
+
+
 }
 
 

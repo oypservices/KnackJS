@@ -93,7 +93,7 @@ function copyGoalRecords (IRPId, resultNewIRP) {
 						for (var n = 0; n < result.records.length; n++ )
 						{
 
-								var record = records[n];
+								var record = result.records[n];
 								var currentGoalId = record.id;
 
 								delete (record.id) ;

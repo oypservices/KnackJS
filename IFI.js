@@ -406,7 +406,7 @@ function evaluateView(proc, view)
 
     if (view.source == undefined)
     {
-       console.log ("source undefined") ;
+       console.log (view_name + " source undefined") ;
        return false ;
     }
     else

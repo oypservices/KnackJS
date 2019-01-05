@@ -93,16 +93,17 @@ function copyGoalRecords (IRPId, resultNewIRP) {
 						for (var n = 0; n < result.records.length; n++ )
 						{
 
-								var currentGoalId = records[n].id;
+								var record = records[n];
+								var currentGoalId = record.id;
 
-								delete (records[n].id) ;
-								records[n][dbGoals.ClientIRP] = IRPId;
+								delete (record.id) ;
+								record[dbGoals.ClientIRP] = IRPId;
 
 								var postapidata = {
 					 						"method": "post",
 					 						"knackobj": dbObjects.ClientGoals,
 					 						"appid": app_id,
-					 						"record" : records[n]
+					 						"record" : record
 					 					};
 
 							  OYPKnackAPICall (headers,  postapidata) ;

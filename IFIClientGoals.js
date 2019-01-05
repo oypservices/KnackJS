@@ -27,8 +27,6 @@ try {
 		OYPKnackAPICall (headers,  apidata)
 		.then (resultIRP => { return copyIRPRecord(resultIRP) ; })
 		.then (resultNewIRP => { return copyGoalRecords(IRPId, resultNewIRP); })
-  	.then (result=> { return copyInterventionRecords(result); })
-
 
 }
 catch (e)  {
@@ -106,7 +104,8 @@ function copyGoalRecords (IRPId, resultNewIRP) {
 					 						"record" : record
 					 					};
 
-							  OYPKnackAPICall (headers,  postapidata) ;
+							  OYPKnackAPICall (headers,  postapidata)
+										.then (result=> { return copyInterventionRecords(result); }) ;
 						}
 
 						resolve (1) ;

@@ -13,9 +13,9 @@ try {
 		var proc = "copyIRP";
 
 	copyIRPRecord()
-		.then (result=> { copyGoalRecords(result); })
-		.then (result=> {copyInterventionRecords(result); })
-		.then (result=> { copyGoalRecords(result); })
+		.then (result=> { return copyGoalRecords(result); })
+		.then (result=> { return copyInterventionRecords(result); })
+		.then (result=> { return copyGoalRecords(result); })
 
 }
 catch (e)  {

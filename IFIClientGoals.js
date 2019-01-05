@@ -125,7 +125,7 @@ function copyInterventionRecords (parm) {
 	return new Promise ((resolve, reject) => {
 		  var proc = "copyInterventionRecords " + parm;
 		  console.log ( proc) ;
-			resolve (parm + 1) ;
+			resolve () ;
 
 	})
 }

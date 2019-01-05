@@ -212,7 +212,7 @@ $(document).on('knack-record-update.view_323', function (event, view, record) {
 //Event handler for record updates
 *************************************************************************************************/
 $(document).on('knack-record-update.any' , function (event, view, record) {
-  console.log (JSON.stringify(view)) ;
+  console.dir (view) ;
 
   switch (view.source.object) {
 
@@ -223,6 +223,7 @@ $(document).on('knack-record-update.any' , function (event, view, record) {
 
    case dbObjects.ContactNotes:
       evaluateContactNotes (event, view, record) ;
+      break ;
 
     default:
       break ;
@@ -320,34 +321,7 @@ function updateInterventionGoalId (interventionRecord ) {
 }
 
 
-/*
 
-$(document).on('knack-form-submit.' + vw_goal_intervention_add , function(event, view, data) {
-
-  var parser = document.createElement("a");
-  var pathArray = window.location.href.split( '/' );
-  var clientGoalId = '';
-
-  alert ( vw_goal_intervention_add ) ;
-
-   for ( var i = 0; i < pathArray.length; i++) {
-     if (pathArray[i] == "edit-client-goal2")
-        clientGoalId = pathArray[i+1].toString();
-   }
-
-  alert (clientGoalId);
-  alert (JSON.stringify (data));
-  //data.field_232 = clientGoalId;
-
-  var goalid = { "id" : clientGoalId } ;
-
-  data.field_232_raw = goalid;
-  updateInterventionGoalId (data ) ;
-  console.log (JSON.stringify (data)) ;
-  alert (JSON.stringify (data));
-
-});
-*/
 
 $(document).on('knack-view-render.' + vw_goal_intervention_add , function(event, view, data) {
 
@@ -388,8 +362,13 @@ $(document).on('knack-scene-render.scene_7', function(event, scene) {
 });
 
 
+
+/*********************************************************************************************************************
+Knack Record Update for VW IRP Final
+**********************************************************************************************************************/
 // On Knack Record Update, redirect to URL. I know this already exists in Knack, but in my case
 // I wanted to direct the recently updated record to another view.
+
 
 $(document).on('knack-record-update.' + vw_irp_final, function (event, view, record) {
 
@@ -408,6 +387,11 @@ $(document).on('knack-record-update.' + vw_irp_final, function (event, view, rec
 
 });
 
+/*********************************************************************************************************************
+Submit Any Form
+**********************************************************************************************************************/
+
+
 $(document).on('knack-form-submit.any' , function(event, view, data) {
 
  try {
@@ -420,6 +404,12 @@ $(document).on('knack-form-submit.any' , function(event, view, data) {
     case dbObjects.ClientGoalInterventions:
      	syncGoalInterventions (data ) ;
       break;
+
+    case dbObjects.ClientIRPs :
+      if (view.key == "view_702")
+        copyIRP (event, view, record)  ;
+
+      break ;
 
     default:
        break ;

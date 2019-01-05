@@ -78,7 +78,8 @@ var dbObjects = {
   "ClientStatusHistory" : "object_35",
   "ContactNotes" : "object_4",
   "ClientGoals" : "object_2",
-  "ClientGoalInterventions" :  "object_25"
+  "ClientGoalInterventions" :  "object_25",
+  "ClientIRPs" : "object_26" 
 }
 
 

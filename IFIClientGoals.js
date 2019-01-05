@@ -1,4 +1,64 @@
 /***********************************************************************************************************
+copying an IRP is a multistep process
+1. Copy the IRP records
+2. Copy the dbGoals
+3. Copy the interventions linked to the dbGoals
+4. Sync the interventions nested with the goal record itself
+***********************************************************************************************************/
+
+
+function copyIRP (event, view, record) {
+
+try {
+		var proc = "copyIRP";
+	copyIRPRecord()
+
+		.then (result=> { copyGoalRecords(result); })
+		.then (newresult=> {copyInterventionRecords(newresult); })
+}
+catch (e)  {
+				logerror(proc, e);
+		 }
+
+}
+
+function copyIRPRecord () {
+
+	return new Promise ((resolve, reject) => {
+		  var proc = "copyIRPRecord" ;
+		  console.log ( proc) ;
+			resolve (1) ;
+
+	})
+}
+
+
+
+function copyGoalRecords (parm) {
+
+	return new Promise ((resolve, reject) => {
+		  var proc = "copyGoalRecords " + parm;
+		  console.log ( proc) ;
+			resolve (2) ;
+
+	})
+}
+
+
+function copyInterventionRecords (parm) {
+
+	return new Promise ((resolve, reject) => {
+		  var proc = "copyInterventionRecords " + parm;
+		  console.log ( proc) ;
+			resolve (3) ;
+
+	})
+}
+
+
+
+
+/***********************************************************************************************************
 syncGoalInterventions
 ***********************************************************************************************************/
 function syncGoalInterventions ( inData) {
@@ -11,6 +71,7 @@ try {
 	console.log (JSON.stringify (inData)) ;
   console.log (JSON.stringify (inData));
 	var goalId = inData["field_232_raw"][0].id  ;
+	var proc = "inData" ;
 
 	var apidata = {
 					"method": "get",

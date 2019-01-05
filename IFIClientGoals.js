@@ -83,7 +83,8 @@ function copyGoalRecords (IRPId, resultNewIRP) {
 										 "field" : dbGoals.ClientIRP ,
 										 "operator":"is",
 										 "value": IRPId
-									 } };
+									 } }
+				};
 
 			OYPKnackAPICall (headers,  apidata)
 			    .then ( result => {

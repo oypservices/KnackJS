@@ -96,6 +96,7 @@ function copyGoalRecords (IRPId, resultNewIRP) {
 
 								delete (record.id) ;
 								record[dbGoals.ClientIRP] = IRPId;
+								delete (record[Interventions]) ;
 
 								var postapidata = {
 					 						"method": "post",

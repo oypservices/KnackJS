@@ -12,10 +12,23 @@ function copyIRP (event, view, record) {
 try {
 		var proc = "copyIRP";
 
-	copyIRPRecord()
-		.then (result=> { return copyGoalRecords(result); })
-		.then (result=> { return copyInterventionRecords(result); })
-		.then (result=> { return copyGoalRecords(result); })
+
+		var IRPId = record.id  ;
+		console.log (IRPId);
+
+		var apidata = {
+						"method": "get",
+						"format" : "raw" ,
+						"knackobj": dbObjects.ClientIRPs,
+						"appid": app_id,
+						"id" : IRPId
+					};
+
+		OYPKnackAPICall (headers,  apidata)
+		.then (resultIRP => { return = copyIRPRecord(resultIRP) ; })
+		.then (resultNewIRP => { return copyGoalRecords(resultNewIRP); })
+//		.then (result=> { return copyInterventionRecords(result); })
+
 
 }
 catch (e)  {
@@ -24,12 +37,25 @@ catch (e)  {
 
 }
 
-function copyIRPRecord () {
-
+function copyIRPRecord (IRP) {
 	return new Promise ((resolve, reject) => {
-		  var proc = "copyIRPRecord" ;
-		  console.log ( proc) ;
-			resolve (1) ;
+
+	   var proc = "copyIRPRecord" ;
+		 console.log ( proc) ;
+
+		 delete (IRP.id) ;
+		 var apidata = {
+						"method": "post",
+						"knackobj": dbObjects.ClientIRPs,
+						"appid": app_id,
+						"record" : IRP
+					};
+
+			OYPKnackAPICall (headers,  apidata)
+			    .then ( result => {
+							console.dir (result);
+							resolve (1) ;
+					}	)
 
 	})
 }

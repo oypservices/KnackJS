@@ -100,6 +100,7 @@ function copyGoalRecords (IRPId, resultNewIRP) {
 
 								var record = result.records[n];
 								var currentGoalId = record.id;
+								var intList = record[dbGoals.Interventions] ;
 
 								delete (record.id) ;
 								delete (record[dbGoals.Interventions]) ;
@@ -115,7 +116,13 @@ function copyGoalRecords (IRPId, resultNewIRP) {
 					 					};
 
 							  OYPKnackAPICall (headers,  postapidata)
-									 .then (resultNewGoal => {  copyInterventionRecords(currentGoalId, resultNewGoal);   }) ;
+									 .then (resultNewGoal => {
+										 	for (var n= 0 ; intList.length ; n++ ) {
+													copySingleInterventionRecord (resultNewGoal.id, intList[n] ) ;
+									  	}
+											syncGoalInterventions (resultNewGoal.id) ;
+
+									 }) ;
 						}
 
 						resolve () ;
@@ -124,7 +131,46 @@ function copyGoalRecords (IRPId, resultNewIRP) {
 	})
 }
 
+function copySingleInterventionRecord (newGoalId, currInterventionId ) {
 
+	return new Promise ((resolve, reject) => {
+		var proc = "copyInterventionRecords" ;
+ 	 console.log ( proc) ;
+
+ 	 var newGoalId = resultNewGoal.id ;
+
+ 	 // get the list of goals
+ 	 var apidata = {
+ 							 "method": "get",
+ 							 "format" : "raw" ,
+ 							 "knackobj": dbObjects.ClientGoalInterventions,
+ 							 "appid": app_id,
+							 "id" : currInterventionId
+ 			};
+
+ 		OYPKnackAPICall (headers,  apidata)
+ 				.then ( result => {
+
+ 							console.dir (result);
+
+ 							var oldGoalId =  result[dbInterventions.ClientGoals ] ;
+ 							delete (result.id) ;
+ 							result[dbInterventions.ClientGoals ] = newGoalId;
+
+ 							var postapidata = {
+ 										"method": "post",
+ 										"knackobj": dbObjects.ClientGoalInterventions,
+ 										"appid": app_id,
+ 										"record" : result
+ 									};
+
+							console.dir (postapidata);
+ 							OYPKnackAPICall (headers,  postapidata)
+							   .then ( resultIntv => {  resolve (resultIntv) ;  })
+
+ 				}	)
+			})
+}
 function copyInterventionRecords (currentGoalId, resultNewGoal) {
 
 	return new Promise ((resolve, reject) => {

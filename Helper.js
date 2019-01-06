@@ -133,3 +133,16 @@ function  OYPServicesAPIPost( resource, headers, data )
 		}); // end promise
 
 } ;
+
+/****************************************************************************************************************
+	Wait funcdtion 
+********************************************************************************************************************/
+
+
+function wait(ms){
+   var start = new Date().getTime();
+   var end = start;
+   while(end < start + ms) {
+     end = new Date().getTime();
+  }
+}

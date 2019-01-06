@@ -172,16 +172,21 @@ function copyInterventionRecords (currentGoalId, resultNewGoal) {
 							   .then ( result => {
 									 		interventonList.push ( result.id );
 								 		});
- 					}
 
-					var result = {"Goalid" : newGoalId ,
-											  "interventionList" :interventonList } ;
 
-					resolve (result) ;
+ 					 }
+
+					 resolve (interventionlist) ;
 
  				}	)
+				.then  ( result => {
+									var newresult = { "Goalid" : newGoalId ,
+														  "interventionList" : result.interventonList } ;
 
- })
+									resolve (newresult) ;
+
+ 				});
+			})
 }
 
 

@@ -188,7 +188,7 @@ function copyInterventionRecords (currentGoalId, resultNewGoal) {
 								 		});
  					}
 
-					var result = {"id" : newGoalIdm ,
+					var result = {"id" : newGoalId ,
 											  "interventionList" :interventonList } ;
 
 					resolve (result) ;

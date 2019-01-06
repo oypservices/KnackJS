@@ -100,6 +100,7 @@ function copyGoalRecords (IRPId, resultNewIRP) {
 
 								var record = result.records[n];
 								var currentGoalId = record.id;
+								syncGoalInterventions (currentGoalId) ;  //make sure the interventions are stored with the goals
 
 								delete (record.id) ;
 						//		delete (record[dbGoals.Interventions]) ;

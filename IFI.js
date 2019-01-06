@@ -423,8 +423,6 @@ function evaluateView(proc, view)
 Submit Any Form
 **********************************************************************************************************************/
 
-
-
 $(document).on('knack-form-submit.any' , function(event, view, data) {
 
  try {
@@ -442,7 +440,6 @@ $(document).on('knack-form-submit.any' , function(event, view, data) {
    case dbObjects.ClientGoals:
          syncGoalInterventions (data.id  ) ;
          break;
-
 
     case dbObjects.ClientIRPs :
       if (view.key == "view_702")

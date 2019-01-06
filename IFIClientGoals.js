@@ -28,7 +28,7 @@ try {
 		.then (resultIRP => { return copyIRPRecord(resultIRP) ; })
 		.then (resultNewIRP => { return copyGoalRecords(IRPId, resultNewIRP); })
 		.then ( result => {
-					  wait(5000);  //wait 5 seconds
+					  wait(5000);
 						window.location.href =  $(".kn-back-link a").attr("href");   } );
 
 }
@@ -124,7 +124,8 @@ function copyGoalRecords (IRPId, resultNewIRP) {
 										 	for (var n= 0 ; n  < intList.length ; n++ ) {
 													copySingleInterventionRecord (resultNewGoal.id, intList[n].id ) ;
 									  	}
-											syncGoalInterventions (resultNewGoal.id) ;
+											syncGoalInterventions (resultNewGoal.id)
+											  .then ( result => {resolve (result) ; })
 
 									 }) ;
 						}

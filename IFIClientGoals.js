@@ -116,7 +116,7 @@ function copyGoalRecords (IRPId, resultNewIRP) {
 
 							  OYPKnackAPICall (headers,  postapidata)
 									 .then (resultNewGoal => { return copyInterventionRecords(currentGoalId, resultNewGoal); })
-									 .then ( result => { syncGoalInterventions (result.Goalid ) ; });
+									 .then ( result => { syncGoalInterventions (result) ; });
 						}
 
 						resolve () ;
@@ -180,13 +180,7 @@ function copyInterventionRecords (currentGoalId, resultNewGoal) {
 					 resolve ({ "interventonList" : interventonList}) ;
 
  				}	)
-				.then  ( result => {
-									var newresult = { "Goalid" : newGoalId ,
-												  "interventionList" : result.interventonList } ;
-
-									resolve (newresult) ;
-
- 				});
+				.then  (  { return newGoalId ; });
 			})
 }
 

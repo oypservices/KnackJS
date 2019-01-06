@@ -176,12 +176,13 @@ function copyInterventionRecords (currentGoalId, resultNewGoal) {
 
  					 }
 
-					 resolve (interventonList) ;
+
+					 resolve ({ "interventonList" : interventonList}) ;
 
  				}	)
 				.then  ( result => {
 									var newresult = { "Goalid" : newGoalId ,
-														  "interventionList" : result.interventonList } ;
+												  "interventionList" : result.interventonList } ;
 
 									resolve (newresult) ;
 

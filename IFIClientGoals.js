@@ -134,7 +134,7 @@ function copyGoalRecords (IRPId, resultNewIRP) {
 function copySingleInterventionRecord (newGoalId, currInterventionId ) {
 
 	return new Promise ((resolve, reject) => {
-		var proc = "copyInterventionRecords" ;
+		var proc = "copySingleInterventionRecord" ;
  	 console.log ( proc) ;
 
   	 // get the list of goals

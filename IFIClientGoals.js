@@ -114,29 +114,26 @@ function copyGoalRecords (IRPId, resultNewIRP) {
 					 					};
 
 							  OYPKnackAPICall (headers,  postapidata)
-										.then (resultNewGoal => {
-											 			var interventionList = copyInterventionRecords(currentGoalId, resultNewGoal);
-														console.log (interventionList) ;
+									 .then (resultNewGoal => { return copyInterventionRecords(currentGoalId, resultNewGoal); })
+									 .then ( interventionList => {
+												 console.log (interventionList) ;
 
-														var record = {};
-														record [dbGoals.Interventions] = interventionList ;
-														console.dir (record) ;
-														var postapidata2 = {
-											 						"method": "put",
-											 						"knackobj": dbObjects.ClientGoals,
-											 						"appid": app_id,
-																	"id" : resultNewGoal.id ,
-											 						"record" : record
-											 					};
-														OYPKnackAPICall (headers,  postapidata2) ;
+												 var record = {};
+												 record [dbGoals.Interventions] = interventionList ;
+												 console.dir (record) ;
+												 var postapidata2 = {
+															 "method": "put",
+															 "knackobj": dbObjects.ClientGoals,
+															 "appid": app_id,
+															 "id" : resultNewGoal.id ,
+															 "record" : record
+														 };
 
-
-
-
-													}) ;
+												 OYPKnackAPICall (headers,  postapidata2) ;
+									 });
 						}
 
-						resolve (1) ;
+						resolve () ;
 					}	)
 
 	})

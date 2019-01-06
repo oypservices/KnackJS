@@ -179,8 +179,8 @@ function copyInterventionRecords (currentGoalId, resultNewGoal) {
   				 resolve (newGoalId) ;
 
  				}	)
+			})
 }
-
 
 
 

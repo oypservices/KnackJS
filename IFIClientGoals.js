@@ -137,9 +137,7 @@ function copySingleInterventionRecord (newGoalId, currInterventionId ) {
 		var proc = "copyInterventionRecords" ;
  	 console.log ( proc) ;
 
- 	 var newGoalId = resultNewGoal.id ;
-
- 	 // get the list of goals
+  	 // get the list of goals
  	 var apidata = {
  							 "method": "get",
  							 "format" : "raw" ,

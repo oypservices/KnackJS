@@ -171,8 +171,6 @@ function copyInterventionRecords (currentGoalId, resultNewGoal) {
 							   .then ( result => {
 									 		interventonList.push ( result.id );
 								 		});
-
-
  					 }
 
 					 syncGoalInterventions (newGoalId) ;

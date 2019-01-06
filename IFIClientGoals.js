@@ -46,6 +46,8 @@ function copyIRPRecord (IRP) {
 		 console.log ( proc) ;
 
 		 delete (IRP.id) ;
+		 delete (IRP[dbIRPs.IRPCreateDate] ) ;
+		 
 		 IRP[dbIRPs.IRPCreateDate] = getToday();
 
 		 var apidata = {
@@ -97,8 +99,10 @@ function copyGoalRecords (IRPId, resultNewIRP) {
 								var currentGoalId = record.id;
 
 								delete (record.id) ;
-								record[dbGoals.ClientIRP] = IRPId;
 								delete (record[dbGoals.Interventions]) ;
+								delete (record[dbGoals.ClientIRP]);
+
+								record[dbGoals.ClientIRP] = IRPId;
 
 								var postapidata = {
 					 						"method": "post",

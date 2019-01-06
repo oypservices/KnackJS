@@ -104,7 +104,7 @@ function copyGoalRecords (IRPId, resultNewIRP) {
 								console.dir (intList) ;
 
 								delete (record.id) ;
-								delete (record[dbGoals.Interventions]) ;
+						//		delete (record[dbGoals.Interventions]) ;
 								delete (record[dbGoals.ClientIRP]);
 
 								record[dbGoals.ClientIRP] = newIRPId;
@@ -116,14 +116,14 @@ function copyGoalRecords (IRPId, resultNewIRP) {
 					 						"record" : record
 					 					};
 
-							  OYPKnackAPICall (headers,  postapidata)
-									 .then (resultNewGoal => {
-										 	for (var n= 0 ; n < intList.length ; n++ ) {
-													copySingleInterventionRecord (resultNewGoal.id, intList[n].id ) ;
-									  	}
-											syncGoalInterventions (resultNewGoal.id) ;
-
-									 }) ;
+							  OYPKnackAPICall (headers,  postapidata) ;
+									// .then (resultNewGoal => {
+									//	 	for (var n= 0 ; n < intList.length ; n++ ) {
+									//				copySingleInterventionRecord (resultNewGoal.id, intList[n].id ) ;
+									 // 	}
+									//		syncGoalInterventions (resultNewGoal.id) ;
+//
+	//								 }) ;
 						}
 
 						resolve () ;

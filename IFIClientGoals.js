@@ -49,6 +49,7 @@ function copyIRPRecord (IRP) {
 		 delete (IRP[dbIRPs.IRPCreateDate] ) ;
 
 		 IRP[dbIRPs.IRPCreateDate] = getToday();
+		 IRP[dbIRPs.IRPStatus] = "Update" ;
 
 		 var apidata = {
 						"method": "post",

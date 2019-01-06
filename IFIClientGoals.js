@@ -151,10 +151,12 @@ function copyInterventionRecords (currentGoalId, resultNewGoal) {
 
  					console.dir (result);
 					var interventonList = [];
+
  					for (var n = 0; n < result.records.length; n++ )
  					{
 
  							var record = result.records[n];
+							var oldGoalId =  record[dbInterventions.ClientGoals ] ;
  							var currInterventionId = record.id;
 
  							delete (record.id) ;
@@ -167,13 +169,15 @@ function copyInterventionRecords (currentGoalId, resultNewGoal) {
  										"record" : record
  									};
 
+							console.dir (postapidata);
  							OYPKnackAPICall (headers,  postapidata)
 							   .then ( result => {
 									 		interventonList.push ( result.id );
+											syncGoalInterventions (newGoalId) ;
 								 		});
  					 }
 
-					 syncGoalInterventions (newGoalId) ;
+
   				 resolve (newGoalId) ;
 
  				}	)

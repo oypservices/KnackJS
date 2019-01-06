@@ -116,7 +116,20 @@ function copyGoalRecords (IRPId, resultNewIRP) {
 							  OYPKnackAPICall (headers,  postapidata)
 										.then (resultNewGoal => {
 											 			var interventionList = copyInterventionRecords(currentGoalId, resultNewGoal);
-													  console.log (interventionList) ;
+														console.log (interventionList) ;
+
+														var record [dbGoals.Interventions] = interventionList ;
+														var postapidata2 = {
+											 						"method": "put",
+											 						"knackobj": dbObjects.ClientGoals,
+											 						"appid": app_id,
+																	"id" : resultNewGoal.id ,
+											 						"record" : record
+											 					};
+														OYPKnackAPICall (headers,  postapidata2) ;
+
+
+
 													}) ;
 						}
 

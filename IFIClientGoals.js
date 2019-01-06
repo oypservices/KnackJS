@@ -143,7 +143,7 @@ function copyInterventionRecords (currentGoalId, resultNewGoal) {
  							 "appid": app_id,
  							 "filters": [ {
  									 "field" : dbInterventions.ClientGoals ,
- 									 "operator":"is",
+ 									 "operator":"contains",
  									 "value": currentGoalId
  								 } ]
  			};

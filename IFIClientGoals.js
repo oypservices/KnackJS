@@ -27,7 +27,7 @@ try {
 		OYPKnackAPICall (headers,  apidata)
 		.then (resultIRP => { return copyIRPRecord(resultIRP) ; })
 		.then (resultNewIRP => { return copyGoalRecords(IRPId, resultNewIRP); })
-		.then ( { window.location.href =  $(".kn-back-link a").attr("href");   });
+		.then ( result => { window.location.href =  $(".kn-back-link a").attr("href");   });
 
 		 })
 }

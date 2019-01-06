@@ -118,7 +118,8 @@ function copyGoalRecords (IRPId, resultNewIRP) {
 											 			var interventionList = copyInterventionRecords(currentGoalId, resultNewGoal);
 														console.log (interventionList) ;
 
-														var record [dbGoals.Interventions] = interventionList ;
+														var record = {};
+														record [dbGoals.Interventions] = interventionList ;
 														var postapidata2 = {
 											 						"method": "put",
 											 						"knackobj": dbObjects.ClientGoals,

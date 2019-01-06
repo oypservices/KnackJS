@@ -115,22 +115,7 @@ function copyGoalRecords (IRPId, resultNewIRP) {
 
 							  OYPKnackAPICall (headers,  postapidata)
 									 .then (resultNewGoal => { return copyInterventionRecords(currentGoalId, resultNewGoal); })
-									 .then ( result => {
-												 console.dir (result) ;
-
-												 var record = {};
-												 record [dbGoals.Interventions] = result.interventionList ;
-												 console.dir (record) ;
-												 var postapidata2 = {
-															 "method": "put",
-															 "knackobj": dbObjects.ClientGoals,
-															 "appid": app_id,
-															 "id" : result.id ,
-															 "record" : record
-														 };
-
-												 OYPKnackAPICall (headers,  postapidata2) ;
-									 });
+									 .then ( result => { syncGoalInterventions (result.Goalid ) ; });
 						}
 
 						resolve () ;
@@ -188,7 +173,7 @@ function copyInterventionRecords (currentGoalId, resultNewGoal) {
 								 		});
  					}
 
-					var result = {"id" : newGoalId ,
+					var result = {"Goalid" : newGoalId ,
 											  "interventionList" :interventonList } ;
 
 					resolve (result) ;
@@ -204,17 +189,15 @@ function copyInterventionRecords (currentGoalId, resultNewGoal) {
 /***********************************************************************************************************
 syncGoalInterventions
 ***********************************************************************************************************/
-function syncGoalInterventions ( inData) {
+function syncGoalInterventions ( goalId) {
 /* This functions reads the list of intervention by goal id, and nest them within the intervention field on the goal table.  This is
 necessary in order to display the interventions in a view / print type scenario.
 */
 
 try {
 
-	console.log (JSON.stringify (inData)) ;
-  console.log (JSON.stringify (inData));
-	var goalId = inData["field_232_raw"][0].id  ;
-	var proc = "inData" ;
+
+	var proc = "syncGoalInterventions" ;
 
 	var apidata = {
 					"method": "get",

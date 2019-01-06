@@ -117,7 +117,7 @@ function copyGoalRecords (IRPId, resultNewIRP) {
 
 							  OYPKnackAPICall (headers,  postapidata)
 									 .then (resultNewGoal => {
-										 	for (var n= 0 ; intList.length ; n++ ) {
+										 	for (var n= 0 ; n < intList.length ; n++ ) {
 													copySingleInterventionRecord (resultNewGoal.id, intList[n] ) ;
 									  	}
 											syncGoalInterventions (resultNewGoal.id) ;

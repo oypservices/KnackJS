@@ -210,8 +210,9 @@ function copySingleInterventionRecord (newGoalId, currInterventionId ) {
  				.then ( result => {
 
  							console.dir (result);
+							if (result == undefined )
+							   return ;
 
- 							var oldGoalId =  result[dbInterventions.ClientGoals ] ;
  							delete (result.id) ;
  							result[dbInterventions.ClientGoals ] = newGoalId;
 

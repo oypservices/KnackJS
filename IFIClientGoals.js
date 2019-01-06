@@ -101,8 +101,6 @@ function copyGoalRecords (IRPId, resultNewIRP) {
 								var record = result.records[n];
 								var currentGoalId = record.id;
 
-								console.dir (intList) ;
-
 								delete (record.id) ;
 						//		delete (record[dbGoals.Interventions]) ;
 								delete (record[dbGoals.ClientIRP]);
@@ -119,6 +117,7 @@ function copyGoalRecords (IRPId, resultNewIRP) {
 							  OYPKnackAPICall (headers,  postapidata)
 									 .then (resultNewGoal => {
 										  var intList = resultNewGoal[dbGoals.Interventions] ;
+											console.dir (intList) ;
 										 	for (var n= 0 ; n  < intList.length ; n++ ) {
 													copySingleInterventionRecord (resultNewGoal.id, intList[n].id ) ;
 									 	}

@@ -27,6 +27,13 @@ try {
 		OYPKnackAPICall (headers,  apidata)
 		.then (resultIRP => { return copyIRPRecord(resultIRP) ; })
 		.then (resultNewIRP => { return copyGoalRecords(IRPId, resultNewIRP); })
+		.then ( {
+
+			$(".kn-back-link a").click(function() {
+		        window.location.href =  $(this).attr("href"));
+		     });
+
+		 })
 
 }
 catch (e)  {
@@ -120,7 +127,7 @@ function copyGoalRecords (IRPId, resultNewIRP) {
 											console.dir (intList) ;
 										 	for (var n= 0 ; n  < intList.length ; n++ ) {
 													copySingleInterventionRecord (resultNewGoal.id, intList[n].id ) ;
-									 	}
+									  	}
 											syncGoalInterventions (resultNewGoal.id) ;
 
 									 }) ;

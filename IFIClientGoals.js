@@ -114,29 +114,63 @@ function copyGoalRecords (IRPId, resultNewIRP) {
 					 					};
 
 							  OYPKnackAPICall (headers,  postapidata)
-										.then (result=> { return copyInterventionRecords(result); }) ;
+										.then (resultNewGoal => { return copyInterventionRecords(currentGoalId, resultNewGoal); }) ;
 						}
 
 						resolve (1) ;
 					}	)
 
 	})
-
-
-
-
-
 }
 
 
-function copyInterventionRecords (parm) {
+function copyInterventionRecords (currentGoalId, resultNewGoal) {
 
 	return new Promise ((resolve, reject) => {
-		  var proc = "copyInterventionRecords " + parm;
-		  console.log ( proc) ;
-			resolve () ;
+		var proc = "copyInterventionRecords" ;
+ 	 console.log ( proc) ;
 
-	})
+ 	 var newGoalId = resultNewGoal.id ;
+
+ 	 // get the list of goals
+ 	 var apidata = {
+ 							 "method": "get",
+ 							 "format" : "raw" ,
+ 							 "knackobj": dbObjects.ClientGoalInterventions,
+ 							 "appid": app_id,
+ 							 "filters": [ {
+ 									 "field" : dbInterventions.ClientGoals ,
+ 									 "operator":"is",
+ 									 "value": currentGoalId
+ 								 } ]
+ 			};
+
+ 		OYPKnackAPICall (headers,  apidata)
+ 				.then ( result => {
+
+ 					console.dir (result);
+ 					for (var n = 0; n < result.records.length; n++ )
+ 					{
+
+ 							var record = result.records[n];
+ 							var currInterventionId = record.id;
+
+ 							delete (record.id) ;
+ 							record[dbInterventions.ClientGoals ] = newGoalId;
+
+ 							var postapidata = {
+ 										"method": "post",
+ 										"knackobj": dbObjects.ClientGoalInterventions,
+ 										"appid": app_id,
+ 										"record" : record
+ 									};
+
+ 							OYPKnackAPICall (headers,  postapidata) ;
+ 					}
+
+ 				}	)
+
+ })
 }
 
 

@@ -120,6 +120,7 @@ function copyGoalRecords (IRPId, resultNewIRP) {
 
 														var record = {};
 														record [dbGoals.Interventions] = interventionList ;
+														console.dir (record) ;
 														var postapidata2 = {
 											 						"method": "put",
 											 						"knackobj": dbObjects.ClientGoals,
@@ -128,6 +129,7 @@ function copyGoalRecords (IRPId, resultNewIRP) {
 											 						"record" : record
 											 					};
 														OYPKnackAPICall (headers,  postapidata2) ;
+
 
 
 

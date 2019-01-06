@@ -175,7 +175,7 @@ function copyInterventionRecords (currentGoalId, resultNewGoal) {
 
  					 }
 
-					 syncGoalInterventions (resultNewGoal.id) ;
+					 syncGoalInterventions (newGoalId) ;
   				 resolve (newGoalId) ;
 
  				}	)

@@ -101,6 +101,7 @@ function copyGoalRecords (IRPId, resultNewIRP) {
 								var record = result.records[n];
 								var currentGoalId = record.id;
 								var intList = record[dbGoals.Interventions] ;
+								console.dir (intList) ;
 
 								delete (record.id) ;
 								delete (record[dbGoals.Interventions]) ;

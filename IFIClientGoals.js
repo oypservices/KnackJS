@@ -151,12 +151,12 @@ function copyInterventionRecords (currentGoalId, resultNewGoal) {
  				.then ( result => {
 
  					console.dir (result);
+					var interventonList = [];
  					for (var n = 0; n < result.records.length; n++ )
  					{
 
  							var record = result.records[n];
  							var currInterventionId = record.id;
-							var interventonList = [];
 
  							delete (record.id) ;
  							record[dbInterventions.ClientGoals ] = newGoalId;
@@ -176,7 +176,7 @@ function copyInterventionRecords (currentGoalId, resultNewGoal) {
 
  					 }
 
-					 resolve (interventionlist) ;
+					 resolve (interventonList) ;
 
  				}	)
 				.then  ( result => {

@@ -122,10 +122,11 @@ function copyGoalRecords (IRPId, resultNewIRP) {
 										  var intList = resultNewGoal[dbGoals.Interventions + "_raw"] ;
 											console.dir (intList) ;
 										 	for (var n= 0 ; n  < intList.length ; n++ ) {
-													copySingleInterventionRecord (resultNewGoal.id, intList[n].id ) ;
+													copySingleInterventionRecord (resultNewGoal.id, intList[n].id )
+													 .then ( result => {resolve (result) ; }) ;
 									  	}
-											syncGoalInterventions (resultNewGoal.id)
-											  .then ( result => {resolve (result) ; })
+											syncGoalInterventions (resultNewGoal.id) ;
+
 
 									 }) ;
 						}

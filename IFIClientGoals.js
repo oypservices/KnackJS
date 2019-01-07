@@ -229,7 +229,7 @@ function copySingleInterventionRecord (newGoalId, currInterventionId ) {
 
 							console.dir (postapidata);
  							OYPKnackAPICall (headers,  postapidata)
-							   .then ( resultIntv => {  resolve (resultIntv) ;  })
+							   .then ( resultIntv => {  console.dir (resultIntv) ;  })
 
  				}	)
 			})
@@ -283,7 +283,7 @@ try {
 						console.dir (apidata) ;
 
 						OYPKnackAPICall (headers,  apidata)
-							.then ( resultGoal => {  return resultGoal ;  } )
+							.then ( resultGoal => {  console.dir( resultGoal ) ;  } )
 			})
 		}
 		catch (e)  {

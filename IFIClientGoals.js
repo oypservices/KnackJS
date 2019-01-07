@@ -102,36 +102,48 @@ function copyGoalRecords (IRPId, resultNewIRP) {
 			    .then ( result => {
 
 						console.dir (result);
+
 						for (var n = 0; n < result.records.length; n++ )
 						{
 
-								var record = result.records[n];
-								var currentGoalId = record.id;
-								thisGoalId = result.records[n].id ;
-								console.log (thisGoalId);
+									var record = result.records[n];
+									var currentGoalId = record.id;
+							//		thisGoalId = result.records[n].id ;
+			   	  			delete (record[dbGoals.ClientIRP]);
+			 	  				record[dbGoals.ClientIRP] = newIRPId;
 
-								delete (record.id) ;
-								delete (record[dbGoals.ClientIRP]);
-
-								record[dbGoals.ClientIRP] = newIRPId;
-
-								var postapidata = {
-					 						"method": "post",
-					 						"knackobj": dbObjects.ClientGoals,
-					 						"appid": app_id,
-					 						"record" : record
-					 					};
-
-							  OYPKnackAPICall (headers,  postapidata ) //post the new goal
-									 .then ( resultNewGoal => {
-										 	  	console.log (thisGoalId);
-										 		resolve ( getInterventionRecords (thisGoalId, resultNewGoal) );
-											 } ) ;
-
+									postGoalRecord (currentGoalId, record)
+											.then ( result => {  console.dir (result) ;
+																				   resolve ( result) ; })
 							}
 							}) ;
 						})
 	}
+
+	function postGoalRecord (currentGoalId, record) 	{
+
+		return new Promise ((resolve, reject) => {
+
+			console.log (currentGoalId);
+			delete (record.id) ;
+
+			var postapidata = {
+						"method": "post",
+						"knackobj": dbObjects.ClientGoals,
+						"appid": app_id,
+						"record" : record
+					};
+
+			OYPKnackAPICall (headers,  postapidata ) //post the new goal
+				 .then ( resultNewGoal => {
+								console.log (currentGoalId);
+							resolve ( getInterventionRecords (currentGoalId, resultNewGoal) );
+						 } ) ;
+
+
+  });
+
+}
 
  /*******************************************************************************************************************
   get intervention records

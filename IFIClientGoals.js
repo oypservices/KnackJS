@@ -113,13 +113,16 @@ function copyGoalRecords (IRPId, resultNewIRP) {
 			 	  				record[dbGoals.ClientIRP] = newIRPId;
 
 									postGoalRecord (currentGoalId, record)
-											.then ( result => {  console.dir (result) ;
-																				    })
+									   .then (  result=> { console.dir  (result) ;
+										 										 resolve (result) ; }) ;
+
 							}
-									resolve() ;
-							}) ;
+
+
+
 						})
-	}
+	})
+}
 
 	function postGoalRecord (currentGoalId, record) 	{
 

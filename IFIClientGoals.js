@@ -122,11 +122,9 @@ function copyGoalRecords (IRPId, resultNewIRP) {
 											console.dir (intList) ;
 										 	for (var n= 0 ; n  < intList.length ; n++ ) {
 													copySingleInterventionRecord (resultNewGoal.id, intList[n].id )
-													 .then ( result => {resolve (result) ; }) ;
+													 .then ( result => {console.log (result) ; }) ;
 									  	}
-											syncGoalInterventions (resultNewGoal.id) ;
-
-
+											syncGoalInterventions (resultNewGoal.id);
 									 }) ;
 						}
 

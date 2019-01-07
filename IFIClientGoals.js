@@ -28,7 +28,6 @@ try {
 		.then (resultIRP => { return copyIRPRecord(resultIRP) ; })
 		.then (resultNewIRP => { return copyGoalRecords(IRPId, resultNewIRP); })
 		.then ( result => {
-					  wait(5000);
 						window.location.href =  $(".kn-back-link a").attr("href");   } );
 
 }
@@ -283,7 +282,8 @@ try {
 						apidata.id = goalId ;
 						console.dir (apidata) ;
 
-						OYPKnackAPICall (headers,  apidata) ;
+						OYPKnackAPICall (headers,  apidata)
+							.then ( result => {resolve (result);  })
 
 			})
 		}

@@ -103,6 +103,7 @@ function copyGoalRecords (IRPId, resultNewIRP) {
 
 								var record = result.records[n];
 								var currentGoalId = record.id;
+								var thisGoalId = records[n].id ;
 
 								delete (record.id) ;
 								delete (record[dbGoals.ClientIRP]);
@@ -117,7 +118,7 @@ function copyGoalRecords (IRPId, resultNewIRP) {
 					 					};
 
 							  OYPKnackAPICall (headers,  postapidata ) //post the new goal
-									 .then ( resultNewGoal => { resolve ( getInterventionRecords (currentGoalId, resultNewGoal) ); } ) ;
+									 .then ( resultNewGoal => { resolve ( getInterventionRecords (thisGoalId, resultNewGoal) ); } ) ;
 
 							}
 							}) ;

@@ -120,10 +120,11 @@ function copyGoalRecords (IRPId, resultNewIRP) {
 							Promise.all(p).then(function(values) {
 								console.log(values);
 
-							}) ;
+							} ;
 
 						})
-	}
+	})
+}
 
 	function postGoalRecord (currentGoalId, record) 	{
 

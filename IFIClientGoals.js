@@ -103,6 +103,7 @@ function copyGoalRecords (IRPId, resultNewIRP) {
 
 						console.dir (result);
 
+						var p = [] ;
 						for (var n = 0; n < result.records.length; n++ )
 						{
 
@@ -112,15 +113,15 @@ function copyGoalRecords (IRPId, resultNewIRP) {
 			   	  			delete (record[dbGoals.ClientIRP]);
 			 	  				record[dbGoals.ClientIRP] = newIRPId;
 
-									postGoalRecord (currentGoalId, record)
-											.then ( result => {  console.dir (result) ;
-															resolve (result) ;
-																										    })
+									p.push( postGoalRecord (currentGoalId, record) ) ;
+
 							}
-							resolve() ;
+
+							Promise.all(p).then(function(values) {
+								console.log(values);
+
 							}) ;
 
-							resolve();
 						})
 	}
 

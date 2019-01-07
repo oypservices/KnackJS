@@ -283,7 +283,7 @@ try {
 						console.dir (apidata) ;
 
 						OYPKnackAPICall (headers,  apidata)
-							.then ( result => {resolve (result);  })
+							.then ( resultGoal => {  resolve (resultGoal) ;  } )
 
 			})
 		}

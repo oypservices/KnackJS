@@ -284,7 +284,6 @@ try {
 
 						OYPKnackAPICall (headers,  apidata)
 							.then ( resultGoal => {  return resultGoal ;  } )
-
 			})
 		}
 		catch (e)  {

@@ -103,7 +103,7 @@ function copyGoalRecords (IRPId, resultNewIRP) {
 
 								var record = result.records[n];
 								var currentGoalId = record.id;
-								var thisGoalId = records[n].id ;
+								var thisGoalId = result.records[n].id ;
 
 								delete (record.id) ;
 								delete (record[dbGoals.ClientIRP]);
@@ -128,7 +128,7 @@ function copyGoalRecords (IRPId, resultNewIRP) {
 
  /*******************************************************************************************************************
   get intervention records
-	
+
 	*******************************************************************************************************************/
 
 	function getInterventionRecords (goalId, resultNewGoal) 	{

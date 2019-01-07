@@ -103,6 +103,7 @@ function copyGoalRecords (IRPId, resultNewIRP) {
 
 						console.dir (result);
 
+						var p = [] ;
 						for (var n = 0; n < result.records.length; n++ )
 						{
 

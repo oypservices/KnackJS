@@ -119,6 +119,8 @@ function copyGoalRecords (IRPId, resultNewIRP) {
 							}
 							resolve() ;
 							}) ;
+
+							resolve();
 						})
 	}
 

@@ -133,6 +133,8 @@ function copyGoalRecords (IRPId, resultNewIRP) {
 		return new Promise ((resolve, reject) => {
 			var proc = "getInterventionRecords" ;
 		 console.log ( proc) ;
+		 	 console.log (goalId) ;
+			 console.dir (resultNewGoal) ;
 
 		 var newGoalId = resultNewGoal.id ;
 

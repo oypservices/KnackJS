@@ -434,11 +434,9 @@ $(document).on('knack-form-submit.any' , function(event, view, data) {
 
    switch (view.source.object) {
     case dbObjects.ClientGoalInterventions:
-     	syncGoalInterventions (data["field_232_raw"][0].id  ) ;
       break;
 
    case dbObjects.ClientGoals:
-         syncGoalInterventions (data.id  ) ;
          break;
 
     case dbObjects.ClientIRPs :

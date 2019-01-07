@@ -193,12 +193,27 @@ function copyGoalRecords (IRPId, resultNewIRP) {
 
 			OYPKnackAPICall (headers,  apidata)
 					.then ( result => {
+
+											 var plist = [];
+
 									     for (n = 0 ; n < result.records.length; n++) {
-												   copySingleInterventionRecord (newGoalId, result.records[n])
-													 	   . then (result => {
-																 					 console.dir (result);
-															 					   resolve (result ); }) ;
+												   var p = copySingleInterventionRecord (newGoalId, result.records[n]) ;
+													 plist.push (p) ;
+												//	 	   . then (result => {
+												//				 					 console.dir (result);
+												//			 					   resolve (result ); }) ;
 											 }
+
+											 Promise.all(plist)
+													 .then(result => {
+															 console.log('Promise.all intervention', result);
+															 resolve ('copyGoalRecords successful');
+													 })
+													 .catch(err => {
+															 console.error('Promise.all intervention error', err);
+														 //	resolve ('copyGoalRecords successful');
+													 });
+
 										 })
 								})
 }

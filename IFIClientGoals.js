@@ -94,6 +94,8 @@ function copyGoalRecords (IRPId, resultNewIRP) {
 									 } ]
 				};
 
+      var var thisGoalId = "" ;
+
 			OYPKnackAPICall (headers,  apidata)				//get the list of goals
 			    .then ( result => {
 
@@ -103,7 +105,8 @@ function copyGoalRecords (IRPId, resultNewIRP) {
 
 								var record = result.records[n];
 								var currentGoalId = record.id;
-								var thisGoalId = result.records[n].id ;
+								thisGoalId = result.records[n].id ;
+								console.log (thisGoalId);
 
 								delete (record.id) ;
 								delete (record[dbGoals.ClientIRP]);
@@ -118,7 +121,9 @@ function copyGoalRecords (IRPId, resultNewIRP) {
 					 					};
 
 							  OYPKnackAPICall (headers,  postapidata ) //post the new goal
-									 .then ( resultNewGoal => { resolve ( getInterventionRecords (thisGoalId, resultNewGoal) ); } ) ;
+									 .then ( resultNewGoal => {
+										 	  	console.log (thisGoalId);
+										 		resolve ( getInterventionRecords (thisGoalId, resultNewGoal) ); } ) ;
 
 							}
 							}) ;

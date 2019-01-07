@@ -117,7 +117,7 @@ function copyGoalRecords (IRPId, resultNewIRP) {
 					 					};
 
 							  OYPKnackAPICall (headers,  postapidata ) //post the new goal
-									 .then ( resultNewGoal => { return getInterventionRecords (currentGoalId, resultNewGoal) ; } ) ;
+									 .then ( resultNewGoal => { resolve ( getInterventionRecords (currentGoalId, resultNewGoal) ); } ) ;
 
 							}
 							}) ;
@@ -144,7 +144,7 @@ function copyGoalRecords (IRPId, resultNewIRP) {
 								 "appid": app_id,
 								 "filters": [ {
 										 "field" : dbInterventions.ClientGoals ,
-										 "operator":"contains",
+										 "operator":"is",
 										 "value": goalId
 									 } ]
 				};
@@ -155,7 +155,7 @@ function copyGoalRecords (IRPId, resultNewIRP) {
 												   copySingleInterventionRecord (newGoalId, result.records[n])
 													 	   . then (result => {
 																 					 console.dir (result);
-															 					   return result; }) ;
+															 					   resolve (result ); }) ;
 											 }
 										 })
 								})
@@ -186,7 +186,7 @@ function copySingleInterventionRecord (newGoalId, recordINV ) {
 			console.dir (postapidata);
  			OYPKnackAPICall (headers,  postapidata)
 						.then ( result => {  console.dir (result) ;
-															   return result ; })
+															   resolve ( result) ; })
 
  				})
 }

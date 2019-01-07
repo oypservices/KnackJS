@@ -114,8 +114,9 @@ function copyGoalRecords (IRPId, resultNewIRP) {
 
 									postGoalRecord (currentGoalId, record)
 											.then ( result => {  console.dir (result) ;
-																				   resolve ( result) ; })
+																				    })
 							}
+									resolve() ;
 							}) ;
 						})
 	}

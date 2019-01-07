@@ -123,7 +123,8 @@ function copyGoalRecords (IRPId, resultNewIRP) {
 							  OYPKnackAPICall (headers,  postapidata ) //post the new goal
 									 .then ( resultNewGoal => {
 										 	  	console.log (thisGoalId);
-										 		resolve ( getInterventionRecords (thisGoalId, resultNewGoal) ); } ) ;
+										 		resolve ( getInterventionRecords (thisGoalId, resultNewGoal) );
+											 } ) ;
 
 							}
 							}) ;

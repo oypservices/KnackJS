@@ -68,7 +68,9 @@ function copyIRPRecord (IRP) {
 	})
 }
 
-
+/********************************************************************************************************************
+Copy the Goal records
+*********************************************************************************************************************/
 
 function copyGoalRecords (IRPId, resultNewIRP) {
 
@@ -92,7 +94,7 @@ function copyGoalRecords (IRPId, resultNewIRP) {
 									 } ]
 				};
 
-			OYPKnackAPICall (headers,  apidata)
+			OYPKnackAPICall (headers,  apidata)				//get the list of goals
 			    .then ( result => {
 
 						console.dir (result);
@@ -101,10 +103,8 @@ function copyGoalRecords (IRPId, resultNewIRP) {
 
 								var record = result.records[n];
 								var currentGoalId = record.id;
-								syncGoalInterventions (currentGoalId) ;  //make sure the interventions are stored with the goals
 
 								delete (record.id) ;
-						//		delete (record[dbGoals.Interventions]) ;
 								delete (record[dbGoals.ClientIRP]);
 
 								record[dbGoals.ClientIRP] = newIRPId;
@@ -116,121 +116,79 @@ function copyGoalRecords (IRPId, resultNewIRP) {
 					 						"record" : record
 					 					};
 
-							  OYPKnackAPICall (headers,  postapidata)
-									 .then (resultNewGoal => {
-										  var intList = resultNewGoal[dbGoals.Interventions + "_raw"] ;
-											console.dir (intList) ;
-										 	for (var n= 0 ; n  < intList.length ; n++ ) {
-													copySingleInterventionRecord (resultNewGoal.id, intList[n].id )
-													 .then ( result => {console.log (result) ; }) ;
-									  	}
-											syncGoalInterventions (resultNewGoal.id);
-									 }) ;
-						}
+							  OYPKnackAPICall (headers,  postapidata  //post the new goal
+									 .then ( resultNewGoal => { return getInterventionRecords (currentGoalId, resultNewGoal) ; } }  // get and post the interventions
 
-						resolve () ;
-					}	)
+								}
+							}) ;
+						})
+	}
 
-	})
+ /*******************************************************************************************************************
+  get intervention records
+	*******************************************************************************************************************/
+
+	function getInterventionRecords (goalId, resultNewGoal) 	{
+
+		return new Promise ((resolve, reject) => {
+			var proc = "getInterventionRecords" ;
+		 console.log ( proc) ;
+
+		 var newGoalId = resultNewGoal.id ;
+
+		 // get the list of goals
+		 var apidata = {
+								 "method": "get",
+								 "format" : "raw" ,
+								 "knackobj": dbObjects.ClientGoalInterventions,
+								 "appid": app_id,
+								 "filters": [ {
+										 "field" : dbInterventions.ClientGoals ,
+										 "operator":"contains",
+										 "value": goalId
+									 } ]
+				};
+
+			OYPKnackAPICall (headers,  apidata)
+					.then ( result => {
+									     for (n = 0 ; n < result.records.length; n++) {
+												   copySingleInterventionRecord (newGoalId, result.records[n])
+													 	   . then (result => {
+																 					 console.dir (result);
+															 					   return result; }) ;
+											 }
+										 })
+								})
 }
 
-
-function copyInterventionRecords (currentGoalId, resultNewGoal) {
-
-	return new Promise ((resolve, reject) => {
-		var proc = "copyInterventionRecords" ;
- 	 console.log ( proc) ;
-
- 	 var newGoalId = resultNewGoal.id ;
-
- 	 // get the list of goals
- 	 var apidata = {
- 							 "method": "get",
- 							 "format" : "raw" ,
- 							 "knackobj": dbObjects.ClientGoalInterventions,
- 							 "appid": app_id,
- 							 "filters": [ {
- 									 "field" : dbInterventions.ClientGoals ,
- 									 "operator":"contains",
- 									 "value": currentGoalId
- 								 } ]
- 			};
-
- 		OYPKnackAPICall (headers,  apidata)
- 				.then ( result => {
-
- 					console.dir (result);
-					var interventonList = [];
-
- 					for (var n = 0; n < result.records.length; n++ )
- 					{
-
- 							var record = result.records[n];
-							var oldGoalId =  record[dbInterventions.ClientGoals ] ;
- 							var currInterventionId = record.id;
-
- 							delete (record.id) ;
- 							record[dbInterventions.ClientGoals ] = newGoalId;
-
- 							var postapidata = {
- 										"method": "post",
- 										"knackobj": dbObjects.ClientGoalInterventions,
- 										"appid": app_id,
- 										"record" : record
- 									};
-
-							console.dir (postapidata);
- 							OYPKnackAPICall (headers,  postapidata)
-							   .then ( result => {
-									 		interventonList.push ( result.id );
-											syncGoalInterventions (newGoalId) ;
-								 		});
- 					 }
-
-
-  				 resolve (newGoalId) ;
-
- 				}	)
-			})
-}
-function copySingleInterventionRecord (newGoalId, currInterventionId ) {
+/***********************************************************************************************************
+Copy Signle Intervention Record
+***********************************************************************************************************/
+function copySingleInterventionRecord (newGoalId, recordINV ) {
 
 	return new Promise ((resolve, reject) => {
 		var proc = "copySingleInterventionRecord" ;
  	 console.log ( proc) ;
 
-  	 // get the list of goals
- 	 var apidata = {
- 							 "method": "get",
- 							 "format" : "raw" ,
- 							 "knackobj": dbObjects.ClientGoalInterventions,
- 							 "appid": app_id,
-							 "id" : currInterventionId
- 			};
+ 	   if (recordINV == undefined )
+		 	   return ;
 
- 		OYPKnackAPICall (headers,  apidata)
- 				.then ( result => {
+ 		 delete (recordINV.id) ;
+ 		 recordINV[dbInterventions.ClientGoals ] = newGoalId;
 
- 							console.dir (result);
-							if (result == undefined )
-							   return ;
+ 		 	var postapidata = {
+ 						"method": "post",
+ 						"knackobj": dbObjects.ClientGoalInterventions,
+ 						"appid": app_id,
+ 						"record" : recordINV
+ 				};
 
- 							delete (result.id) ;
- 							result[dbInterventions.ClientGoals ] = newGoalId;
+			console.dir (postapidata);
+ 			OYPKnackAPICall (headers,  postapidata)
+						.then ( result => {  console.dir (result) ;
+															   return result ; })
 
- 							var postapidata = {
- 										"method": "post",
- 										"knackobj": dbObjects.ClientGoalInterventions,
- 										"appid": app_id,
- 										"record" : result
- 									};
-
-							console.dir (postapidata);
- 							OYPKnackAPICall (headers,  postapidata)
-							   .then ( resultIntv => {  console.dir (resultIntv) ;  })
-
- 				}	)
-			})
+ 				})
 }
 
 /***********************************************************************************************************

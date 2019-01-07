@@ -94,7 +94,7 @@ function copyGoalRecords (IRPId, resultNewIRP) {
 									 } ]
 				};
 
-      var var thisGoalId = "" ;
+      var thisGoalId = "" ;
 
 			OYPKnackAPICall (headers,  apidata)				//get the list of goals
 			    .then ( result => {

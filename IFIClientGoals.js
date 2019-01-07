@@ -117,9 +117,9 @@ function copyGoalRecords (IRPId, resultNewIRP) {
 					 					};
 
 							  OYPKnackAPICall (headers,  postapidata  //post the new goal
-									 .then ( resultNewGoal => { return getInterventionRecords (currentGoalId, resultNewGoal) ; } }  // get and post the interventions
+									 .then ( resultNewGoal => { return getInterventionRecords (currentGoalId, resultNewGoal) ; } ) ; // get and post the interventions
 
-								}
+							}
 							}) ;
 						})
 	}

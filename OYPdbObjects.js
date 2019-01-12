@@ -70,6 +70,37 @@ function hideFormFields(view, dbObject, filterfield,  key) {
 /*******************************************************************************************************
 Database Objects Helper Functions
 *******************************************************************************************************/
+function getObjectKey(label ) {
+
+    try {
+
+        var tables = dbTables["objects"];
+        console.dir (tables) ;
+        if ( tables == undefined ){
+            logMsg (dbTables["objects"] + " Fields property not defined") ;
+            return ;
+        }
+
+        for (var i =0; i < tables.length ; i++)
+        {
+          if (tables[i].label == label)
+             return tables[i].key ;
+        }
+
+       logMsg (dbTables["objects"] + " field not found - " + label) ;
+       return "" ;
+
+  }
+  catch (e) {
+      logerror (e);
+    }
+}
+
+
+
+/*******************************************************************************************************
+Database Objects Helper Functions
+*******************************************************************************************************/
 function getFieldKey(dbObject, label ) {
 
     try {
@@ -97,6 +128,140 @@ function getFieldKey(dbObject, label ) {
       logerror (e);
     }
 }
+
+
+
+/*******************************************************************************************************
+Database Objects -- https://api.knack.com/v1/objects/
+*******************************************************************************************************/
+
+
+var dbTables = {
+    "objects": [
+        {
+            "name": "Contacts",
+            "key": "object_1"
+        },
+        {
+            "name": "Contact Relationship Types",
+            "key": "object_20"
+        },
+        {
+            "name": "Contact Types",
+            "key": "object_21"
+        },
+        {
+            "name": "Standard Lists",
+            "key": "object_31"
+        },
+        {
+            "name": "Contact to Project Links",
+            "key": "object_23"
+        },
+        {
+            "name": "Contact to Contact Links",
+            "key": "object_25"
+        },
+        {
+            "name": "Contact Staff Positions",
+            "key": "object_32"
+        },
+        {
+            "name": "Projects",
+            "key": "object_10"
+        },
+        {
+            "name": "Project Status Types",
+            "key": "object_18"
+        },
+        {
+            "name": "Projects to Project Links",
+            "key": "object_29"
+        },
+        {
+            "name": "Link Relationship Types",
+            "key": "object_24"
+        },
+        {
+            "name": "Activities",
+            "key": "object_2"
+        },
+        {
+            "name": "Activity Types",
+            "key": "object_27"
+        },
+        {
+            "name": "Activity Sub Tasks",
+            "key": "object_28"
+        },
+        {
+            "name": "Activity to Activity Links",
+            "key": "object_30"
+        },
+        {
+            "name": "Product Groups",
+            "key": "object_12"
+        },
+        {
+            "name": "Products",
+            "key": "object_35"
+        },
+        {
+            "name": "Orders",
+            "key": "object_34"
+        },
+        {
+            "name": "Order Line Items",
+            "key": "object_33"
+        },
+        {
+            "name": "Prospects",
+            "key": "object_7"
+        },
+        {
+            "name": "Site",
+            "key": "object_16"
+        },
+        {
+            "name": "API",
+            "key": "object_19"
+        },
+        {
+            "name": "Organization Roles",
+            "key": "object_14"
+        },
+        {
+            "name": "Users",
+            "key": "object_5"
+        },
+        {
+            "name": "Suppliers",
+            "key": "object_11"
+        },
+        {
+            "name": "Site Administrators",
+            "key": "object_6"
+        },
+        {
+            "name": "Administrators",
+            "key": "object_15"
+        },
+        {
+            "name": "Accounts",
+            "key": "object_4"
+        },
+        {
+            "name": "Payments",
+            "key": "object_8"
+        },
+        {
+            "name": "Document",
+            "key": "object_36"
+        }
+    ]
+}
+
+
 
 /*******************************************************************************************************
 Database Objects
@@ -509,6 +674,217 @@ var dbActivities = {
     ]
 }
 
+
+/*******************************************************************************************************
+Database Objects - Orders
+*******************************************************************************************************/
+var dbOrders = {
+    "fields": [
+        {
+            "label": "Product Group",
+            "key": "field_313",
+            "required": false,
+            "type": "connection",
+            "relationship": {
+                "belongs_to": "many",
+                "has": "one",
+                "object": "object_12"
+            }
+        },
+        {
+            "label": "Add Default Products",
+            "key": "field_318",
+            "required": false,
+            "type": "boolean"
+        },
+        {
+            "label": "Contact",
+            "key": "field_288",
+            "required": false,
+            "type": "connection",
+            "relationship": {
+                "object": "object_1",
+                "has": "one",
+                "belongs_to": "many"
+            }
+        },
+        {
+            "label": "Project",
+            "key": "field_289",
+            "required": false,
+            "type": "connection",
+            "relationship": {
+                "belongs_to": "many",
+                "has": "one",
+                "object": "object_10"
+            }
+        },
+        {
+            "label": "Status",
+            "key": "field_275",
+            "required": false,
+            "type": "multiple_choice",
+            "choices": [
+                "Invoice",
+                "Paid",
+                "Quote"
+            ]
+        },
+        {
+            "label": "Quote Date",
+            "key": "field_276",
+            "required": false,
+            "type": "date_time"
+        },
+        {
+            "label": "Invoice Date",
+            "key": "field_277",
+            "required": false,
+            "type": "date_time"
+        },
+        {
+            "label": "Payment Date",
+            "key": "field_278",
+            "required": false,
+            "type": "date_time"
+        },
+        {
+            "label": "Line Items Total",
+            "key": "field_279",
+            "required": false,
+            "type": "sum"
+        },
+        {
+            "label": "Sales Tax",
+            "key": "field_280",
+            "required": false,
+            "type": "number"
+        },
+        {
+            "label": "Order Total",
+            "key": "field_281",
+            "required": false,
+            "type": "equation"
+        },
+        {
+            "label": "Auto Increment",
+            "key": "field_282",
+            "required": false,
+            "type": "auto_increment"
+        },
+        {
+            "label": "Leading Zeros",
+            "key": "field_283",
+            "required": false,
+            "type": "number"
+        },
+        {
+            "label": "Quote Number",
+            "key": "field_284",
+            "required": false,
+            "type": "concatenation"
+        },
+        {
+            "label": "Invoice Number",
+            "key": "field_285",
+            "required": false,
+            "type": "concatenation"
+        },
+        {
+            "label": "Check Number",
+            "key": "field_286",
+            "required": false,
+            "type": "short_text"
+        },
+        {
+            "label": "Payment",
+            "key": "field_287",
+            "required": false,
+            "type": "connection",
+            "relationship": {
+                "belongs_to": "many",
+                "has": "one",
+                "object": "object_8"
+            }
+        },
+        {
+            "label": "Contact to Project Link",
+            "key": "field_303",
+            "required": false,
+            "type": "connection",
+            "relationship": {
+                "object": "object_23",
+                "has": "one",
+                "belongs_to": "many"
+            }
+        },
+        {
+            "label": "Site",
+            "key": "field_316",
+            "required": false,
+            "type": "connection",
+            "relationship": {
+                "object": "object_16",
+                "has": "one",
+                "belongs_to": "many"
+            }
+        }
+    ]
+}
+
+/*******************************************************************************************************
+Database Objects - Projects
+*******************************************************************************************************/
+
+var dbOrderLines = {
+    "fields": [
+        {
+            "label": "Order",
+            "key": "field_270",
+            "required": false,
+            "type": "connection",
+            "relationship": {
+                "belongs_to": "many",
+                "has": "one",
+                "object": "object_34"
+            }
+        },
+        {
+            "label": "Product",
+            "key": "field_271",
+            "required": false,
+            "type": "connection",
+            "relationship": {
+                "belongs_to": "many",
+                "has": "one",
+                "object": "object_35"
+            }
+        },
+        {
+            "label": "Quantity",
+            "key": "field_272",
+            "required": false,
+            "type": "number"
+        },
+        {
+            "label": "Subtotal",
+            "key": "field_273",
+            "required": false,
+            "type": "currency"
+        },
+        {
+            "label": "Site",
+            "key": "field_317",
+            "required": false,
+            "type": "connection",
+            "relationship": {
+                "belongs_to": "many",
+                "has": "one",
+                "object": "object_16"
+            }
+        }
+    ]
+} ;
 
 /*******************************************************************************************************
 Database Objects - Projects

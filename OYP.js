@@ -48,6 +48,9 @@ $(document).on('knack-record-create.any' , function (event, view, record) {
       addContactRelationships (event, view, record);
       break;
 
+   case getObjectKey("Orders")
+      addDefaultOrderLines (event, view, record) ;
+
     default:
       break ;
   }
@@ -75,6 +78,9 @@ $(document).on('knack-view-render.any' , function(event, view, data) {
         hideFormFieldEvent (view, dbActivities, "Activity Type" ) ;
         hideFormFieldEvent (view, dbActivities, "Activity Sub Type" ) ;
         break ;
+
+
+
 
 			default :
 			  break ;

@@ -70,7 +70,7 @@ function hideFormFields(view, dbObject, filterfield,  key) {
 /*******************************************************************************************************
 Database Objects Helper Functions
 *******************************************************************************************************/
-function getObjectKey(label ) {
+function getObjectKey(name ) {
 
     try {
 
@@ -84,11 +84,11 @@ function getObjectKey(label ) {
 
         for (var i =0; i < tables.length ; i++)
         {
-          if (tables[i].label == label)
+          if (tables[i].name == name)
              return tables[i].key ;
         }
 
-       logMsg (dbTables["objects"] + " field not found - " + label) ;
+       logMsg (dbTables["objects"] + " field not found - " + name) ;
        return "" ;
 
   }

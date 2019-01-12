@@ -48,8 +48,9 @@ $(document).on('knack-record-create.any' , function (event, view, record) {
       addContactRelationships (event, view, record);
       break;
 
-   case getObjectKey("Orders")
+   case getObjectKey("Orders") :
       addDefaultOrderLines (event, view, record) ;
+      break ;
 
     default:
       break ;

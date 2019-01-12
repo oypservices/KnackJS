@@ -62,7 +62,7 @@ function createOrderLineItems(orderId, resultProductGroups)  {
     var productsFieldKey = getFieldKey(dbProductGroups, "Products") ;
     var products = resultProductGroups[productsFieldKey] ;
     var plist = [];
-    
+
     console.log (productsFieldKey) ;
     console.dir (products)
 
@@ -84,7 +84,7 @@ function createOrderLineItems(orderId, resultProductGroups)  {
 
          var p = 	OYPKnackAPICall (headers,  apidata)	;     //write the line item
          plist.push (p);
-
+ 
      }
 
      Promise.all(plist)

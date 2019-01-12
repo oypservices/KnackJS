@@ -7,7 +7,7 @@ function addDefaultOrderLines (event, view, record)  {
 try {
 
     logMsg("Started") ;
- 
+
     var viewName = view["key"] ;
     var objOrders = Knack.models[viewName].toJSON();
     var productGroupFieldKey = getFieldKey(dbOrders, "Product Group") + "_raw" ;
@@ -61,6 +61,8 @@ function createOrderLineItems(orderId, resultProductGroups)  {
     //already in raw format so raw not needed
     var productsFieldKey = getFieldKey(dbProductGroups, "Products") ;
     var products = resultProductGroups[productsFieldKey] ;
+    var plist = [];
+    
     console.log (productsFieldKey) ;
     console.dir (products)
 

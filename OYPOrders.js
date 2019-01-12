@@ -23,7 +23,7 @@ try {
     console.log (productGroupId) ;
 
     //line tems will be added manually.
-    if ( objContactLink[productGroupFieldKey] == "No" )
+    if ( objOrders[productGroupFieldKey] == "No" )
         window.location.href =  hrefAddOrderLinePage ;
 
 
@@ -70,7 +70,7 @@ function createOrderLineItems(orderId, resultProductGroups)  {
      {
          var record = {
                         "field_270" : orderId,
-                        "field_271" : [products[n].id]
+                        "field_271" : [ products[n].id ]
          }
 
 

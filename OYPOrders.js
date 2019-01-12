@@ -59,8 +59,10 @@ function createOrderLineItems(orderId, resultProductGroups)  {
 
 
     //already in raw format so raw not needed
-    var productsFieldKey = getFieldKey(dbOrderLines, "Products") ;
+    var productsFieldKey = getFieldKey(dbProductGroups, "Products") ;
     var products = resultProductGroups[productsFieldKey] ;
+    console.log (productsFieldKey) ;
+    console.dir (products)
 
 
      for (var n= 0 ; n < products.length ; n++ )

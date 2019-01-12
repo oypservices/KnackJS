@@ -11,7 +11,7 @@ try {
     var viewName = view["key"] ;
     var objOrders = Knack.models[viewName].toJSON();
     var productGroupFieldKey = getFieldKey(dbOrders, "Product Group") + "_raw" ;
-    var productGroupFieldKey = getFieldKey(dbOrders, "Add Default Products") ;
+    var dfltProductFieldKey = getFieldKey(dbOrders, "Add Default Products") ;
     var hrefAddOrderLinePage = $(".kn-back-link a").attr("href") ;
 
     console.dir (objOrders);
@@ -23,7 +23,7 @@ try {
     console.log (productGroupId) ;
 
     //line tems will be added manually.
-    if ( objOrders[productGroupFieldKey] == "No" )
+    if ( objOrders[dfltProductFieldKey] == "No" )
         window.location.href =  hrefAddOrderLinePage ;
 
 

@@ -74,8 +74,9 @@ function getObjectKey(label ) {
 
     try {
 
-        var tables = dbTables["objects"];
+        var tables = dbTables["tables"];
         console.dir (tables) ;
+
         if ( tables == undefined ){
             logMsg (dbTables["objects"] + " Fields property not defined") ;
             return ;
@@ -137,7 +138,7 @@ Database Objects -- https://api.knack.com/v1/objects/
 
 
 var dbTables = {
-    "objects": [
+    "tables": [
         {
             "name": "Contacts",
             "key": "object_1"

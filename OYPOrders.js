@@ -17,9 +17,9 @@ try {
     console.dir (objOrders);
     logObject (objOrders) ;
 
-    var orderId = objContactLink.id;
+    var orderId = objOrders.id;
     console.log (orderId);
-    var productGroupId = objContactLink[productGroupFieldKey][0].id ;
+    var productGroupId = objOrders[productGroupFieldKey][0].id ;
     console.log (productGroupId) ;
 
     //line tems will be added manually.

@@ -40,7 +40,7 @@ function logObject (msg) {
 *************************************************************************************************/
 
 $(document).on('knack-record-create.any' , function (event, view, record) {
-  console.log (JSON.stringify(view)) ;
+  console.dir (view) ;
 
   switch (view.source.object) {
 

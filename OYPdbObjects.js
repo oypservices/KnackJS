@@ -675,6 +675,89 @@ var dbActivities = {
     ]
 }
 
+/*******************************************************************************************************
+Database Objects - Product Groups
+*******************************************************************************************************/
+var ProductGroups = {
+    "fields": [
+        {
+            "label": "Product Number",
+            "key": "field_290",
+            "required": false,
+            "type": "short_text"
+        },
+        {
+            "label": "Product Name",
+            "key": "field_98",
+            "required": false,
+            "type": "short_text"
+        },
+        {
+            "label": "Product Description",
+            "key": "field_103",
+            "required": false,
+            "type": "paragraph_text"
+        },
+        {
+            "label": "Product Service Indicator",
+            "key": "field_101",
+            "required": false,
+            "type": "multiple_choice",
+            "choices": [
+                "Product",
+                "Service"
+            ]
+        },
+        {
+            "label": "Billing Frequency",
+            "key": "field_100",
+            "required": false,
+            "type": "multiple_choice",
+            "choices": [
+                "Fixed",
+                "Per Hour",
+                "Per Day",
+                "Per Month",
+                "Per Year"
+            ]
+        },
+        {
+            "label": "Billing Rate",
+            "key": "field_102",
+            "required": false,
+            "type": "number"
+        },
+        {
+            "label": "Stripe API Code",
+            "key": "field_99",
+            "required": false,
+            "type": "short_text"
+        },
+        {
+            "label": "Products",
+            "key": "field_297",
+            "required": false,
+            "type": "connection",
+            "relationship": {
+                "belongs_to": "many",
+                "has": "many",
+                "object": "object_35"
+            }
+        },
+        {
+            "label": "Site",
+            "key": "field_314",
+            "required": false,
+            "type": "connection",
+            "relationship": {
+                "belongs_to": "many",
+                "has": "many",
+                "object": "object_16"
+            }
+        }
+    ]
+};
+
 
 /*******************************************************************************************************
 Database Objects - Orders
